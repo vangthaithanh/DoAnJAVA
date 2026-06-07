@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head(${pageTitle})}"></head>
+<body>
+<header th:replace="~{fragments/layout :: header}"></header>
+<section th:replace="~{fragments/layout :: pageBanner('Điểm đến Việt Nam', 'Khám phá điểm đến nổi bật để mua tour hoặc tự tạo lịch trình cá nhân.')}" ></section>
+
+<main class="section-padding location-section">
+  <div class="container">
+    <div class="text-center section-heading reveal">
+      <div class="section-kicker justify-content-center"><i class="fa-solid fa-map-location-dot"></i> Cẩm nang điểm đến</div>
+      <h2>Điểm đến nổi bật trong nước</h2>
+      <p>Trang điểm đến tập trung vào du lịch Việt Nam, mô phỏng hướng xem địa điểm/check-in và liên kết về tour liên quan.</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6 reveal ">
+        <article class="destination-card tilt-card">
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80" alt="Đà Nẵng - Hội An">
+          <div><span>Miền Trung</span><h4>Đà Nẵng - Hội An</h4><p>Biển Mỹ Khê, Bà Nà Hills, phố cổ Hội An và ẩm thực miền Trung.</p><a th:href="@{/tours(location='Đà Nẵng')}">Xem tour liên quan</a></div>
+        </article>
+      </div>
+      <div class="col-lg-4 col-md-6 reveal delay-1">
+        <article class="destination-card tilt-card">
+          <img src="https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=900&q=80" alt="Hà Nội - Ninh Bình - Hạ Long">
+          <div><span>Miền Bắc</span><h4>Hà Nội - Ninh Bình - Hạ Long</h4><p>Phố cổ, Tràng An, Bái Đính, du thuyền vịnh Hạ Long.</p><a th:href="@{/tours(location='Hà Nội')}">Xem tour liên quan</a></div>
+        </article>
+      </div>
+      <div class="col-lg-4 col-md-6 reveal delay-2">
+        <article class="destination-card tilt-card">
+          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" alt="Phú Quốc">
+          <div><span>Biển đảo</span><h4>Phú Quốc</h4><p>Đảo ngọc, cáp treo Hòn Thơm, VinWonders, Safari và chợ đêm.</p><a th:href="@{/tours(location='Phú Quốc')}">Xem tour liên quan</a></div>
+        </article>
+      </div>
+      <div class="col-lg-4 col-md-6 reveal ">
+        <article class="destination-card tilt-card">
+          <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=900&q=80" alt="Đà Lạt">
+          <div><span>Cao nguyên</span><h4>Đà Lạt</h4><p>Khí hậu mát mẻ, rừng thông, quán cà phê view đẹp và điểm check-in.</p><a th:href="@{/tours(location='Đà Lạt')}">Xem tour liên quan</a></div>
+        </article>
+      </div>
+      <div class="col-lg-4 col-md-6 reveal delay-1">
+        <article class="destination-card tilt-card">
+          <img src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=900&q=80" alt="Huế - Quảng Bình">
+          <div><span>Di sản</span><h4>Huế - Quảng Bình</h4><p>Cố đô Huế, Đại Nội, sông Hương, động Thiên Đường và Phong Nha.</p><a th:href="@{/tours(location='Huế')}">Xem tour liên quan</a></div>
+        </article>
+      </div>
+      <div class="col-lg-4 col-md-6 reveal delay-2">
+        <article class="destination-card tilt-card">
+          <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=900&q=80" alt="Cần Thơ - Châu Đốc">
+          <div><span>Miền Nam</span><h4>Cần Thơ - Châu Đốc</h4><p>Chợ nổi Cái Răng, rừng tràm Trà Sư, văn hóa sông nước Nam Bộ.</p><a th:href="@{/tours(location='Cần Thơ')}">Xem tour liên quan</a></div>
+        </article>
+      </div>
+      <div class="col-lg-4 col-md-6 reveal ">
+        <article class="destination-card tilt-card">
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80" alt="Sapa - Fansipan">
+          <div><span>Miền Bắc</span><h4>Sapa - Fansipan</h4><p>Núi rừng Tây Bắc, bản Cát Cát, đỉnh Fansipan và ruộng bậc thang.</p><a th:href="@{/tours(location='Sapa')}">Xem tour liên quan</a></div>
+        </article>
+      </div>
+      <div class="col-lg-4 col-md-6 reveal delay-1">
+        <article class="destination-card tilt-card">
+          <img src="https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=900&q=80" alt="Hà Giang">
+          <div><span>Miền Bắc</span><h4>Hà Giang</h4><p>Đồng Văn, Mã Pì Lèng, Quản Bạ và cung đường đá hùng vĩ.</p><a th:href="@{/tours(location='Hà Giang')}">Xem tour liên quan</a></div>
+        </article>
+      </div>
+      <div class="col-lg-4 col-md-6 reveal delay-2">
+        <article class="destination-card tilt-card">
+          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" alt="Quy Nhơn - Phú Yên">
+          <div><span>Miền Trung</span><h4>Quy Nhơn - Phú Yên</h4><p>Kỳ Co, Eo Gió, Gành Đá Đĩa và biển xanh hoang sơ.</p><a th:href="@{/tours(location='Quy Nhơn')}">Xem tour liên quan</a></div>
+        </article>
+      </div>
+      <div class="col-lg-4 col-md-6 reveal ">
+        <article class="destination-card tilt-card">
+          <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=900&q=80" alt="Nha Trang">
+          <div><span>Biển đảo</span><h4>Nha Trang</h4><p>Du ngoạn đảo, VinWonders, tắm biển và ẩm thực hải sản.</p><a th:href="@{/tours(location='Nha Trang')}">Xem tour liên quan</a></div>
+        </article>
+      </div>
+      <div class="col-lg-4 col-md-6 reveal delay-1">
+        <article class="destination-card tilt-card">
+          <img src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=900&q=80" alt="Vũng Tàu">
+          <div><span>Miền Nam</span><h4>Vũng Tàu</h4><p>Biển cuối tuần gần TP.HCM, Bãi Sau, tượng Chúa Kitô.</p><a th:href="@{/tours(location='Vũng Tàu')}">Xem tour liên quan</a></div>
+        </article>
+      </div>
+      <div class="col-lg-4 col-md-6 reveal delay-2">
+        <article class="destination-card tilt-card">
+          <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=900&q=80" alt="Phan Thiết - Mũi Né">
+          <div><span>Miền Nam</span><h4>Phan Thiết - Mũi Né</h4><p>Đồi cát, Bàu Trắng, biển Mũi Né và resort nghỉ dưỡng.</p><a th:href="@{/tours(location='Phan Thiết')}">Xem tour liên quan</a></div>
+        </article>
+      </div>
+      <div class="col-lg-4 col-md-6 reveal ">
+        <article class="destination-card tilt-card">
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80" alt="Cao Bằng - Bản Giốc">
+          <div><span>Miền Bắc</span><h4>Cao Bằng - Bản Giốc</h4><p>Thác Bản Giốc, động Ngườm Ngao, Hồ Ba Bể và núi rừng Đông Bắc.</p><a th:href="@{/tours(location='Cao Bằng')}">Xem tour liên quan</a></div>
+        </article>
+      </div>
+      <div class="col-lg-4 col-md-6 reveal delay-1">
+        <article class="destination-card tilt-card">
+          <img src="https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=900&q=80" alt="Mộc Châu - Pù Luông">
+          <div><span>Miền Bắc</span><h4>Mộc Châu - Pù Luông</h4><p>Đồi chè, bản làng, ruộng bậc thang và nghỉ dưỡng sinh thái.</p><a th:href="@{/tours(location='Mộc Châu')}">Xem tour liên quan</a></div>
+        </article>
+      </div>
+      <div class="col-lg-4 col-md-6 reveal delay-2">
+        <article class="destination-card tilt-card">
+          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" alt="Buôn Ma Thuột">
+          <div><span>Tây Nguyên</span><h4>Buôn Ma Thuột</h4><p>Thác Dray Nur, Buôn Đôn, bảo tàng cà phê và văn hóa Tây Nguyên.</p><a th:href="@{/tours(location='Buôn Ma Thuột')}">Xem tour liên quan</a></div>
+        </article>
+      </div>
+      <div class="col-lg-4 col-md-6 reveal ">
+        <article class="destination-card tilt-card">
+          <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=900&q=80" alt="Cà Mau - Bạc Liêu">
+          <div><span>Miền Nam</span><h4>Cà Mau - Bạc Liêu</h4><p>Đất Mũi, nhà Công tử Bạc Liêu, văn hóa miền Tây và biển rừng ngập mặn.</p><a th:href="@{/tours(location='Cà Mau')}">Xem tour liên quan</a></div>
+        </article>
+      </div>
+      <div class="col-lg-4 col-md-6 reveal delay-1">
+        <article class="destination-card tilt-card">
+          <img src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=900&q=80" alt="Tây Ninh">
+          <div><span>Miền Nam</span><h4>Tây Ninh</h4><p>Núi Bà Đen, Tòa Thánh Cao Đài, tour đi trong ngày từ TP.HCM.</p><a th:href="@{/tours(location='Tây Ninh')}">Xem tour liên quan</a></div>
+        </article>
+      </div>
+      <div class="col-lg-4 col-md-6 reveal delay-2">
+        <article class="destination-card tilt-card">
+          <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=900&q=80" alt="Cần Giờ">
+          <div><span>Miền Nam</span><h4>Cần Giờ</h4><p>Rừng Sác, đảo khỉ, biển 30/4 và du lịch sinh thái gần thành phố.</p><a th:href="@{/tours(location='Cần Giờ')}">Xem tour liên quan</a></div>
+        </article>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+<th:block th:replace="~{fragments/layout :: scripts}"></th:block>
+</body>
+</html>

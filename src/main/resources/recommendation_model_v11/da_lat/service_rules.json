@@ -1,0 +1,201 @@
+{
+  "guide": [
+    {
+      "destination_key": "da_lat",
+      "consequent_service": "ticket",
+      "support_count": 57,
+      "support": 0.8143,
+      "confidence": 0.8769,
+      "lift": 1.0063,
+      "rule_level": "manh",
+      "source_transaction_count": 70,
+      "rule_score": 0.9166
+    },
+    {
+      "destination_key": "da_lat",
+      "consequent_service": "hotel",
+      "support_count": 54,
+      "support": 0.7714,
+      "confidence": 0.8308,
+      "lift": 1.0385,
+      "rule_level": "manh",
+      "source_transaction_count": 70,
+      "rule_score": 0.8903
+    },
+    {
+      "destination_key": "da_lat",
+      "consequent_service": "insurance",
+      "support_count": 41,
+      "support": 0.5857,
+      "confidence": 0.6308,
+      "lift": 1.0769,
+      "rule_level": "manh",
+      "source_transaction_count": 70,
+      "rule_score": 0.7607
+    }
+  ],
+  "hotel": [
+    {
+      "destination_key": "da_lat",
+      "consequent_service": "guide",
+      "support_count": 54,
+      "support": 0.7714,
+      "confidence": 0.9643,
+      "lift": 1.0385,
+      "rule_level": "manh",
+      "source_transaction_count": 70,
+      "rule_score": 0.9303
+    },
+    {
+      "destination_key": "da_lat",
+      "consequent_service": "insurance",
+      "support_count": 36,
+      "support": 0.5143,
+      "confidence": 0.6429,
+      "lift": 1.0976,
+      "rule_level": "manh",
+      "source_transaction_count": 70,
+      "rule_score": 0.7377
+    }
+  ],
+  "ticket": [
+    {
+      "destination_key": "da_lat",
+      "consequent_service": "guide",
+      "support_count": 57,
+      "support": 0.8143,
+      "confidence": 0.9344,
+      "lift": 1.0063,
+      "rule_level": "manh",
+      "source_transaction_count": 70,
+      "rule_score": 0.9338
+    },
+    {
+      "destination_key": "da_lat",
+      "consequent_service": "transport",
+      "support_count": 48,
+      "support": 0.6857,
+      "confidence": 0.7869,
+      "lift": 1.0393,
+      "rule_level": "manh",
+      "source_transaction_count": 70,
+      "rule_score": 0.8407
+    },
+    {
+      "destination_key": "da_lat",
+      "consequent_service": "insurance",
+      "support_count": 36,
+      "support": 0.5143,
+      "confidence": 0.5902,
+      "lift": 1.0076,
+      "rule_level": "manh",
+      "source_transaction_count": 70,
+      "rule_score": 0.707
+    }
+  ],
+  "transport": [
+    {
+      "destination_key": "da_lat",
+      "consequent_service": "ticket",
+      "support_count": 48,
+      "support": 0.6857,
+      "confidence": 0.9057,
+      "lift": 1.0393,
+      "rule_level": "manh",
+      "source_transaction_count": 70,
+      "rule_score": 0.8763
+    }
+  ],
+  "pickup": [
+    {
+      "destination_key": "da_lat",
+      "consequent_service": "guide",
+      "support_count": 17,
+      "support": 0.2429,
+      "confidence": 0.9444,
+      "lift": 1.0171,
+      "rule_level": "manh",
+      "source_transaction_count": 70,
+      "rule_score": 0.7102
+    },
+    {
+      "destination_key": "da_lat",
+      "consequent_service": "hotel",
+      "support_count": 15,
+      "support": 0.2143,
+      "confidence": 0.8333,
+      "lift": 1.0417,
+      "rule_level": "manh",
+      "source_transaction_count": 70,
+      "rule_score": 0.6676
+    },
+    {
+      "destination_key": "da_lat",
+      "consequent_service": "transport",
+      "support_count": 14,
+      "support": 0.2,
+      "confidence": 0.7778,
+      "lift": 1.0273,
+      "rule_level": "manh",
+      "source_transaction_count": 70,
+      "rule_score": 0.6478
+    },
+    {
+      "destination_key": "da_lat",
+      "consequent_service": "meal",
+      "support_count": 12,
+      "support": 0.1714,
+      "confidence": 0.6667,
+      "lift": 1.1111,
+      "rule_level": "manh",
+      "source_transaction_count": 70,
+      "rule_score": 0.6124
+    },
+    {
+      "destination_key": "da_lat",
+      "consequent_service": "insurance",
+      "support_count": 11,
+      "support": 0.1571,
+      "confidence": 0.6111,
+      "lift": 1.0434,
+      "rule_level": "manh",
+      "source_transaction_count": 70,
+      "rule_score": 0.5805
+    }
+  ],
+  "insurance": [
+    {
+      "destination_key": "da_lat",
+      "consequent_service": "guide",
+      "support_count": 41,
+      "support": 0.5857,
+      "confidence": 1.0,
+      "lift": 1.0769,
+      "rule_level": "manh",
+      "source_transaction_count": 70,
+      "rule_score": 0.8714
+    },
+    {
+      "destination_key": "da_lat",
+      "consequent_service": "hotel",
+      "support_count": 36,
+      "support": 0.5143,
+      "confidence": 0.878,
+      "lift": 1.0976,
+      "rule_level": "manh",
+      "source_transaction_count": 70,
+      "rule_score": 0.8083
+    },
+    {
+      "destination_key": "da_lat",
+      "consequent_service": "ticket",
+      "support_count": 36,
+      "support": 0.5143,
+      "confidence": 0.878,
+      "lift": 1.0076,
+      "rule_level": "manh",
+      "source_transaction_count": 70,
+      "rule_score": 0.7933
+    }
+  ]
+}

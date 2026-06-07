@@ -1,0 +1,128 @@
+[
+  {
+    "name": "Biển Mũi Né",
+    "destination_key": "phan_thiet",
+    "tour_count": 32,
+    "place_level": "core"
+  },
+  {
+    "name": "Bàu Sen",
+    "destination_key": "phan_thiet",
+    "tour_count": 12,
+    "place_level": "core"
+  },
+  {
+    "name": "Bàu Trắng",
+    "destination_key": "phan_thiet",
+    "tour_count": 9,
+    "place_level": "core"
+  },
+  {
+    "name": "Bãi Đá Ông Địa",
+    "destination_key": "phan_thiet",
+    "tour_count": 5,
+    "place_level": "core"
+  },
+  {
+    "name": "Bảo Tàng Ngọc Trai",
+    "destination_key": "phan_thiet",
+    "tour_count": 8,
+    "place_level": "core"
+  },
+  {
+    "name": "Circus Land",
+    "destination_key": "phan_thiet",
+    "tour_count": 3,
+    "place_level": "core"
+  },
+  {
+    "name": "Công Viên Bikini Beach",
+    "destination_key": "phan_thiet",
+    "tour_count": 4,
+    "place_level": "core"
+  },
+  {
+    "name": "Dinh Vạn Thủy Tú",
+    "destination_key": "phan_thiet",
+    "tour_count": 1,
+    "place_level": "rare"
+  },
+  {
+    "name": "Hòn Rơm",
+    "destination_key": "phan_thiet",
+    "tour_count": 13,
+    "place_level": "core"
+  },
+  {
+    "name": "Làng Chài Mũi Né",
+    "destination_key": "phan_thiet",
+    "tour_count": 14,
+    "place_level": "core"
+  },
+  {
+    "name": "Lâu Đài Rượu Vang",
+    "destination_key": "phan_thiet",
+    "tour_count": 9,
+    "place_level": "core"
+  },
+  {
+    "name": "Lầu Ông Hoàng",
+    "destination_key": "phan_thiet",
+    "tour_count": 6,
+    "place_level": "core"
+  },
+  {
+    "name": "Mũi Kê Gà",
+    "destination_key": "phan_thiet",
+    "tour_count": 2,
+    "place_level": "rare"
+  },
+  {
+    "name": "NovaWorld Phan Thiết",
+    "destination_key": "phan_thiet",
+    "tour_count": 1,
+    "place_level": "rare"
+  },
+  {
+    "name": "Núi Tà Cú",
+    "destination_key": "phan_thiet",
+    "tour_count": 11,
+    "place_level": "core"
+  },
+  {
+    "name": "Sea Links City",
+    "destination_key": "phan_thiet",
+    "tour_count": 2,
+    "place_level": "rare"
+  },
+  {
+    "name": "Sea Links Golf",
+    "destination_key": "phan_thiet",
+    "tour_count": 1,
+    "place_level": "rare"
+  },
+  {
+    "name": "Suối Tiên",
+    "destination_key": "phan_thiet",
+    "tour_count": 12,
+    "place_level": "core"
+  },
+  {
+    "name": "Tháp Chàm Poshanu",
+    "destination_key": "phan_thiet",
+    "tour_count": 5,
+    "place_level": "core"
+  },
+  {
+    "name": "Trường Dục Thanh",
+    "destination_key": "phan_thiet",
+    "tour_count": 3,
+    "place_level": "core"
+  },
+  {
+    "name": "Đồi Cát Bay",
+    "destination_key": "phan_thiet",
+    "tour_count": 25,
+    "place_level": "core"
+  }
+]

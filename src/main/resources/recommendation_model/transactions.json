@@ -1,0 +1,1094 @@
+{
+  "1af2ccf64ad3:day:1": {
+    "transaction_type": "day_level",
+    "ma_tour": "1af2ccf64ad3",
+    "ngay_tour": 1.0,
+    "items": [
+      "Cổng Trời Bali Green Hill",
+      "Dinh Bảo Đại",
+      "Hồ Tuyền Lâm",
+      "Hồ Xuân Hương",
+      "Puppy Farm",
+      "Quảng Trường Lâm Viên",
+      "Thiền Viện Trúc Lâm"
+    ]
+  },
+  "1af2ccf64ad3:day:2": {
+    "transaction_type": "day_level",
+    "ma_tour": "1af2ccf64ad3",
+    "ngay_tour": 2.0,
+    "items": [
+      "Cafe Miền Du Mục",
+      "Chùa Linh Phước",
+      "Fresh Garden",
+      "Nhà Thờ Domain De Marie",
+      "Tiệm Nướng Chuyến Tàu Hoàng Hôn"
+    ]
+  },
+  "1af2ccf64ad3:day:3": {
+    "transaction_type": "day_level",
+    "ma_tour": "1af2ccf64ad3",
+    "ngay_tour": 3.0,
+    "items": [
+      "Crazy House",
+      "KDL Suối Bình Yên",
+      "Langbiang",
+      "Nhà Thờ Con Gà",
+      "Thác Datanla",
+      "Đường Hầm Đất Sét"
+    ]
+  },
+  "1af2ccf64ad3:tour": {
+    "transaction_type": "tour_level",
+    "ma_tour": "1af2ccf64ad3",
+    "ngay_tour": null,
+    "items": [
+      "Cafe Miền Du Mục",
+      "Chùa Linh Phước",
+      "Crazy House",
+      "Cổng Trời Bali Green Hill",
+      "Dinh Bảo Đại",
+      "Fresh Garden",
+      "Hồ Tuyền Lâm",
+      "Hồ Xuân Hương",
+      "KDL Suối Bình Yên",
+      "Langbiang",
+      "Nhà Thờ Con Gà",
+      "Nhà Thờ Domain De Marie",
+      "Puppy Farm",
+      "Quảng Trường Lâm Viên",
+      "Thiền Viện Trúc Lâm",
+      "Thác Datanla",
+      "Tiệm Nướng Chuyến Tàu Hoàng Hôn",
+      "Đường Hầm Đất Sét"
+    ]
+  },
+  "1bae7a51f8cf:tour": {
+    "transaction_type": "tour_level",
+    "ma_tour": "1bae7a51f8cf",
+    "ngay_tour": null,
+    "items": [
+      "Crazy House",
+      "Thác Datanla",
+      "Đường Hầm Đất Sét"
+    ]
+  },
+  "2145b06b59fc:day:1": {
+    "transaction_type": "day_level",
+    "ma_tour": "2145b06b59fc",
+    "ngay_tour": 1.0,
+    "items": [
+      "Hồ Xuân Hương",
+      "Langbiang",
+      "Quảng Trường Lâm Viên",
+      "Thung Lũng Tình Yêu",
+      "Vườn Hoa Thành Phố"
+    ]
+  },
+  "2145b06b59fc:tour": {
+    "transaction_type": "tour_level",
+    "ma_tour": "2145b06b59fc",
+    "ngay_tour": null,
+    "items": [
+      "Hồ Xuân Hương",
+      "Langbiang",
+      "Quảng Trường Lâm Viên",
+      "Thung Lũng Tình Yêu",
+      "Vườn Hoa Thành Phố"
+    ]
+  },
+  "23e3ee949e36:day:1": {
+    "transaction_type": "day_level",
+    "ma_tour": "23e3ee949e36",
+    "ngay_tour": 1.0,
+    "items": [
+      "Langbiang",
+      "Quảng Trường Lâm Viên"
+    ]
+  },
+  "23e3ee949e36:tour": {
+    "transaction_type": "tour_level",
+    "ma_tour": "23e3ee949e36",
+    "ngay_tour": null,
+    "items": [
+      "Langbiang",
+      "Quảng Trường Lâm Viên"
+    ]
+  },
+  "311eedfc2bac:day:1": {
+    "transaction_type": "day_level",
+    "ma_tour": "311eedfc2bac",
+    "ngay_tour": 1.0,
+    "items": [
+      "Chùa Linh Ẩn",
+      "Làng Hoa Vạn Thành",
+      "Thác Cam Ly",
+      "Thác Voi",
+      "Trại Mát"
+    ]
+  },
+  "311eedfc2bac:tour": {
+    "transaction_type": "tour_level",
+    "ma_tour": "311eedfc2bac",
+    "ngay_tour": null,
+    "items": [
+      "Chùa Linh Ẩn",
+      "Làng Hoa Vạn Thành",
+      "Thác Cam Ly",
+      "Thác Voi",
+      "Trại Mát"
+    ]
+  },
+  "3954355044af:day:1": {
+    "transaction_type": "day_level",
+    "ma_tour": "3954355044af",
+    "ngay_tour": 1.0,
+    "items": [
+      "Chùa Linh Phước",
+      "Hồ Tuyền Lâm",
+      "Langbiang",
+      "Thiền Viện Trúc Lâm",
+      "Thác Datanla",
+      "Thác Voi",
+      "Vườn Dâu Đà Lạt",
+      "Đường Hầm Đất Sét",
+      "Đồi Robin"
+    ]
+  },
+  "3954355044af:tour": {
+    "transaction_type": "tour_level",
+    "ma_tour": "3954355044af",
+    "ngay_tour": null,
+    "items": [
+      "Chùa Linh Phước",
+      "Hồ Tuyền Lâm",
+      "Langbiang",
+      "Thiền Viện Trúc Lâm",
+      "Thác Datanla",
+      "Thác Voi",
+      "Vườn Dâu Đà Lạt",
+      "Đường Hầm Đất Sét",
+      "Đồi Robin"
+    ]
+  },
+  "3ba34eea4a80:day:1": {
+    "transaction_type": "day_level",
+    "ma_tour": "3ba34eea4a80",
+    "ngay_tour": 1.0,
+    "items": [
+      "Crazy House",
+      "Langbiang",
+      "Quảng Trường Lâm Viên"
+    ]
+  },
+  "3ba34eea4a80:tour": {
+    "transaction_type": "tour_level",
+    "ma_tour": "3ba34eea4a80",
+    "ngay_tour": null,
+    "items": [
+      "Crazy House",
+      "Langbiang",
+      "Quảng Trường Lâm Viên"
+    ]
+  },
+  "3d291bbbe7a1:day:1": {
+    "transaction_type": "day_level",
+    "ma_tour": "3d291bbbe7a1",
+    "ngay_tour": 1.0,
+    "items": [
+      "Cafe Miền Du Mục",
+      "Chùa Linh Phước",
+      "Fresh Garden",
+      "Hồ Xuân Hương",
+      "Nhà Thờ Domain De Marie",
+      "Tiệm Nướng Chuyến Tàu Hoàng Hôn"
+    ]
+  },
+  "3d291bbbe7a1:day:2": {
+    "transaction_type": "day_level",
+    "ma_tour": "3d291bbbe7a1",
+    "ngay_tour": 2.0,
+    "items": [
+      "Cổng Trời Bali Green Hill",
+      "Dinh Bảo Đại",
+      "Hồ Tuyền Lâm",
+      "Puppy Farm",
+      "Quảng Trường Lâm Viên",
+      "Thiền Viện Trúc Lâm"
+    ]
+  },
+  "3d291bbbe7a1:tour": {
+    "transaction_type": "tour_level",
+    "ma_tour": "3d291bbbe7a1",
+    "ngay_tour": null,
+    "items": [
+      "Cafe Miền Du Mục",
+      "Chùa Linh Phước",
+      "Cổng Trời Bali Green Hill",
+      "Dinh Bảo Đại",
+      "Fresh Garden",
+      "Hồ Tuyền Lâm",
+      "Hồ Xuân Hương",
+      "Nhà Thờ Domain De Marie",
+      "Puppy Farm",
+      "Quảng Trường Lâm Viên",
+      "Thiền Viện Trúc Lâm",
+      "Tiệm Nướng Chuyến Tàu Hoàng Hôn"
+    ]
+  },
+  "469a52c42070:day:1": {
+    "transaction_type": "day_level",
+    "ma_tour": "469a52c42070",
+    "ngay_tour": 1.0,
+    "items": [
+      "Dinh Bảo Đại",
+      "Nông Trại Cổ Tích"
+    ]
+  },
+  "469a52c42070:day:2": {
+    "transaction_type": "day_level",
+    "ma_tour": "469a52c42070",
+    "ngay_tour": 2.0,
+    "items": [
+      "Hồ Xuân Hương",
+      "Lặng Art Café",
+      "Nhà Thờ Domain De Marie",
+      "Quảng Trường Lâm Viên",
+      "Thiền Viện Trúc Lâm"
+    ]
+  },
+  "469a52c42070:day:3": {
+    "transaction_type": "day_level",
+    "ma_tour": "469a52c42070",
+    "ngay_tour": 3.0,
+    "items": [
+      "Vườn Dâu Đà Lạt"
+    ]
+  },
+  "469a52c42070:tour": {
+    "transaction_type": "tour_level",
+    "ma_tour": "469a52c42070",
+    "ngay_tour": null,
+    "items": [
+      "Dinh Bảo Đại",
+      "Gallery La Chocotea",
+      "Hồ Xuân Hương",
+      "Lặng Art Café",
+      "Nhà Thờ Domain De Marie",
+      "Nông Trại Cổ Tích",
+      "Quảng Trường Lâm Viên",
+      "Thiền Viện Trúc Lâm",
+      "Vườn Dâu Đà Lạt"
+    ]
+  },
+  "5603d5ab707a:tour": {
+    "transaction_type": "tour_level",
+    "ma_tour": "5603d5ab707a",
+    "ngay_tour": null,
+    "items": [
+      "Langbiang",
+      "Thị Trấn Iyashi"
+    ]
+  },
+  "6325e6ad1fdb:tour": {
+    "transaction_type": "tour_level",
+    "ma_tour": "6325e6ad1fdb",
+    "ngay_tour": null,
+    "items": [
+      "Cafe Mê Linh",
+      "Crazy House",
+      "Fresh Garden",
+      "Thác Datanla",
+      "Đường Hầm Đất Sét"
+    ]
+  },
+  "683ada3345d5:day:1": {
+    "transaction_type": "day_level",
+    "ma_tour": "683ada3345d5",
+    "ngay_tour": 1.0,
+    "items": [
+      "Hồ Tuyền Lâm",
+      "Quảng Trường Lâm Viên",
+      "Thiền Viện Trúc Lâm"
+    ]
+  },
+  "683ada3345d5:tour": {
+    "transaction_type": "tour_level",
+    "ma_tour": "683ada3345d5",
+    "ngay_tour": null,
+    "items": [
+      "Hồ Tuyền Lâm",
+      "Quảng Trường Lâm Viên",
+      "Thiền Viện Trúc Lâm"
+    ]
+  },
+  "7ba145b35d22:day:1": {
+    "transaction_type": "day_level",
+    "ma_tour": "7ba145b35d22",
+    "ngay_tour": 1.0,
+    "items": [
+      "Cánh Đồng Hoa Cẩm Tú Cầu",
+      "Dinh Bảo Đại",
+      "Hồ Tuyền Lâm",
+      "Nhà Thờ Con Gà",
+      "Quảng Trường Lâm Viên",
+      "Thiền Viện Trúc Lâm",
+      "Thiền Viện Vạn Hạnh",
+      "Thác Datanla",
+      "Vườn Hoa Thành Phố",
+      "Đồi Robin"
+    ]
+  },
+  "7ba145b35d22:tour": {
+    "transaction_type": "tour_level",
+    "ma_tour": "7ba145b35d22",
+    "ngay_tour": null,
+    "items": [
+      "Cánh Đồng Hoa Cẩm Tú Cầu",
+      "Dinh Bảo Đại",
+      "Hồ Tuyền Lâm",
+      "Nhà Thờ Con Gà",
+      "Quảng Trường Lâm Viên",
+      "Thiền Viện Trúc Lâm",
+      "Thiền Viện Vạn Hạnh",
+      "Thác Datanla",
+      "Vườn Hoa Thành Phố",
+      "Đồi Robin"
+    ]
+  },
+  "7fe58e0ee0b3:day:1": {
+    "transaction_type": "day_level",
+    "ma_tour": "7fe58e0ee0b3",
+    "ngay_tour": 1.0,
+    "items": [
+      "Thác Datanla",
+      "Thác Pongour",
+      "Thác Prenn",
+      "Thác Voi"
+    ]
+  },
+  "7fe58e0ee0b3:tour": {
+    "transaction_type": "tour_level",
+    "ma_tour": "7fe58e0ee0b3",
+    "ngay_tour": null,
+    "items": [
+      "Thác Datanla",
+      "Thác Pongour",
+      "Thác Prenn",
+      "Thác Voi"
+    ]
+  },
+  "85424eece132:tour": {
+    "transaction_type": "tour_level",
+    "ma_tour": "85424eece132",
+    "ngay_tour": null,
+    "items": [
+      "Fresh Garden",
+      "Lạc Hư Cổ Trấn",
+      "Thị Trấn Iyashi",
+      "Vườn Châu Âu"
+    ]
+  },
+  "898180eb5691:day:1": {
+    "transaction_type": "day_level",
+    "ma_tour": "898180eb5691",
+    "ngay_tour": 1.0,
+    "items": [
+      "Hồ Xuân Hương",
+      "Quảng Trường Lâm Viên",
+      "Thác Bobla"
+    ]
+  },
+  "898180eb5691:day:2": {
+    "transaction_type": "day_level",
+    "ma_tour": "898180eb5691",
+    "ngay_tour": 2.0,
+    "items": [
+      "Chợ Đà Lạt",
+      "Gallery La Chocotea",
+      "Langbiang",
+      "Nông Trại Cổ Tích"
+    ]
+  },
+  "898180eb5691:day:3": {
+    "transaction_type": "day_level",
+    "ma_tour": "898180eb5691",
+    "ngay_tour": 3.0,
+    "items": [
+      "Chùa Linh Phước",
+      "Chợ Đà Lạt",
+      "Hồ Xuân Hương",
+      "Royal Garden",
+      "Đồi Chè Cầu Đất"
+    ]
+  },
+  "898180eb5691:day:4": {
+    "transaction_type": "day_level",
+    "ma_tour": "898180eb5691",
+    "ngay_tour": 4.0,
+    "items": [
+      "Samten Hills",
+      "Đại Bảo Tháp Kinh Luân"
+    ]
+  },
+  "898180eb5691:tour": {
+    "transaction_type": "tour_level",
+    "ma_tour": "898180eb5691",
+    "ngay_tour": null,
+    "items": [
+      "Chùa Linh Phước",
+      "Chợ Đà Lạt",
+      "Gallery La Chocotea",
+      "Hồ Xuân Hương",
+      "Langbiang",
+      "Nông Trại Cổ Tích",
+      "Quảng Trường Lâm Viên",
+      "Royal Garden",
+      "Samten Hills",
+      "Thác Bobla",
+      "Đại Bảo Tháp Kinh Luân",
+      "Đồi Chè Cầu Đất"
+    ]
+  },
+  "8aa721af2943:day:2": {
+    "transaction_type": "day_level",
+    "ma_tour": "8aa721af2943",
+    "ngay_tour": 2.0,
+    "items": [
+      "Chùa Linh Phước",
+      "Nông Trại Cổ Tích",
+      "Puppy Farm",
+      "Thác Datanla"
+    ]
+  },
+  "8aa721af2943:day:3": {
+    "transaction_type": "day_level",
+    "ma_tour": "8aa721af2943",
+    "ngay_tour": 3.0,
+    "items": [
+      "Dapa Hill",
+      "Hồ Xuân Hương",
+      "Langbiang",
+      "Quảng Trường Lâm Viên"
+    ]
+  },
+  "8aa721af2943:day:4": {
+    "transaction_type": "day_level",
+    "ma_tour": "8aa721af2943",
+    "ngay_tour": 4.0,
+    "items": [
+      "Samten Hills",
+      "Đại Bảo Tháp Kinh Luân"
+    ]
+  },
+  "8aa721af2943:tour": {
+    "transaction_type": "tour_level",
+    "ma_tour": "8aa721af2943",
+    "ngay_tour": null,
+    "items": [
+      "Chùa Linh Phước",
+      "Dapa Hill",
+      "Hồ Xuân Hương",
+      "Langbiang",
+      "Nông Trại Cổ Tích",
+      "Puppy Farm",
+      "Quảng Trường Lâm Viên",
+      "Samten Hills",
+      "Thác Datanla",
+      "Đại Bảo Tháp Kinh Luân"
+    ]
+  },
+  "b1ed1d2ec409:day:1": {
+    "transaction_type": "day_level",
+    "ma_tour": "b1ed1d2ec409",
+    "ngay_tour": 1.0,
+    "items": [
+      "Hồ Xuân Hương",
+      "Quảng Trường Lâm Viên"
+    ]
+  },
+  "b1ed1d2ec409:day:2": {
+    "transaction_type": "day_level",
+    "ma_tour": "b1ed1d2ec409",
+    "ngay_tour": 2.0,
+    "items": [
+      "Bảo Tàng Madame De",
+      "Chợ Đà Lạt",
+      "Hồ Xuân Hương",
+      "Quảng Trường Lâm Viên"
+    ]
+  },
+  "b1ed1d2ec409:day:3": {
+    "transaction_type": "day_level",
+    "ma_tour": "b1ed1d2ec409",
+    "ngay_tour": 3.0,
+    "items": [
+      "Chùa Linh Phước",
+      "Nhà Thờ Domain De Marie",
+      "Thác Datanla",
+      "Đồi Chè Cầu Đất"
+    ]
+  },
+  "b1ed1d2ec409:day:4": {
+    "transaction_type": "day_level",
+    "ma_tour": "b1ed1d2ec409",
+    "ngay_tour": 4.0,
+    "items": [
+      "Thác Voi"
+    ]
+  },
+  "b1ed1d2ec409:tour": {
+    "transaction_type": "tour_level",
+    "ma_tour": "b1ed1d2ec409",
+    "ngay_tour": null,
+    "items": [
+      "Bảo Tàng Madame De",
+      "Chùa Linh Phước",
+      "Chợ Đà Lạt",
+      "Hồ Xuân Hương",
+      "Nhà Thờ Domain De Marie",
+      "Quảng Trường Lâm Viên",
+      "Thác Datanla",
+      "Thác Voi",
+      "Đồi Chè Cầu Đất"
+    ]
+  },
+  "b3960517d9e9:day:1": {
+    "transaction_type": "day_level",
+    "ma_tour": "b3960517d9e9",
+    "ngay_tour": 1.0,
+    "items": [
+      "Thác Pongour"
+    ]
+  },
+  "b3960517d9e9:day:2": {
+    "transaction_type": "day_level",
+    "ma_tour": "b3960517d9e9",
+    "ngay_tour": 2.0,
+    "items": [
+      "Cánh Đồng Hoa Cẩm Tú Cầu"
+    ]
+  },
+  "b3960517d9e9:day:3": {
+    "transaction_type": "day_level",
+    "ma_tour": "b3960517d9e9",
+    "ngay_tour": 3.0,
+    "items": [
+      "Chợ Đà Lạt"
+    ]
+  },
+  "b3960517d9e9:tour": {
+    "transaction_type": "tour_level",
+    "ma_tour": "b3960517d9e9",
+    "ngay_tour": null,
+    "items": [
+      "Chợ Đà Lạt",
+      "Cánh Đồng Hoa Cẩm Tú Cầu",
+      "Puppy Farm",
+      "Thác Pongour",
+      "Đồi Chè Cầu Đất"
+    ]
+  },
+  "b46e8cf6266e:day:1": {
+    "transaction_type": "day_level",
+    "ma_tour": "b46e8cf6266e",
+    "ngay_tour": 1.0,
+    "items": [
+      "Quảng Trường Lâm Viên",
+      "Thiền Viện Trúc Lâm"
+    ]
+  },
+  "b46e8cf6266e:day:2": {
+    "transaction_type": "day_level",
+    "ma_tour": "b46e8cf6266e",
+    "ngay_tour": 2.0,
+    "items": [
+      "KDL Suối Bình Yên"
+    ]
+  },
+  "b46e8cf6266e:day:3": {
+    "transaction_type": "day_level",
+    "ma_tour": "b46e8cf6266e",
+    "ngay_tour": 3.0,
+    "items": [
+      "Chợ Đà Lạt"
+    ]
+  },
+  "b46e8cf6266e:tour": {
+    "transaction_type": "tour_level",
+    "ma_tour": "b46e8cf6266e",
+    "ngay_tour": null,
+    "items": [
+      "Chợ Đà Lạt",
+      "KDL Suối Bình Yên",
+      "Langbiang",
+      "Quảng Trường Lâm Viên",
+      "Samten Hills",
+      "Thiền Viện Trúc Lâm",
+      "Trại Mát",
+      "Vườn Địa Đàng"
+    ]
+  },
+  "b83b45d63e85:day:1": {
+    "transaction_type": "day_level",
+    "ma_tour": "b83b45d63e85",
+    "ngay_tour": 1.0,
+    "items": [
+      "Hồ Tuyền Lâm",
+      "Nhà Thờ Con Gà",
+      "Thiền Viện Trúc Lâm",
+      "Thiền Viện Vạn Hạnh",
+      "Thác Datanla",
+      "Thác Voi",
+      "Vườn Hoa Thành Phố",
+      "Đồi Robin"
+    ]
+  },
+  "b83b45d63e85:day:2": {
+    "transaction_type": "day_level",
+    "ma_tour": "b83b45d63e85",
+    "ngay_tour": 2.0,
+    "items": [
+      "Chùa Thiên Vương Cổ Sát",
+      "Cánh Đồng Hoa Cẩm Tú Cầu",
+      "Langbiang",
+      "Quảng Trường Lâm Viên",
+      "Thung Lũng Vàng"
+    ]
+  },
+  "b83b45d63e85:tour": {
+    "transaction_type": "tour_level",
+    "ma_tour": "b83b45d63e85",
+    "ngay_tour": null,
+    "items": [
+      "Chùa Thiên Vương Cổ Sát",
+      "Cánh Đồng Hoa Cẩm Tú Cầu",
+      "Hồ Tuyền Lâm",
+      "Langbiang",
+      "Nhà Thờ Con Gà",
+      "Quảng Trường Lâm Viên",
+      "Thiền Viện Trúc Lâm",
+      "Thiền Viện Vạn Hạnh",
+      "Thung Lũng Vàng",
+      "Thác Datanla",
+      "Thác Voi",
+      "Vườn Hoa Thành Phố",
+      "Đồi Robin"
+    ]
+  },
+  "bbc024de2a2a:day:1": {
+    "transaction_type": "day_level",
+    "ma_tour": "bbc024de2a2a",
+    "ngay_tour": 1.0,
+    "items": [
+      "Chùa Linh Phước",
+      "Cánh Đồng Hoa Cẩm Tú Cầu",
+      "Hồ Tuyền Lâm",
+      "Thiền Viện Trúc Lâm"
+    ]
+  },
+  "bbc024de2a2a:day:3": {
+    "transaction_type": "day_level",
+    "ma_tour": "bbc024de2a2a",
+    "ngay_tour": 3.0,
+    "items": [
+      "Chợ Đà Lạt",
+      "Quảng Trường Lâm Viên"
+    ]
+  },
+  "bbc024de2a2a:tour": {
+    "transaction_type": "tour_level",
+    "ma_tour": "bbc024de2a2a",
+    "ngay_tour": null,
+    "items": [
+      "Chùa Linh Phước",
+      "Chợ Đà Lạt",
+      "Cánh Đồng Hoa Cẩm Tú Cầu",
+      "Happy Hill",
+      "Hồ Tuyền Lâm",
+      "Mongo Land",
+      "Quảng Trường Lâm Viên",
+      "Thiền Viện Trúc Lâm",
+      "Trại Mát",
+      "Tu Viện Bát Nhã"
+    ]
+  },
+  "c589176b2272:day:1": {
+    "transaction_type": "day_level",
+    "ma_tour": "c589176b2272",
+    "ngay_tour": 1.0,
+    "items": [
+      "Hồ Xuân Hương",
+      "Quảng Trường Lâm Viên",
+      "Thác Datanla"
+    ]
+  },
+  "c589176b2272:day:2": {
+    "transaction_type": "day_level",
+    "ma_tour": "c589176b2272",
+    "ngay_tour": 2.0,
+    "items": [
+      "Bảo Tàng Madame De",
+      "Chợ Đà Lạt",
+      "Nông Trại Cổ Tích",
+      "Quảng Trường Lâm Viên"
+    ]
+  },
+  "c589176b2272:day:3": {
+    "transaction_type": "day_level",
+    "ma_tour": "c589176b2272",
+    "ngay_tour": 3.0,
+    "items": [
+      "Chùa Linh Phước",
+      "Gallery La Chocotea",
+      "Nhà Thờ Domain De Marie",
+      "Royal Garden",
+      "Đồi Chè Cầu Đất"
+    ]
+  },
+  "c589176b2272:day:4": {
+    "transaction_type": "day_level",
+    "ma_tour": "c589176b2272",
+    "ngay_tour": 4.0,
+    "items": [
+      "Chùa Linh Ẩn",
+      "Thác Voi"
+    ]
+  },
+  "c589176b2272:tour": {
+    "transaction_type": "tour_level",
+    "ma_tour": "c589176b2272",
+    "ngay_tour": null,
+    "items": [
+      "Bảo Tàng Madame De",
+      "Chùa Linh Phước",
+      "Chùa Linh Ẩn",
+      "Chợ Đà Lạt",
+      "Gallery La Chocotea",
+      "Hồ Xuân Hương",
+      "Nhà Thờ Domain De Marie",
+      "Nông Trại Cổ Tích",
+      "Quảng Trường Lâm Viên",
+      "Royal Garden",
+      "Thác Datanla",
+      "Thác Voi",
+      "Đồi Chè Cầu Đất"
+    ]
+  },
+  "c8afdd98270a:day:1": {
+    "transaction_type": "day_level",
+    "ma_tour": "c8afdd98270a",
+    "ngay_tour": 1.0,
+    "items": [
+      "Dinh Bảo Đại",
+      "Hồ Xuân Hương"
+    ]
+  },
+  "c8afdd98270a:day:2": {
+    "transaction_type": "day_level",
+    "ma_tour": "c8afdd98270a",
+    "ngay_tour": 2.0,
+    "items": [
+      "Lặng Art Café",
+      "Thiền Viện Trúc Lâm",
+      "Đồi Robin"
+    ]
+  },
+  "c8afdd98270a:day:3": {
+    "transaction_type": "day_level",
+    "ma_tour": "c8afdd98270a",
+    "ngay_tour": 3.0,
+    "items": [
+      "Vườn Dâu Đà Lạt"
+    ]
+  },
+  "c8afdd98270a:tour": {
+    "transaction_type": "tour_level",
+    "ma_tour": "c8afdd98270a",
+    "ngay_tour": null,
+    "items": [
+      "Dinh Bảo Đại",
+      "Hồ Xuân Hương",
+      "Lặng Art Café",
+      "Thiền Viện Trúc Lâm",
+      "Vườn Dâu Đà Lạt",
+      "Đồi Robin"
+    ]
+  },
+  "cb96e649a3da:day:1": {
+    "transaction_type": "day_level",
+    "ma_tour": "cb96e649a3da",
+    "ngay_tour": 1.0,
+    "items": [
+      "Hồ Tuyền Lâm",
+      "Thiền Viện Trúc Lâm",
+      "Đồi Chè Cầu Đất"
+    ]
+  },
+  "cb96e649a3da:day:2": {
+    "transaction_type": "day_level",
+    "ma_tour": "cb96e649a3da",
+    "ngay_tour": 2.0,
+    "items": [
+      "Hồ Xuân Hương",
+      "Quảng Trường Lâm Viên"
+    ]
+  },
+  "cb96e649a3da:day:3": {
+    "transaction_type": "day_level",
+    "ma_tour": "cb96e649a3da",
+    "ngay_tour": 3.0,
+    "items": [
+      "Chợ Đà Lạt"
+    ]
+  },
+  "cb96e649a3da:tour": {
+    "transaction_type": "tour_level",
+    "ma_tour": "cb96e649a3da",
+    "ngay_tour": null,
+    "items": [
+      "Chợ Đà Lạt",
+      "Fresh Garden",
+      "Hồ Tuyền Lâm",
+      "Hồ Xuân Hương",
+      "Langbiang",
+      "Quảng Trường Lâm Viên",
+      "Thiền Viện Trúc Lâm",
+      "Đồi Chè Cầu Đất"
+    ]
+  },
+  "cfd8d5d356b5:day:1": {
+    "transaction_type": "day_level",
+    "ma_tour": "cfd8d5d356b5",
+    "ngay_tour": 1.0,
+    "items": [
+      "Chùa Linh Phước",
+      "Langbiang",
+      "Làng Cù Lần",
+      "Làng Hoa Vạn Thành",
+      "Trại Mát",
+      "Vườn Dâu Đà Lạt"
+    ]
+  },
+  "cfd8d5d356b5:tour": {
+    "transaction_type": "tour_level",
+    "ma_tour": "cfd8d5d356b5",
+    "ngay_tour": null,
+    "items": [
+      "Chùa Linh Phước",
+      "Langbiang",
+      "Làng Cù Lần",
+      "Làng Hoa Vạn Thành",
+      "Trại Mát",
+      "Vườn Dâu Đà Lạt"
+    ]
+  },
+  "de53bd06d241:day:1": {
+    "transaction_type": "day_level",
+    "ma_tour": "de53bd06d241",
+    "ngay_tour": 1.0,
+    "items": [
+      "Hồ Tuyền Lâm",
+      "Hồ Xuân Hương",
+      "Thác Datanla",
+      "Vườn Hoa Thành Phố",
+      "Đồi Robin"
+    ]
+  },
+  "de53bd06d241:day:2": {
+    "transaction_type": "day_level",
+    "ma_tour": "de53bd06d241",
+    "ngay_tour": 2.0,
+    "items": [
+      "Hồ Xuân Hương",
+      "Langbiang",
+      "Thung Lũng Tình Yêu",
+      "Thung Lũng Vàng"
+    ]
+  },
+  "de53bd06d241:day:3": {
+    "transaction_type": "day_level",
+    "ma_tour": "de53bd06d241",
+    "ngay_tour": 3.0,
+    "items": [
+      "Chợ Đà Lạt",
+      "Dinh Bảo Đại",
+      "Làng Hoa Vạn Thành"
+    ]
+  },
+  "de53bd06d241:tour": {
+    "transaction_type": "tour_level",
+    "ma_tour": "de53bd06d241",
+    "ngay_tour": null,
+    "items": [
+      "Chợ Đà Lạt",
+      "Dinh Bảo Đại",
+      "Hồ Tuyền Lâm",
+      "Hồ Xuân Hương",
+      "Langbiang",
+      "Làng Hoa Vạn Thành",
+      "Thung Lũng Tình Yêu",
+      "Thung Lũng Vàng",
+      "Thác Datanla",
+      "Vườn Hoa Thành Phố",
+      "Đồi Robin"
+    ]
+  },
+  "e413384c7524:day:1": {
+    "transaction_type": "day_level",
+    "ma_tour": "e413384c7524",
+    "ngay_tour": 1.0,
+    "items": [
+      "Dinh Bảo Đại",
+      "Thiền Viện Trúc Lâm",
+      "Thác Datanla"
+    ]
+  },
+  "e413384c7524:day:2": {
+    "transaction_type": "day_level",
+    "ma_tour": "e413384c7524",
+    "ngay_tour": 2.0,
+    "items": [
+      "Chùa Linh Phước",
+      "Langbiang",
+      "Nhà Ga Đà Lạt",
+      "Thung Lũng Tình Yêu",
+      "Vườn Hoa Thành Phố"
+    ]
+  },
+  "e413384c7524:day:3": {
+    "transaction_type": "day_level",
+    "ma_tour": "e413384c7524",
+    "ngay_tour": 3.0,
+    "items": [
+      "Chùa Linh Ẩn",
+      "Quảng Trường Lâm Viên",
+      "Thác Cam Ly",
+      "Thác Voi"
+    ]
+  },
+  "e413384c7524:day:4": {
+    "transaction_type": "day_level",
+    "ma_tour": "e413384c7524",
+    "ngay_tour": 4.0,
+    "items": [
+      "Chợ Đà Lạt"
+    ]
+  },
+  "e413384c7524:tour": {
+    "transaction_type": "tour_level",
+    "ma_tour": "e413384c7524",
+    "ngay_tour": null,
+    "items": [
+      "Chùa Linh Phước",
+      "Chùa Linh Ẩn",
+      "Chợ Đà Lạt",
+      "Dinh Bảo Đại",
+      "Langbiang",
+      "Nhà Ga Đà Lạt",
+      "Quảng Trường Lâm Viên",
+      "Thiền Viện Trúc Lâm",
+      "Thung Lũng Tình Yêu",
+      "Thác Cam Ly",
+      "Thác Datanla",
+      "Thác Voi",
+      "Vườn Hoa Thành Phố"
+    ]
+  },
+  "f6668e11d42b:day:1": {
+    "transaction_type": "day_level",
+    "ma_tour": "f6668e11d42b",
+    "ngay_tour": 1.0,
+    "items": [
+      "Langbiang",
+      "Làng Cù Lần",
+      "Thung Lũng Vàng"
+    ]
+  },
+  "f6668e11d42b:tour": {
+    "transaction_type": "tour_level",
+    "ma_tour": "f6668e11d42b",
+    "ngay_tour": null,
+    "items": [
+      "Langbiang",
+      "Làng Cù Lần",
+      "Thung Lũng Vàng"
+    ]
+  },
+  "f9b3e022820d:day:1": {
+    "transaction_type": "day_level",
+    "ma_tour": "f9b3e022820d",
+    "ngay_tour": 1.0,
+    "items": [
+      "Làng Hoa Vạn Thành",
+      "Vườn Dâu Đà Lạt",
+      "Đồi Chè Cầu Đất"
+    ]
+  },
+  "f9b3e022820d:tour": {
+    "transaction_type": "tour_level",
+    "ma_tour": "f9b3e022820d",
+    "ngay_tour": null,
+    "items": [
+      "Làng Hoa Vạn Thành",
+      "Vườn Dâu Đà Lạt",
+      "Đồi Chè Cầu Đất"
+    ]
+  },
+  "faee8260fa6d:day:1": {
+    "transaction_type": "day_level",
+    "ma_tour": "faee8260fa6d",
+    "ngay_tour": 1.0,
+    "items": [
+      "Cánh Đồng Hoa Cẩm Tú Cầu",
+      "Hồ Tuyền Lâm",
+      "Nhà Thờ Con Gà",
+      "Thiền Viện Trúc Lâm",
+      "Thiền Viện Vạn Hạnh",
+      "Thác Datanla",
+      "Vườn Hoa Thành Phố",
+      "Đồi Robin"
+    ]
+  },
+  "faee8260fa6d:day:2": {
+    "transaction_type": "day_level",
+    "ma_tour": "faee8260fa6d",
+    "ngay_tour": 2.0,
+    "items": [
+      "Chùa Thiên Vương Cổ Sát",
+      "Langbiang",
+      "Thung Lũng Vàng"
+    ]
+  },
+  "faee8260fa6d:day:3": {
+    "transaction_type": "day_level",
+    "ma_tour": "faee8260fa6d",
+    "ngay_tour": 3.0,
+    "items": [
+      "Chùa Linh Ẩn",
+      "Làng Hoa Vạn Thành",
+      "Thác Voi"
+    ]
+  },
+  "faee8260fa6d:tour": {
+    "transaction_type": "tour_level",
+    "ma_tour": "faee8260fa6d",
+    "ngay_tour": null,
+    "items": [
+      "Chùa Linh Ẩn",
+      "Chùa Thiên Vương Cổ Sát",
+      "Cánh Đồng Hoa Cẩm Tú Cầu",
+      "Hồ Tuyền Lâm",
+      "Langbiang",
+      "Làng Hoa Vạn Thành",
+      "Nhà Thờ Con Gà",
+      "Thiền Viện Trúc Lâm",
+      "Thiền Viện Vạn Hạnh",
+      "Thung Lũng Vàng",
+      "Thác Datanla",
+      "Thác Voi",
+      "Vườn Hoa Thành Phố",
+      "Đồi Robin"
+    ]
+  }
+}

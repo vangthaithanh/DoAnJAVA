@@ -1,0 +1,27 @@
+{
+  "model_version": "v11",
+  "generated_at_utc": "2026-06-01T20:10:52.986125+00:00",
+  "destination_count": 3,
+  "ready_destination_count": 3,
+  "limited_destination_count": 0,
+  "not_ready_destination_count": 0,
+  "total_clean_tour_count": 147,
+  "total_place_rule_count": 480,
+  "total_service_rule_count": 77,
+  "data_sources": [
+    "dalattrip",
+    "intour",
+    "ivivu",
+    "phusitravel",
+    "saigontourist",
+    "saigontravel",
+    "vietfuntravel",
+    "vietnambooking"
+  ],
+  "known_limitations": [
+    "Dữ liệu từ tour công khai, không phải hành vi người dùng.",
+    "Catalog công khai có thể chứa các biến thể tour gần nhau; model xem mỗi URL sản phẩm có lịch trình riêng là một tour.",
+    "Destination ít hơn 8 tour sạch được đánh dấu not_ready.",
+    "Không trộn luật giữa các destination."
+  ]
+}

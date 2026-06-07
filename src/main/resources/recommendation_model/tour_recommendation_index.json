@@ -1,0 +1,548 @@
+{
+  "all_tour_ids": [
+    "1af2ccf64ad3",
+    "1bae7a51f8cf",
+    "2145b06b59fc",
+    "23e3ee949e36",
+    "311eedfc2bac",
+    "3954355044af",
+    "3ba34eea4a80",
+    "3d291bbbe7a1",
+    "469a52c42070",
+    "5603d5ab707a",
+    "6325e6ad1fdb",
+    "683ada3345d5",
+    "7ba145b35d22",
+    "7fe58e0ee0b3",
+    "85424eece132",
+    "898180eb5691",
+    "8aa721af2943",
+    "b1ed1d2ec409",
+    "b3960517d9e9",
+    "b46e8cf6266e",
+    "b83b45d63e85",
+    "bbc024de2a2a",
+    "c589176b2272",
+    "c8afdd98270a",
+    "cb96e649a3da",
+    "cfd8d5d356b5",
+    "de53bd06d241",
+    "e413384c7524",
+    "f6668e11d42b",
+    "f9b3e022820d",
+    "faee8260fa6d"
+  ],
+  "place_to_tours": {
+    "Bảo Tàng Madame De": [
+      "b1ed1d2ec409",
+      "c589176b2272"
+    ],
+    "Cafe Miền Du Mục": [
+      "1af2ccf64ad3",
+      "3d291bbbe7a1"
+    ],
+    "Cafe Mê Linh": [
+      "6325e6ad1fdb"
+    ],
+    "Chùa Linh Phước": [
+      "1af2ccf64ad3",
+      "3954355044af",
+      "3d291bbbe7a1",
+      "898180eb5691",
+      "8aa721af2943",
+      "b1ed1d2ec409",
+      "bbc024de2a2a",
+      "c589176b2272",
+      "cfd8d5d356b5",
+      "e413384c7524"
+    ],
+    "Chùa Linh Ẩn": [
+      "311eedfc2bac",
+      "c589176b2272",
+      "e413384c7524",
+      "faee8260fa6d"
+    ],
+    "Chùa Thiên Vương Cổ Sát": [
+      "b83b45d63e85",
+      "faee8260fa6d"
+    ],
+    "Chợ Đà Lạt": [
+      "898180eb5691",
+      "b1ed1d2ec409",
+      "b3960517d9e9",
+      "b46e8cf6266e",
+      "bbc024de2a2a",
+      "c589176b2272",
+      "cb96e649a3da",
+      "de53bd06d241",
+      "e413384c7524"
+    ],
+    "Crazy House": [
+      "1af2ccf64ad3",
+      "1bae7a51f8cf",
+      "3ba34eea4a80",
+      "6325e6ad1fdb"
+    ],
+    "Cánh Đồng Hoa Cẩm Tú Cầu": [
+      "7ba145b35d22",
+      "b3960517d9e9",
+      "b83b45d63e85",
+      "bbc024de2a2a",
+      "faee8260fa6d"
+    ],
+    "Cổng Trời Bali Green Hill": [
+      "1af2ccf64ad3",
+      "3d291bbbe7a1"
+    ],
+    "Dapa Hill": [
+      "8aa721af2943"
+    ],
+    "Dinh Bảo Đại": [
+      "1af2ccf64ad3",
+      "3d291bbbe7a1",
+      "469a52c42070",
+      "7ba145b35d22",
+      "c8afdd98270a",
+      "de53bd06d241",
+      "e413384c7524"
+    ],
+    "Fresh Garden": [
+      "1af2ccf64ad3",
+      "3d291bbbe7a1",
+      "6325e6ad1fdb",
+      "85424eece132",
+      "cb96e649a3da"
+    ],
+    "Gallery La Chocotea": [
+      "469a52c42070",
+      "898180eb5691",
+      "c589176b2272"
+    ],
+    "Happy Hill": [
+      "bbc024de2a2a"
+    ],
+    "Hồ Tuyền Lâm": [
+      "1af2ccf64ad3",
+      "3954355044af",
+      "3d291bbbe7a1",
+      "683ada3345d5",
+      "7ba145b35d22",
+      "b83b45d63e85",
+      "bbc024de2a2a",
+      "cb96e649a3da",
+      "de53bd06d241",
+      "faee8260fa6d"
+    ],
+    "Hồ Xuân Hương": [
+      "1af2ccf64ad3",
+      "2145b06b59fc",
+      "3d291bbbe7a1",
+      "469a52c42070",
+      "898180eb5691",
+      "8aa721af2943",
+      "b1ed1d2ec409",
+      "c589176b2272",
+      "c8afdd98270a",
+      "cb96e649a3da",
+      "de53bd06d241"
+    ],
+    "KDL Suối Bình Yên": [
+      "1af2ccf64ad3",
+      "b46e8cf6266e"
+    ],
+    "Langbiang": [
+      "1af2ccf64ad3",
+      "2145b06b59fc",
+      "23e3ee949e36",
+      "3954355044af",
+      "3ba34eea4a80",
+      "5603d5ab707a",
+      "898180eb5691",
+      "8aa721af2943",
+      "b46e8cf6266e",
+      "b83b45d63e85",
+      "cb96e649a3da",
+      "cfd8d5d356b5",
+      "de53bd06d241",
+      "e413384c7524",
+      "f6668e11d42b",
+      "faee8260fa6d"
+    ],
+    "Làng Cù Lần": [
+      "cfd8d5d356b5",
+      "f6668e11d42b"
+    ],
+    "Làng Hoa Vạn Thành": [
+      "311eedfc2bac",
+      "cfd8d5d356b5",
+      "de53bd06d241",
+      "f9b3e022820d",
+      "faee8260fa6d"
+    ],
+    "Lạc Hư Cổ Trấn": [
+      "85424eece132"
+    ],
+    "Lặng Art Café": [
+      "469a52c42070",
+      "c8afdd98270a"
+    ],
+    "Mongo Land": [
+      "bbc024de2a2a"
+    ],
+    "Nhà Ga Đà Lạt": [
+      "e413384c7524"
+    ],
+    "Nhà Thờ Con Gà": [
+      "1af2ccf64ad3",
+      "7ba145b35d22",
+      "b83b45d63e85",
+      "faee8260fa6d"
+    ],
+    "Nhà Thờ Domain De Marie": [
+      "1af2ccf64ad3",
+      "3d291bbbe7a1",
+      "469a52c42070",
+      "b1ed1d2ec409",
+      "c589176b2272"
+    ],
+    "Nông Trại Cổ Tích": [
+      "469a52c42070",
+      "898180eb5691",
+      "8aa721af2943",
+      "c589176b2272"
+    ],
+    "Puppy Farm": [
+      "1af2ccf64ad3",
+      "3d291bbbe7a1",
+      "8aa721af2943",
+      "b3960517d9e9"
+    ],
+    "Quảng Trường Lâm Viên": [
+      "1af2ccf64ad3",
+      "2145b06b59fc",
+      "23e3ee949e36",
+      "3ba34eea4a80",
+      "3d291bbbe7a1",
+      "469a52c42070",
+      "683ada3345d5",
+      "7ba145b35d22",
+      "898180eb5691",
+      "8aa721af2943",
+      "b1ed1d2ec409",
+      "b46e8cf6266e",
+      "b83b45d63e85",
+      "bbc024de2a2a",
+      "c589176b2272",
+      "cb96e649a3da",
+      "e413384c7524"
+    ],
+    "Royal Garden": [
+      "898180eb5691",
+      "c589176b2272"
+    ],
+    "Samten Hills": [
+      "898180eb5691",
+      "8aa721af2943",
+      "b46e8cf6266e"
+    ],
+    "Thiền Viện Trúc Lâm": [
+      "1af2ccf64ad3",
+      "3954355044af",
+      "3d291bbbe7a1",
+      "469a52c42070",
+      "683ada3345d5",
+      "7ba145b35d22",
+      "b46e8cf6266e",
+      "b83b45d63e85",
+      "bbc024de2a2a",
+      "c8afdd98270a",
+      "cb96e649a3da",
+      "e413384c7524",
+      "faee8260fa6d"
+    ],
+    "Thiền Viện Vạn Hạnh": [
+      "7ba145b35d22",
+      "b83b45d63e85",
+      "faee8260fa6d"
+    ],
+    "Thung Lũng Tình Yêu": [
+      "2145b06b59fc",
+      "de53bd06d241",
+      "e413384c7524"
+    ],
+    "Thung Lũng Vàng": [
+      "b83b45d63e85",
+      "de53bd06d241",
+      "f6668e11d42b",
+      "faee8260fa6d"
+    ],
+    "Thác Bobla": [
+      "898180eb5691"
+    ],
+    "Thác Cam Ly": [
+      "311eedfc2bac",
+      "e413384c7524"
+    ],
+    "Thác Datanla": [
+      "1af2ccf64ad3",
+      "1bae7a51f8cf",
+      "3954355044af",
+      "6325e6ad1fdb",
+      "7ba145b35d22",
+      "7fe58e0ee0b3",
+      "8aa721af2943",
+      "b1ed1d2ec409",
+      "b83b45d63e85",
+      "c589176b2272",
+      "de53bd06d241",
+      "e413384c7524",
+      "faee8260fa6d"
+    ],
+    "Thác Pongour": [
+      "7fe58e0ee0b3",
+      "b3960517d9e9"
+    ],
+    "Thác Prenn": [
+      "7fe58e0ee0b3"
+    ],
+    "Thác Voi": [
+      "311eedfc2bac",
+      "3954355044af",
+      "7fe58e0ee0b3",
+      "b1ed1d2ec409",
+      "b83b45d63e85",
+      "c589176b2272",
+      "e413384c7524",
+      "faee8260fa6d"
+    ],
+    "Thị Trấn Iyashi": [
+      "5603d5ab707a",
+      "85424eece132"
+    ],
+    "Tiệm Nướng Chuyến Tàu Hoàng Hôn": [
+      "1af2ccf64ad3",
+      "3d291bbbe7a1"
+    ],
+    "Trại Mát": [
+      "311eedfc2bac",
+      "b46e8cf6266e",
+      "bbc024de2a2a",
+      "cfd8d5d356b5"
+    ],
+    "Tu Viện Bát Nhã": [
+      "bbc024de2a2a"
+    ],
+    "Vườn Châu Âu": [
+      "85424eece132"
+    ],
+    "Vườn Dâu Đà Lạt": [
+      "3954355044af",
+      "469a52c42070",
+      "c8afdd98270a",
+      "cfd8d5d356b5",
+      "f9b3e022820d"
+    ],
+    "Vườn Hoa Thành Phố": [
+      "2145b06b59fc",
+      "7ba145b35d22",
+      "b83b45d63e85",
+      "de53bd06d241",
+      "e413384c7524",
+      "faee8260fa6d"
+    ],
+    "Vườn Địa Đàng": [
+      "b46e8cf6266e"
+    ],
+    "Đường Hầm Đất Sét": [
+      "1af2ccf64ad3",
+      "1bae7a51f8cf",
+      "3954355044af",
+      "6325e6ad1fdb"
+    ],
+    "Đại Bảo Tháp Kinh Luân": [
+      "898180eb5691",
+      "8aa721af2943"
+    ],
+    "Đồi Chè Cầu Đất": [
+      "898180eb5691",
+      "b1ed1d2ec409",
+      "b3960517d9e9",
+      "c589176b2272",
+      "cb96e649a3da",
+      "f9b3e022820d"
+    ],
+    "Đồi Robin": [
+      "3954355044af",
+      "7ba145b35d22",
+      "b83b45d63e85",
+      "c8afdd98270a",
+      "de53bd06d241",
+      "faee8260fa6d"
+    ]
+  },
+  "service_to_tours": {
+    "co_bao_hiem_du_lich": [
+      "b3960517d9e9",
+      "b46e8cf6266e",
+      "bbc024de2a2a",
+      "cb96e649a3da"
+    ],
+    "co_bua_an": [
+      "1af2ccf64ad3",
+      "23e3ee949e36",
+      "311eedfc2bac",
+      "3954355044af",
+      "3d291bbbe7a1",
+      "469a52c42070",
+      "683ada3345d5",
+      "7ba145b35d22",
+      "7fe58e0ee0b3",
+      "898180eb5691",
+      "8aa721af2943",
+      "b1ed1d2ec409",
+      "b3960517d9e9",
+      "b46e8cf6266e",
+      "bbc024de2a2a",
+      "c589176b2272",
+      "c8afdd98270a",
+      "cfd8d5d356b5",
+      "de53bd06d241",
+      "f6668e11d42b",
+      "f9b3e022820d"
+    ],
+    "co_dua_don": [
+      "1af2ccf64ad3",
+      "3d291bbbe7a1",
+      "469a52c42070",
+      "898180eb5691",
+      "8aa721af2943",
+      "c589176b2272"
+    ],
+    "co_huong_dan_vien": [
+      "1af2ccf64ad3",
+      "2145b06b59fc",
+      "311eedfc2bac",
+      "3954355044af",
+      "3ba34eea4a80",
+      "3d291bbbe7a1",
+      "469a52c42070",
+      "683ada3345d5",
+      "7ba145b35d22",
+      "898180eb5691",
+      "b3960517d9e9",
+      "b46e8cf6266e",
+      "b83b45d63e85",
+      "bbc024de2a2a",
+      "c589176b2272",
+      "c8afdd98270a",
+      "cb96e649a3da",
+      "cfd8d5d356b5",
+      "e413384c7524",
+      "f6668e11d42b",
+      "f9b3e022820d",
+      "faee8260fa6d"
+    ],
+    "co_khach_san": [
+      "1af2ccf64ad3",
+      "2145b06b59fc",
+      "23e3ee949e36",
+      "3ba34eea4a80",
+      "3d291bbbe7a1",
+      "469a52c42070",
+      "683ada3345d5",
+      "7ba145b35d22",
+      "898180eb5691",
+      "b3960517d9e9",
+      "b46e8cf6266e",
+      "b83b45d63e85",
+      "bbc024de2a2a",
+      "c589176b2272",
+      "c8afdd98270a",
+      "cb96e649a3da",
+      "de53bd06d241",
+      "e413384c7524",
+      "faee8260fa6d"
+    ],
+    "co_ve_tham_quan": [
+      "1af2ccf64ad3",
+      "2145b06b59fc",
+      "23e3ee949e36",
+      "311eedfc2bac",
+      "3954355044af",
+      "3ba34eea4a80",
+      "3d291bbbe7a1",
+      "683ada3345d5",
+      "7ba145b35d22",
+      "7fe58e0ee0b3",
+      "898180eb5691",
+      "b1ed1d2ec409",
+      "b3960517d9e9",
+      "b46e8cf6266e",
+      "b83b45d63e85",
+      "bbc024de2a2a",
+      "c589176b2272",
+      "cb96e649a3da",
+      "cfd8d5d356b5",
+      "de53bd06d241",
+      "e413384c7524",
+      "f6668e11d42b",
+      "f9b3e022820d",
+      "faee8260fa6d"
+    ],
+    "co_xe_du_lich": [
+      "1af2ccf64ad3",
+      "23e3ee949e36",
+      "311eedfc2bac",
+      "3954355044af",
+      "3d291bbbe7a1",
+      "469a52c42070",
+      "683ada3345d5",
+      "7ba145b35d22",
+      "7fe58e0ee0b3",
+      "898180eb5691",
+      "8aa721af2943",
+      "b1ed1d2ec409",
+      "b3960517d9e9",
+      "b83b45d63e85",
+      "c589176b2272",
+      "c8afdd98270a",
+      "cb96e649a3da",
+      "cfd8d5d356b5",
+      "f6668e11d42b",
+      "faee8260fa6d"
+    ]
+  },
+  "tour_quality_index": {
+    "1af2ccf64ad3": 1.0,
+    "1bae7a51f8cf": 0.4357,
+    "2145b06b59fc": 0.6905,
+    "23e3ee949e36": 0.5683,
+    "311eedfc2bac": 0.7183,
+    "3954355044af": 0.7183,
+    "3ba34eea4a80": 0.5905,
+    "3d291bbbe7a1": 1.0,
+    "469a52c42070": 0.8889,
+    "5603d5ab707a": 0.3857,
+    "6325e6ad1fdb": 0.5357,
+    "683ada3345d5": 0.646,
+    "7ba145b35d22": 0.746,
+    "7fe58e0ee0b3": 0.6405,
+    "85424eece132": 0.4857,
+    "898180eb5691": 0.9167,
+    "8aa721af2943": 0.8333,
+    "b1ed1d2ec409": 0.8333,
+    "b3960517d9e9": 1.0,
+    "b46e8cf6266e": 1.0,
+    "b83b45d63e85": 0.8611,
+    "bbc024de2a2a": 1.0,
+    "c589176b2272": 0.9167,
+    "c8afdd98270a": 0.8611,
+    "cb96e649a3da": 1.0,
+    "cfd8d5d356b5": 0.7183,
+    "de53bd06d241": 0.7619,
+    "e413384c7524": 0.7619,
+    "f6668e11d42b": 0.6183,
+    "f9b3e022820d": 0.5905,
+    "faee8260fa6d": 0.8611
+  }
+}

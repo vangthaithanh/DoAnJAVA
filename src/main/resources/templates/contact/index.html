@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head(${pageTitle})}"></head>
+<body>
+<header th:replace="~{fragments/layout :: header}"></header>
+<section th:replace="~{fragments/layout :: pageBanner('Liên hệ tư vấn', 'Leave your information and our consultant will contact you soon.')}"></section>
+<div th:replace="~{fragments/layout :: flash}"></div>
+
+<main class="section-padding contact-section">
+  <div class="container">
+    <div class="row g-4 align-items-stretch">
+      <div class="col-lg-6 reveal">
+        <div class="contact-copy">
+          <div class="section-kicker"><i class="fa-solid fa-house-chimney"></i> Liên hệ</div>
+          <h2>Liên hệ tư vấn</h2>
+          <p>Gửi thông tin để WebDuLich tư vấn tour trong nước hoặc hỗ trợ tạo lịch trình phù hợp.</p>
+
+          <div class="contact-feature">
+            <i class="fa-solid fa-house-user"></i>
+            <div><h5>Đặt tour trong nước</h5><p>Nhận tư vấn tuyến tour, ngày khởi hành, số chỗ còn và chi phí dự kiến.</p></div>
+          </div>
+          <div class="contact-feature">
+            <i class="fa-solid fa-building-user"></i>
+            <div><h5>Buy New Tour</h5><p>Chọn điểm đến, số ngày, ngân sách và nhận gợi ý lịch trình theo từng ngày.</p></div>
+          </div>
+          <div class="contact-map">
+            <i class="fa-solid fa-map-location-dot"></i>
+            <span>Bản đồ điểm đến Việt Nam</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 reveal delay-1">
+        <form class="contact-form" th:action="@{/contact}" th:object="${contactNội dung cần tư vấn}" method="post">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <input type="text" th:field="*{name}" class="form-control" placeholder="Họ tên">
+              <span class="error-text" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+            </div>
+            <div class="col-md-6">
+              <input type="email" th:field="*{email}" class="form-control" placeholder="Email">
+              <span class="error-text" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+            </div>
+            <div class="col-12">
+              <input type="text" th:field="*{phone}" class="form-control" placeholder="Số điện thoại">
+            </div>
+            <div class="col-12">
+              <textarea th:field="*{message}" class="form-control" rows="6" placeholder="Nội dung cần tư vấn"></textarea>
+            </div>
+            <div class="col-12">
+              <button class="btn btn-theme w-100 magnetic-btn" type="submit">Send Nội dung cần tư vấn</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+<th:block th:replace="~{fragments/layout :: scripts}"></th:block>
+</body>
+</html>

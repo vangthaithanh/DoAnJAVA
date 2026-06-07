@@ -1,0 +1,32 @@
+[
+  {
+    "destination_key": "da_lat",
+    "destination_name": "Đà Lạt",
+    "clean_tour_count": 75,
+    "place_count": 63,
+    "service_count": 9,
+    "place_rule_count": 316,
+    "service_rule_count": 17,
+    "model_readiness": "ready"
+  },
+  {
+    "destination_key": "phan_thiet",
+    "destination_name": "Phan Thiết / Mũi Né",
+    "clean_tour_count": 32,
+    "place_count": 21,
+    "service_count": 9,
+    "place_rule_count": 71,
+    "service_rule_count": 34,
+    "model_readiness": "ready"
+  },
+  {
+    "destination_key": "vung_tau",
+    "destination_name": "Vũng Tàu",
+    "clean_tour_count": 40,
+    "place_count": 39,
+    "service_count": 9,
+    "place_rule_count": 93,
+    "service_rule_count": 26,
+    "model_readiness": "ready"
+  }
+]

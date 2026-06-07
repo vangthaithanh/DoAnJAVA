@@ -1,0 +1,392 @@
+{
+  "hotel": [
+    {
+      "destination_key": "phan_thiet",
+      "consequent_service": "insurance",
+      "support_count": 12,
+      "support": 0.4444,
+      "confidence": 1.0,
+      "lift": 1.2273,
+      "rule_level": "manh",
+      "source_transaction_count": 27,
+      "rule_score": 0.7789
+    },
+    {
+      "destination_key": "phan_thiet",
+      "consequent_service": "guide",
+      "support_count": 12,
+      "support": 0.4444,
+      "confidence": 1.0,
+      "lift": 1.0385,
+      "rule_level": "manh",
+      "source_transaction_count": 27,
+      "rule_score": 0.7565
+    },
+    {
+      "destination_key": "phan_thiet",
+      "consequent_service": "ticket",
+      "support_count": 11,
+      "support": 0.4074,
+      "confidence": 0.9167,
+      "lift": 1.125,
+      "rule_level": "manh",
+      "source_transaction_count": 27,
+      "rule_score": 0.7292
+    },
+    {
+      "destination_key": "phan_thiet",
+      "consequent_service": "meal",
+      "support_count": 8,
+      "support": 0.2963,
+      "confidence": 0.6667,
+      "lift": 1.2,
+      "rule_level": "manh",
+      "source_transaction_count": 27,
+      "rule_score": 0.6139
+    },
+    {
+      "destination_key": "phan_thiet",
+      "consequent_service": "resort",
+      "support_count": 8,
+      "support": 0.2963,
+      "confidence": 0.6667,
+      "lift": 1.125,
+      "rule_level": "manh",
+      "source_transaction_count": 27,
+      "rule_score": 0.605
+    }
+  ],
+  "guide": [
+    {
+      "destination_key": "phan_thiet",
+      "consequent_service": "insurance",
+      "support_count": 22,
+      "support": 0.8148,
+      "confidence": 0.8462,
+      "lift": 1.0385,
+      "rule_level": "manh",
+      "source_transaction_count": 27,
+      "rule_score": 0.8585
+    },
+    {
+      "destination_key": "phan_thiet",
+      "consequent_service": "ticket",
+      "support_count": 22,
+      "support": 0.8148,
+      "confidence": 0.8462,
+      "lift": 1.0385,
+      "rule_level": "manh",
+      "source_transaction_count": 27,
+      "rule_score": 0.8565
+    }
+  ],
+  "insurance": [
+    {
+      "destination_key": "phan_thiet",
+      "consequent_service": "guide",
+      "support_count": 22,
+      "support": 0.8148,
+      "confidence": 1.0,
+      "lift": 1.0385,
+      "rule_level": "manh",
+      "source_transaction_count": 27,
+      "rule_score": 0.9047
+    },
+    {
+      "destination_key": "phan_thiet",
+      "consequent_service": "ticket",
+      "support_count": 19,
+      "support": 0.7037,
+      "confidence": 0.8636,
+      "lift": 1.0599,
+      "rule_level": "manh",
+      "source_transaction_count": 27,
+      "rule_score": 0.8228
+    },
+    {
+      "destination_key": "phan_thiet",
+      "consequent_service": "transport",
+      "support_count": 19,
+      "support": 0.7037,
+      "confidence": 0.8636,
+      "lift": 1.0138,
+      "rule_level": "manh",
+      "source_transaction_count": 27,
+      "rule_score": 0.8149
+    },
+    {
+      "destination_key": "phan_thiet",
+      "consequent_service": "resort",
+      "support_count": 14,
+      "support": 0.5185,
+      "confidence": 0.6364,
+      "lift": 1.0739,
+      "rule_level": "manh",
+      "source_transaction_count": 27,
+      "rule_score": 0.6781
+    },
+    {
+      "destination_key": "phan_thiet",
+      "consequent_service": "meal",
+      "support_count": 13,
+      "support": 0.4815,
+      "confidence": 0.5909,
+      "lift": 1.0636,
+      "rule_level": "manh",
+      "source_transaction_count": 27,
+      "rule_score": 0.6498
+    },
+    {
+      "destination_key": "phan_thiet",
+      "consequent_service": "hotel",
+      "support_count": 12,
+      "support": 0.4444,
+      "confidence": 0.5455,
+      "lift": 1.2273,
+      "rule_level": "manh",
+      "source_transaction_count": 27,
+      "rule_score": 0.6425
+    }
+  ],
+  "ticket": [
+    {
+      "destination_key": "phan_thiet",
+      "consequent_service": "guide",
+      "support_count": 22,
+      "support": 0.8148,
+      "confidence": 1.0,
+      "lift": 1.0385,
+      "rule_level": "manh",
+      "source_transaction_count": 27,
+      "rule_score": 0.9026
+    },
+    {
+      "destination_key": "phan_thiet",
+      "consequent_service": "insurance",
+      "support_count": 19,
+      "support": 0.7037,
+      "confidence": 0.8636,
+      "lift": 1.0599,
+      "rule_level": "manh",
+      "source_transaction_count": 27,
+      "rule_score": 0.8228
+    },
+    {
+      "destination_key": "phan_thiet",
+      "consequent_service": "transport",
+      "support_count": 19,
+      "support": 0.7037,
+      "confidence": 0.8636,
+      "lift": 1.0138,
+      "rule_level": "manh",
+      "source_transaction_count": 27,
+      "rule_score": 0.8149
+    },
+    {
+      "destination_key": "phan_thiet",
+      "consequent_service": "hotel",
+      "support_count": 11,
+      "support": 0.4074,
+      "confidence": 0.5,
+      "lift": 1.125,
+      "rule_level": "manh",
+      "source_transaction_count": 27,
+      "rule_score": 0.6042
+    }
+  ],
+  "meal": [
+    {
+      "destination_key": "phan_thiet",
+      "consequent_service": "resort",
+      "support_count": 13,
+      "support": 0.4815,
+      "confidence": 0.8667,
+      "lift": 1.4625,
+      "rule_level": "manh",
+      "source_transaction_count": 27,
+      "rule_score": 0.7729
+    },
+    {
+      "destination_key": "phan_thiet",
+      "consequent_service": "insurance",
+      "support_count": 13,
+      "support": 0.4815,
+      "confidence": 0.8667,
+      "lift": 1.0636,
+      "rule_level": "manh",
+      "source_transaction_count": 27,
+      "rule_score": 0.7325
+    },
+    {
+      "destination_key": "phan_thiet",
+      "consequent_service": "transport",
+      "support_count": 13,
+      "support": 0.4815,
+      "confidence": 0.8667,
+      "lift": 1.0174,
+      "rule_level": "manh",
+      "source_transaction_count": 27,
+      "rule_score": 0.7236
+    },
+    {
+      "destination_key": "phan_thiet",
+      "consequent_service": "hotel",
+      "support_count": 8,
+      "support": 0.2963,
+      "confidence": 0.5333,
+      "lift": 1.2,
+      "rule_level": "manh",
+      "source_transaction_count": 27,
+      "rule_score": 0.5739
+    }
+  ],
+  "resort": [
+    {
+      "destination_key": "phan_thiet",
+      "consequent_service": "meal",
+      "support_count": 13,
+      "support": 0.4815,
+      "confidence": 0.8125,
+      "lift": 1.4625,
+      "rule_level": "manh",
+      "source_transaction_count": 27,
+      "rule_score": 0.7566
+    },
+    {
+      "destination_key": "phan_thiet",
+      "consequent_service": "insurance",
+      "support_count": 14,
+      "support": 0.5185,
+      "confidence": 0.875,
+      "lift": 1.0739,
+      "rule_level": "manh",
+      "source_transaction_count": 27,
+      "rule_score": 0.7496
+    },
+    {
+      "destination_key": "phan_thiet",
+      "consequent_service": "hotel",
+      "support_count": 8,
+      "support": 0.2963,
+      "confidence": 0.5,
+      "lift": 1.125,
+      "rule_level": "manh",
+      "source_transaction_count": 27,
+      "rule_score": 0.555
+    }
+  ],
+  "transport": [
+    {
+      "destination_key": "phan_thiet",
+      "consequent_service": "insurance",
+      "support_count": 19,
+      "support": 0.7037,
+      "confidence": 0.8261,
+      "lift": 1.0138,
+      "rule_level": "manh",
+      "source_transaction_count": 27,
+      "rule_score": 0.8037
+    },
+    {
+      "destination_key": "phan_thiet",
+      "consequent_service": "ticket",
+      "support_count": 19,
+      "support": 0.7037,
+      "confidence": 0.8261,
+      "lift": 1.0138,
+      "rule_level": "manh",
+      "source_transaction_count": 27,
+      "rule_score": 0.8037
+    },
+    {
+      "destination_key": "phan_thiet",
+      "consequent_service": "meal",
+      "support_count": 13,
+      "support": 0.4815,
+      "confidence": 0.5652,
+      "lift": 1.0174,
+      "rule_level": "manh",
+      "source_transaction_count": 27,
+      "rule_score": 0.6331
+    }
+  ],
+  "pickup": [
+    {
+      "destination_key": "phan_thiet",
+      "consequent_service": "insurance",
+      "support_count": 4,
+      "support": 0.1481,
+      "confidence": 1.0,
+      "lift": 1.2273,
+      "rule_level": "manh",
+      "source_transaction_count": 27,
+      "rule_score": 0.6591
+    },
+    {
+      "destination_key": "phan_thiet",
+      "consequent_service": "ticket",
+      "support_count": 4,
+      "support": 0.1481,
+      "confidence": 1.0,
+      "lift": 1.2273,
+      "rule_level": "manh",
+      "source_transaction_count": 27,
+      "rule_score": 0.6591
+    },
+    {
+      "destination_key": "phan_thiet",
+      "consequent_service": "transport",
+      "support_count": 4,
+      "support": 0.1481,
+      "confidence": 1.0,
+      "lift": 1.1739,
+      "rule_level": "manh",
+      "source_transaction_count": 27,
+      "rule_score": 0.6528
+    },
+    {
+      "destination_key": "phan_thiet",
+      "consequent_service": "guide",
+      "support_count": 4,
+      "support": 0.1481,
+      "confidence": 1.0,
+      "lift": 1.0385,
+      "rule_level": "manh",
+      "source_transaction_count": 27,
+      "rule_score": 0.6367
+    },
+    {
+      "destination_key": "phan_thiet",
+      "consequent_service": "hotel",
+      "support_count": 3,
+      "support": 0.1111,
+      "confidence": 0.75,
+      "lift": 1.6875,
+      "rule_level": "manh",
+      "source_transaction_count": 27,
+      "rule_score": 0.6227
+    },
+    {
+      "destination_key": "phan_thiet",
+      "consequent_service": "meal",
+      "support_count": 3,
+      "support": 0.1111,
+      "confidence": 0.75,
+      "lift": 1.35,
+      "rule_level": "manh",
+      "source_transaction_count": 27,
+      "rule_score": 0.5827
+    },
+    {
+      "destination_key": "phan_thiet",
+      "consequent_service": "resort",
+      "support_count": 3,
+      "support": 0.1111,
+      "confidence": 0.75,
+      "lift": 1.2656,
+      "rule_level": "manh",
+      "source_transaction_count": 27,
+      "rule_score": 0.5727
+    }
+  ]
+}

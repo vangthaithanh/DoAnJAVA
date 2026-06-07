@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head(${pageTitle})}"></head>
+<body>
+<header th:replace="~{fragments/layout :: header}"></header>
+<section th:replace="~{fragments/layout :: pageBanner('Cẩm nang', 'Latest news, guides and property buying tips.')}"></section>
+
+<main class="section-padding news-section">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6 reveal" th:each="blog, iter : ${blogs}" th:classappend="${iter.index % 3 == 1 ? 'delay-1' : (iter.index % 3 == 2 ? 'delay-2' : '')}">
+        <article class="news-card tilt-card">
+          <a th:href="@{/blog/{id}(id=${blog.id})}"><img th:src="${blog.imageUrl}" th:alt="${blog.title}"></a>
+          <div class="news-body">
+            <div class="news-meta">
+              <span th:text="${blog.category}">Business</span>
+              <span th:text="${#temporals.format(blog.publishedDate, 'dd MMM yyyy')}">02 Apr 2026</span>
+            </div>
+            <h5><a th:href="@{/blog/{id}(id=${blog.id})}" th:text="${blog.title}">Cẩm nang title</a></h5>
+            <p th:text="${blog.summary}">Summary</p>
+            <a th:href="@{/blog/{id}(id=${blog.id})}">Đọc thêm <i class="fa-solid fa-arrow-right-long"></i></a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+<th:block th:replace="~{fragments/layout :: scripts}"></th:block>
+</body>
+</html>

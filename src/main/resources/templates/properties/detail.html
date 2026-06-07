@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head(${pageTitle})}"></head>
+<body>
+<header th:replace="~{fragments/layout :: header}"></header>
+<section th:replace="~{fragments/layout :: pageBanner(${property.title}, ${property.location})}"></section>
+<div th:replace="~{fragments/layout :: flash}"></div>
+
+<main class="section-padding">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-8">
+        <div class="detail-gallery reveal">
+          <img id="mainGalleryImage" class="detail-main-img" th:src="${property.imageUrl}" th:alt="${property.title}">
+          <div class="gallery-thumbs">
+            <button type="button" class="active" th:data-src="${property.imageUrl}"><img th:src="${property.imageUrl}" alt="Ảnh tour"></button>
+            <button type="button" th:data-src="${property.galleryImageOne}"><img th:src="${property.galleryImageOne}" alt="Ảnh tour"></button>
+            <button type="button" th:data-src="${property.galleryImageTwo}"><img th:src="${property.galleryImageTwo}" alt="Ảnh tour"></button>
+            <button type="button" th:data-src="${property.galleryImageThree}"><img th:src="${property.galleryImageThree}" alt="Ảnh tour"></button>
+          </div>
+        </div>
+
+        <div class="detail-card reveal">
+          <div class="detail-head">
+            <div>
+              <span class="sale-badge static-badge" th:text="${property.status}">Đang mở bán</span>
+              <h2 th:text="${property.title}">Tên tour</h2>
+              <p><i class="fa-solid fa-route"></i> <span th:text="${property.location}"></span></p>
+            </div>
+            <div class="property-price big" th:text="${property.price == 0 ? 'Theo yêu cầu' : #numbers.formatDecimal(property.price, 0, 'COMMA', 0, 'POINT') + 'đ'}">3,990,000đ</div>
+          </div>
+
+          <div class="detail-stats">
+            <div><i class="fa-solid fa-calendar-day"></i><strong th:text="${property.bedrooms}">3</strong><span>Ngày</span></div>
+            <div><i class="fa-solid fa-moon"></i><strong th:text="${property.bathrooms}">2</strong><span>Đêm</span></div>
+            <div><i class="fa-solid fa-users"></i><strong th:text="${property.parking}">18</strong><span>Chỗ còn</span></div>
+            <div><i class="fa-solid fa-user-group"></i><strong th:text="${property.area}">35</strong><span>Lượt quan tâm</span></div>
+          </div>
+
+          <h4>Điểm nhấn hành trình</h4>
+          <p class="detail-desc" th:text="${property.description}">Mô tả tour</p>
+          <div class="tour-model-highlights" th:if="${!modelTourPlaces.isEmpty() || !modelTourServices.isEmpty()}">
+            <div th:if="${!modelTourPlaces.isEmpty()}">
+              <h5><i class="fa-solid fa-location-dot"></i> Các địa điểm sẽ đi</h5>
+              <div class="tour-model-tags">
+                <span th:each="place : ${modelTourPlaces}" th:text="${place}">Địa điểm</span>
+              </div>
+            </div>
+            <div th:if="${!modelTourServices.isEmpty()}">
+              <h5><i class="fa-solid fa-bell-concierge"></i> Dịch vụ nổi bật trong tour</h5>
+              <div class="tour-model-tags service-tags">
+                <span th:each="service : ${modelTourServices}" th:text="${service.label}">Dịch vụ</span>
+              </div>
+            </div>
+          </div>
+
+          <h4>Tổng quan tour</h4>
+          <div class="overview-grid">
+            <div><span>Loại tour</span><strong th:text="${property.type}">Tour trong nước</strong></div>
+            <div><span>Điểm đến chính</span><strong th:text="${property.city}">Đà Nẵng</strong></div>
+            <div><span>Năm mở bán</span><strong th:text="${property.yearBuilt}">2026</strong></div>
+            <div><span>Trạng thái</span><strong th:text="${property.status}">Đang mở bán</strong></div>
+          </div>
+
+          <div class="d-flex flex-wrap gap-2 mt-4">
+            <a class="btn btn-theme magnetic-btn" href="#bookingForm">Đăng ký tư vấn tour</a>
+            <a class="btn btn-outline-theme" th:href="@{/itinerary}">Tự tạo lịch trình riêng</a>
+          </div>
+        </div>
+
+        <div class="detail-card reveal">
+          <h4>Tour gợi ý khác</h4>
+          <div class="row g-3">
+            <div class="col-md-4" th:each="p : ${relatedTours}">
+              <a class="mini-related" th:href="@{/tours/{id}(id=${p.id})}">
+                <img th:src="${p.imageUrl}" th:alt="${p.title}">
+                <strong th:text="${p.title}">Tên tour</strong>
+                <span th:text="${p.price == 0 ? 'Theo yêu cầu' : #numbers.formatDecimal(p.price, 0, 'COMMA', 0, 'POINT') + 'đ'}">3,990,000đ</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="col-lg-4">
+        <div class="agent-profile-side reveal" th:if="${property.agent != null}">
+          <img th:src="${property.agent.avatarUrl}" th:alt="${property.agent.fullName}">
+          <h4 th:text="${property.agent.fullName}">Tư vấn viên</h4>
+          <p th:text="${property.agent.role}">Vai trò</p>
+          <a th:href="@{/agents/{id}(id=${property.agent.id})}" class="btn btn-outline-theme w-100">Xem tư vấn viên</a>
+        </div>
+
+        <form id="bookingForm" class="inquiry-form reveal delay-1" th:action="@{/tours/{id}/inquiry(id=${property.id})}" th:object="${inquiry}" method="post">
+          <h4>Đăng ký tư vấn / đặt tour</h4>
+          <label for="fullName">Họ tên</label>
+          <input class="form-control" type="text" th:field="*{fullName}" placeholder="Họ tên">
+          <span class="error-text" th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}"></span>
+          <label for="email">Email</label>
+          <input class="form-control" type="email" th:field="*{email}" placeholder="Email">
+          <span class="error-text" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+          <label for="phone">Số điện thoại</label>
+          <input class="form-control" type="text" th:field="*{phone}" placeholder="Số điện thoại">
+          <label for="message">Nội dung / yêu cầu tư vấn</label>
+          <textarea class="form-control" th:field="*{message}" rows="5" placeholder="Số khách, ngày dự kiến, điểm cần tư vấn..."></textarea>
+          <button class="btn btn-theme w-100" type="submit">Gửi yêu cầu tư vấn</button>
+        </form>
+      </aside>
+    </div>
+  </div>
+</main>
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+<th:block th:replace="~{fragments/layout :: scripts}"></th:block>
+</body>
+</html>

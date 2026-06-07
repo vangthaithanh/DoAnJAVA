@@ -1,0 +1,236 @@
+[
+  {
+    "name": "Biển Hồ Cốc",
+    "destination_key": "vung_tau",
+    "tour_count": 11,
+    "place_level": "core"
+  },
+  {
+    "name": "Biển Hồ Tràm",
+    "destination_key": "vung_tau",
+    "tour_count": 9,
+    "place_level": "core"
+  },
+  {
+    "name": "Biển Long Hải",
+    "destination_key": "vung_tau",
+    "tour_count": 7,
+    "place_level": "core"
+  },
+  {
+    "name": "Biển Tropicana",
+    "destination_key": "vung_tau",
+    "tour_count": 4,
+    "place_level": "core"
+  },
+  {
+    "name": "Bãi Biển 298",
+    "destination_key": "vung_tau",
+    "tour_count": 2,
+    "place_level": "rare"
+  },
+  {
+    "name": "Bãi Dâu",
+    "destination_key": "vung_tau",
+    "tour_count": 2,
+    "place_level": "rare"
+  },
+  {
+    "name": "Bãi Sau",
+    "destination_key": "vung_tau",
+    "tour_count": 5,
+    "place_level": "core"
+  },
+  {
+    "name": "Bãi Trước",
+    "destination_key": "vung_tau",
+    "tour_count": 1,
+    "place_level": "rare"
+  },
+  {
+    "name": "Bạch Dinh",
+    "destination_key": "vung_tau",
+    "tour_count": 5,
+    "place_level": "core"
+  },
+  {
+    "name": "Công Viên Rừng Minera",
+    "destination_key": "vung_tau",
+    "tour_count": 3,
+    "place_level": "core"
+  },
+  {
+    "name": "Cầu Ngắm Biển Hamptons",
+    "destination_key": "vung_tau",
+    "tour_count": 2,
+    "place_level": "rare"
+  },
+  {
+    "name": "Cầu Tình Yêu Long Hải",
+    "destination_key": "vung_tau",
+    "tour_count": 1,
+    "place_level": "rare"
+  },
+  {
+    "name": "Dinh Cô",
+    "destination_key": "vung_tau",
+    "tour_count": 16,
+    "place_level": "core"
+  },
+  {
+    "name": "Hòn Bà",
+    "destination_key": "vung_tau",
+    "tour_count": 1,
+    "place_level": "rare"
+  },
+  {
+    "name": "Hồ Mây",
+    "destination_key": "vung_tau",
+    "tour_count": 5,
+    "place_level": "core"
+  },
+  {
+    "name": "Hồ Suối Mơ Bình Châu",
+    "destination_key": "vung_tau",
+    "tour_count": 5,
+    "place_level": "core"
+  },
+  {
+    "name": "KDL Biển Đông",
+    "destination_key": "vung_tau",
+    "tour_count": 3,
+    "place_level": "core"
+  },
+  {
+    "name": "KDL Ngọc Xương",
+    "destination_key": "vung_tau",
+    "tour_count": 1,
+    "place_level": "rare"
+  },
+  {
+    "name": "Khu Giếng Trời Bình Châu",
+    "destination_key": "vung_tau",
+    "tour_count": 5,
+    "place_level": "core"
+  },
+  {
+    "name": "Lăng Cá Ông",
+    "destination_key": "vung_tau",
+    "tour_count": 3,
+    "place_level": "core"
+  },
+  {
+    "name": "Marina Vũng Tàu",
+    "destination_key": "vung_tau",
+    "tour_count": 4,
+    "place_level": "core"
+  },
+  {
+    "name": "Mũi Nghinh Phong",
+    "destination_key": "vung_tau",
+    "tour_count": 5,
+    "place_level": "core"
+  },
+  {
+    "name": "Ngọn Hải Đăng Vũng Tàu",
+    "destination_key": "vung_tau",
+    "tour_count": 3,
+    "place_level": "core"
+  },
+  {
+    "name": "Nhà Lớn Long Sơn",
+    "destination_key": "vung_tau",
+    "tour_count": 2,
+    "place_level": "rare"
+  },
+  {
+    "name": "Niết Bàn Tịnh Xá",
+    "destination_key": "vung_tau",
+    "tour_count": 5,
+    "place_level": "core"
+  },
+  {
+    "name": "Nông Trại Cừu",
+    "destination_key": "vung_tau",
+    "tour_count": 21,
+    "place_level": "core"
+  },
+  {
+    "name": "Núi Minh Đạm",
+    "destination_key": "vung_tau",
+    "tour_count": 14,
+    "place_level": "core"
+  },
+  {
+    "name": "Suối Nước Nóng Bình Châu",
+    "destination_key": "vung_tau",
+    "tour_count": 22,
+    "place_level": "core"
+  },
+  {
+    "name": "Suối Đá",
+    "destination_key": "vung_tau",
+    "tour_count": 2,
+    "place_level": "rare"
+  },
+  {
+    "name": "Thiền Viện Thường Chiếu",
+    "destination_key": "vung_tau",
+    "tour_count": 2,
+    "place_level": "rare"
+  },
+  {
+    "name": "Thiền Viện Trúc Lâm Chân Nguyên",
+    "destination_key": "vung_tau",
+    "tour_count": 1,
+    "place_level": "rare"
+  },
+  {
+    "name": "Tháp Tam Thắng",
+    "destination_key": "vung_tau",
+    "tour_count": 1,
+    "place_level": "rare"
+  },
+  {
+    "name": "Tháp Vọng Thiên",
+    "destination_key": "vung_tau",
+    "tour_count": 1,
+    "place_level": "rare"
+  },
+  {
+    "name": "Thích Ca Phật Đài",
+    "destination_key": "vung_tau",
+    "tour_count": 3,
+    "place_level": "core"
+  },
+  {
+    "name": "Tượng Chúa Kitô",
+    "destination_key": "vung_tau",
+    "tour_count": 6,
+    "place_level": "core"
+  },
+  {
+    "name": "Đèo Nước Ngọt",
+    "destination_key": "vung_tau",
+    "tour_count": 1,
+    "place_level": "rare"
+  },
+  {
+    "name": "Đại Tòng Lâm",
+    "destination_key": "vung_tau",
+    "tour_count": 6,
+    "place_level": "core"
+  },
+  {
+    "name": "Đảo Long Sơn",
+    "destination_key": "vung_tau",
+    "tour_count": 10,
+    "place_level": "core"
+  },
+  {
+    "name": "Đồi Cừu Suối Nghệ",
+    "destination_key": "vung_tau",
+    "tour_count": 10,
+    "place_level": "core"
+  }
+]

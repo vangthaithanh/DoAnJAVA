@@ -1,0 +1,302 @@
+{
+  "guide": [
+    {
+      "destination_key": "vung_tau",
+      "consequent_service": "ticket",
+      "support_count": 33,
+      "support": 0.8684,
+      "confidence": 0.9429,
+      "lift": 1.0857,
+      "rule_level": "manh",
+      "source_transaction_count": 38,
+      "rule_score": 0.8672
+    },
+    {
+      "destination_key": "vung_tau",
+      "consequent_service": "insurance",
+      "support_count": 29,
+      "support": 0.7632,
+      "confidence": 0.8286,
+      "lift": 1.0857,
+      "rule_level": "manh",
+      "source_transaction_count": 38,
+      "rule_score": 0.7909
+    },
+    {
+      "destination_key": "vung_tau",
+      "consequent_service": "meal",
+      "support_count": 28,
+      "support": 0.7368,
+      "confidence": 0.8,
+      "lift": 1.0133,
+      "rule_level": "manh",
+      "source_transaction_count": 38,
+      "rule_score": 0.7631
+    },
+    {
+      "destination_key": "vung_tau",
+      "consequent_service": "transport",
+      "support_count": 26,
+      "support": 0.6842,
+      "confidence": 0.7429,
+      "lift": 1.0857,
+      "rule_level": "manh",
+      "source_transaction_count": 38,
+      "rule_score": 0.7352
+    }
+  ],
+  "meal": [
+    {
+      "destination_key": "vung_tau",
+      "consequent_service": "guide",
+      "support_count": 28,
+      "support": 0.7368,
+      "confidence": 0.9333,
+      "lift": 1.0133,
+      "rule_level": "manh",
+      "source_transaction_count": 38,
+      "rule_score": 0.8031
+    },
+    {
+      "destination_key": "vung_tau",
+      "consequent_service": "ticket",
+      "support_count": 27,
+      "support": 0.7105,
+      "confidence": 0.9,
+      "lift": 1.0364,
+      "rule_level": "manh",
+      "source_transaction_count": 38,
+      "rule_score": 0.7855
+    },
+    {
+      "destination_key": "vung_tau",
+      "consequent_service": "insurance",
+      "support_count": 23,
+      "support": 0.6053,
+      "confidence": 0.7667,
+      "lift": 1.0046,
+      "rule_level": "manh",
+      "source_transaction_count": 38,
+      "rule_score": 0.7003
+    },
+    {
+      "destination_key": "vung_tau",
+      "consequent_service": "transport",
+      "support_count": 21,
+      "support": 0.5526,
+      "confidence": 0.7,
+      "lift": 1.0231,
+      "rule_level": "manh",
+      "source_transaction_count": 38,
+      "rule_score": 0.6626
+    }
+  ],
+  "ticket": [
+    {
+      "destination_key": "vung_tau",
+      "consequent_service": "guide",
+      "support_count": 33,
+      "support": 0.8684,
+      "confidence": 1.0,
+      "lift": 1.0857,
+      "rule_level": "manh",
+      "source_transaction_count": 38,
+      "rule_score": 0.8843
+    },
+    {
+      "destination_key": "vung_tau",
+      "consequent_service": "insurance",
+      "support_count": 27,
+      "support": 0.7105,
+      "confidence": 0.8182,
+      "lift": 1.0721,
+      "rule_level": "manh",
+      "source_transaction_count": 38,
+      "rule_score": 0.7663
+    },
+    {
+      "destination_key": "vung_tau",
+      "consequent_service": "meal",
+      "support_count": 27,
+      "support": 0.7105,
+      "confidence": 0.8182,
+      "lift": 1.0364,
+      "rule_level": "manh",
+      "source_transaction_count": 38,
+      "rule_score": 0.7609
+    },
+    {
+      "destination_key": "vung_tau",
+      "consequent_service": "transport",
+      "support_count": 24,
+      "support": 0.6316,
+      "confidence": 0.7273,
+      "lift": 1.0629,
+      "rule_level": "manh",
+      "source_transaction_count": 38,
+      "rule_score": 0.7084
+    }
+  ],
+  "transport": [
+    {
+      "destination_key": "vung_tau",
+      "consequent_service": "guide",
+      "support_count": 26,
+      "support": 0.6842,
+      "confidence": 1.0,
+      "lift": 1.0857,
+      "rule_level": "manh",
+      "source_transaction_count": 38,
+      "rule_score": 0.8124
+    },
+    {
+      "destination_key": "vung_tau",
+      "consequent_service": "ticket",
+      "support_count": 24,
+      "support": 0.6316,
+      "confidence": 0.9231,
+      "lift": 1.0629,
+      "rule_level": "manh",
+      "source_transaction_count": 38,
+      "rule_score": 0.7671
+    },
+    {
+      "destination_key": "vung_tau",
+      "consequent_service": "insurance",
+      "support_count": 21,
+      "support": 0.5526,
+      "confidence": 0.8077,
+      "lift": 1.0584,
+      "rule_level": "manh",
+      "source_transaction_count": 38,
+      "rule_score": 0.7007
+    },
+    {
+      "destination_key": "vung_tau",
+      "consequent_service": "meal",
+      "support_count": 21,
+      "support": 0.5526,
+      "confidence": 0.8077,
+      "lift": 1.0231,
+      "rule_level": "manh",
+      "source_transaction_count": 38,
+      "rule_score": 0.6949
+    }
+  ],
+  "hotel": [
+    {
+      "destination_key": "vung_tau",
+      "consequent_service": "guide",
+      "support_count": 16,
+      "support": 0.4211,
+      "confidence": 1.0,
+      "lift": 1.0857,
+      "rule_level": "manh",
+      "source_transaction_count": 38,
+      "rule_score": 0.7171
+    },
+    {
+      "destination_key": "vung_tau",
+      "consequent_service": "insurance",
+      "support_count": 15,
+      "support": 0.3947,
+      "confidence": 0.9375,
+      "lift": 1.2284,
+      "rule_level": "manh",
+      "source_transaction_count": 38,
+      "rule_score": 0.7046
+    },
+    {
+      "destination_key": "vung_tau",
+      "consequent_service": "ticket",
+      "support_count": 15,
+      "support": 0.3947,
+      "confidence": 0.9375,
+      "lift": 1.0795,
+      "rule_level": "manh",
+      "source_transaction_count": 38,
+      "rule_score": 0.689
+    },
+    {
+      "destination_key": "vung_tau",
+      "consequent_service": "transport",
+      "support_count": 11,
+      "support": 0.2895,
+      "confidence": 0.6875,
+      "lift": 1.0048,
+      "rule_level": "manh",
+      "source_transaction_count": 38,
+      "rule_score": 0.5705
+    }
+  ],
+  "insurance": [
+    {
+      "destination_key": "vung_tau",
+      "consequent_service": "guide",
+      "support_count": 29,
+      "support": 0.7632,
+      "confidence": 1.0,
+      "lift": 1.0857,
+      "rule_level": "manh",
+      "source_transaction_count": 38,
+      "rule_score": 0.8424
+    },
+    {
+      "destination_key": "vung_tau",
+      "consequent_service": "ticket",
+      "support_count": 27,
+      "support": 0.7105,
+      "confidence": 0.931,
+      "lift": 1.0721,
+      "rule_level": "manh",
+      "source_transaction_count": 38,
+      "rule_score": 0.8002
+    },
+    {
+      "destination_key": "vung_tau",
+      "consequent_service": "meal",
+      "support_count": 23,
+      "support": 0.6053,
+      "confidence": 0.7931,
+      "lift": 1.0046,
+      "rule_level": "manh",
+      "source_transaction_count": 38,
+      "rule_score": 0.7083
+    },
+    {
+      "destination_key": "vung_tau",
+      "consequent_service": "transport",
+      "support_count": 21,
+      "support": 0.5526,
+      "confidence": 0.7241,
+      "lift": 1.0584,
+      "rule_level": "manh",
+      "source_transaction_count": 38,
+      "rule_score": 0.6757
+    },
+    {
+      "destination_key": "vung_tau",
+      "consequent_service": "hotel",
+      "support_count": 15,
+      "support": 0.3947,
+      "confidence": 0.5172,
+      "lift": 1.2284,
+      "rule_level": "manh",
+      "source_transaction_count": 38,
+      "rule_score": 0.5786
+    }
+  ],
+  "pickup": [
+    {
+      "destination_key": "vung_tau",
+      "consequent_service": "resort",
+      "support_count": 4,
+      "support": 0.1053,
+      "confidence": 0.5,
+      "lift": 1.9,
+      "rule_level": "manh",
+      "source_transaction_count": 38,
+      "rule_score": 0.4974
+    }
+  ]
+}

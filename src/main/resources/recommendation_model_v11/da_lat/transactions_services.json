@@ -1,0 +1,1052 @@
+{
+  "0291c8447cee:services": {
+    "ma_tour": "0291c8447cee",
+    "services": {
+      "hotel": 1.0,
+      "meal": null,
+      "transport": 1.0,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": null,
+      "pickup": null,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "05fb78edd834:services": {
+    "ma_tour": "05fb78edd834",
+    "services": {
+      "hotel": 1.0,
+      "meal": 1.0,
+      "transport": null,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": null,
+      "pickup": 1.0,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "101b8d02d5f7:services": {
+    "ma_tour": "101b8d02d5f7",
+    "services": {
+      "hotel": 1.0,
+      "meal": 1.0,
+      "transport": 1.0,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": 1.0,
+      "pickup": null,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "11819d0da98f:services": {
+    "ma_tour": "11819d0da98f",
+    "services": {
+      "hotel": 1.0,
+      "meal": 1.0,
+      "transport": null,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": 1.0,
+      "pickup": null,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "13400cf7bbd6:services": {
+    "ma_tour": "13400cf7bbd6",
+    "services": {
+      "hotel": 1.0,
+      "meal": 1.0,
+      "transport": null,
+      "ticket": null,
+      "guide": 1.0,
+      "insurance": 1.0,
+      "pickup": null,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "15826a31682a:services": {
+    "ma_tour": "15826a31682a",
+    "services": {
+      "hotel": 1.0,
+      "meal": 1.0,
+      "transport": 1.0,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": 1.0,
+      "pickup": null,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "1af0b0d9db58:services": {
+    "ma_tour": "1af0b0d9db58",
+    "services": {
+      "hotel": 1.0,
+      "meal": null,
+      "transport": 1.0,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": 1.0,
+      "pickup": null,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "1af2ccf64ad3:services": {
+    "ma_tour": "1af2ccf64ad3",
+    "services": {
+      "hotel": 1.0,
+      "meal": 1.0,
+      "transport": 1.0,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": 0.0,
+      "pickup": 1.0,
+      "homestay": 0.0,
+      "resort": 0.0
+    }
+  },
+  "1bae7a51f8cf:services": {
+    "ma_tour": "1bae7a51f8cf",
+    "services": {
+      "hotel": null,
+      "meal": null,
+      "transport": null,
+      "ticket": null,
+      "guide": null,
+      "insurance": null,
+      "pickup": null,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "1e5ce5c1a6ee:services": {
+    "ma_tour": "1e5ce5c1a6ee",
+    "services": {
+      "hotel": 1.0,
+      "meal": 1.0,
+      "transport": 1.0,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": 1.0,
+      "pickup": null,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "2145b06b59fc:services": {
+    "ma_tour": "2145b06b59fc",
+    "services": {
+      "hotel": 1.0,
+      "meal": null,
+      "transport": null,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": null,
+      "pickup": null,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "23e3ee949e36:services": {
+    "ma_tour": "23e3ee949e36",
+    "services": {
+      "hotel": 1.0,
+      "meal": 1.0,
+      "transport": 1.0,
+      "ticket": 1.0,
+      "guide": null,
+      "insurance": null,
+      "pickup": null,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "2a39b063987c:services": {
+    "ma_tour": "2a39b063987c",
+    "services": {
+      "hotel": 1.0,
+      "meal": null,
+      "transport": 1.0,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": 1.0,
+      "pickup": null,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "311eedfc2bac:services": {
+    "ma_tour": "311eedfc2bac",
+    "services": {
+      "hotel": null,
+      "meal": 1.0,
+      "transport": 1.0,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": null,
+      "pickup": null,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "36a2cdcfa3b5:services": {
+    "ma_tour": "36a2cdcfa3b5",
+    "services": {
+      "hotel": 1.0,
+      "meal": null,
+      "transport": null,
+      "ticket": null,
+      "guide": 1.0,
+      "insurance": 1.0,
+      "pickup": 1.0,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "3954355044af:services": {
+    "ma_tour": "3954355044af",
+    "services": {
+      "hotel": null,
+      "meal": 1.0,
+      "transport": 1.0,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": null,
+      "pickup": null,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "39a32ead19b0:services": {
+    "ma_tour": "39a32ead19b0",
+    "services": {
+      "hotel": 1.0,
+      "meal": null,
+      "transport": 1.0,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": 1.0,
+      "pickup": null,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "3ba34eea4a80:services": {
+    "ma_tour": "3ba34eea4a80",
+    "services": {
+      "hotel": 1.0,
+      "meal": null,
+      "transport": null,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": null,
+      "pickup": null,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "3c47630f4a74:services": {
+    "ma_tour": "3c47630f4a74",
+    "services": {
+      "hotel": 1.0,
+      "meal": 1.0,
+      "transport": 1.0,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": 1.0,
+      "pickup": 1.0,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "3d291bbbe7a1:services": {
+    "ma_tour": "3d291bbbe7a1",
+    "services": {
+      "hotel": 1.0,
+      "meal": 1.0,
+      "transport": 1.0,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": 0.0,
+      "pickup": 1.0,
+      "homestay": 0.0,
+      "resort": 0.0
+    }
+  },
+  "3d6b84e87dc6:services": {
+    "ma_tour": "3d6b84e87dc6",
+    "services": {
+      "hotel": 1.0,
+      "meal": null,
+      "transport": 1.0,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": 1.0,
+      "pickup": null,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "469a52c42070:services": {
+    "ma_tour": "469a52c42070",
+    "services": {
+      "hotel": 1.0,
+      "meal": 1.0,
+      "transport": 1.0,
+      "ticket": null,
+      "guide": 1.0,
+      "insurance": null,
+      "pickup": 1.0,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "4d9b3233b190:services": {
+    "ma_tour": "4d9b3233b190",
+    "services": {
+      "hotel": 1.0,
+      "meal": null,
+      "transport": 1.0,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": 1.0,
+      "pickup": 1.0,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "51ccaeca5eb5:services": {
+    "ma_tour": "51ccaeca5eb5",
+    "services": {
+      "hotel": 1.0,
+      "meal": 1.0,
+      "transport": 1.0,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": 1.0,
+      "pickup": null,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "5603d5ab707a:services": {
+    "ma_tour": "5603d5ab707a",
+    "services": {
+      "hotel": null,
+      "meal": null,
+      "transport": null,
+      "ticket": null,
+      "guide": null,
+      "insurance": null,
+      "pickup": null,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "5882146aa338:services": {
+    "ma_tour": "5882146aa338",
+    "services": {
+      "hotel": 1.0,
+      "meal": null,
+      "transport": 1.0,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": 1.0,
+      "pickup": null,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "5982cd437c70:services": {
+    "ma_tour": "5982cd437c70",
+    "services": {
+      "hotel": null,
+      "meal": 1.0,
+      "transport": 1.0,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": null,
+      "pickup": null,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "5e1fa83aa4ac:services": {
+    "ma_tour": "5e1fa83aa4ac",
+    "services": {
+      "hotel": 1.0,
+      "meal": null,
+      "transport": 1.0,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": 1.0,
+      "pickup": null,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "6325e6ad1fdb:services": {
+    "ma_tour": "6325e6ad1fdb",
+    "services": {
+      "hotel": null,
+      "meal": null,
+      "transport": null,
+      "ticket": null,
+      "guide": null,
+      "insurance": null,
+      "pickup": null,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "683ada3345d5:services": {
+    "ma_tour": "683ada3345d5",
+    "services": {
+      "hotel": 1.0,
+      "meal": 1.0,
+      "transport": 1.0,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": null,
+      "pickup": null,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "69de6e2c89f3:services": {
+    "ma_tour": "69de6e2c89f3",
+    "services": {
+      "hotel": 1.0,
+      "meal": null,
+      "transport": 1.0,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": 1.0,
+      "pickup": null,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "6bc1f9f2c2bc:services": {
+    "ma_tour": "6bc1f9f2c2bc",
+    "services": {
+      "hotel": 1.0,
+      "meal": null,
+      "transport": 1.0,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": 1.0,
+      "pickup": null,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "722452305d2d:services": {
+    "ma_tour": "722452305d2d",
+    "services": {
+      "hotel": 1.0,
+      "meal": null,
+      "transport": 1.0,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": 1.0,
+      "pickup": null,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "79a8e63a9f0f:services": {
+    "ma_tour": "79a8e63a9f0f",
+    "services": {
+      "hotel": 1.0,
+      "meal": null,
+      "transport": 1.0,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": 1.0,
+      "pickup": null,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "7ba145b35d22:services": {
+    "ma_tour": "7ba145b35d22",
+    "services": {
+      "hotel": 1.0,
+      "meal": 1.0,
+      "transport": 1.0,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": null,
+      "pickup": null,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "7d3c66d6f6c2:services": {
+    "ma_tour": "7d3c66d6f6c2",
+    "services": {
+      "hotel": 1.0,
+      "meal": null,
+      "transport": null,
+      "ticket": null,
+      "guide": 1.0,
+      "insurance": 1.0,
+      "pickup": 1.0,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "7f6d5c589fe1:services": {
+    "ma_tour": "7f6d5c589fe1",
+    "services": {
+      "hotel": 1.0,
+      "meal": null,
+      "transport": 1.0,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": 1.0,
+      "pickup": 1.0,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "7fe58e0ee0b3:services": {
+    "ma_tour": "7fe58e0ee0b3",
+    "services": {
+      "hotel": null,
+      "meal": 1.0,
+      "transport": 1.0,
+      "ticket": 1.0,
+      "guide": null,
+      "insurance": null,
+      "pickup": null,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "80b85e2f28cf:services": {
+    "ma_tour": "80b85e2f28cf",
+    "services": {
+      "hotel": 1.0,
+      "meal": null,
+      "transport": 1.0,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": 1.0,
+      "pickup": null,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "85424eece132:services": {
+    "ma_tour": "85424eece132",
+    "services": {
+      "hotel": null,
+      "meal": null,
+      "transport": null,
+      "ticket": null,
+      "guide": null,
+      "insurance": null,
+      "pickup": null,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "898180eb5691:services": {
+    "ma_tour": "898180eb5691",
+    "services": {
+      "hotel": 1.0,
+      "meal": 1.0,
+      "transport": 1.0,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": null,
+      "pickup": 1.0,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "8aa721af2943:services": {
+    "ma_tour": "8aa721af2943",
+    "services": {
+      "hotel": null,
+      "meal": 1.0,
+      "transport": 1.0,
+      "ticket": null,
+      "guide": null,
+      "insurance": null,
+      "pickup": 1.0,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "931e3730190e:services": {
+    "ma_tour": "931e3730190e",
+    "services": {
+      "hotel": null,
+      "meal": 1.0,
+      "transport": 1.0,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": 1.0,
+      "pickup": null,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "98cfadbb1b8e:services": {
+    "ma_tour": "98cfadbb1b8e",
+    "services": {
+      "hotel": 1.0,
+      "meal": null,
+      "transport": 1.0,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": 1.0,
+      "pickup": 1.0,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "a4e050089c3e:services": {
+    "ma_tour": "a4e050089c3e",
+    "services": {
+      "hotel": 1.0,
+      "meal": 1.0,
+      "transport": 1.0,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": 1.0,
+      "pickup": null,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "a54dff7cbf06:services": {
+    "ma_tour": "a54dff7cbf06",
+    "services": {
+      "hotel": 1.0,
+      "meal": 1.0,
+      "transport": null,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": 1.0,
+      "pickup": null,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "b1ed1d2ec409:services": {
+    "ma_tour": "b1ed1d2ec409",
+    "services": {
+      "hotel": null,
+      "meal": 1.0,
+      "transport": 1.0,
+      "ticket": 1.0,
+      "guide": null,
+      "insurance": null,
+      "pickup": null,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "b3960517d9e9:services": {
+    "ma_tour": "b3960517d9e9",
+    "services": {
+      "hotel": 1.0,
+      "meal": 1.0,
+      "transport": 1.0,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": 1.0,
+      "pickup": 0.0,
+      "homestay": 0.0,
+      "resort": 0.0
+    }
+  },
+  "b46e8cf6266e:services": {
+    "ma_tour": "b46e8cf6266e",
+    "services": {
+      "hotel": 1.0,
+      "meal": 1.0,
+      "transport": 0.0,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": 1.0,
+      "pickup": 0.0,
+      "homestay": 0.0,
+      "resort": 0.0
+    }
+  },
+  "b6c401e2e8b4:services": {
+    "ma_tour": "b6c401e2e8b4",
+    "services": {
+      "hotel": 1.0,
+      "meal": null,
+      "transport": 1.0,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": 1.0,
+      "pickup": 1.0,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "b74fee606576:services": {
+    "ma_tour": "b74fee606576",
+    "services": {
+      "hotel": 1.0,
+      "meal": null,
+      "transport": 1.0,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": 1.0,
+      "pickup": null,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "b83b45d63e85:services": {
+    "ma_tour": "b83b45d63e85",
+    "services": {
+      "hotel": 1.0,
+      "meal": null,
+      "transport": 1.0,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": null,
+      "pickup": null,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "ba86e3522642:services": {
+    "ma_tour": "ba86e3522642",
+    "services": {
+      "hotel": null,
+      "meal": 1.0,
+      "transport": 1.0,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": 1.0,
+      "pickup": 1.0,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "bbc024de2a2a:services": {
+    "ma_tour": "bbc024de2a2a",
+    "services": {
+      "hotel": 1.0,
+      "meal": 1.0,
+      "transport": 0.0,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": 1.0,
+      "pickup": 0.0,
+      "homestay": 0.0,
+      "resort": 0.0
+    }
+  },
+  "c0c9c2a335d4:services": {
+    "ma_tour": "c0c9c2a335d4",
+    "services": {
+      "hotel": 1.0,
+      "meal": 1.0,
+      "transport": 1.0,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": 1.0,
+      "pickup": null,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "c589176b2272:services": {
+    "ma_tour": "c589176b2272",
+    "services": {
+      "hotel": 1.0,
+      "meal": 1.0,
+      "transport": 1.0,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": null,
+      "pickup": 1.0,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "c8afdd98270a:services": {
+    "ma_tour": "c8afdd98270a",
+    "services": {
+      "hotel": 1.0,
+      "meal": 1.0,
+      "transport": 1.0,
+      "ticket": null,
+      "guide": 1.0,
+      "insurance": null,
+      "pickup": null,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "c9c39baad66f:services": {
+    "ma_tour": "c9c39baad66f",
+    "services": {
+      "hotel": null,
+      "meal": 1.0,
+      "transport": 1.0,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": 1.0,
+      "pickup": 1.0,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "cb96e649a3da:services": {
+    "ma_tour": "cb96e649a3da",
+    "services": {
+      "hotel": 1.0,
+      "meal": 0.0,
+      "transport": 1.0,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": 1.0,
+      "pickup": 0.0,
+      "homestay": 0.0,
+      "resort": 0.0
+    }
+  },
+  "cc11418655c5:services": {
+    "ma_tour": "cc11418655c5",
+    "services": {
+      "hotel": null,
+      "meal": null,
+      "transport": null,
+      "ticket": null,
+      "guide": null,
+      "insurance": null,
+      "pickup": null,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "cfd8d5d356b5:services": {
+    "ma_tour": "cfd8d5d356b5",
+    "services": {
+      "hotel": null,
+      "meal": 1.0,
+      "transport": 1.0,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": null,
+      "pickup": null,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "d1000a5ec533:services": {
+    "ma_tour": "d1000a5ec533",
+    "services": {
+      "hotel": 1.0,
+      "meal": null,
+      "transport": null,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": 1.0,
+      "pickup": null,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "de53bd06d241:services": {
+    "ma_tour": "de53bd06d241",
+    "services": {
+      "hotel": 1.0,
+      "meal": 1.0,
+      "transport": null,
+      "ticket": 1.0,
+      "guide": null,
+      "insurance": null,
+      "pickup": null,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "e40098980e36:services": {
+    "ma_tour": "e40098980e36",
+    "services": {
+      "hotel": 1.0,
+      "meal": 1.0,
+      "transport": 1.0,
+      "ticket": null,
+      "guide": 1.0,
+      "insurance": 1.0,
+      "pickup": 1.0,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "e413384c7524:services": {
+    "ma_tour": "e413384c7524",
+    "services": {
+      "hotel": 1.0,
+      "meal": null,
+      "transport": null,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": null,
+      "pickup": null,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "ea850c209c09:services": {
+    "ma_tour": "ea850c209c09",
+    "services": {
+      "hotel": 1.0,
+      "meal": 1.0,
+      "transport": null,
+      "ticket": null,
+      "guide": 1.0,
+      "insurance": 1.0,
+      "pickup": null,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "eba2aea821ae:services": {
+    "ma_tour": "eba2aea821ae",
+    "services": {
+      "hotel": 1.0,
+      "meal": 1.0,
+      "transport": null,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": 1.0,
+      "pickup": 1.0,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "ecc58e6f9bc7:services": {
+    "ma_tour": "ecc58e6f9bc7",
+    "services": {
+      "hotel": null,
+      "meal": 1.0,
+      "transport": 1.0,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": 1.0,
+      "pickup": null,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "ecdea2290dbb:services": {
+    "ma_tour": "ecdea2290dbb",
+    "services": {
+      "hotel": null,
+      "meal": 1.0,
+      "transport": null,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": 1.0,
+      "pickup": null,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "eef3c40a1d7e:services": {
+    "ma_tour": "eef3c40a1d7e",
+    "services": {
+      "hotel": 1.0,
+      "meal": null,
+      "transport": 1.0,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": null,
+      "pickup": null,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "f60d0f511845:services": {
+    "ma_tour": "f60d0f511845",
+    "services": {
+      "hotel": 1.0,
+      "meal": null,
+      "transport": 1.0,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": null,
+      "pickup": null,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "f6668e11d42b:services": {
+    "ma_tour": "f6668e11d42b",
+    "services": {
+      "hotel": null,
+      "meal": 1.0,
+      "transport": 1.0,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": null,
+      "pickup": null,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "f9b3e022820d:services": {
+    "ma_tour": "f9b3e022820d",
+    "services": {
+      "hotel": null,
+      "meal": 1.0,
+      "transport": null,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": null,
+      "pickup": null,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "faee8260fa6d:services": {
+    "ma_tour": "faee8260fa6d",
+    "services": {
+      "hotel": 1.0,
+      "meal": null,
+      "transport": 1.0,
+      "ticket": 1.0,
+      "guide": 1.0,
+      "insurance": null,
+      "pickup": null,
+      "homestay": null,
+      "resort": null
+    }
+  },
+  "fb52c9789fd2:services": {
+    "ma_tour": "fb52c9789fd2",
+    "services": {
+      "hotel": 1.0,
+      "meal": 1.0,
+      "transport": 1.0,
+      "ticket": null,
+      "guide": 1.0,
+      "insurance": null,
+      "pickup": null,
+      "homestay": null,
+      "resort": null
+    }
+  }
+}

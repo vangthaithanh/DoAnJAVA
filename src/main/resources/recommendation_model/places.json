@@ -1,0 +1,380 @@
+[
+  {
+    "name": "Bảo Tàng Madame De",
+    "destination": "Đà Lạt",
+    "tour_count": 2,
+    "transaction_count": 4,
+    "place_level": "rare"
+  },
+  {
+    "name": "Cafe Miền Du Mục",
+    "destination": "Đà Lạt",
+    "tour_count": 2,
+    "transaction_count": 4,
+    "place_level": "rare"
+  },
+  {
+    "name": "Cafe Mê Linh",
+    "destination": "Đà Lạt",
+    "tour_count": 1,
+    "transaction_count": 1,
+    "place_level": "rare"
+  },
+  {
+    "name": "Chùa Linh Phước",
+    "destination": "Đà Lạt",
+    "tour_count": 10,
+    "transaction_count": 20,
+    "place_level": "core"
+  },
+  {
+    "name": "Chùa Linh Ẩn",
+    "destination": "Đà Lạt",
+    "tour_count": 4,
+    "transaction_count": 8,
+    "place_level": "core"
+  },
+  {
+    "name": "Chùa Thiên Vương Cổ Sát",
+    "destination": "Đà Lạt",
+    "tour_count": 2,
+    "transaction_count": 4,
+    "place_level": "rare"
+  },
+  {
+    "name": "Chợ Đà Lạt",
+    "destination": "Đà Lạt",
+    "tour_count": 9,
+    "transaction_count": 19,
+    "place_level": "core"
+  },
+  {
+    "name": "Crazy House",
+    "destination": "Đà Lạt",
+    "tour_count": 4,
+    "transaction_count": 6,
+    "place_level": "core"
+  },
+  {
+    "name": "Cánh Đồng Hoa Cẩm Tú Cầu",
+    "destination": "Đà Lạt",
+    "tour_count": 5,
+    "transaction_count": 10,
+    "place_level": "core"
+  },
+  {
+    "name": "Cổng Trời Bali Green Hill",
+    "destination": "Đà Lạt",
+    "tour_count": 2,
+    "transaction_count": 4,
+    "place_level": "rare"
+  },
+  {
+    "name": "Dapa Hill",
+    "destination": "Đà Lạt",
+    "tour_count": 1,
+    "transaction_count": 2,
+    "place_level": "rare"
+  },
+  {
+    "name": "Dinh Bảo Đại",
+    "destination": "Đà Lạt",
+    "tour_count": 7,
+    "transaction_count": 14,
+    "place_level": "core"
+  },
+  {
+    "name": "Fresh Garden",
+    "destination": "Đà Lạt",
+    "tour_count": 5,
+    "transaction_count": 7,
+    "place_level": "core"
+  },
+  {
+    "name": "Gallery La Chocotea",
+    "destination": "Đà Lạt",
+    "tour_count": 3,
+    "transaction_count": 5,
+    "place_level": "core"
+  },
+  {
+    "name": "Happy Hill",
+    "destination": "Đà Lạt",
+    "tour_count": 1,
+    "transaction_count": 1,
+    "place_level": "rare"
+  },
+  {
+    "name": "Hồ Tuyền Lâm",
+    "destination": "Đà Lạt",
+    "tour_count": 10,
+    "transaction_count": 20,
+    "place_level": "core"
+  },
+  {
+    "name": "Hồ Xuân Hương",
+    "destination": "Đà Lạt",
+    "tour_count": 11,
+    "transaction_count": 25,
+    "place_level": "core"
+  },
+  {
+    "name": "KDL Suối Bình Yên",
+    "destination": "Đà Lạt",
+    "tour_count": 2,
+    "transaction_count": 4,
+    "place_level": "rare"
+  },
+  {
+    "name": "Langbiang",
+    "destination": "Đà Lạt",
+    "tour_count": 16,
+    "transaction_count": 29,
+    "place_level": "core"
+  },
+  {
+    "name": "Làng Cù Lần",
+    "destination": "Đà Lạt",
+    "tour_count": 2,
+    "transaction_count": 4,
+    "place_level": "rare"
+  },
+  {
+    "name": "Làng Hoa Vạn Thành",
+    "destination": "Đà Lạt",
+    "tour_count": 5,
+    "transaction_count": 10,
+    "place_level": "core"
+  },
+  {
+    "name": "Lạc Hư Cổ Trấn",
+    "destination": "Đà Lạt",
+    "tour_count": 1,
+    "transaction_count": 1,
+    "place_level": "rare"
+  },
+  {
+    "name": "Lặng Art Café",
+    "destination": "Đà Lạt",
+    "tour_count": 2,
+    "transaction_count": 4,
+    "place_level": "rare"
+  },
+  {
+    "name": "Mongo Land",
+    "destination": "Đà Lạt",
+    "tour_count": 1,
+    "transaction_count": 1,
+    "place_level": "rare"
+  },
+  {
+    "name": "Nhà Ga Đà Lạt",
+    "destination": "Đà Lạt",
+    "tour_count": 1,
+    "transaction_count": 2,
+    "place_level": "rare"
+  },
+  {
+    "name": "Nhà Thờ Con Gà",
+    "destination": "Đà Lạt",
+    "tour_count": 4,
+    "transaction_count": 8,
+    "place_level": "core"
+  },
+  {
+    "name": "Nhà Thờ Domain De Marie",
+    "destination": "Đà Lạt",
+    "tour_count": 5,
+    "transaction_count": 10,
+    "place_level": "core"
+  },
+  {
+    "name": "Nông Trại Cổ Tích",
+    "destination": "Đà Lạt",
+    "tour_count": 4,
+    "transaction_count": 8,
+    "place_level": "core"
+  },
+  {
+    "name": "Puppy Farm",
+    "destination": "Đà Lạt",
+    "tour_count": 4,
+    "transaction_count": 7,
+    "place_level": "core"
+  },
+  {
+    "name": "Quảng Trường Lâm Viên",
+    "destination": "Đà Lạt",
+    "tour_count": 17,
+    "transaction_count": 36,
+    "place_level": "core"
+  },
+  {
+    "name": "Royal Garden",
+    "destination": "Đà Lạt",
+    "tour_count": 2,
+    "transaction_count": 4,
+    "place_level": "rare"
+  },
+  {
+    "name": "Samten Hills",
+    "destination": "Đà Lạt",
+    "tour_count": 3,
+    "transaction_count": 5,
+    "place_level": "core"
+  },
+  {
+    "name": "Thiền Viện Trúc Lâm",
+    "destination": "Đà Lạt",
+    "tour_count": 13,
+    "transaction_count": 26,
+    "place_level": "core"
+  },
+  {
+    "name": "Thiền Viện Vạn Hạnh",
+    "destination": "Đà Lạt",
+    "tour_count": 3,
+    "transaction_count": 6,
+    "place_level": "core"
+  },
+  {
+    "name": "Thung Lũng Tình Yêu",
+    "destination": "Đà Lạt",
+    "tour_count": 3,
+    "transaction_count": 6,
+    "place_level": "core"
+  },
+  {
+    "name": "Thung Lũng Vàng",
+    "destination": "Đà Lạt",
+    "tour_count": 4,
+    "transaction_count": 8,
+    "place_level": "core"
+  },
+  {
+    "name": "Thác Bobla",
+    "destination": "Đà Lạt",
+    "tour_count": 1,
+    "transaction_count": 2,
+    "place_level": "rare"
+  },
+  {
+    "name": "Thác Cam Ly",
+    "destination": "Đà Lạt",
+    "tour_count": 2,
+    "transaction_count": 4,
+    "place_level": "rare"
+  },
+  {
+    "name": "Thác Datanla",
+    "destination": "Đà Lạt",
+    "tour_count": 13,
+    "transaction_count": 24,
+    "place_level": "core"
+  },
+  {
+    "name": "Thác Pongour",
+    "destination": "Đà Lạt",
+    "tour_count": 2,
+    "transaction_count": 4,
+    "place_level": "rare"
+  },
+  {
+    "name": "Thác Prenn",
+    "destination": "Đà Lạt",
+    "tour_count": 1,
+    "transaction_count": 2,
+    "place_level": "rare"
+  },
+  {
+    "name": "Thác Voi",
+    "destination": "Đà Lạt",
+    "tour_count": 8,
+    "transaction_count": 16,
+    "place_level": "core"
+  },
+  {
+    "name": "Thị Trấn Iyashi",
+    "destination": "Đà Lạt",
+    "tour_count": 2,
+    "transaction_count": 2,
+    "place_level": "rare"
+  },
+  {
+    "name": "Tiệm Nướng Chuyến Tàu Hoàng Hôn",
+    "destination": "Đà Lạt",
+    "tour_count": 2,
+    "transaction_count": 4,
+    "place_level": "rare"
+  },
+  {
+    "name": "Trại Mát",
+    "destination": "Đà Lạt",
+    "tour_count": 4,
+    "transaction_count": 6,
+    "place_level": "core"
+  },
+  {
+    "name": "Tu Viện Bát Nhã",
+    "destination": "Đà Lạt",
+    "tour_count": 1,
+    "transaction_count": 1,
+    "place_level": "rare"
+  },
+  {
+    "name": "Vườn Châu Âu",
+    "destination": "Đà Lạt",
+    "tour_count": 1,
+    "transaction_count": 1,
+    "place_level": "rare"
+  },
+  {
+    "name": "Vườn Dâu Đà Lạt",
+    "destination": "Đà Lạt",
+    "tour_count": 5,
+    "transaction_count": 10,
+    "place_level": "core"
+  },
+  {
+    "name": "Vườn Hoa Thành Phố",
+    "destination": "Đà Lạt",
+    "tour_count": 6,
+    "transaction_count": 12,
+    "place_level": "core"
+  },
+  {
+    "name": "Vườn Địa Đàng",
+    "destination": "Đà Lạt",
+    "tour_count": 1,
+    "transaction_count": 1,
+    "place_level": "rare"
+  },
+  {
+    "name": "Đường Hầm Đất Sét",
+    "destination": "Đà Lạt",
+    "tour_count": 4,
+    "transaction_count": 6,
+    "place_level": "core"
+  },
+  {
+    "name": "Đại Bảo Tháp Kinh Luân",
+    "destination": "Đà Lạt",
+    "tour_count": 2,
+    "transaction_count": 4,
+    "place_level": "rare"
+  },
+  {
+    "name": "Đồi Chè Cầu Đất",
+    "destination": "Đà Lạt",
+    "tour_count": 6,
+    "transaction_count": 11,
+    "place_level": "core"
+  },
+  {
+    "name": "Đồi Robin",
+    "destination": "Đà Lạt",
+    "tour_count": 6,
+    "transaction_count": 12,
+    "place_level": "core"
+  }
+]

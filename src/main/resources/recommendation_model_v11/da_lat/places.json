@@ -1,0 +1,380 @@
+[
+  {
+    "name": "Bảo Tàng Madame De",
+    "destination_key": "da_lat",
+    "tour_count": 2,
+    "place_level": "rare"
+  },
+  {
+    "name": "Cafe Miền Du Mục",
+    "destination_key": "da_lat",
+    "tour_count": 2,
+    "place_level": "rare"
+  },
+  {
+    "name": "Cafe Mê Linh",
+    "destination_key": "da_lat",
+    "tour_count": 8,
+    "place_level": "core"
+  },
+  {
+    "name": "Chùa Linh Phước",
+    "destination_key": "da_lat",
+    "tour_count": 30,
+    "place_level": "core"
+  },
+  {
+    "name": "Chùa Linh Ẩn",
+    "destination_key": "da_lat",
+    "tour_count": 10,
+    "place_level": "core"
+  },
+  {
+    "name": "Chùa Thiên Vương Cổ Sát",
+    "destination_key": "da_lat",
+    "tour_count": 7,
+    "place_level": "core"
+  },
+  {
+    "name": "Chợ Đà Lạt",
+    "destination_key": "da_lat",
+    "tour_count": 26,
+    "place_level": "core"
+  },
+  {
+    "name": "Crazy House",
+    "destination_key": "da_lat",
+    "tour_count": 10,
+    "place_level": "core"
+  },
+  {
+    "name": "Cánh Đồng Hoa Cẩm Tú Cầu",
+    "destination_key": "da_lat",
+    "tour_count": 23,
+    "place_level": "core"
+  },
+  {
+    "name": "Cổng Trời Bali Green Hill",
+    "destination_key": "da_lat",
+    "tour_count": 10,
+    "place_level": "core"
+  },
+  {
+    "name": "Dapa Hill",
+    "destination_key": "da_lat",
+    "tour_count": 2,
+    "place_level": "rare"
+  },
+  {
+    "name": "Dinh Bảo Đại",
+    "destination_key": "da_lat",
+    "tour_count": 15,
+    "place_level": "core"
+  },
+  {
+    "name": "Dinh I",
+    "destination_key": "da_lat",
+    "tour_count": 4,
+    "place_level": "core"
+  },
+  {
+    "name": "Fresh Garden",
+    "destination_key": "da_lat",
+    "tour_count": 5,
+    "place_level": "core"
+  },
+  {
+    "name": "Gallery La Chocotea",
+    "destination_key": "da_lat",
+    "tour_count": 3,
+    "place_level": "core"
+  },
+  {
+    "name": "Happy Hill",
+    "destination_key": "da_lat",
+    "tour_count": 3,
+    "place_level": "core"
+  },
+  {
+    "name": "Hoa Sơn Điền Trang",
+    "destination_key": "da_lat",
+    "tour_count": 1,
+    "place_level": "rare"
+  },
+  {
+    "name": "Hồ Tuyền Lâm",
+    "destination_key": "da_lat",
+    "tour_count": 30,
+    "place_level": "core"
+  },
+  {
+    "name": "Hồ Vô Cực",
+    "destination_key": "da_lat",
+    "tour_count": 9,
+    "place_level": "core"
+  },
+  {
+    "name": "Hồ Xuân Hương",
+    "destination_key": "da_lat",
+    "tour_count": 27,
+    "place_level": "core"
+  },
+  {
+    "name": "KDL Suối Bình Yên",
+    "destination_key": "da_lat",
+    "tour_count": 2,
+    "place_level": "rare"
+  },
+  {
+    "name": "Kombi Land",
+    "destination_key": "da_lat",
+    "tour_count": 2,
+    "place_level": "rare"
+  },
+  {
+    "name": "Langbiang",
+    "destination_key": "da_lat",
+    "tour_count": 35,
+    "place_level": "core"
+  },
+  {
+    "name": "Làng Cù Lần",
+    "destination_key": "da_lat",
+    "tour_count": 2,
+    "place_level": "rare"
+  },
+  {
+    "name": "Làng Hoa Vạn Thành",
+    "destination_key": "da_lat",
+    "tour_count": 11,
+    "place_level": "core"
+  },
+  {
+    "name": "Lạc Hư Cổ Trấn",
+    "destination_key": "da_lat",
+    "tour_count": 1,
+    "place_level": "rare"
+  },
+  {
+    "name": "Lặng Art Café",
+    "destination_key": "da_lat",
+    "tour_count": 2,
+    "place_level": "rare"
+  },
+  {
+    "name": "Mongo Land",
+    "destination_key": "da_lat",
+    "tour_count": 4,
+    "place_level": "core"
+  },
+  {
+    "name": "Nhà Ga Đà Lạt",
+    "destination_key": "da_lat",
+    "tour_count": 14,
+    "place_level": "core"
+  },
+  {
+    "name": "Nhà Thờ Con Gà",
+    "destination_key": "da_lat",
+    "tour_count": 10,
+    "place_level": "core"
+  },
+  {
+    "name": "Nhà Thờ Domain De Marie",
+    "destination_key": "da_lat",
+    "tour_count": 10,
+    "place_level": "core"
+  },
+  {
+    "name": "Nông Trại Cổ Tích",
+    "destination_key": "da_lat",
+    "tour_count": 10,
+    "place_level": "core"
+  },
+  {
+    "name": "Nấc Thang Thiên Đường",
+    "destination_key": "da_lat",
+    "tour_count": 2,
+    "place_level": "rare"
+  },
+  {
+    "name": "Puppy Farm",
+    "destination_key": "da_lat",
+    "tour_count": 16,
+    "place_level": "core"
+  },
+  {
+    "name": "Que Garden",
+    "destination_key": "da_lat",
+    "tour_count": 4,
+    "place_level": "core"
+  },
+  {
+    "name": "Quảng Trường Lâm Viên",
+    "destination_key": "da_lat",
+    "tour_count": 40,
+    "place_level": "core"
+  },
+  {
+    "name": "Royal Garden",
+    "destination_key": "da_lat",
+    "tour_count": 2,
+    "place_level": "rare"
+  },
+  {
+    "name": "Rừng Hoa Khô",
+    "destination_key": "da_lat",
+    "tour_count": 2,
+    "place_level": "rare"
+  },
+  {
+    "name": "Samten Hills",
+    "destination_key": "da_lat",
+    "tour_count": 4,
+    "place_level": "core"
+  },
+  {
+    "name": "Thiền Viện Trúc Lâm",
+    "destination_key": "da_lat",
+    "tour_count": 43,
+    "place_level": "core"
+  },
+  {
+    "name": "Thiền Viện Vạn Hạnh",
+    "destination_key": "da_lat",
+    "tour_count": 5,
+    "place_level": "core"
+  },
+  {
+    "name": "Thung Lũng Tình Yêu",
+    "destination_key": "da_lat",
+    "tour_count": 9,
+    "place_level": "core"
+  },
+  {
+    "name": "Thung Lũng Vàng",
+    "destination_key": "da_lat",
+    "tour_count": 5,
+    "place_level": "core"
+  },
+  {
+    "name": "Thác Bobla",
+    "destination_key": "da_lat",
+    "tour_count": 2,
+    "place_level": "rare"
+  },
+  {
+    "name": "Thác Cam Ly",
+    "destination_key": "da_lat",
+    "tour_count": 4,
+    "place_level": "core"
+  },
+  {
+    "name": "Thác Datanla",
+    "destination_key": "da_lat",
+    "tour_count": 28,
+    "place_level": "core"
+  },
+  {
+    "name": "Thác Pongour",
+    "destination_key": "da_lat",
+    "tour_count": 14,
+    "place_level": "core"
+  },
+  {
+    "name": "Thác Prenn",
+    "destination_key": "da_lat",
+    "tour_count": 4,
+    "place_level": "core"
+  },
+  {
+    "name": "Thác Voi",
+    "destination_key": "da_lat",
+    "tour_count": 17,
+    "place_level": "core"
+  },
+  {
+    "name": "Thị Trấn Iyashi",
+    "destination_key": "da_lat",
+    "tour_count": 2,
+    "place_level": "rare"
+  },
+  {
+    "name": "Tiệm Nướng Chuyến Tàu Hoàng Hôn",
+    "destination_key": "da_lat",
+    "tour_count": 2,
+    "place_level": "rare"
+  },
+  {
+    "name": "Trại Mát",
+    "destination_key": "da_lat",
+    "tour_count": 8,
+    "place_level": "core"
+  },
+  {
+    "name": "Tu Viện Bát Nhã",
+    "destination_key": "da_lat",
+    "tour_count": 1,
+    "place_level": "rare"
+  },
+  {
+    "name": "Vườn Châu Âu",
+    "destination_key": "da_lat",
+    "tour_count": 1,
+    "place_level": "rare"
+  },
+  {
+    "name": "Vườn Dâu Đà Lạt",
+    "destination_key": "da_lat",
+    "tour_count": 24,
+    "place_level": "core"
+  },
+  {
+    "name": "Vườn Hoa Thành Phố",
+    "destination_key": "da_lat",
+    "tour_count": 15,
+    "place_level": "core"
+  },
+  {
+    "name": "Vườn Địa Đàng",
+    "destination_key": "da_lat",
+    "tour_count": 1,
+    "place_level": "rare"
+  },
+  {
+    "name": "Xưởng Tơ Lụa",
+    "destination_key": "da_lat",
+    "tour_count": 2,
+    "place_level": "rare"
+  },
+  {
+    "name": "Đường Hầm Đất Sét",
+    "destination_key": "da_lat",
+    "tour_count": 10,
+    "place_level": "core"
+  },
+  {
+    "name": "Đại Bảo Tháp Kinh Luân",
+    "destination_key": "da_lat",
+    "tour_count": 2,
+    "place_level": "rare"
+  },
+  {
+    "name": "Đồi Chè Cầu Đất",
+    "destination_key": "da_lat",
+    "tour_count": 13,
+    "place_level": "core"
+  },
+  {
+    "name": "Đồi Mộng Mơ",
+    "destination_key": "da_lat",
+    "tour_count": 7,
+    "place_level": "core"
+  },
+  {
+    "name": "Đồi Robin",
+    "destination_key": "da_lat",
+    "tour_count": 17,
+    "place_level": "core"
+  }
+]

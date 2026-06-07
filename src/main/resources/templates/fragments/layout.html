@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head(title)">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title th:text="${title} ?: 'WebDuLich'">WebDuLich</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" th:href="@{/assets/css/style.css}" href="/assets/css/style.css">
+</head>
+<body>
+<header th:fragment="header" class="site-header" id="siteHeader">
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <div class="container">
+    <nav class="navbar navbar-expand-lg travel-navbar">
+      <button class="btn menu-toggle d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <a class="navbar-brand brand-logo mx-lg-0 mx-auto" th:href="@{/}" href="/">
+        <span class="brand-mark"><i class="fa-solid fa-plane-departure"></i></span>
+        <span>WebDuLich</span>
+      </a>
+
+      <form class="header-search d-none d-xl-flex" th:action="@{/tours}" action="/tours" method="get">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" name="keyword" placeholder="Tìm tour, điểm đến, lịch trình...">
+        <button type="submit">Tìm</button>
+      </form>
+
+      <div class="collapse navbar-collapse justify-content-center">
+        <ul class="navbar-nav main-nav">
+          <li class="nav-item"><a class="nav-link" th:classappend="${activePage == 'home'} ? 'active'" th:href="@{/}" href="/">Trang chủ</a></li>
+          <li class="nav-item"><a class="nav-link" th:classappend="${activePage == 'tours'} ? 'active'" th:href="@{/tours}" href="/tours">Tour</a></li>
+          <li class="nav-item"><a class="nav-link" th:classappend="${activePage == 'itinerary'} ? 'active'" th:href="@{/itinerary}" href="/itinerary">Lịch trình</a></li>
+          <li class="nav-item"><a class="nav-link" th:classappend="${activePage == 'destinations'} ? 'active'" th:href="@{/destinations}" href="/destinations">Điểm đến</a></li>
+          <li class="nav-item"><a class="nav-link" th:classappend="${activePage == 'blog'} ? 'active'" th:href="@{/blog}" href="/blog">Cẩm nang</a></li>
+          <li class="nav-item"><a class="nav-link" th:classappend="${activePage == 'contact'} ? 'active'" th:href="@{/contact}" href="/contact">Liên hệ</a></li>
+        </ul>
+      </div>
+
+      <div class="header-actions d-none d-lg-flex">
+        <a th:href="@{/login}" href="/login" class="login-link"><i class="fa-regular fa-user"></i> Đăng nhập</a>
+        <a th:href="@{/itinerary}" href="/itinerary" class="btn btn-theme magnetic-btn">Tạo lịch trình</a>
+      </div>
+
+      <a class="btn user-icon d-lg-none" th:href="@{/login}" href="/login">
+        <i class="fa-regular fa-user"></i>
+      </a>
+    </nav>
+  </div>
+
+  <div class="offcanvas offcanvas-start mobile-offcanvas" tabindex="-1" id="mobileMenu">
+    <div class="offcanvas-header">
+      <a class="brand-logo" th:href="@{/}" href="/">
+        <span class="brand-mark"><i class="fa-solid fa-plane-departure"></i></span><span>WebDuLich</span>
+      </a>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <form class="mobile-search" th:action="@{/tours}" action="/tours" method="get">
+        <input type="text" name="keyword" placeholder="Tìm tour, điểm đến...">
+        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </form>
+      <ul class="mobile-nav">
+        <li><a th:href="@{/}" href="/">Trang chủ</a></li>
+        <li><a th:href="@{/tours}" href="/tours">Tour trong nước</a></li>
+        <li><a th:href="@{/itinerary}" href="/itinerary">Tạo lịch trình</a></li>
+        <li><a th:href="@{/destinations}" href="/destinations">Điểm đến Việt Nam</a></li>
+        <li><a th:href="@{/blog}" href="/blog">Cẩm nang</a></li>
+        <li><a th:href="@{/contact}" href="/contact">Liên hệ</a></li>
+      </ul>
+      <div class="mobile-contact">
+        <h6>Hotline tư vấn tour</h6><p><i class="fa-solid fa-phone"></i> 1900 2026</p>
+        <h6>Hỗ trợ trực tuyến</h6><p><i class="fa-regular fa-envelope"></i> hello@webdulich.vn</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section th:fragment="pageBanner(title, subtitle)" class="page-banner">
+  <div class="container">
+    <div class="page-banner-inner reveal">
+      <span class="section-kicker justify-content-center"><i class="fa-solid fa-route"></i> WebDuLich</span>
+      <h1 th:text="${title}">Tiêu đề trang</h1>
+      <p th:text="${subtitle}">Mô tả trang</p>
+    </div>
+  </div>
+</section>
+
+<div th:fragment="flash" class="container flash-container" th:if="${successMessage}">
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <i class="fa-solid fa-circle-check me-2"></i><span th:text="${successMessage}">Thao tác thành công</span>
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+  </div>
+</div>
+
+<footer th:fragment="footer" class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <a class="brand-logo footer-logo" th:href="@{/}" href="/"><span class="brand-mark"><i class="fa-solid fa-plane-departure"></i></span><span>WebDuLich</span></a>
+          <p>WebDuLich tập trung vào tour du lịch trong nước Việt Nam và công cụ tự tạo lịch trình theo số ngày, ngân sách, điểm đến.</p>
+          <ul class="footer-contact">
+            <li><i class="fa-solid fa-location-dot"></i> TP.HCM - Hà Nội - Đà Nẵng</li>
+            <li><i class="fa-regular fa-envelope"></i> hello@webdulich.vn</li>
+            <li><i class="fa-solid fa-phone"></i> 1900 2026</li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-6"><h5>Khám phá</h5><ul class="footer-links">
+          <li><a th:href="@{/tours}">Tour trong nước</a></li>
+          <li><a th:href="@{/itinerary}">Tạo lịch trình</a></li>
+          <li><a th:href="@{/destinations}">Điểm đến</a></li>
+          <li><a th:href="@{/blog}">Cẩm nang</a></li>
+        </ul></div>
+        <div class="col-lg-2 col-md-6"><h5>Loại tour</h5><ul class="footer-links">
+          <li><a th:href="@{/tours(type='Tour miền Bắc')}">Tour miền Bắc</a></li>
+          <li><a th:href="@{/tours(type='Tour miền Trung')}">Tour miền Trung</a></li>
+          <li><a th:href="@{/tours(type='Tour miền Nam')}">Tour miền Nam</a></li>
+          <li><a th:href="@{/tours(type='Tour biển đảo')}">Tour biển đảo</a></li>
+          <li><a th:href="@{/tours(type='Tour nghỉ dưỡng')}">Tour nghỉ dưỡng</a></li>
+        </ul></div>
+        <div class="col-lg-4 col-md-6">
+          <h5>Nhận ưu đãi tour</h5>
+          <form class="newsletter-form" th:action="@{/newsletter}" action="/newsletter" method="post"><input type="email" name="email" placeholder="Email của bạn" required><button type="submit">Đăng ký</button></form>
+          <label class="policy-line"><input type="checkbox"> Tôi đồng ý nhận thông tin khuyến mãi du lịch</label>
+          <div class="socials"><a href="#"><i class="fa-brands fa-facebook-f"></i></a><a href="#"><i class="fa-brands fa-youtube"></i></a><a href="#"><i class="fa-brands fa-instagram"></i></a><a href="#"><i class="fa-brands fa-tiktok"></i></a></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 WebDuLich. Tour Việt Nam & lịch trình thông minh.</p><div><a href="#">Điều khoản</a><a href="#">Chính sách bảo mật</a></div></div>
+  </div>
+</footer>
+<th:block th:fragment="scripts">
+  <div class="page-transition" id="pageTransition"></div>
+  <button class="back-to-top" id="backToTop"><i class="fa-solid fa-arrow-up"></i></button>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script th:src="@{/assets/js/main.js}" src="/assets/js/main.js"></script>
+</th:block>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head(${pageTitle})}"></head>
+<body>
+<header th:replace="~{fragments/layout :: header}"></header>
+<section th:replace="~{fragments/layout :: pageBanner('Giới thiệu WebDuLich', 'Website tour du lịch trong nước và tạo lịch trình bằng Java JPA.')}"></section>
+
+<main>
+  <section class="section-padding">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6 reveal">
+          <div class="about-image-stack">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80" alt="About">
+            <div class="experience-badge">
+              <strong>12+</strong>
+              <span>Years Experience</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 reveal delay-1">
+          <div class="section-kicker"><i class="fa-solid fa-house-chimney"></i> Giới thiệu WebDuLich</div>
+          <h2 class="big-title">WebDuLich giúp bạn chọn tour và lên lịch trình dễ dàng</h2>
+          <p class="lead-muted">
+            WebDuLich là giao diện người dùng cho website du lịch Việt Nam, tập trung vào hai nghiệp vụ chính: bán tour trong nước và hỗ trợ tự tạo lịch trình.
+            Project được xây bằng Spring Boot, Thymeleaf và JPA để có thể mở rộng sang phần quản lý sau này.
+          </p>
+
+          <div class="about-grid">
+            <div><i class="fa-solid fa-check"></i><span>Entity JPA cho tour</span></div>
+            <div><i class="fa-solid fa-check"></i><span>Trang chi tiết và form tư vấn</span></div>
+            <div><i class="fa-solid fa-check"></i><span>Giao diện responsive</span></div>
+            <div><i class="fa-solid fa-check"></i><span>Hiệu ứng cuộn và chuyển trang</span></div>
+          </div>
+
+          <a class="btn btn-theme mt-4 magnetic-btn" th:href="@{/tours}" href="/tours">Khám phá tour</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats-band">
+    <div class="container">
+      <div class="row g-4 text-center">
+        <div class="col-md-3 col-6 reveal"><div class="stat-box"><strong class="counter" data-target="120">0</strong><span>Listed Tour du lịch</span></div></div>
+        <div class="col-md-3 col-6 reveal delay-1"><div class="stat-box"><strong class="counter" data-target="36">0</strong><span>Expert Tư vấn viên</span></div></div>
+        <div class="col-md-3 col-6 reveal delay-2"><div class="stat-box"><strong class="counter" data-target="18">0</strong><span>Điểm đến</span></div></div>
+        <div class="col-md-3 col-6 reveal delay-3"><div class="stat-box"><strong class="counter" data-target="98">0</strong><span>Khách hài lòng</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding agents-section">
+    <div class="container">
+      <div class="text-center section-heading reveal">
+        <div class="section-kicker justify-content-center"><i class="fa-solid fa-user-tie"></i> Our Team</div>
+        <h2>Professional Tư vấn viên</h2>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6 reveal" th:each="agent, iter : ${agents}" th:classappend="${iter.index % 3 == 1 ? 'delay-1' : (iter.index % 3 == 2 ? 'delay-2' : '')}">
+          <article class="agent-card tilt-card">
+            <a th:href="@{/agents/{id}(id=${agent.id})}"><img th:src="${agent.avatarUrl}" th:alt="${agent.fullName}"></a>
+            <div class="agent-card-body">
+              <h5><a th:href="@{/agents/{id}(id=${agent.id})}" th:text="${agent.fullName}">Tư vấn viên</a></h5>
+              <p th:text="${agent.role}">Role</p>
+              <div class="agent-social">
+                <a th:href="${agent.facebookUrl}"><i class="fa-brands fa-facebook-f"></i></a>
+                <a th:href="${agent.twitterUrl}"><i class="fa-brands fa-twitter"></i></a>
+                <a th:href="${agent.linkedinUrl}"><i class="fa-brands fa-linkedin-in"></i></a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+<th:block th:replace="~{fragments/layout :: scripts}"></th:block>
+</body>
+</html>

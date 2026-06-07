@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head(${pageTitle})}"></head>
+<body>
+<header th:replace="~{fragments/layout :: header}"></header>
+
+<main class="auth-page">
+  <div class="auth-card reveal">
+    <a class="brand-logo justify-content-center mb-4" th:href="@{/}" href="/">
+      <span class="brand-mark"><i class="fa-solid fa-plane-departure"></i></span>
+      <span>WebDuLich</span>
+    </a>
+    <h1>Tạo tài khoản</h1>
+    <p>Giao diện đăng ký mẫu. Sau này có thể kết nối bảng người dùng và Spring Security.</p>
+
+    <form>
+      <input class="form-control" type="text" placeholder="Họ và tên">
+      <input class="form-control" type="email" placeholder="Email của bạn">
+      <div class="password-field">
+        <input class="form-control" type="password" placeholder="Mật khẩu">
+        <button type="button" class="password-toggle"><i class="fa-regular fa-eye"></i></button>
+      </div>
+      <button class="btn btn-theme w-100 magnetic-btn" type="button">Tạo tài khoản</button>
+    </form>
+
+    <p class="auth-bottom">Đã có tài khoản? <a th:href="@{/login}" href="/login">Đăng nhập</a></p>
+  </div>
+</main>
+
+<th:block th:replace="~{fragments/layout :: scripts}"></th:block>
+</body>
+</html>

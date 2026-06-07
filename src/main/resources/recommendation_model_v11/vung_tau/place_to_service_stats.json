@@ -1,0 +1,3512 @@
+[
+  {
+    "place": "Biển Hồ Cốc",
+    "matched_tour_count": 11,
+    "service_key": "guide",
+    "service_available_count": 9,
+    "service_known_count": 9,
+    "service_coverage_rate": 0.8182,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Biển Hồ Cốc",
+    "matched_tour_count": 11,
+    "service_key": "homestay",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Biển Hồ Cốc",
+    "matched_tour_count": 11,
+    "service_key": "hotel",
+    "service_available_count": 3,
+    "service_known_count": 3,
+    "service_coverage_rate": 0.2727,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Biển Hồ Cốc",
+    "matched_tour_count": 11,
+    "service_key": "insurance",
+    "service_available_count": 8,
+    "service_known_count": 8,
+    "service_coverage_rate": 0.7273,
+    "service_confidence": 1.0,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Biển Hồ Cốc",
+    "matched_tour_count": 11,
+    "service_key": "meal",
+    "service_available_count": 11,
+    "service_known_count": 11,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Biển Hồ Cốc",
+    "matched_tour_count": 11,
+    "service_key": "pickup",
+    "service_available_count": 3,
+    "service_known_count": 3,
+    "service_coverage_rate": 0.2727,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Biển Hồ Cốc",
+    "matched_tour_count": 11,
+    "service_key": "resort",
+    "service_available_count": 3,
+    "service_known_count": 3,
+    "service_coverage_rate": 0.2727,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Biển Hồ Cốc",
+    "matched_tour_count": 11,
+    "service_key": "ticket",
+    "service_available_count": 9,
+    "service_known_count": 9,
+    "service_coverage_rate": 0.8182,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Biển Hồ Cốc",
+    "matched_tour_count": 11,
+    "service_key": "transport",
+    "service_available_count": 5,
+    "service_known_count": 5,
+    "service_coverage_rate": 0.4545,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Biển Hồ Tràm",
+    "matched_tour_count": 9,
+    "service_key": "guide",
+    "service_available_count": 8,
+    "service_known_count": 8,
+    "service_coverage_rate": 0.8889,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Biển Hồ Tràm",
+    "matched_tour_count": 9,
+    "service_key": "homestay",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Biển Hồ Tràm",
+    "matched_tour_count": 9,
+    "service_key": "hotel",
+    "service_available_count": 4,
+    "service_known_count": 4,
+    "service_coverage_rate": 0.4444,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Biển Hồ Tràm",
+    "matched_tour_count": 9,
+    "service_key": "insurance",
+    "service_available_count": 6,
+    "service_known_count": 6,
+    "service_coverage_rate": 0.6667,
+    "service_confidence": 1.0,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Biển Hồ Tràm",
+    "matched_tour_count": 9,
+    "service_key": "meal",
+    "service_available_count": 6,
+    "service_known_count": 6,
+    "service_coverage_rate": 0.6667,
+    "service_confidence": 1.0,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Biển Hồ Tràm",
+    "matched_tour_count": 9,
+    "service_key": "pickup",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 0.1111,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Biển Hồ Tràm",
+    "matched_tour_count": 9,
+    "service_key": "resort",
+    "service_available_count": 4,
+    "service_known_count": 4,
+    "service_coverage_rate": 0.4444,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Biển Hồ Tràm",
+    "matched_tour_count": 9,
+    "service_key": "ticket",
+    "service_available_count": 7,
+    "service_known_count": 7,
+    "service_coverage_rate": 0.7778,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Biển Hồ Tràm",
+    "matched_tour_count": 9,
+    "service_key": "transport",
+    "service_available_count": 7,
+    "service_known_count": 7,
+    "service_coverage_rate": 0.7778,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Biển Long Hải",
+    "matched_tour_count": 7,
+    "service_key": "guide",
+    "service_available_count": 7,
+    "service_known_count": 7,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Biển Long Hải",
+    "matched_tour_count": 7,
+    "service_key": "homestay",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Biển Long Hải",
+    "matched_tour_count": 7,
+    "service_key": "hotel",
+    "service_available_count": 4,
+    "service_known_count": 4,
+    "service_coverage_rate": 0.5714,
+    "service_confidence": 1.0,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Biển Long Hải",
+    "matched_tour_count": 7,
+    "service_key": "insurance",
+    "service_available_count": 6,
+    "service_known_count": 6,
+    "service_coverage_rate": 0.8571,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Biển Long Hải",
+    "matched_tour_count": 7,
+    "service_key": "meal",
+    "service_available_count": 5,
+    "service_known_count": 5,
+    "service_coverage_rate": 0.7143,
+    "service_confidence": 1.0,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Biển Long Hải",
+    "matched_tour_count": 7,
+    "service_key": "pickup",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Biển Long Hải",
+    "matched_tour_count": 7,
+    "service_key": "resort",
+    "service_available_count": 3,
+    "service_known_count": 3,
+    "service_coverage_rate": 0.4286,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Biển Long Hải",
+    "matched_tour_count": 7,
+    "service_key": "ticket",
+    "service_available_count": 7,
+    "service_known_count": 7,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Biển Long Hải",
+    "matched_tour_count": 7,
+    "service_key": "transport",
+    "service_available_count": 4,
+    "service_known_count": 4,
+    "service_coverage_rate": 0.5714,
+    "service_confidence": 1.0,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Biển Tropicana",
+    "matched_tour_count": 4,
+    "service_key": "guide",
+    "service_available_count": 3,
+    "service_known_count": 3,
+    "service_coverage_rate": 0.75,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Biển Tropicana",
+    "matched_tour_count": 4,
+    "service_key": "homestay",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Biển Tropicana",
+    "matched_tour_count": 4,
+    "service_key": "hotel",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 0.25,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Biển Tropicana",
+    "matched_tour_count": 4,
+    "service_key": "insurance",
+    "service_available_count": 2,
+    "service_known_count": 2,
+    "service_coverage_rate": 0.5,
+    "service_confidence": 1.0,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Biển Tropicana",
+    "matched_tour_count": 4,
+    "service_key": "meal",
+    "service_available_count": 2,
+    "service_known_count": 2,
+    "service_coverage_rate": 0.5,
+    "service_confidence": 1.0,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Biển Tropicana",
+    "matched_tour_count": 4,
+    "service_key": "pickup",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Biển Tropicana",
+    "matched_tour_count": 4,
+    "service_key": "resort",
+    "service_available_count": 2,
+    "service_known_count": 2,
+    "service_coverage_rate": 0.5,
+    "service_confidence": 1.0,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Biển Tropicana",
+    "matched_tour_count": 4,
+    "service_key": "ticket",
+    "service_available_count": 3,
+    "service_known_count": 3,
+    "service_coverage_rate": 0.75,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Biển Tropicana",
+    "matched_tour_count": 4,
+    "service_key": "transport",
+    "service_available_count": 3,
+    "service_known_count": 3,
+    "service_coverage_rate": 0.75,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Bãi Biển 298",
+    "matched_tour_count": 2,
+    "service_key": "guide",
+    "service_available_count": 2,
+    "service_known_count": 2,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Bãi Biển 298",
+    "matched_tour_count": 2,
+    "service_key": "homestay",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Bãi Biển 298",
+    "matched_tour_count": 2,
+    "service_key": "hotel",
+    "service_available_count": 2,
+    "service_known_count": 2,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Bãi Biển 298",
+    "matched_tour_count": 2,
+    "service_key": "insurance",
+    "service_available_count": 2,
+    "service_known_count": 2,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Bãi Biển 298",
+    "matched_tour_count": 2,
+    "service_key": "meal",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Bãi Biển 298",
+    "matched_tour_count": 2,
+    "service_key": "pickup",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Bãi Biển 298",
+    "matched_tour_count": 2,
+    "service_key": "resort",
+    "service_available_count": 2,
+    "service_known_count": 2,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Bãi Biển 298",
+    "matched_tour_count": 2,
+    "service_key": "ticket",
+    "service_available_count": 2,
+    "service_known_count": 2,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Bãi Biển 298",
+    "matched_tour_count": 2,
+    "service_key": "transport",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Bãi Dâu",
+    "matched_tour_count": 2,
+    "service_key": "guide",
+    "service_available_count": 2,
+    "service_known_count": 2,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Bãi Dâu",
+    "matched_tour_count": 2,
+    "service_key": "homestay",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Bãi Dâu",
+    "matched_tour_count": 2,
+    "service_key": "hotel",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 0.5,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Bãi Dâu",
+    "matched_tour_count": 2,
+    "service_key": "insurance",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 0.5,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Bãi Dâu",
+    "matched_tour_count": 2,
+    "service_key": "meal",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Bãi Dâu",
+    "matched_tour_count": 2,
+    "service_key": "pickup",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 0.5,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Bãi Dâu",
+    "matched_tour_count": 2,
+    "service_key": "resort",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Bãi Dâu",
+    "matched_tour_count": 2,
+    "service_key": "ticket",
+    "service_available_count": 2,
+    "service_known_count": 2,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Bãi Dâu",
+    "matched_tour_count": 2,
+    "service_key": "transport",
+    "service_available_count": 2,
+    "service_known_count": 2,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Bãi Sau",
+    "matched_tour_count": 5,
+    "service_key": "guide",
+    "service_available_count": 5,
+    "service_known_count": 5,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Bãi Sau",
+    "matched_tour_count": 5,
+    "service_key": "homestay",
+    "service_available_count": 0,
+    "service_known_count": 1,
+    "service_coverage_rate": 0.2,
+    "service_confidence": 0.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Bãi Sau",
+    "matched_tour_count": 5,
+    "service_key": "hotel",
+    "service_available_count": 3,
+    "service_known_count": 4,
+    "service_coverage_rate": 0.8,
+    "service_confidence": 0.75,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Bãi Sau",
+    "matched_tour_count": 5,
+    "service_key": "insurance",
+    "service_available_count": 4,
+    "service_known_count": 5,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 0.8,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Bãi Sau",
+    "matched_tour_count": 5,
+    "service_key": "meal",
+    "service_available_count": 4,
+    "service_known_count": 4,
+    "service_coverage_rate": 0.8,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Bãi Sau",
+    "matched_tour_count": 5,
+    "service_key": "pickup",
+    "service_available_count": 3,
+    "service_known_count": 3,
+    "service_coverage_rate": 0.6,
+    "service_confidence": 1.0,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Bãi Sau",
+    "matched_tour_count": 5,
+    "service_key": "resort",
+    "service_available_count": 0,
+    "service_known_count": 1,
+    "service_coverage_rate": 0.2,
+    "service_confidence": 0.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Bãi Sau",
+    "matched_tour_count": 5,
+    "service_key": "ticket",
+    "service_available_count": 5,
+    "service_known_count": 5,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Bãi Sau",
+    "matched_tour_count": 5,
+    "service_key": "transport",
+    "service_available_count": 5,
+    "service_known_count": 5,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Bãi Trước",
+    "matched_tour_count": 1,
+    "service_key": "guide",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Bãi Trước",
+    "matched_tour_count": 1,
+    "service_key": "homestay",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Bãi Trước",
+    "matched_tour_count": 1,
+    "service_key": "hotel",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Bãi Trước",
+    "matched_tour_count": 1,
+    "service_key": "insurance",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Bãi Trước",
+    "matched_tour_count": 1,
+    "service_key": "meal",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Bãi Trước",
+    "matched_tour_count": 1,
+    "service_key": "pickup",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Bãi Trước",
+    "matched_tour_count": 1,
+    "service_key": "resort",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Bãi Trước",
+    "matched_tour_count": 1,
+    "service_key": "ticket",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Bãi Trước",
+    "matched_tour_count": 1,
+    "service_key": "transport",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Bạch Dinh",
+    "matched_tour_count": 5,
+    "service_key": "guide",
+    "service_available_count": 5,
+    "service_known_count": 5,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Bạch Dinh",
+    "matched_tour_count": 5,
+    "service_key": "homestay",
+    "service_available_count": 0,
+    "service_known_count": 1,
+    "service_coverage_rate": 0.2,
+    "service_confidence": 0.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Bạch Dinh",
+    "matched_tour_count": 5,
+    "service_key": "hotel",
+    "service_available_count": 3,
+    "service_known_count": 4,
+    "service_coverage_rate": 0.8,
+    "service_confidence": 0.75,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Bạch Dinh",
+    "matched_tour_count": 5,
+    "service_key": "insurance",
+    "service_available_count": 3,
+    "service_known_count": 4,
+    "service_coverage_rate": 0.8,
+    "service_confidence": 0.75,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Bạch Dinh",
+    "matched_tour_count": 5,
+    "service_key": "meal",
+    "service_available_count": 4,
+    "service_known_count": 4,
+    "service_coverage_rate": 0.8,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Bạch Dinh",
+    "matched_tour_count": 5,
+    "service_key": "pickup",
+    "service_available_count": 2,
+    "service_known_count": 2,
+    "service_coverage_rate": 0.4,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Bạch Dinh",
+    "matched_tour_count": 5,
+    "service_key": "resort",
+    "service_available_count": 0,
+    "service_known_count": 1,
+    "service_coverage_rate": 0.2,
+    "service_confidence": 0.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Bạch Dinh",
+    "matched_tour_count": 5,
+    "service_key": "ticket",
+    "service_available_count": 5,
+    "service_known_count": 5,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Bạch Dinh",
+    "matched_tour_count": 5,
+    "service_key": "transport",
+    "service_available_count": 4,
+    "service_known_count": 4,
+    "service_coverage_rate": 0.8,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Công Viên Rừng Minera",
+    "matched_tour_count": 3,
+    "service_key": "guide",
+    "service_available_count": 3,
+    "service_known_count": 3,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Công Viên Rừng Minera",
+    "matched_tour_count": 3,
+    "service_key": "homestay",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Công Viên Rừng Minera",
+    "matched_tour_count": 3,
+    "service_key": "hotel",
+    "service_available_count": 2,
+    "service_known_count": 2,
+    "service_coverage_rate": 0.6667,
+    "service_confidence": 1.0,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Công Viên Rừng Minera",
+    "matched_tour_count": 3,
+    "service_key": "insurance",
+    "service_available_count": 3,
+    "service_known_count": 3,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Công Viên Rừng Minera",
+    "matched_tour_count": 3,
+    "service_key": "meal",
+    "service_available_count": 2,
+    "service_known_count": 2,
+    "service_coverage_rate": 0.6667,
+    "service_confidence": 1.0,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Công Viên Rừng Minera",
+    "matched_tour_count": 3,
+    "service_key": "pickup",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 0.3333,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Công Viên Rừng Minera",
+    "matched_tour_count": 3,
+    "service_key": "resort",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 0.3333,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Công Viên Rừng Minera",
+    "matched_tour_count": 3,
+    "service_key": "ticket",
+    "service_available_count": 2,
+    "service_known_count": 2,
+    "service_coverage_rate": 0.6667,
+    "service_confidence": 1.0,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Công Viên Rừng Minera",
+    "matched_tour_count": 3,
+    "service_key": "transport",
+    "service_available_count": 3,
+    "service_known_count": 3,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Cầu Ngắm Biển Hamptons",
+    "matched_tour_count": 2,
+    "service_key": "guide",
+    "service_available_count": 2,
+    "service_known_count": 2,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Cầu Ngắm Biển Hamptons",
+    "matched_tour_count": 2,
+    "service_key": "homestay",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Cầu Ngắm Biển Hamptons",
+    "matched_tour_count": 2,
+    "service_key": "hotel",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 0.5,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Cầu Ngắm Biển Hamptons",
+    "matched_tour_count": 2,
+    "service_key": "insurance",
+    "service_available_count": 2,
+    "service_known_count": 2,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Cầu Ngắm Biển Hamptons",
+    "matched_tour_count": 2,
+    "service_key": "meal",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Cầu Ngắm Biển Hamptons",
+    "matched_tour_count": 2,
+    "service_key": "pickup",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 0.5,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Cầu Ngắm Biển Hamptons",
+    "matched_tour_count": 2,
+    "service_key": "resort",
+    "service_available_count": 2,
+    "service_known_count": 2,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Cầu Ngắm Biển Hamptons",
+    "matched_tour_count": 2,
+    "service_key": "ticket",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 0.5,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Cầu Ngắm Biển Hamptons",
+    "matched_tour_count": 2,
+    "service_key": "transport",
+    "service_available_count": 2,
+    "service_known_count": 2,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Cầu Tình Yêu Long Hải",
+    "matched_tour_count": 1,
+    "service_key": "guide",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Cầu Tình Yêu Long Hải",
+    "matched_tour_count": 1,
+    "service_key": "homestay",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Cầu Tình Yêu Long Hải",
+    "matched_tour_count": 1,
+    "service_key": "hotel",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Cầu Tình Yêu Long Hải",
+    "matched_tour_count": 1,
+    "service_key": "insurance",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Cầu Tình Yêu Long Hải",
+    "matched_tour_count": 1,
+    "service_key": "meal",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Cầu Tình Yêu Long Hải",
+    "matched_tour_count": 1,
+    "service_key": "pickup",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Cầu Tình Yêu Long Hải",
+    "matched_tour_count": 1,
+    "service_key": "resort",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Cầu Tình Yêu Long Hải",
+    "matched_tour_count": 1,
+    "service_key": "ticket",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Cầu Tình Yêu Long Hải",
+    "matched_tour_count": 1,
+    "service_key": "transport",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Dinh Cô",
+    "matched_tour_count": 16,
+    "service_key": "guide",
+    "service_available_count": 16,
+    "service_known_count": 16,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Dinh Cô",
+    "matched_tour_count": 16,
+    "service_key": "homestay",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Dinh Cô",
+    "matched_tour_count": 16,
+    "service_key": "hotel",
+    "service_available_count": 4,
+    "service_known_count": 4,
+    "service_coverage_rate": 0.25,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Dinh Cô",
+    "matched_tour_count": 16,
+    "service_key": "insurance",
+    "service_available_count": 14,
+    "service_known_count": 14,
+    "service_coverage_rate": 0.875,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Dinh Cô",
+    "matched_tour_count": 16,
+    "service_key": "meal",
+    "service_available_count": 13,
+    "service_known_count": 13,
+    "service_coverage_rate": 0.8125,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Dinh Cô",
+    "matched_tour_count": 16,
+    "service_key": "pickup",
+    "service_available_count": 2,
+    "service_known_count": 2,
+    "service_coverage_rate": 0.125,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Dinh Cô",
+    "matched_tour_count": 16,
+    "service_key": "resort",
+    "service_available_count": 4,
+    "service_known_count": 4,
+    "service_coverage_rate": 0.25,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Dinh Cô",
+    "matched_tour_count": 16,
+    "service_key": "ticket",
+    "service_available_count": 15,
+    "service_known_count": 15,
+    "service_coverage_rate": 0.9375,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Dinh Cô",
+    "matched_tour_count": 16,
+    "service_key": "transport",
+    "service_available_count": 15,
+    "service_known_count": 15,
+    "service_coverage_rate": 0.9375,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Hòn Bà",
+    "matched_tour_count": 1,
+    "service_key": "guide",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Hòn Bà",
+    "matched_tour_count": 1,
+    "service_key": "homestay",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Hòn Bà",
+    "matched_tour_count": 1,
+    "service_key": "hotel",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Hòn Bà",
+    "matched_tour_count": 1,
+    "service_key": "insurance",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Hòn Bà",
+    "matched_tour_count": 1,
+    "service_key": "meal",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Hòn Bà",
+    "matched_tour_count": 1,
+    "service_key": "pickup",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Hòn Bà",
+    "matched_tour_count": 1,
+    "service_key": "resort",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Hòn Bà",
+    "matched_tour_count": 1,
+    "service_key": "ticket",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Hòn Bà",
+    "matched_tour_count": 1,
+    "service_key": "transport",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Hồ Mây",
+    "matched_tour_count": 5,
+    "service_key": "guide",
+    "service_available_count": 5,
+    "service_known_count": 5,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Hồ Mây",
+    "matched_tour_count": 5,
+    "service_key": "homestay",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Hồ Mây",
+    "matched_tour_count": 5,
+    "service_key": "hotel",
+    "service_available_count": 5,
+    "service_known_count": 5,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Hồ Mây",
+    "matched_tour_count": 5,
+    "service_key": "insurance",
+    "service_available_count": 4,
+    "service_known_count": 4,
+    "service_coverage_rate": 0.8,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Hồ Mây",
+    "matched_tour_count": 5,
+    "service_key": "meal",
+    "service_available_count": 5,
+    "service_known_count": 5,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Hồ Mây",
+    "matched_tour_count": 5,
+    "service_key": "pickup",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 0.2,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Hồ Mây",
+    "matched_tour_count": 5,
+    "service_key": "resort",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Hồ Mây",
+    "matched_tour_count": 5,
+    "service_key": "ticket",
+    "service_available_count": 5,
+    "service_known_count": 5,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Hồ Mây",
+    "matched_tour_count": 5,
+    "service_key": "transport",
+    "service_available_count": 2,
+    "service_known_count": 2,
+    "service_coverage_rate": 0.4,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Hồ Suối Mơ Bình Châu",
+    "matched_tour_count": 5,
+    "service_key": "guide",
+    "service_available_count": 5,
+    "service_known_count": 5,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Hồ Suối Mơ Bình Châu",
+    "matched_tour_count": 5,
+    "service_key": "homestay",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Hồ Suối Mơ Bình Châu",
+    "matched_tour_count": 5,
+    "service_key": "hotel",
+    "service_available_count": 3,
+    "service_known_count": 3,
+    "service_coverage_rate": 0.6,
+    "service_confidence": 1.0,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Hồ Suối Mơ Bình Châu",
+    "matched_tour_count": 5,
+    "service_key": "insurance",
+    "service_available_count": 4,
+    "service_known_count": 4,
+    "service_coverage_rate": 0.8,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Hồ Suối Mơ Bình Châu",
+    "matched_tour_count": 5,
+    "service_key": "meal",
+    "service_available_count": 5,
+    "service_known_count": 5,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Hồ Suối Mơ Bình Châu",
+    "matched_tour_count": 5,
+    "service_key": "pickup",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 0.2,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Hồ Suối Mơ Bình Châu",
+    "matched_tour_count": 5,
+    "service_key": "resort",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 0.2,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Hồ Suối Mơ Bình Châu",
+    "matched_tour_count": 5,
+    "service_key": "ticket",
+    "service_available_count": 5,
+    "service_known_count": 5,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Hồ Suối Mơ Bình Châu",
+    "matched_tour_count": 5,
+    "service_key": "transport",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 0.2,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "KDL Biển Đông",
+    "matched_tour_count": 3,
+    "service_key": "guide",
+    "service_available_count": 3,
+    "service_known_count": 3,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "KDL Biển Đông",
+    "matched_tour_count": 3,
+    "service_key": "homestay",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "KDL Biển Đông",
+    "matched_tour_count": 3,
+    "service_key": "hotel",
+    "service_available_count": 3,
+    "service_known_count": 3,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "KDL Biển Đông",
+    "matched_tour_count": 3,
+    "service_key": "insurance",
+    "service_available_count": 3,
+    "service_known_count": 3,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "KDL Biển Đông",
+    "matched_tour_count": 3,
+    "service_key": "meal",
+    "service_available_count": 2,
+    "service_known_count": 2,
+    "service_coverage_rate": 0.6667,
+    "service_confidence": 1.0,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "KDL Biển Đông",
+    "matched_tour_count": 3,
+    "service_key": "pickup",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 0.3333,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "KDL Biển Đông",
+    "matched_tour_count": 3,
+    "service_key": "resort",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "KDL Biển Đông",
+    "matched_tour_count": 3,
+    "service_key": "ticket",
+    "service_available_count": 3,
+    "service_known_count": 3,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "KDL Biển Đông",
+    "matched_tour_count": 3,
+    "service_key": "transport",
+    "service_available_count": 3,
+    "service_known_count": 3,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "KDL Ngọc Xương",
+    "matched_tour_count": 1,
+    "service_key": "guide",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "KDL Ngọc Xương",
+    "matched_tour_count": 1,
+    "service_key": "homestay",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "KDL Ngọc Xương",
+    "matched_tour_count": 1,
+    "service_key": "hotel",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "KDL Ngọc Xương",
+    "matched_tour_count": 1,
+    "service_key": "insurance",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "KDL Ngọc Xương",
+    "matched_tour_count": 1,
+    "service_key": "meal",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "KDL Ngọc Xương",
+    "matched_tour_count": 1,
+    "service_key": "pickup",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "KDL Ngọc Xương",
+    "matched_tour_count": 1,
+    "service_key": "resort",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "KDL Ngọc Xương",
+    "matched_tour_count": 1,
+    "service_key": "ticket",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "KDL Ngọc Xương",
+    "matched_tour_count": 1,
+    "service_key": "transport",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Khu Giếng Trời Bình Châu",
+    "matched_tour_count": 5,
+    "service_key": "guide",
+    "service_available_count": 5,
+    "service_known_count": 5,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Khu Giếng Trời Bình Châu",
+    "matched_tour_count": 5,
+    "service_key": "homestay",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Khu Giếng Trời Bình Châu",
+    "matched_tour_count": 5,
+    "service_key": "hotel",
+    "service_available_count": 3,
+    "service_known_count": 3,
+    "service_coverage_rate": 0.6,
+    "service_confidence": 1.0,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Khu Giếng Trời Bình Châu",
+    "matched_tour_count": 5,
+    "service_key": "insurance",
+    "service_available_count": 4,
+    "service_known_count": 4,
+    "service_coverage_rate": 0.8,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Khu Giếng Trời Bình Châu",
+    "matched_tour_count": 5,
+    "service_key": "meal",
+    "service_available_count": 5,
+    "service_known_count": 5,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Khu Giếng Trời Bình Châu",
+    "matched_tour_count": 5,
+    "service_key": "pickup",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 0.2,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Khu Giếng Trời Bình Châu",
+    "matched_tour_count": 5,
+    "service_key": "resort",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 0.2,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Khu Giếng Trời Bình Châu",
+    "matched_tour_count": 5,
+    "service_key": "ticket",
+    "service_available_count": 5,
+    "service_known_count": 5,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Khu Giếng Trời Bình Châu",
+    "matched_tour_count": 5,
+    "service_key": "transport",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 0.2,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Lăng Cá Ông",
+    "matched_tour_count": 3,
+    "service_key": "guide",
+    "service_available_count": 3,
+    "service_known_count": 3,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Lăng Cá Ông",
+    "matched_tour_count": 3,
+    "service_key": "homestay",
+    "service_available_count": 0,
+    "service_known_count": 1,
+    "service_coverage_rate": 0.3333,
+    "service_confidence": 0.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Lăng Cá Ông",
+    "matched_tour_count": 3,
+    "service_key": "hotel",
+    "service_available_count": 2,
+    "service_known_count": 3,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 0.6667,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Lăng Cá Ông",
+    "matched_tour_count": 3,
+    "service_key": "insurance",
+    "service_available_count": 2,
+    "service_known_count": 3,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 0.6667,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Lăng Cá Ông",
+    "matched_tour_count": 3,
+    "service_key": "meal",
+    "service_available_count": 2,
+    "service_known_count": 2,
+    "service_coverage_rate": 0.6667,
+    "service_confidence": 1.0,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Lăng Cá Ông",
+    "matched_tour_count": 3,
+    "service_key": "pickup",
+    "service_available_count": 3,
+    "service_known_count": 3,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Lăng Cá Ông",
+    "matched_tour_count": 3,
+    "service_key": "resort",
+    "service_available_count": 0,
+    "service_known_count": 1,
+    "service_coverage_rate": 0.3333,
+    "service_confidence": 0.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Lăng Cá Ông",
+    "matched_tour_count": 3,
+    "service_key": "ticket",
+    "service_available_count": 3,
+    "service_known_count": 3,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Lăng Cá Ông",
+    "matched_tour_count": 3,
+    "service_key": "transport",
+    "service_available_count": 2,
+    "service_known_count": 2,
+    "service_coverage_rate": 0.6667,
+    "service_confidence": 1.0,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Marina Vũng Tàu",
+    "matched_tour_count": 4,
+    "service_key": "guide",
+    "service_available_count": 4,
+    "service_known_count": 4,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Marina Vũng Tàu",
+    "matched_tour_count": 4,
+    "service_key": "homestay",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Marina Vũng Tàu",
+    "matched_tour_count": 4,
+    "service_key": "hotel",
+    "service_available_count": 2,
+    "service_known_count": 2,
+    "service_coverage_rate": 0.5,
+    "service_confidence": 1.0,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Marina Vũng Tàu",
+    "matched_tour_count": 4,
+    "service_key": "insurance",
+    "service_available_count": 4,
+    "service_known_count": 4,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Marina Vũng Tàu",
+    "matched_tour_count": 4,
+    "service_key": "meal",
+    "service_available_count": 3,
+    "service_known_count": 3,
+    "service_coverage_rate": 0.75,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Marina Vũng Tàu",
+    "matched_tour_count": 4,
+    "service_key": "pickup",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 0.25,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Marina Vũng Tàu",
+    "matched_tour_count": 4,
+    "service_key": "resort",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Marina Vũng Tàu",
+    "matched_tour_count": 4,
+    "service_key": "ticket",
+    "service_available_count": 3,
+    "service_known_count": 3,
+    "service_coverage_rate": 0.75,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Marina Vũng Tàu",
+    "matched_tour_count": 4,
+    "service_key": "transport",
+    "service_available_count": 3,
+    "service_known_count": 3,
+    "service_coverage_rate": 0.75,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Mũi Nghinh Phong",
+    "matched_tour_count": 5,
+    "service_key": "guide",
+    "service_available_count": 4,
+    "service_known_count": 4,
+    "service_coverage_rate": 0.8,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Mũi Nghinh Phong",
+    "matched_tour_count": 5,
+    "service_key": "homestay",
+    "service_available_count": 0,
+    "service_known_count": 1,
+    "service_coverage_rate": 0.2,
+    "service_confidence": 0.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Mũi Nghinh Phong",
+    "matched_tour_count": 5,
+    "service_key": "hotel",
+    "service_available_count": 2,
+    "service_known_count": 3,
+    "service_coverage_rate": 0.6,
+    "service_confidence": 0.6667,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Mũi Nghinh Phong",
+    "matched_tour_count": 5,
+    "service_key": "insurance",
+    "service_available_count": 2,
+    "service_known_count": 3,
+    "service_coverage_rate": 0.6,
+    "service_confidence": 0.6667,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Mũi Nghinh Phong",
+    "matched_tour_count": 5,
+    "service_key": "meal",
+    "service_available_count": 3,
+    "service_known_count": 3,
+    "service_coverage_rate": 0.6,
+    "service_confidence": 1.0,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Mũi Nghinh Phong",
+    "matched_tour_count": 5,
+    "service_key": "pickup",
+    "service_available_count": 2,
+    "service_known_count": 2,
+    "service_coverage_rate": 0.4,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Mũi Nghinh Phong",
+    "matched_tour_count": 5,
+    "service_key": "resort",
+    "service_available_count": 0,
+    "service_known_count": 1,
+    "service_coverage_rate": 0.2,
+    "service_confidence": 0.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Mũi Nghinh Phong",
+    "matched_tour_count": 5,
+    "service_key": "ticket",
+    "service_available_count": 4,
+    "service_known_count": 4,
+    "service_coverage_rate": 0.8,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Mũi Nghinh Phong",
+    "matched_tour_count": 5,
+    "service_key": "transport",
+    "service_available_count": 4,
+    "service_known_count": 4,
+    "service_coverage_rate": 0.8,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Ngọn Hải Đăng Vũng Tàu",
+    "matched_tour_count": 3,
+    "service_key": "guide",
+    "service_available_count": 3,
+    "service_known_count": 3,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Ngọn Hải Đăng Vũng Tàu",
+    "matched_tour_count": 3,
+    "service_key": "homestay",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Ngọn Hải Đăng Vũng Tàu",
+    "matched_tour_count": 3,
+    "service_key": "hotel",
+    "service_available_count": 3,
+    "service_known_count": 3,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Ngọn Hải Đăng Vũng Tàu",
+    "matched_tour_count": 3,
+    "service_key": "insurance",
+    "service_available_count": 2,
+    "service_known_count": 2,
+    "service_coverage_rate": 0.6667,
+    "service_confidence": 1.0,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Ngọn Hải Đăng Vũng Tàu",
+    "matched_tour_count": 3,
+    "service_key": "meal",
+    "service_available_count": 3,
+    "service_known_count": 3,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Ngọn Hải Đăng Vũng Tàu",
+    "matched_tour_count": 3,
+    "service_key": "pickup",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Ngọn Hải Đăng Vũng Tàu",
+    "matched_tour_count": 3,
+    "service_key": "resort",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Ngọn Hải Đăng Vũng Tàu",
+    "matched_tour_count": 3,
+    "service_key": "ticket",
+    "service_available_count": 3,
+    "service_known_count": 3,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Ngọn Hải Đăng Vũng Tàu",
+    "matched_tour_count": 3,
+    "service_key": "transport",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 0.3333,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Nhà Lớn Long Sơn",
+    "matched_tour_count": 2,
+    "service_key": "guide",
+    "service_available_count": 2,
+    "service_known_count": 2,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Nhà Lớn Long Sơn",
+    "matched_tour_count": 2,
+    "service_key": "homestay",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Nhà Lớn Long Sơn",
+    "matched_tour_count": 2,
+    "service_key": "hotel",
+    "service_available_count": 2,
+    "service_known_count": 2,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Nhà Lớn Long Sơn",
+    "matched_tour_count": 2,
+    "service_key": "insurance",
+    "service_available_count": 2,
+    "service_known_count": 2,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Nhà Lớn Long Sơn",
+    "matched_tour_count": 2,
+    "service_key": "meal",
+    "service_available_count": 2,
+    "service_known_count": 2,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Nhà Lớn Long Sơn",
+    "matched_tour_count": 2,
+    "service_key": "pickup",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 0.5,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Nhà Lớn Long Sơn",
+    "matched_tour_count": 2,
+    "service_key": "resort",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Nhà Lớn Long Sơn",
+    "matched_tour_count": 2,
+    "service_key": "ticket",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 0.5,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Nhà Lớn Long Sơn",
+    "matched_tour_count": 2,
+    "service_key": "transport",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 0.5,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Niết Bàn Tịnh Xá",
+    "matched_tour_count": 5,
+    "service_key": "guide",
+    "service_available_count": 4,
+    "service_known_count": 4,
+    "service_coverage_rate": 0.8,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Niết Bàn Tịnh Xá",
+    "matched_tour_count": 5,
+    "service_key": "homestay",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Niết Bàn Tịnh Xá",
+    "matched_tour_count": 5,
+    "service_key": "hotel",
+    "service_available_count": 3,
+    "service_known_count": 3,
+    "service_coverage_rate": 0.6,
+    "service_confidence": 1.0,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Niết Bàn Tịnh Xá",
+    "matched_tour_count": 5,
+    "service_key": "insurance",
+    "service_available_count": 3,
+    "service_known_count": 3,
+    "service_coverage_rate": 0.6,
+    "service_confidence": 1.0,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Niết Bàn Tịnh Xá",
+    "matched_tour_count": 5,
+    "service_key": "meal",
+    "service_available_count": 3,
+    "service_known_count": 3,
+    "service_coverage_rate": 0.6,
+    "service_confidence": 1.0,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Niết Bàn Tịnh Xá",
+    "matched_tour_count": 5,
+    "service_key": "pickup",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Niết Bàn Tịnh Xá",
+    "matched_tour_count": 5,
+    "service_key": "resort",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Niết Bàn Tịnh Xá",
+    "matched_tour_count": 5,
+    "service_key": "ticket",
+    "service_available_count": 4,
+    "service_known_count": 4,
+    "service_coverage_rate": 0.8,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Niết Bàn Tịnh Xá",
+    "matched_tour_count": 5,
+    "service_key": "transport",
+    "service_available_count": 2,
+    "service_known_count": 2,
+    "service_coverage_rate": 0.4,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Nông Trại Cừu",
+    "matched_tour_count": 21,
+    "service_key": "guide",
+    "service_available_count": 21,
+    "service_known_count": 21,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Nông Trại Cừu",
+    "matched_tour_count": 21,
+    "service_key": "homestay",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Nông Trại Cừu",
+    "matched_tour_count": 21,
+    "service_key": "hotel",
+    "service_available_count": 9,
+    "service_known_count": 9,
+    "service_coverage_rate": 0.4286,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Nông Trại Cừu",
+    "matched_tour_count": 21,
+    "service_key": "insurance",
+    "service_available_count": 19,
+    "service_known_count": 19,
+    "service_coverage_rate": 0.9048,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Nông Trại Cừu",
+    "matched_tour_count": 21,
+    "service_key": "meal",
+    "service_available_count": 17,
+    "service_known_count": 17,
+    "service_coverage_rate": 0.8095,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Nông Trại Cừu",
+    "matched_tour_count": 21,
+    "service_key": "pickup",
+    "service_available_count": 2,
+    "service_known_count": 2,
+    "service_coverage_rate": 0.0952,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Nông Trại Cừu",
+    "matched_tour_count": 21,
+    "service_key": "resort",
+    "service_available_count": 5,
+    "service_known_count": 5,
+    "service_coverage_rate": 0.2381,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Nông Trại Cừu",
+    "matched_tour_count": 21,
+    "service_key": "ticket",
+    "service_available_count": 20,
+    "service_known_count": 20,
+    "service_coverage_rate": 0.9524,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Nông Trại Cừu",
+    "matched_tour_count": 21,
+    "service_key": "transport",
+    "service_available_count": 18,
+    "service_known_count": 18,
+    "service_coverage_rate": 0.8571,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Núi Minh Đạm",
+    "matched_tour_count": 14,
+    "service_key": "guide",
+    "service_available_count": 13,
+    "service_known_count": 13,
+    "service_coverage_rate": 0.9286,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Núi Minh Đạm",
+    "matched_tour_count": 14,
+    "service_key": "homestay",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Núi Minh Đạm",
+    "matched_tour_count": 14,
+    "service_key": "hotel",
+    "service_available_count": 4,
+    "service_known_count": 4,
+    "service_coverage_rate": 0.2857,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Núi Minh Đạm",
+    "matched_tour_count": 14,
+    "service_key": "insurance",
+    "service_available_count": 12,
+    "service_known_count": 12,
+    "service_coverage_rate": 0.8571,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Núi Minh Đạm",
+    "matched_tour_count": 14,
+    "service_key": "meal",
+    "service_available_count": 12,
+    "service_known_count": 12,
+    "service_coverage_rate": 0.8571,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Núi Minh Đạm",
+    "matched_tour_count": 14,
+    "service_key": "pickup",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 0.0714,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Núi Minh Đạm",
+    "matched_tour_count": 14,
+    "service_key": "resort",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 0.0714,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Núi Minh Đạm",
+    "matched_tour_count": 14,
+    "service_key": "ticket",
+    "service_available_count": 13,
+    "service_known_count": 13,
+    "service_coverage_rate": 0.9286,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Núi Minh Đạm",
+    "matched_tour_count": 14,
+    "service_key": "transport",
+    "service_available_count": 11,
+    "service_known_count": 11,
+    "service_coverage_rate": 0.7857,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Suối Nước Nóng Bình Châu",
+    "matched_tour_count": 22,
+    "service_key": "guide",
+    "service_available_count": 19,
+    "service_known_count": 19,
+    "service_coverage_rate": 0.8636,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Suối Nước Nóng Bình Châu",
+    "matched_tour_count": 22,
+    "service_key": "homestay",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Suối Nước Nóng Bình Châu",
+    "matched_tour_count": 22,
+    "service_key": "hotel",
+    "service_available_count": 7,
+    "service_known_count": 7,
+    "service_coverage_rate": 0.3182,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Suối Nước Nóng Bình Châu",
+    "matched_tour_count": 22,
+    "service_key": "insurance",
+    "service_available_count": 16,
+    "service_known_count": 16,
+    "service_coverage_rate": 0.7273,
+    "service_confidence": 1.0,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Suối Nước Nóng Bình Châu",
+    "matched_tour_count": 22,
+    "service_key": "meal",
+    "service_available_count": 19,
+    "service_known_count": 19,
+    "service_coverage_rate": 0.8636,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Suối Nước Nóng Bình Châu",
+    "matched_tour_count": 22,
+    "service_key": "pickup",
+    "service_available_count": 4,
+    "service_known_count": 4,
+    "service_coverage_rate": 0.1818,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Suối Nước Nóng Bình Châu",
+    "matched_tour_count": 22,
+    "service_key": "resort",
+    "service_available_count": 7,
+    "service_known_count": 7,
+    "service_coverage_rate": 0.3182,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Suối Nước Nóng Bình Châu",
+    "matched_tour_count": 22,
+    "service_key": "ticket",
+    "service_available_count": 18,
+    "service_known_count": 18,
+    "service_coverage_rate": 0.8182,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Suối Nước Nóng Bình Châu",
+    "matched_tour_count": 22,
+    "service_key": "transport",
+    "service_available_count": 14,
+    "service_known_count": 14,
+    "service_coverage_rate": 0.6364,
+    "service_confidence": 1.0,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Suối Đá",
+    "matched_tour_count": 2,
+    "service_key": "guide",
+    "service_available_count": 2,
+    "service_known_count": 2,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Suối Đá",
+    "matched_tour_count": 2,
+    "service_key": "homestay",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Suối Đá",
+    "matched_tour_count": 2,
+    "service_key": "hotel",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Suối Đá",
+    "matched_tour_count": 2,
+    "service_key": "insurance",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 0.5,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Suối Đá",
+    "matched_tour_count": 2,
+    "service_key": "meal",
+    "service_available_count": 2,
+    "service_known_count": 2,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Suối Đá",
+    "matched_tour_count": 2,
+    "service_key": "pickup",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Suối Đá",
+    "matched_tour_count": 2,
+    "service_key": "resort",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 0.5,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Suối Đá",
+    "matched_tour_count": 2,
+    "service_key": "ticket",
+    "service_available_count": 2,
+    "service_known_count": 2,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Suối Đá",
+    "matched_tour_count": 2,
+    "service_key": "transport",
+    "service_available_count": 2,
+    "service_known_count": 2,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Thiền Viện Thường Chiếu",
+    "matched_tour_count": 2,
+    "service_key": "guide",
+    "service_available_count": 2,
+    "service_known_count": 2,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Thiền Viện Thường Chiếu",
+    "matched_tour_count": 2,
+    "service_key": "homestay",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Thiền Viện Thường Chiếu",
+    "matched_tour_count": 2,
+    "service_key": "hotel",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 0.5,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Thiền Viện Thường Chiếu",
+    "matched_tour_count": 2,
+    "service_key": "insurance",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 0.5,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Thiền Viện Thường Chiếu",
+    "matched_tour_count": 2,
+    "service_key": "meal",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Thiền Viện Thường Chiếu",
+    "matched_tour_count": 2,
+    "service_key": "pickup",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Thiền Viện Thường Chiếu",
+    "matched_tour_count": 2,
+    "service_key": "resort",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 0.5,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Thiền Viện Thường Chiếu",
+    "matched_tour_count": 2,
+    "service_key": "ticket",
+    "service_available_count": 2,
+    "service_known_count": 2,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Thiền Viện Thường Chiếu",
+    "matched_tour_count": 2,
+    "service_key": "transport",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 0.5,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Thiền Viện Trúc Lâm Chân Nguyên",
+    "matched_tour_count": 1,
+    "service_key": "guide",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Thiền Viện Trúc Lâm Chân Nguyên",
+    "matched_tour_count": 1,
+    "service_key": "homestay",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Thiền Viện Trúc Lâm Chân Nguyên",
+    "matched_tour_count": 1,
+    "service_key": "hotel",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Thiền Viện Trúc Lâm Chân Nguyên",
+    "matched_tour_count": 1,
+    "service_key": "insurance",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Thiền Viện Trúc Lâm Chân Nguyên",
+    "matched_tour_count": 1,
+    "service_key": "meal",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Thiền Viện Trúc Lâm Chân Nguyên",
+    "matched_tour_count": 1,
+    "service_key": "pickup",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Thiền Viện Trúc Lâm Chân Nguyên",
+    "matched_tour_count": 1,
+    "service_key": "resort",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Thiền Viện Trúc Lâm Chân Nguyên",
+    "matched_tour_count": 1,
+    "service_key": "ticket",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Thiền Viện Trúc Lâm Chân Nguyên",
+    "matched_tour_count": 1,
+    "service_key": "transport",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Tháp Tam Thắng",
+    "matched_tour_count": 1,
+    "service_key": "guide",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Tháp Tam Thắng",
+    "matched_tour_count": 1,
+    "service_key": "homestay",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Tháp Tam Thắng",
+    "matched_tour_count": 1,
+    "service_key": "hotel",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Tháp Tam Thắng",
+    "matched_tour_count": 1,
+    "service_key": "insurance",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Tháp Tam Thắng",
+    "matched_tour_count": 1,
+    "service_key": "meal",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Tháp Tam Thắng",
+    "matched_tour_count": 1,
+    "service_key": "pickup",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Tháp Tam Thắng",
+    "matched_tour_count": 1,
+    "service_key": "resort",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Tháp Tam Thắng",
+    "matched_tour_count": 1,
+    "service_key": "ticket",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Tháp Tam Thắng",
+    "matched_tour_count": 1,
+    "service_key": "transport",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Tháp Vọng Thiên",
+    "matched_tour_count": 1,
+    "service_key": "guide",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Tháp Vọng Thiên",
+    "matched_tour_count": 1,
+    "service_key": "homestay",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Tháp Vọng Thiên",
+    "matched_tour_count": 1,
+    "service_key": "hotel",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Tháp Vọng Thiên",
+    "matched_tour_count": 1,
+    "service_key": "insurance",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Tháp Vọng Thiên",
+    "matched_tour_count": 1,
+    "service_key": "meal",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Tháp Vọng Thiên",
+    "matched_tour_count": 1,
+    "service_key": "pickup",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Tháp Vọng Thiên",
+    "matched_tour_count": 1,
+    "service_key": "resort",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Tháp Vọng Thiên",
+    "matched_tour_count": 1,
+    "service_key": "ticket",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Tháp Vọng Thiên",
+    "matched_tour_count": 1,
+    "service_key": "transport",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Thích Ca Phật Đài",
+    "matched_tour_count": 3,
+    "service_key": "guide",
+    "service_available_count": 2,
+    "service_known_count": 2,
+    "service_coverage_rate": 0.6667,
+    "service_confidence": 1.0,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Thích Ca Phật Đài",
+    "matched_tour_count": 3,
+    "service_key": "homestay",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Thích Ca Phật Đài",
+    "matched_tour_count": 3,
+    "service_key": "hotel",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Thích Ca Phật Đài",
+    "matched_tour_count": 3,
+    "service_key": "insurance",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 0.3333,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Thích Ca Phật Đài",
+    "matched_tour_count": 3,
+    "service_key": "meal",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 0.3333,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Thích Ca Phật Đài",
+    "matched_tour_count": 3,
+    "service_key": "pickup",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Thích Ca Phật Đài",
+    "matched_tour_count": 3,
+    "service_key": "resort",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Thích Ca Phật Đài",
+    "matched_tour_count": 3,
+    "service_key": "ticket",
+    "service_available_count": 2,
+    "service_known_count": 2,
+    "service_coverage_rate": 0.6667,
+    "service_confidence": 1.0,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Thích Ca Phật Đài",
+    "matched_tour_count": 3,
+    "service_key": "transport",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 0.3333,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Tượng Chúa Kitô",
+    "matched_tour_count": 6,
+    "service_key": "guide",
+    "service_available_count": 5,
+    "service_known_count": 5,
+    "service_coverage_rate": 0.8333,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Tượng Chúa Kitô",
+    "matched_tour_count": 6,
+    "service_key": "homestay",
+    "service_available_count": 0,
+    "service_known_count": 1,
+    "service_coverage_rate": 0.1667,
+    "service_confidence": 0.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Tượng Chúa Kitô",
+    "matched_tour_count": 6,
+    "service_key": "hotel",
+    "service_available_count": 4,
+    "service_known_count": 5,
+    "service_coverage_rate": 0.8333,
+    "service_confidence": 0.8,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Tượng Chúa Kitô",
+    "matched_tour_count": 6,
+    "service_key": "insurance",
+    "service_available_count": 4,
+    "service_known_count": 5,
+    "service_coverage_rate": 0.8333,
+    "service_confidence": 0.8,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Tượng Chúa Kitô",
+    "matched_tour_count": 6,
+    "service_key": "meal",
+    "service_available_count": 5,
+    "service_known_count": 5,
+    "service_coverage_rate": 0.8333,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Tượng Chúa Kitô",
+    "matched_tour_count": 6,
+    "service_key": "pickup",
+    "service_available_count": 2,
+    "service_known_count": 2,
+    "service_coverage_rate": 0.3333,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Tượng Chúa Kitô",
+    "matched_tour_count": 6,
+    "service_key": "resort",
+    "service_available_count": 0,
+    "service_known_count": 1,
+    "service_coverage_rate": 0.1667,
+    "service_confidence": 0.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Tượng Chúa Kitô",
+    "matched_tour_count": 6,
+    "service_key": "ticket",
+    "service_available_count": 4,
+    "service_known_count": 4,
+    "service_coverage_rate": 0.6667,
+    "service_confidence": 1.0,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Tượng Chúa Kitô",
+    "matched_tour_count": 6,
+    "service_key": "transport",
+    "service_available_count": 4,
+    "service_known_count": 4,
+    "service_coverage_rate": 0.6667,
+    "service_confidence": 1.0,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Đèo Nước Ngọt",
+    "matched_tour_count": 1,
+    "service_key": "guide",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Đèo Nước Ngọt",
+    "matched_tour_count": 1,
+    "service_key": "homestay",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Đèo Nước Ngọt",
+    "matched_tour_count": 1,
+    "service_key": "hotel",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Đèo Nước Ngọt",
+    "matched_tour_count": 1,
+    "service_key": "insurance",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Đèo Nước Ngọt",
+    "matched_tour_count": 1,
+    "service_key": "meal",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Đèo Nước Ngọt",
+    "matched_tour_count": 1,
+    "service_key": "pickup",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Đèo Nước Ngọt",
+    "matched_tour_count": 1,
+    "service_key": "resort",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Đèo Nước Ngọt",
+    "matched_tour_count": 1,
+    "service_key": "ticket",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Đèo Nước Ngọt",
+    "matched_tour_count": 1,
+    "service_key": "transport",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Đại Tòng Lâm",
+    "matched_tour_count": 6,
+    "service_key": "guide",
+    "service_available_count": 6,
+    "service_known_count": 6,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Đại Tòng Lâm",
+    "matched_tour_count": 6,
+    "service_key": "homestay",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Đại Tòng Lâm",
+    "matched_tour_count": 6,
+    "service_key": "hotel",
+    "service_available_count": 4,
+    "service_known_count": 4,
+    "service_coverage_rate": 0.6667,
+    "service_confidence": 1.0,
+    "confidence_level": "trung_binh"
+  },
+  {
+    "place": "Đại Tòng Lâm",
+    "matched_tour_count": 6,
+    "service_key": "insurance",
+    "service_available_count": 5,
+    "service_known_count": 5,
+    "service_coverage_rate": 0.8333,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Đại Tòng Lâm",
+    "matched_tour_count": 6,
+    "service_key": "meal",
+    "service_available_count": 2,
+    "service_known_count": 2,
+    "service_coverage_rate": 0.3333,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Đại Tòng Lâm",
+    "matched_tour_count": 6,
+    "service_key": "pickup",
+    "service_available_count": 1,
+    "service_known_count": 1,
+    "service_coverage_rate": 0.1667,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Đại Tòng Lâm",
+    "matched_tour_count": 6,
+    "service_key": "resort",
+    "service_available_count": 2,
+    "service_known_count": 2,
+    "service_coverage_rate": 0.3333,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Đại Tòng Lâm",
+    "matched_tour_count": 6,
+    "service_key": "ticket",
+    "service_available_count": 5,
+    "service_known_count": 5,
+    "service_coverage_rate": 0.8333,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Đại Tòng Lâm",
+    "matched_tour_count": 6,
+    "service_key": "transport",
+    "service_available_count": 5,
+    "service_known_count": 5,
+    "service_coverage_rate": 0.8333,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Đảo Long Sơn",
+    "matched_tour_count": 10,
+    "service_key": "guide",
+    "service_available_count": 10,
+    "service_known_count": 10,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Đảo Long Sơn",
+    "matched_tour_count": 10,
+    "service_key": "homestay",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Đảo Long Sơn",
+    "matched_tour_count": 10,
+    "service_key": "hotel",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Đảo Long Sơn",
+    "matched_tour_count": 10,
+    "service_key": "insurance",
+    "service_available_count": 8,
+    "service_known_count": 8,
+    "service_coverage_rate": 0.8,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Đảo Long Sơn",
+    "matched_tour_count": 10,
+    "service_key": "meal",
+    "service_available_count": 10,
+    "service_known_count": 10,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Đảo Long Sơn",
+    "matched_tour_count": 10,
+    "service_key": "pickup",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Đảo Long Sơn",
+    "matched_tour_count": 10,
+    "service_key": "resort",
+    "service_available_count": 2,
+    "service_known_count": 2,
+    "service_coverage_rate": 0.2,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Đảo Long Sơn",
+    "matched_tour_count": 10,
+    "service_key": "ticket",
+    "service_available_count": 10,
+    "service_known_count": 10,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Đảo Long Sơn",
+    "matched_tour_count": 10,
+    "service_key": "transport",
+    "service_available_count": 10,
+    "service_known_count": 10,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Đồi Cừu Suối Nghệ",
+    "matched_tour_count": 10,
+    "service_key": "guide",
+    "service_available_count": 10,
+    "service_known_count": 10,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Đồi Cừu Suối Nghệ",
+    "matched_tour_count": 10,
+    "service_key": "homestay",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Đồi Cừu Suối Nghệ",
+    "matched_tour_count": 10,
+    "service_key": "hotel",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Đồi Cừu Suối Nghệ",
+    "matched_tour_count": 10,
+    "service_key": "insurance",
+    "service_available_count": 8,
+    "service_known_count": 8,
+    "service_coverage_rate": 0.8,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Đồi Cừu Suối Nghệ",
+    "matched_tour_count": 10,
+    "service_key": "meal",
+    "service_available_count": 10,
+    "service_known_count": 10,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Đồi Cừu Suối Nghệ",
+    "matched_tour_count": 10,
+    "service_key": "pickup",
+    "service_available_count": 0,
+    "service_known_count": 0,
+    "service_coverage_rate": 0.0,
+    "service_confidence": 0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Đồi Cừu Suối Nghệ",
+    "matched_tour_count": 10,
+    "service_key": "resort",
+    "service_available_count": 2,
+    "service_known_count": 2,
+    "service_coverage_rate": 0.2,
+    "service_confidence": 1.0,
+    "confidence_level": "thap"
+  },
+  {
+    "place": "Đồi Cừu Suối Nghệ",
+    "matched_tour_count": 10,
+    "service_key": "ticket",
+    "service_available_count": 10,
+    "service_known_count": 10,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  },
+  {
+    "place": "Đồi Cừu Suối Nghệ",
+    "matched_tour_count": 10,
+    "service_key": "transport",
+    "service_available_count": 10,
+    "service_known_count": 10,
+    "service_coverage_rate": 1.0,
+    "service_confidence": 1.0,
+    "confidence_level": "cao"
+  }
+]

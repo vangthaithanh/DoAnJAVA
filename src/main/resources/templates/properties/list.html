@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head(${pageTitle})}"></head>
+<body>
+<header th:replace="~{fragments/layout :: header}"></header>
+<section th:replace="~{fragments/layout :: pageBanner('Tour trong nước', 'Tất cả tour và tour gợi ý đã được gộp tại một trang để người dùng dễ tìm, lọc và đặt tour.')} "></section>
+<div th:replace="~{fragments/layout :: flash}"></div>
+
+<main class="section-padding">
+  <div class="container">
+    <div class="suggest-strip reveal">
+      <div>
+        <span class="section-kicker"><i class="fa-solid fa-wand-magic-sparkles"></i> Gợi ý nhanh</span>
+        <h3>Chọn tour theo nhu cầu của bạn</h3>
+      </div>
+      <div class="quick-tags">
+        <a th:href="@{/tours(type='Tour miền Bắc')}">Miền Bắc</a>
+        <a th:href="@{/tours(type='Tour miền Trung')}">Miền Trung</a>
+        <a th:href="@{/tours(type='Tour miền Nam')}">Miền Nam</a>
+        <a th:href="@{/tours(type='Tour biển đảo')}">Biển đảo</a>
+        <a th:href="@{/tours(maxPrice=3000000)}">Dưới 3 triệu</a>
+        <a th:href="@{/itinerary}">Tự tạo lịch trình</a>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <aside class="col-lg-4">
+        <form class="filter-sidebar reveal" th:action="@{/tours}" method="get">
+          <h4>Tìm tour phù hợp</h4>
+          <label>Bạn muốn đi đâu?</label>
+          <input class="form-control" type="text" name="keyword" placeholder="Đà Nẵng, Phú Quốc, Hà Nội..." th:value="${param.keyword != null ? param.keyword[0] : ''}">
+
+          <label>Loại tour</label>
+          <select class="form-select" name="type">
+            <option value="">Tất cả loại tour</option>
+            <option value="Tour miền Bắc" th:selected="${param.type != null and param.type[0] == 'Tour miền Bắc'}">Tour miền Bắc</option>
+            <option value="Tour miền Trung" th:selected="${param.type != null and param.type[0] == 'Tour miền Trung'}">Tour miền Trung</option>
+            <option value="Tour miền Nam" th:selected="${param.type != null and param.type[0] == 'Tour miền Nam'}">Tour miền Nam</option>
+            <option value="Tour biển đảo" th:selected="${param.type != null and param.type[0] == 'Tour biển đảo'}">Tour biển đảo</option>
+            <option value="Tour Tây Nguyên" th:selected="${param.type != null and param.type[0] == 'Tour Tây Nguyên'}">Tour Tây Nguyên</option>
+            <option value="Lịch trình tự tạo" th:selected="${param.type != null and param.type[0] == 'Lịch trình tự tạo'}">Lịch trình tự tạo</option>
+          </select>
+
+          <label>Trạng thái</label>
+          <select class="form-select" name="status">
+            <option value="">Tất cả trạng thái</option>
+            <option value="Đang mở bán" th:selected="${param.status != null and param.status[0] == 'Đang mở bán'}">Đang mở bán</option>
+            <option value="Theo yêu cầu" th:selected="${param.status != null and param.status[0] == 'Theo yêu cầu'}">Theo yêu cầu</option>
+          </select>
+
+          <label>Điểm đến / tuyến đi</label>
+          <input class="form-control" type="text" name="location" placeholder="Hội An, Hạ Long, Cần Thơ..." th:value="${param.location != null ? param.location[0] : ''}">
+
+          <div class="row g-2">
+            <div class="col-6"><label>Giá thấp nhất</label><input class="form-control" type="number" name="minPrice" placeholder="1000000" th:value="${param.minPrice != null ? param.minPrice[0] : ''}"></div>
+            <div class="col-6"><label>Giá cao nhất</label><input class="form-control" type="number" name="maxPrice" placeholder="7000000" th:value="${param.maxPrice != null ? param.maxPrice[0] : ''}"></div>
+          </div>
+
+          <button class="btn btn-theme w-100 mt-3" type="submit">Tìm tour</button>
+          <a class="btn btn-light w-100 mt-2" th:href="@{/tours}">Xóa bộ lọc</a>
+        </form>
+
+        <div class="sidebar-widget reveal delay-1">
+          <h4>Tour mới nhất</h4>
+          <a class="mini-property" th:each="p : ${latestTours}" th:href="@{/tours/{id}(id=${p.id})}">
+            <img th:src="${p.imageUrl}" th:alt="${p.title}">
+            <span><strong th:text="${p.title}">Tên tour</strong><em th:text="${#numbers.formatDecimal(p.price, 0, 'COMMA', 0, 'POINT') + 'đ'}">3,990,000đ</em></span>
+          </a>
+        </div>
+      </aside>
+
+      <div class="col-lg-8">
+        <div class="list-toolbar reveal">
+          <div>
+            <span class="section-kicker"><i class="fa-solid fa-suitcase-rolling"></i> Tour đang mở bán</span>
+            <h2>Danh sách tour Việt Nam</h2>
+          </div>
+          <a th:href="@{/itinerary}" class="btn btn-theme magnetic-btn">Tự tạo lịch trình</a>
+        </div>
+
+        <div class="alert alert-warning reveal" th:if="${tours == null or #lists.isEmpty(tours)}">Không tìm thấy tour phù hợp với bộ lọc.</div>
+
+        <div class="row g-4">
+          <div class="col-md-6 reveal" th:each="property, iter : ${tours}" th:classappend="${iter.index % 2 == 1 ? 'delay-1' : ''}">
+            <article class="property-card tilt-card">
+              <a class="property-img-wrap" th:href="@{/tours/{id}(id=${property.id})}">
+                <img th:src="${property.imageUrl}" th:alt="${property.title}">
+                <span class="sale-badge" th:text="${property.type}">Tour trong nước</span>
+                <button class="fav-btn" type="button" aria-label="Lưu tour yêu thích"><i class="fa-regular fa-heart"></i></button>
+              </a>
+              <div class="property-body">
+                <h5><a th:href="@{/tours/{id}(id=${property.id})}" th:text="${property.title}">Tên tour</a></h5>
+                <div class="property-price" th:text="${property.price == 0 ? 'Theo yêu cầu' : #numbers.formatDecimal(property.price, 0, 'COMMA', 0, 'POINT') + 'đ'}">3,990,000đ</div>
+                <div class="property-meta">
+                  <span><i class="fa-solid fa-calendar-day"></i> <span th:text="${property.bedrooms}">3</span> ngày</span>
+                  <span><i class="fa-solid fa-moon"></i> <span th:text="${property.bathrooms}">2</span> đêm</span>
+                  <span><i class="fa-solid fa-users"></i> <span th:text="${property.parking}">18</span> chỗ</span>
+                </div>
+                <p class="property-location"><i class="fa-solid fa-location-dot"></i><span th:text="${property.location}"></span></p>
+                <div class="card-actions"><a class="details-link" th:href="@{/tours/{id}(id=${property.id})}">Xem chi tiết <i class="fa-solid fa-arrow-right-long"></i></a></div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+<th:block th:replace="~{fragments/layout :: scripts}"></th:block>
+</body>
+</html>

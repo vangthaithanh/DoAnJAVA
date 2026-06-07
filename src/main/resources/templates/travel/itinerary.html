@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head(${pageTitle})}"></head>
+<body>
+<header th:replace="~{fragments/layout :: header}"></header>
+<section th:replace="~{fragments/layout :: pageBanner('Tạo lịch trình du lịch', 'Tự tạo lịch trình chuyến đi theo điểm đến, số ngày, ngân sách và sở thích.')}"></section>
+<main>
+  <section class="section-padding">
+    <div class="container">
+      <div class="text-center section-heading reveal">
+        <div class="section-kicker justify-content-center"><i class="fa-solid fa-route"></i> Lịch trình thông minh</div>
+        <h2>Tạo lịch trình chỉ trong vài bước</h2>
+        <p>Giao diện tham khảo ý tưởng công cụ lập lịch trình: chọn điểm đến, tùy chỉnh, hoàn tất và lưu hành trình.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-3 reveal">
+          <div class="category-card">
+            <span class="count-badge">1</span>
+            <img src="https://cdn-icons-png.flaticon.com/512/854/854878.png">
+            <h5>Chọn điểm đến</h5>
+            <p>Nhập tỉnh/thành hoặc tuyến điểm Việt Nam bạn muốn khám phá.</p>
+          </div>
+        </div>
+        <div class="col-md-3 reveal delay-1">
+          <div class="category-card">
+            <span class="count-badge">2</span>
+            <img src="https://cdn-icons-png.flaticon.com/512/747/747310.png">
+            <h5>Chọn số ngày</h5>
+            <p>Xác định thời gian, ngày khởi hành và nhịp độ chuyến đi.</p>
+          </div>
+        </div>
+        <div class="col-md-3 reveal delay-2">
+          <div class="category-card">
+            <span class="count-badge">3</span>
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135706.png">
+            <h5>Tùy chỉnh ngân sách</h5>
+            <p>Chọn mức chi tiêu, khách sạn, phương tiện và trải nghiệm mong muốn.</p>
+          </div>
+        </div>
+        <div class="col-md-3 reveal delay-3">
+          <div class="category-card">
+            <span class="count-badge">4</span>
+            <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png">
+            <h5>Hoàn tất</h5>
+            <p>Lưu lịch trình, chia sẻ với bạn bè hoặc gửi tư vấn viên WebDuLich.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding contact-section">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-6 reveal">
+          <div class="contact-copy">
+            <div class="section-kicker"><i class="fa-solid fa-wand-magic-sparkles"></i> Tạo lịch trình mẫu</div>
+            <h2>Nhập thông tin chuyến đi</h2>
+            <p>Form này đang là giao diện mẫu. Sau này có thể tạo bảng LichTrinhTuTao để lưu lịch trình vào database.</p>
+            <div class="contact-feature">
+              <i class="fa-solid fa-lightbulb"></i>
+              <div><h5>Gợi ý theo nhu cầu</h5><p>Gia đình, cặp đôi, phượt, nghỉ dưỡng, văn hóa hoặc ẩm thực.</p></div>
+            </div>
+            <div class="contact-feature">
+              <i class="fa-solid fa-bell"></i>
+              <div><h5>Nhắc lịch trình</h5><p>Có thể mở rộng để thông báo lịch bay, giờ check-in và điểm tham quan.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 reveal delay-1">
+          <form class="contact-form">
+            <div class="row g-3">
+              <div class="col-md-6"><input class="form-control" placeholder="Điểm đến"></div>
+              <div class="col-md-6"><input class="form-control" placeholder="Số ngày"></div>
+              <div class="col-md-6"><input class="form-control" placeholder="Ngân sách dự kiến"></div>
+              <div class="col-md-6">
+                <select class="form-select">
+                  <option>Phong cách du lịch</option>
+                  <option>Nghỉ dưỡng</option>
+                  <option>Khám phá</option>
+                  <option>Gia đình</option>
+                  <option>Ẩm thực</option>
+                </select>
+              </div>
+              <div class="col-12"><textarea class="form-control" rows="5" placeholder="Ghi chú thêm: đi cùng ai, thích hoạt động gì, cần khách sạn mấy sao..."></textarea></div>
+              <div class="col-12"><a th:href="@{/tours}" class="btn btn-theme w-100">Xem gợi ý lịch trình phù hợp</a></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding recommendation-section">
+    <div class="container">
+      <div class="recommendation-panel reveal" id="itineraryRecommendation">
+        <div class="recommendation-head">
+          <div>
+            <div class="section-kicker"><i class="fa-solid fa-map-location-dot"></i> Model gợi ý v11</div>
+            <h2>Gợi ý lịch trình theo điểm đến</h2>
+            <p>Chọn điểm đến, địa điểm và dịch vụ để nhận gợi ý phù hợp từ dữ liệu tour.</p>
+          </div>
+          <button class="btn btn-theme" id="recommendItineraryButton" type="button">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> Gợi ý lịch trình
+          </button>
+        </div>
+        <div class="recommendation-destination">
+          <label for="recommendDestination">Điểm đến</label>
+          <select class="form-select" id="recommendDestination"></select>
+        </div>
+        <p class="recommendation-warning" id="recommendationWarning" hidden></p>
+        <h5 class="recommendation-choice-title">Chọn địa điểm</h5>
+        <div class="recommendation-place-list" id="recommendPlaceList">
+          <span class="recommendation-status">Đang tải danh sách địa điểm...</span>
+        </div>
+        <h5 class="recommendation-choice-title">Chọn dịch vụ</h5>
+        <div class="recommendation-place-list" id="recommendServiceList">
+          <span class="recommendation-status">Đang tải danh sách dịch vụ...</span>
+        </div>
+        <p class="recommendation-status" id="recommendationStatus"></p>
+        <div class="row g-3 recommendation-results" id="recommendationResults" hidden>
+          <div class="col-lg-3 col-md-6">
+            <div class="recommendation-result-card">
+              <h5><i class="fa-solid fa-location-dot"></i> Địa điểm tiếp theo</h5>
+              <div id="recommendNextPlaces"></div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="recommendation-result-card">
+              <h5><i class="fa-solid fa-arrow-right-arrow-left"></i> Dịch vụ tiếp theo</h5>
+              <div id="recommendNextServices"></div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="recommendation-result-card">
+              <h5><i class="fa-solid fa-bell-concierge"></i> Dịch vụ theo địa điểm</h5>
+              <div id="recommendPlaceServices"></div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="recommendation-result-card">
+              <h5><i class="fa-solid fa-route"></i> Tour phù hợp</h5>
+              <div id="recommendTours"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container">
+      <div class="text-center section-heading reveal">
+        <div class="section-kicker justify-content-center"><i class="fa-solid fa-fire"></i> Lịch trình nổi bật</div>
+        <h2>Mẫu tour có thể dùng ngay</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6 reveal" th:each="property : ${tours}">
+          <article class="property-card tilt-card">
+            <a class="property-img-wrap" th:href="@{/tours/{id}(id=${property.id})}">
+              <img th:src="${property.imageUrl}">
+              <span class="sale-badge" th:text="${property.bedrooms + ' ngày'}">3 ngày</span>
+            </a>
+            <div class="property-body">
+              <h5><a th:href="@{/tours/{id}(id=${property.id})}" th:text="${property.title}">Tour</a></h5>
+              <p class="property-location"><i class="fa-solid fa-location-dot"></i><span th:text="${property.location}"></span></p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+<th:block th:replace="~{fragments/layout :: scripts}"></th:block>
+<script th:src="@{/assets/js/recommendation.js}" src="/assets/js/recommendation.js"></script>
+</body>
+</html>

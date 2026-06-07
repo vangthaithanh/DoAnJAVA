@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head(${pageTitle})}"></head>
+<body>
+<header th:replace="~{fragments/layout :: header}"></header>
+<section th:replace="~{fragments/layout :: pageBanner('Tư vấn viên', 'Danh sách tư vấn viên hỗ trợ bán tour và tạo lịch trình du lịch.')}"></section>
+
+<main class="section-padding agents-section">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6 reveal" th:each="agent, iter : ${agents}" th:classappend="${iter.index % 3 == 1 ? 'delay-1' : (iter.index % 3 == 2 ? 'delay-2' : '')}">
+        <article class="agent-card tilt-card">
+          <a th:href="@{/agents/{id}(id=${agent.id})}"><img th:src="${agent.avatarUrl}" th:alt="${agent.fullName}"></a>
+          <div class="agent-card-body">
+            <h5><a th:href="@{/agents/{id}(id=${agent.id})}" th:text="${agent.fullName}">Tư vấn viên</a></h5>
+            <p th:text="${agent.role}">Role</p>
+            <p class="agent-bio-short" th:text="${agent.bio}">Bio</p>
+            <div class="agent-social">
+              <a th:href="${agent.facebookUrl}"><i class="fa-brands fa-facebook-f"></i></a>
+              <a th:href="${agent.twitterUrl}"><i class="fa-brands fa-twitter"></i></a>
+              <a th:href="${agent.linkedinUrl}"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+            <a class="btn btn-outline-theme w-100 mt-3" th:href="@{/agents/{id}(id=${agent.id})}">Xem hồ sơ</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+<th:block th:replace="~{fragments/layout :: scripts}"></th:block>
+</body>
+</html>

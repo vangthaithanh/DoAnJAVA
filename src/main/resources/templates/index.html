@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head(${pageTitle})}"></head>
+<body>
+<header th:replace="~{fragments/layout :: header}"></header>
+<main>
+  <section class="hero-section travel-hero">
+    <div class="hero-bg-mark"></div>
+    <div class="container">
+      <div class="row align-items-center hero-row">
+        <div class="col-lg-6 hero-content reveal">
+          <div class="section-kicker"><i class="fa-solid fa-plane-departure"></i> Tour trong nước Việt Nam</div>
+          <h1>Đặt tour Việt Nam và tự tạo lịch trình cho chuyến đi của bạn.</h1>
+          <p class="hero-desc">WebDuLich hỗ trợ tìm tour trọn gói, xem điểm đến, nhận gợi ý hành trình và tự tạo lịch trình theo số ngày, ngân sách, phong cách du lịch.</p>
+          <div class="hero-buttons">
+            <a th:href="@{/tours}" href="/tours" class="btn btn-theme btn-lg magnetic-btn">Xem tour trong nước</a>
+            <a th:href="@{/itinerary}" href="/itinerary" class="btn play-btn pulse-btn" title="Tạo lịch trình"><i class="fa-solid fa-route"></i></a>
+          </div>
+          <div class="hero-stats">
+            <div><strong class="counter" data-target="36">0</strong><span>Tour Việt Nam</span></div>
+            <div><strong class="counter" data-target="24">0</strong><span>Điểm đến</span></div>
+            <div><strong class="counter" data-target="98">0</strong><span>Khách hài lòng</span></div>
+          </div>
+        </div>
+        <div class="col-lg-6 hero-image-col reveal delay-1">
+          <div class="hero-image-wrap tilt-card">
+            <img src="https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&w=1200&q=80" alt="Du lịch Việt Nam" class="hero-image">
+            <div class="hero-slider-dots"><span class="active"></span><span></span><span></span></div>
+          </div>
+        </div>
+      </div>
+
+      <form class="search-panel travel-search-panel reveal delay-2" th:action="@{/tours}" action="/tours" method="get">
+        <input type="hidden" name="status" id="statusInput" value="Đang mở bán">
+        <div class="search-tabs">
+          <button type="button" class="tab-btn active" data-type="buy">Trọn gói</button>
+          <button type="button" class="tab-btn" data-type="rent">Theo yêu cầu</button>
+        </div>
+        <div class="search-grid travel-search-grid">
+          <div class="search-field">
+            <label>Bạn muốn đi đâu?</label>
+            <input type="text" name="keyword" placeholder="Đà Nẵng, Phú Quốc, Hà Nội...">
+          </div>
+          <div class="search-field">
+            <label>Loại tour</label>
+            <select name="type">
+              <option value="">Tất cả loại tour</option>
+              <option value="Tour miền Bắc">Tour miền Bắc</option>
+              <option value="Tour miền Trung">Tour miền Trung</option>
+              <option value="Tour miền Nam">Tour miền Nam</option>
+              <option value="Tour biển đảo">Tour biển đảo</option>
+              <option value="Tour nghỉ dưỡng">Tour nghỉ dưỡng</option>
+            </select>
+          </div>
+          <div class="search-field">
+            <label>Điểm đến / khởi hành</label>
+            <input type="text" name="location" placeholder="TP.HCM, Hà Nội, Đà Nẵng...">
+          </div>
+          <div class="search-field">
+            <label>Ngân sách tối đa</label>
+            <input type="number" name="maxPrice" placeholder="5.000.000">
+          </div>
+          <button class="search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <div th:replace="~{fragments/layout :: flash}"></div>
+
+  <section class="section-padding category-section" id="tour-categories">
+    <div class="container">
+      <div class="text-center section-heading reveal">
+        <div class="section-kicker justify-content-center"><i class="fa-solid fa-map-location-dot"></i> Danh mục tour</div>
+        <h2>Chọn tour theo vùng miền</h2>
+        <p>Chỉ tập trung vào các tour trong nước Việt Nam, phù hợp với yêu cầu hiện tại của project.</p>
+      </div>
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-4 reveal">
+          <a class="category-card d-block" th:href="@{/tours(type='Tour miền Bắc')}">
+            <span class="count-badge" th:text="${singleFamilyCount}">3</span>
+            <img src="https://cdn-icons-png.flaticon.com/512/201/201623.png" alt="Tour miền Bắc">
+            <h5>Tour miền Bắc</h5>
+            <p>Hà Nội, Ninh Bình, Hạ Long, Sa Pa, Hà Giang với lịch trình văn hóa và thiên nhiên.</p>
+            <span class="card-link">Xem tour <i class="fa-solid fa-arrow-right-long"></i></span><span class="corner-shape"></span>
+          </a>
+        </div>
+        <div class="col-md-4 reveal delay-1">
+          <a class="category-card d-block" th:href="@{/tours(type='Tour miền Trung')}">
+            <span class="count-badge" th:text="${duplexCount}">2</span>
+            <img src="https://cdn-icons-png.flaticon.com/512/744/744465.png" alt="Tour miền Trung">
+            <h5>Tour miền Trung</h5>
+            <p>Đà Nẵng, Hội An, Huế, Quảng Bình, Bà Nà Hills và các tuyến di sản nổi bật.</p>
+            <span class="card-link">Xem tour <i class="fa-solid fa-arrow-right-long"></i></span><span class="corner-shape"></span>
+          </a>
+        </div>
+        <div class="col-md-4 reveal delay-2">
+          <a class="category-card d-block" th:href="@{/tours(type='Tour biển đảo')}">
+            <span class="count-badge" th:text="${containerHomeCount}">1</span>
+            <img src="https://cdn-icons-png.flaticon.com/512/854/854894.png" alt="Tour biển đảo">
+            <h5>Tour biển đảo</h5>
+            <p>Phú Quốc, Nha Trang, Quy Nhơn với lịch trình nghỉ dưỡng, vui chơi và ẩm thực biển.</p>
+            <span class="card-link">Xem tour <i class="fa-solid fa-arrow-right-long"></i></span><span class="corner-shape"></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="featured-deal section-padding" th:if="${featuredTour != null}">
+    <div class="container"><div class="row align-items-center g-5">
+      <div class="col-lg-6 reveal"><div class="deal-image tilt-card"><span class="ribbon">Tour nổi bật</span><span class="for-rent" th:text="${featuredTour.status}">Tour trọn gói</span><img th:src="${featuredTour.imageUrl}" alt="Tour nổi bật"><div class="deal-dots"><span class="active"></span><span></span></div></div></div>
+      <div class="col-lg-6 reveal delay-1"><div class="deal-content"><div class="section-kicker"><i class="fa-solid fa-star"></i> Được đặt nhiều</div><h2 th:text="${featuredTour.title}">Tour nổi bật</h2><p class="location-line"><i class="fa-solid fa-location-dot"></i> <span th:text="${featuredTour.location}"></span></p><p th:text="${featuredTour.description}"></p><div class="price-line"><span class="price-new" th:text="${#numbers.formatDecimal(featuredTour.price, 0, 'COMMA', 0, 'POINT') + 'đ'}">3,990,000đ</span><span class="price-old">Ưu đãi hôm nay</span></div><div class="property-stats"><div><i class="fa-solid fa-calendar-day"></i><b th:text="${featuredTour.bedrooms}">3</b><span>Ngày</span></div><div><i class="fa-solid fa-moon"></i><b th:text="${featuredTour.bathrooms}">2</b><span>Đêm</span></div><div><i class="fa-solid fa-users"></i><b th:text="${featuredTour.parking}">18</b><span>Chỗ còn</span></div></div><div class="agent-mini" th:if="${featuredTour.agent != null}"><img th:src="${featuredTour.agent.avatarUrl}" alt="Tư vấn viên"><div><strong th:text="${featuredTour.agent.fullName}">Tư vấn viên</strong><span th:text="${featuredTour.agent.email}"></span></div></div><a class="btn btn-theme mt-4 magnetic-btn" th:href="@{/tours/{id}(id=${featuredTour.id})}">Xem chi tiết <i class="fa-solid fa-arrow-right-long ms-1"></i></a></div></div>
+    </div></div>
+  </section>
+
+  <section class="section-padding tours-section" id="tours">
+    <div class="container"><div class="text-center section-heading reveal"><div class="section-kicker justify-content-center"><i class="fa-solid fa-fire"></i> Tour hot</div><h2>Tour trong nước đang được yêu thích</h2></div>
+      <div class="row g-4"><div class="col-lg-4 col-md-6 reveal" th:each="property, iter : ${tours}" th:classappend="${iter.index % 3 == 1 ? 'delay-1' : (iter.index % 3 == 2 ? 'delay-2' : '')}"><article class="property-card tilt-card"><a class="property-img-wrap" th:href="@{/tours/{id}(id=${property.id})}"><img th:src="${property.imageUrl}" th:alt="${property.title}"><span class="sale-badge" th:text="${property.status}">Tour trọn gói</span><button class="fav-btn" type="button"><i class="fa-regular fa-heart"></i></button></a><div class="property-body"><h5><a th:href="@{/tours/{id}(id=${property.id})}" th:text="${property.title}">Tên tour</a></h5><div class="property-price" th:text="${#numbers.formatDecimal(property.price, 0, 'COMMA', 0, 'POINT') + 'đ'}">3,990,000đ</div><div class="property-meta"><span><i class="fa-solid fa-calendar-day"></i> <span th:text="${property.bedrooms}">3</span> ngày</span><span><i class="fa-solid fa-moon"></i> <span th:text="${property.bathrooms}">2</span> đêm</span><span><i class="fa-solid fa-users"></i> <span th:text="${property.parking}">18</span> chỗ</span></div><p class="property-location"><i class="fa-solid fa-location-dot"></i><span th:text="${property.location}"></span></p><a class="details-link" th:href="@{/tours/{id}(id=${property.id})}">Xem chi tiết <i class="fa-solid fa-arrow-right-long"></i></a></div></article></div></div>
+      <div class="text-center mt-5 reveal"><a th:href="@{/tours}" class="btn btn-outline-theme magnetic-btn">Xem thêm tour <i class="fa-solid fa-arrow-right-long"></i></a></div>
+    </div>
+  </section>
+
+  <section class="section-padding location-section"><div class="container"><div class="text-center section-heading reveal"><div class="section-kicker justify-content-center"><i class="fa-solid fa-map-location-dot"></i> Điểm đến</div><h2>Khám phá điểm đến phổ biến</h2></div><div class="row g-4">
+    <div class="col-lg-4 col-md-6 reveal"><a class="location-card" th:href="@{/tours(location='Đà Nẵng')}"><img src="https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&w=700&q=80" alt="Đà Nẵng"><div class="location-overlay"><h5>Đà Nẵng - Hội An</h5><p><span th:text="${californiaCount}">3</span> tour</p></div></a></div>
+    <div class="col-lg-4 col-md-6 reveal delay-1"><a class="location-card" th:href="@{/tours(location='Hà Nội')}"><img src="https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=700&q=80" alt="Hà Nội"><div class="location-overlay"><h5>Hà Nội - Hạ Long</h5><p><span th:text="${moroccoCount}">5</span> tour</p></div></a></div>
+    <div class="col-lg-4 col-md-6 reveal delay-2"><a class="location-card" th:href="@{/tours(location='Phú Quốc')}"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=700&q=80" alt="Phú Quốc"><div class="location-overlay"><h5>Phú Quốc</h5><p><span th:text="${namibiaCount}">4</span> tour</p></div></a></div>
+  </div><div class="text-center mt-5"><a th:href="@{/destinations}" class="btn btn-outline-theme magnetic-btn">Xem tất cả điểm đến</a></div></div></section>
+
+  <section class="section-padding agents-section"><div class="container"><div class="text-center section-heading reveal"><div class="section-kicker justify-content-center"><i class="fa-solid fa-list-check"></i> Lên lịch trình</div><h2>Tạo lịch trình du lịch dễ dàng</h2><p>Chọn điểm đến, tùy chỉnh ngân sách, lưu lịch trình và nhận gợi ý theo từng ngày.</p></div><div class="row g-4"><div class="col-md-3 reveal"><div class="stat-box"><strong>01</strong><span>Chọn điểm đến</span></div></div><div class="col-md-3 reveal delay-1"><div class="stat-box"><strong>02</strong><span>Chọn số ngày</span></div></div><div class="col-md-3 reveal delay-2"><div class="stat-box"><strong>03</strong><span>Nhận gợi ý lịch trình</span></div></div><div class="col-md-3 reveal delay-3"><div class="stat-box"><strong>04</strong><span>Lưu & chia sẻ</span></div></div></div><div class="text-center mt-5"><a th:href="@{/itinerary}" class="btn btn-theme magnetic-btn">Tạo lịch trình ngay</a></div></div></section>
+
+  <section class="section-padding news-section"><div class="container"><div class="text-center section-heading reveal"><div class="section-kicker justify-content-center"><i class="fa-regular fa-newspaper"></i> Cẩm nang</div><h2>Kinh nghiệm du lịch mới nhất</h2></div><div class="row g-4"><div class="col-lg-4 col-md-6 reveal" th:each="blog, iter : ${blogs}" th:classappend="${iter.index % 3 == 1 ? 'delay-1' : (iter.index % 3 == 2 ? 'delay-2' : '')}"><article class="news-card tilt-card"><a th:href="@{/blog/{id}(id=${blog.id})}"><img th:src="${blog.imageUrl}" th:alt="${blog.title}"></a><div class="news-body"><div class="news-meta"><span th:text="${blog.category}">Cẩm nang</span><span th:text="${#temporals.format(blog.publishedDate, 'dd MMM yyyy')}">02 Apr 2026</span></div><h5><a th:href="@{/blog/{id}(id=${blog.id})}" th:text="${blog.title}">Bài viết</a></h5><p th:text="${blog.summary}">Tóm tắt</p><a th:href="@{/blog/{id}(id=${blog.id})}">Đọc thêm <i class="fa-solid fa-arrow-right-long"></i></a></div></article></div></div></div></section>
+</main>
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+<th:block th:replace="~{fragments/layout :: scripts}"></th:block>
+</body>
+</html>

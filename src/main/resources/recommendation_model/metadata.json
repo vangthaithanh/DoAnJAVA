@@ -1,0 +1,39 @@
+{
+  "model_version": "v10",
+  "generated_at_utc": "2026-06-01T06:01:35.717025+00:00",
+  "destination": "Đà Lạt",
+  "clean_tour_count": 31,
+  "place_count": 54,
+  "core_place_count": 30,
+  "rare_place_count": 24,
+  "transaction_count": 91,
+  "transaction_item_count": 455,
+  "rule_count": 251,
+  "strong_rule_count": 117,
+  "reference_rule_count": 134,
+  "data_sources": [
+    "ivivu",
+    "saigontourist",
+    "dalattrip"
+  ],
+  "rule_thresholds": {
+    "min_confidence": 0.5,
+    "min_lift_exclusive": 1.0,
+    "strong_min_support_count": 3,
+    "reference_support_count": 2,
+    "max_rules_per_antecedent": 10,
+    "prefer_day_level": true
+  },
+  "filter": {
+    "diem_den_chinh": "Đà Lạt",
+    "min_so_diem_den_chuan": 2,
+    "min_do_tin_cay_score": 4,
+    "exclude_interline": true
+  },
+  "known_limitations": [
+    "Dữ liệu là lịch trình tour công khai, không phải hành vi đặt tour của người dùng.",
+    "Một số tour không công khai đầy đủ giá hoặc phần bao gồm/không bao gồm.",
+    "Rare places có tour_count < 3 được giữ để tra cứu nhưng mặc định không hiển thị.",
+    "Day-level transaction chỉ có khi crawler trích được ngày từ lịch trình thật."
+  ]
+}

@@ -1,0 +1,56 @@
+[
+  {
+    "service_key": "hotel",
+    "service_label": "Khách sạn",
+    "known_tour_count": 17,
+    "available_tour_count": 16
+  },
+  {
+    "service_key": "meal",
+    "service_label": "Bữa ăn",
+    "known_tour_count": 30,
+    "available_tour_count": 30
+  },
+  {
+    "service_key": "transport",
+    "service_label": "Xe du lịch",
+    "known_tour_count": 26,
+    "available_tour_count": 26
+  },
+  {
+    "service_key": "ticket",
+    "service_label": "Vé tham quan",
+    "known_tour_count": 33,
+    "available_tour_count": 33
+  },
+  {
+    "service_key": "guide",
+    "service_label": "Hướng dẫn viên",
+    "known_tour_count": 35,
+    "available_tour_count": 35
+  },
+  {
+    "service_key": "insurance",
+    "service_label": "Bảo hiểm du lịch",
+    "known_tour_count": 30,
+    "available_tour_count": 29
+  },
+  {
+    "service_key": "pickup",
+    "service_label": "Đưa đón",
+    "known_tour_count": 8,
+    "available_tour_count": 8
+  },
+  {
+    "service_key": "homestay",
+    "service_label": "Homestay",
+    "known_tour_count": 1,
+    "available_tour_count": 0
+  },
+  {
+    "service_key": "resort",
+    "service_label": "Resort",
+    "known_tour_count": 11,
+    "available_tour_count": 10
+  }
+]
