@@ -98,7 +98,13 @@
                 </div>
 
                 <div class="cart-summary-actions">
-                    <a class="btn btn-theme w-100" th:href="@{/contact}" href="/contact">
+                    <form th:if="${cartTours != null and !#lists.isEmpty(cartTours)}" th:action="@{/payment/momo/create}" method="post">
+                        <button type="submit" class="btn btn-theme w-100">
+                            <i class="fa-solid fa-wallet"></i> Thanh toán bằng MoMo
+                        </button>
+                    </form>
+
+                    <a class="btn btn-outline-theme w-100" th:href="@{/contact}" href="/contact">
                         Gửi yêu cầu tư vấn
                     </a>
 

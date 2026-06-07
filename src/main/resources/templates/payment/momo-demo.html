@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${pageTitle}">Cổng thanh toán MoMo Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        :root {
+            --momo: #ae006f;
+            --momo-2: #d41475;
+            --momo-3: #ec168f;
+            --momo-dark: #860052;
+            --pink-soft: #fff0f7;
+            --text: #1f2937;
+            --muted: #6b7280;
+            --border: #ead9e3;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+            color: var(--text);
+            background:
+                    radial-gradient(circle at 90% 8%, rgba(236, 22, 143, 0.12), transparent 320px),
+                    radial-gradient(circle at 12% 88%, rgba(174, 0, 111, 0.10), transparent 380px),
+                    linear-gradient(180deg, #fffafd, #fff3fa);
+            overflow-x: hidden;
+        }
+
+        .momo-header {
+            height: 78px;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 18px rgba(31, 41, 55, 0.12);
+            display: flex;
+            align-items: center;
+            padding: 0 86px;
+            gap: 18px;
+            position: relative;
+            z-index: 20;
+        }
+
+        .momo-logo {
+            width: 56px;
+            height: 56px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #c00078, #8d0059);
+            color: white;
+            display: grid;
+            place-items: center;
+            font-weight: 900;
+            font-size: 18px;
+            line-height: 15px;
+            text-align: center;
+            letter-spacing: -1px;
+            box-shadow: 0 10px 24px rgba(174, 0, 111, 0.32);
+        }
+
+        .momo-header-title {
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .page {
+            width: min(1160px, calc(100% - 34px));
+            margin: 38px auto;
+            display: grid;
+            grid-template-columns: 355px 1fr;
+            gap: 36px;
+            align-items: start;
+        }
+
+        .order-card {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px 36px;
+            box-shadow: 0 18px 45px rgba(31, 41, 55, 0.10);
+            position: sticky;
+            top: 96px;
+        }
+
+        .order-card h2 {
+            margin: 0 0 24px;
+            font-size: 26px;
+            color: #111827;
+        }
+
+        .order-row {
+            border-bottom: 1px solid #eeeeee;
+            padding: 18px 0;
+        }
+
+        .order-label {
+            color: var(--muted);
+            font-size: 17px;
+            margin-bottom: 10px;
+        }
+
+        .order-value {
+            font-weight: 800;
+            font-size: 20px;
+            word-break: break-word;
+            color: #111827;
+        }
+
+        .provider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .mini-logo {
+            width: 30px;
+            height: 30px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #d41475, #8d0059);
+            color: #ffffff;
+            font-size: 10px;
+            font-weight: 900;
+            line-height: 10px;
+            display: grid;
+            place-items: center;
+            text-align: center;
+        }
+
+        .amount {
+            font-size: 36px;
+            font-weight: 900;
+            color: #111827;
+            letter-spacing: -1px;
+        }
+
+        .expire-box {
+            margin-top: 22px;
+            background: linear-gradient(135deg, #fff0f8, #ffe4f2);
+            border: 1px solid #ffd0e8;
+            border-radius: 14px;
+            padding: 20px;
+            text-align: center;
+            color: var(--momo-2);
+            font-size: 17px;
+            font-weight: 700;
+        }
+
+        .expire-time {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 14px;
+        }
+
+        .time-box {
+            min-width: 56px;
+            background: #f5c8df;
+            border-radius: 12px;
+            padding: 9px 12px;
+            font-weight: 900;
+            box-shadow: inset 0 -2px 0 rgba(174, 0, 111, 0.08);
+        }
+
+        .back-main {
+            display: block;
+            margin-top: 18px;
+            text-align: center;
+            color: var(--momo-2);
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .payment-card {
+            min-height: 720px;
+            border-radius: 18px;
+            overflow: hidden;
+            background:
+                    radial-gradient(circle at 86% 10%, rgba(255, 255, 255, 0.14), transparent 190px),
+                    radial-gradient(circle at 12% 55%, rgba(255, 255, 255, 0.08), transparent 230px),
+                    linear-gradient(140deg, #ef1792 0%, #cf007b 48%, #a80068 100%);
+            box-shadow: 0 22px 55px rgba(174, 0, 111, 0.28);
+            position: relative;
+            color: #ffffff;
+        }
+
+        .payment-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                    linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
+            background-size: 36px 36px;
+            mask-image: radial-gradient(circle at center, black, transparent 70%);
+            opacity: 0.35;
+        }
+
+        .shape {
+            position: absolute;
+            border: 2px dashed rgba(255,255,255,0.18);
+            width: 250px;
+            height: 250px;
+            transform: rotate(45deg);
+            left: -70px;
+            top: 245px;
+            border-radius: 20px;
+        }
+
+        .circle-glow {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            right: -95px;
+            top: -95px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.12);
+            animation: pulseGlow 2.8s ease-in-out infinite;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.55;
+            }
+            50% {
+                transform: scale(1.12);
+                opacity: 0.9;
+            }
+        }
+
+        .payment-inner {
+            position: relative;
+            z-index: 2;
+            padding: 34px 46px 38px;
+            min-height: 720px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .promo-pill {
+            background: rgba(255,255,255,0.96);
+            color: var(--momo-2);
+            padding: 12px 24px;
+            border-radius: 999px;
+            font-weight: 900;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 26px;
+            box-shadow: 0 10px 24px rgba(31, 41, 55, 0.16);
+            animation: floatY 2.8s ease-in-out infinite;
+        }
+
+        @keyframes floatY {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-7px);
+            }
+        }
+
+        .promo-avatar {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: #ffc9e3;
+            display: grid;
+            place-items: center;
+            color: var(--momo);
+            font-weight: 900;
+        }
+
+        .method-row {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 12px 24px;
+            width: min(460px, 100%);
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            color: var(--momo);
+            margin-bottom: 24px;
+            box-shadow: 0 14px 28px rgba(31, 41, 55, 0.18);
+        }
+
+        .method-small {
+            color: #374151;
+            font-size: 15px;
+            border: 1px solid #e5e7eb;
+            padding: 8px 13px;
+            border-radius: 9px;
+            background: #ffffff;
+        }
+
+        .method-brand {
+            font-size: 25px;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .qr-frame {
+            width: 372px;
+            height: 372px;
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 28px;
+            position: relative;
+            display: grid;
+            place-items: center;
+            box-shadow:
+                    0 24px 48px rgba(31, 41, 55, 0.26),
+                    0 0 0 8px rgba(255,255,255,0.14);
+        }
+
+        .qr-frame::before {
+            content: "";
+            position: absolute;
+            inset: 18px;
+            border-radius: 22px;
+            border: 4px solid transparent;
+            background:
+                    linear-gradient(#fff, #fff) padding-box,
+                    conic-gradient(from var(--angle), var(--momo), transparent, var(--momo-3), transparent, var(--momo)) border-box;
+            animation: spinBorder 3s linear infinite;
+            pointer-events: none;
+        }
+
+        @property --angle {
+            syntax: '<angle>';
+            initial-value: 0deg;
+            inherits: false;
+        }
+
+        @keyframes spinBorder {
+            to {
+                --angle: 360deg;
+            }
+        }
+
+        .qr-box {
+            width: 280px;
+            height: 280px;
+            background: #ffffff;
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            z-index: 3;
+            box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05);
+        }
+
+        .qr-matrix {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: repeat(29, 1fr);
+            grid-template-rows: repeat(29, 1fr);
+            gap: 2px;
+            padding: 8px;
+            background: #ffffff;
+        }
+
+        .qr-cell {
+            border-radius: 1.5px;
+            background: transparent;
+        }
+
+        .qr-cell.dark {
+            background: #111111;
+            box-shadow: 0 0 2px rgba(0,0,0,0.18);
+        }
+
+        .qr-cell.finder {
+            background: #111111;
+            border-radius: 2px;
+        }
+
+        .qr-cell.finder-white {
+            background: #ffffff;
+        }
+
+        .scan-line {
+            position: absolute;
+            left: 8px;
+            right: 8px;
+            height: 4px;
+            top: 0;
+            background: linear-gradient(90deg, transparent, #ff2aa0, #fff, #ff2aa0, transparent);
+            box-shadow: 0 0 18px #ff2aa0;
+            animation: scanMove 2.1s ease-in-out infinite;
+            z-index: 6;
+            border-radius: 999px;
+        }
+
+        @keyframes scanMove {
+            0% {
+                top: 10px;
+                opacity: 0;
+            }
+            12% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 1;
+            }
+            88% {
+                opacity: 1;
+            }
+            100% {
+                top: 266px;
+                opacity: 0;
+            }
+        }
+
+        .qr-center-logo {
+            position: absolute;
+            width: 74px;
+            height: 74px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #d41475, #93005e);
+            color: white;
+            display: grid;
+            place-items: center;
+            font-weight: 900;
+            text-align: center;
+            line-height: 15px;
+            border: 8px solid #ffffff;
+            z-index: 7;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 8px 18px rgba(174, 0, 111, 0.32);
+            animation: logoBeat 1.8s ease-in-out infinite;
+        }
+
+        @keyframes logoBeat {
+            0%, 100% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.08);
+            }
+        }
+
+        .corner {
+            position: absolute;
+            width: 34px;
+            height: 34px;
+            border-color: var(--momo);
+            border-style: solid;
+            z-index: 8;
+            animation: cornerBlink 1.4s ease-in-out infinite;
+        }
+
+        @keyframes cornerBlink {
+            0%, 100% {
+                opacity: 0.55;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .corner.tl {
+            top: 18px;
+            left: 18px;
+            border-width: 4px 0 0 4px;
+        }
+
+        .corner.tr {
+            top: 18px;
+            right: 18px;
+            border-width: 4px 4px 0 0;
+        }
+
+        .corner.bl {
+            bottom: 18px;
+            left: 18px;
+            border-width: 0 0 4px 4px;
+        }
+
+        .corner.br {
+            bottom: 18px;
+            right: 18px;
+            border-width: 0 4px 4px 0;
+        }
+
+        .qr-guide {
+            margin-top: 28px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: 900;
+            max-width: 620px;
+            line-height: 1.42;
+            text-shadow: 0 4px 14px rgba(0,0,0,0.18);
+        }
+
+        .qr-help {
+            margin-top: 15px;
+            font-size: 16px;
+        }
+
+        .qr-help strong {
+            color: #fff000;
+        }
+
+        .main-actions {
+            margin-top: auto;
+            display: flex;
+            gap: 14px;
+            padding-top: 30px;
+            width: 100%;
+            justify-content: center;
+        }
+
+        button,
+        .btn-like {
+            border: 0;
+            border-radius: 13px;
+            padding: 15px 24px;
+            font-size: 16px;
+            font-weight: 900;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 180px;
+            transition: 0.2s ease;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+        }
+
+        .pay-open-btn {
+            background: #ffffff;
+            color: var(--momo-2);
+            box-shadow: 0 12px 26px rgba(31, 41, 55, 0.22);
+        }
+
+        .pay-open-btn:hover {
+            box-shadow: 0 16px 34px rgba(31, 41, 55, 0.28);
+        }
+
+        .cancel-open-btn {
+            background: rgba(255, 255, 255, 0.14);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.42);
+        }
+
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(17, 24, 39, 0.54);
+            backdrop-filter: blur(8px);
+            z-index: 100;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 22px;
+        }
+
+        .modal-backdrop.show {
+            display: flex;
+        }
+
+        .pay-modal {
+            width: min(720px, 100%);
+            background: #ffffff;
+            color: var(--text);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 28px 80px rgba(0,0,0,0.35);
+            animation: modalIn 0.25s ease-out;
+        }
+
+        @keyframes modalIn {
+            from {
+                transform: translateY(18px) scale(0.97);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+        }
+
+        .modal-head {
+            padding: 22px 28px;
+            background:
+                    radial-gradient(circle at 90% 20%, rgba(255,255,255,0.20), transparent 170px),
+                    linear-gradient(135deg, var(--momo-3), var(--momo));
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .modal-title {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .modal-title h2 {
+            margin: 0;
+            font-size: 23px;
+        }
+
+        .modal-title p {
+            margin: 4px 0 0;
+            opacity: 0.9;
+            font-size: 14px;
+        }
+
+        .close-modal {
+            min-width: auto;
+            padding: 9px 13px;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.18);
+            color: #ffffff;
+            border: 1px solid rgba(255,255,255,0.30);
+        }
+
+        .modal-body {
+            padding: 26px 28px 30px;
+        }
+
+        .alert {
+            padding: 13px 14px;
+            border-radius: 10px;
+            margin-bottom: 16px;
+            font-weight: 800;
+        }
+
+        .alert-danger {
+            background: #ffe1e1;
+            color: #b91c1c;
+            border: 1px solid #fecaca;
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 22px;
+        }
+
+        .hint-box {
+            background: #fff3fa;
+            border: 1px dashed var(--momo-2);
+            color: #9d075c;
+            padding: 14px;
+            border-radius: 12px;
+            line-height: 1.7;
+        }
+
+        .account-table-wrap {
+            max-height: 235px;
+            overflow: auto;
+            margin-top: 10px;
+            border-radius: 10px;
+            border: 1px solid #f3c7df;
+            background: #ffffff;
+        }
+
+        .account-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        .account-table th,
+        .account-table td {
+            border-bottom: 1px solid #f3c7df;
+            padding: 9px;
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        .account-table th {
+            background: #fce7f3;
+            color: #9d075c;
+            position: sticky;
+            top: 0;
+            z-index: 2;
+        }
+
+        .login-panel {
+            background: #ffffff;
+            border: 1px solid #f1d8e7;
+            border-radius: 14px;
+            padding: 18px;
+            box-shadow: 0 10px 24px rgba(31, 41, 55, 0.06);
+        }
+
+        label {
+            display: block;
+            font-weight: 900;
+            margin: 14px 0 7px;
+            color: #374151;
+        }
+
+        input {
+            width: 100%;
+            border: 1px solid #d1d5db;
+            border-radius: 11px;
+            padding: 14px;
+            font-size: 16px;
+            outline: none;
+            transition: 0.18s ease;
+        }
+
+        input:focus {
+            border-color: var(--momo-2);
+            box-shadow: 0 0 0 4px rgba(212, 20, 117, 0.13);
+        }
+
+        .form-actions {
+            margin-top: 22px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        .confirm-pay {
+            background: linear-gradient(135deg, var(--momo-3), var(--momo));
+            color: #ffffff;
+            width: 100%;
+        }
+
+        .confirm-cancel {
+            background: #f3f4f6;
+            color: #374151;
+            border: 1px solid #d1d5db;
+            width: 100%;
+        }
+
+        .status-note {
+            margin-top: 12px;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 980px) {
+            .momo-header {
+                padding: 0 18px;
+            }
+
+            .page {
+                grid-template-columns: 1fr;
+            }
+
+            .order-card {
+                position: static;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .payment-inner {
+                padding: 28px 18px;
+            }
+
+            .qr-frame {
+                width: 320px;
+                height: 320px;
+                padding: 22px;
+            }
+
+            .qr-box {
+                width: 238px;
+                height: 238px;
+            }
+
+            .scan-line {
+                animation-name: scanMoveMobile;
+            }
+
+            @keyframes scanMoveMobile {
+                0% {
+                    top: 10px;
+                    opacity: 0;
+                }
+                12% {
+                    opacity: 1;
+                }
+                100% {
+                    top: 222px;
+                    opacity: 0;
+                }
+            }
+
+            .qr-guide {
+                font-size: 21px;
+            }
+
+            .main-actions {
+                flex-direction: column;
+            }
+
+            button {
+                width: 100%;
+            }
+
+            .demo-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body th:attr="data-has-error=${errorMessage != null}">
+
+<header class="momo-header">
+    <div class="momo-logo">mo<br>mo</div>
+    <div class="momo-header-title">Cổng thanh toán MoMo</div>
+</header>
+
+<main class="page">
+    <section class="order-card">
+        <h2>Thông tin đơn hàng</h2>
+
+        <div class="order-row">
+            <div class="order-label">Nhà cung cấp</div>
+            <div class="order-value provider">
+                <span class="mini-logo">mo<br>mo</span>
+                <span>MoMo Demo</span>
+            </div>
+        </div>
+
+        <div class="order-row">
+            <div class="order-label">Mã đơn hàng</div>
+            <div class="order-value" th:text="${paymentOrder.orderId}">WD...</div>
+        </div>
+
+        <div class="order-row">
+            <div class="order-label">Mô tả</div>
+            <div class="order-value" th:text="${paymentOrder.orderInfo}">Thanh toán giỏ tour WebDuLich</div>
+        </div>
+
+        <div class="order-row">
+            <div class="order-label">Số tiền</div>
+            <div class="amount" th:text="${#numbers.formatDecimal(paymentOrder.amount, 0, 'COMMA', 0, 'POINT') + 'đ'}">0đ</div>
+        </div>
+
+        <div class="expire-box">
+            Đơn hàng sẽ hết hạn sau:
+            <div class="expire-time">
+                <div class="time-box">15<br>Giờ</div>
+                <div class="time-box">39<br>Phút</div>
+                <div class="time-box">57<br>Giây</div>
+            </div>
+        </div>
+
+        <a class="back-main" th:href="@{/cart}" href="/cart">Quay về</a>
+    </section>
+
+    <section class="payment-card">
+        <div class="shape"></div>
+        <div class="circle-glow"></div>
+
+        <div class="payment-inner">
+            <div class="promo-pill">
+                <span class="promo-avatar">M</span>
+                Tích xu đổi quà cho mọi giao dịch
+            </div>
+
+            <div class="method-row">
+                <div class="method-small">Ví Trả Sau</div>
+                <div class="method-brand">momo</div>
+                <div class="method-brand">VietQR</div>
+            </div>
+
+            <div class="qr-frame">
+                <span class="corner tl"></span>
+                <span class="corner tr"></span>
+                <span class="corner bl"></span>
+                <span class="corner br"></span>
+
+                <div class="qr-box">
+                    <div class="qr-matrix" id="qrMatrix"></div>
+                    <div class="scan-line"></div>
+                    <div class="qr-center-logo">mo<br>mo</div>
+                </div>
+            </div>
+
+            <div class="qr-guide">
+                Sử dụng App MoMo hoặc bấm thanh toán demo để xác nhận giao dịch
+            </div>
+
+            <div class="qr-help">
+                Gặp khó khăn khi thanh toán? <strong>Chọn thanh toán demo bên dưới</strong>
+            </div>
+
+            <div class="main-actions">
+                <button type="button" class="pay-open-btn" onclick="openModal()">
+                    Thanh toán demo
+                </button>
+
+                <button type="submit" class="cancel-open-btn" form="cancelForm">
+                    Hủy thanh toán
+                </button>
+            </div>
+        </div>
+    </section>
+</main>
+
+<div class="modal-backdrop" id="payModal">
+    <div class="pay-modal">
+        <div class="modal-head">
+            <div class="modal-title">
+                <div class="momo-logo">mo<br>mo</div>
+                <div>
+                    <h2>Xác nhận thanh toán demo</h2>
+                    <p>Nhập số điện thoại và mật khẩu để kiểm tra số dư</p>
+                </div>
+            </div>
+
+            <button type="button" class="close-modal" onclick="closeModal()">Đóng</button>
+        </div>
+
+        <div class="modal-body">
+            <div class="alert alert-danger" th:if="${errorMessage}" th:text="${errorMessage}">
+                Sai thông tin đăng nhập
+            </div>
+
+            <div class="demo-grid">
+                <div class="hint-box">
+                    <strong>Tài khoản demo có số dư:</strong>
+
+                    <div class="account-table-wrap">
+                        <table class="account-table">
+                            <thead>
+                            <tr>
+                                <th>SĐT</th>
+                                <th>Mật khẩu</th>
+                                <th>Số dư</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="account : ${demoAccounts}">
+                                <td th:text="${account.phone}">0987654321</td>
+                                <td th:text="${account.password}">123456</td>
+                                <td th:text="${#numbers.formatDecimal(account.balance, 0, 'COMMA', 0, 'POINT') + 'đ'}">0đ</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="status-note">
+                        Ví dụ: tài khoản 0987654321 chỉ có 1 triệu nên đơn lớn hơn 1 triệu sẽ báo không đủ tiền.
+                    </div>
+                </div>
+
+                <div class="login-panel">
+                    <form th:action="@{/payment/momo/demo/pay}" method="post">
+                        <input type="hidden" name="orderId" th:value="${paymentOrder.orderId}">
+
+                        <label for="phone">Số điện thoại MoMo</label>
+                        <input id="phone" name="phone" type="text" value="0987654321" required>
+
+                        <label for="password">Mật khẩu</label>
+                        <input id="password" name="password" type="password" placeholder="Nhập mật khẩu" required>
+
+                        <div class="form-actions">
+                            <button type="submit" class="confirm-pay">
+                                Thanh toán
+                            </button>
+
+                            <button type="submit" class="confirm-cancel" form="cancelForm">
+                                Hủy thanh toán
+                            </button>
+                        </div>
+                    </form>
+
+                    <div class="status-note">
+                        Nếu đủ tiền, hệ thống trừ số dư demo và chuyển đơn thành PAID.
+                        Khi chạy lại project, số dư quay về mặc định.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form id="cancelForm" th:action="@{/payment/momo/demo/cancel}" method="post">
+    <input type="hidden" name="orderId" th:value="${paymentOrder.orderId}">
+</form>
+
+<script>
+    function buildVipQr() {
+        const matrix = document.getElementById('qrMatrix');
+        if (!matrix) return;
+
+        const size = 29;
+        matrix.innerHTML = '';
+
+        function inFinder(row, col, startRow, startCol) {
+            return row >= startRow && row < startRow + 7 && col >= startCol && col < startCol + 7;
+        }
+
+        function finderClass(row, col, startRow, startCol) {
+            const r = row - startRow;
+            const c = col - startCol;
+
+            const border = r === 0 || r === 6 || c === 0 || c === 6;
+            const center = r >= 2 && r <= 4 && c >= 2 && c <= 4;
+
+            if (border || center) return 'dark finder';
+            return 'finder-white';
+        }
+
+        for (let row = 0; row < size; row++) {
+            for (let col = 0; col < size; col++) {
+                const cell = document.createElement('span');
+                cell.className = 'qr-cell';
+
+                let cls = '';
+
+                if (inFinder(row, col, 0, 0)) {
+                    cls = finderClass(row, col, 0, 0);
+                } else if (inFinder(row, col, 0, 22)) {
+                    cls = finderClass(row, col, 0, 22);
+                } else if (inFinder(row, col, 22, 0)) {
+                    cls = finderClass(row, col, 22, 0);
+                } else {
+                    const value =
+                        (row * 17 + col * 31 + row * col * 7 + col * col) % 11;
+
+                    const wave =
+                        (row + col) % 5 === 0 ||
+                        (row * col) % 13 === 0 ||
+                        value === 0 ||
+                        value === 2 ||
+                        value === 5;
+
+                    const avoidCenter =
+                        row >= 10 && row <= 18 && col >= 10 && col <= 18;
+
+                    if (wave && !avoidCenter) {
+                        cls = 'dark';
+                    }
+                }
+
+                if (cls) {
+                    cell.className += ' ' + cls;
+                }
+
+                matrix.appendChild(cell);
+            }
+        }
+    }
+
+    function openModal() {
+        const modal = document.getElementById('payModal');
+        modal.classList.add('show');
+
+        setTimeout(function () {
+            const phone = document.getElementById('phone');
+            if (phone) phone.focus();
+        }, 200);
+    }
+
+    function closeModal() {
+        const modal = document.getElementById('payModal');
+        modal.classList.remove('show');
+    }
+
+    window.addEventListener('DOMContentLoaded', function () {
+        buildVipQr();
+
+        const hasError = document.body.getAttribute('data-has-error') === 'true';
+        if (hasError) {
+            openModal();
+        }
+    });
+
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+            closeModal();
+        }
+    });
+</script>
+
+</body>
+</html>
