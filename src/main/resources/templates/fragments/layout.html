@@ -12,42 +12,88 @@
 </head>
 <body>
 <header th:fragment="header" class="site-header" id="siteHeader">
-  <div class="scroll-progress" id="scrollProgress"></div>
-  <div class="container">
+  <div class="container-fluid header-container">
     <nav class="navbar navbar-expand-lg travel-navbar">
-      <button class="btn menu-toggle d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
-        <i class="fa-solid fa-bars"></i>
-      </button>
+      <div class="header-left">
+        <button class="btn menu-toggle d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
 
-      <a class="navbar-brand brand-logo mx-lg-0 mx-auto" th:href="@{/}" href="/">
-        <span class="brand-mark"><i class="fa-solid fa-plane-departure"></i></span>
-        <span>WebDuLich</span>
-      </a>
+        <a class="navbar-brand brand-logo" th:href="@{/}" href="/">
+          <span class="brand-mark"><i class="fa-solid fa-plane-departure"></i></span>
+          <span>WebDuLich</span>
+        </a>
 
-      <form class="header-search d-none d-xl-flex" th:action="@{/tours}" action="/tours" method="get">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" name="keyword" placeholder="Tìm tour, điểm đến, lịch trình...">
-        <button type="submit">Tìm</button>
-      </form>
+        <form class="header-search d-none d-lg-flex" th:action="@{/tours}" action="/tours" method="get">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" name="keyword" placeholder="Tìm tour, điểm đến, lịch trình...">
+          <button type="submit">Tìm</button>
+        </form>
+      </div>
 
-      <div class="collapse navbar-collapse justify-content-center">
+      <div class="header-center d-none d-xl-flex">
         <ul class="navbar-nav main-nav">
-          <li class="nav-item"><a class="nav-link" th:classappend="${activePage == 'home'} ? 'active'" th:href="@{/}" href="/">Trang chủ</a></li>
-          <li class="nav-item"><a class="nav-link" th:classappend="${activePage == 'tours'} ? 'active'" th:href="@{/tours}" href="/tours">Tour</a></li>
-          <li class="nav-item"><a class="nav-link" th:classappend="${activePage == 'itinerary'} ? 'active'" th:href="@{/itinerary}" href="/itinerary">Lịch trình</a></li>
-          <li class="nav-item"><a class="nav-link" th:classappend="${activePage == 'destinations'} ? 'active'" th:href="@{/destinations}" href="/destinations">Điểm đến</a></li>
-          <li class="nav-item"><a class="nav-link" th:classappend="${activePage == 'blog'} ? 'active'" th:href="@{/blog}" href="/blog">Cẩm nang</a></li>
-          <li class="nav-item"><a class="nav-link" th:classappend="${activePage == 'contact'} ? 'active'" th:href="@{/contact}" href="/contact">Liên hệ</a></li>
+          <li class="nav-item">
+            <a class="nav-link" th:classappend="${activePage == 'home'} ? 'active'" th:href="@{/}" href="/">Trang chủ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" th:classappend="${activePage == 'tours'} ? 'active'" th:href="@{/tours}" href="/tours">Tour</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" th:classappend="${activePage == 'itinerary'} ? 'active'" th:href="@{/itinerary}" href="/itinerary">Lịch trình</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" th:classappend="${activePage == 'destinations'} ? 'active'" th:href="@{/destinations}" href="/destinations">Điểm đến</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" th:classappend="${activePage == 'blog'} ? 'active'" th:href="@{/blog}" href="/blog">Cẩm nang</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" th:classappend="${activePage == 'contact'} ? 'active'" th:href="@{/contact}" href="/contact">Liên hệ</a>
+          </li>
         </ul>
       </div>
 
       <div class="header-actions d-none d-lg-flex">
-        <a th:href="@{/login}" href="/login" class="login-link"><i class="fa-regular fa-user"></i> Đăng nhập</a>
-        <a th:href="@{/itinerary}" href="/itinerary" class="btn btn-theme magnetic-btn">Tạo lịch trình</a>
+        <a class="header-icon-btn" href="#" aria-label="Giỏ hàng">
+          <i class="fa-solid fa-cart-shopping"></i>
+        </a>
+
+        <a th:href="@{/itinerary}" href="/itinerary" class="btn btn-theme header-itinerary-btn">
+          Tạo lịch trình
+        </a>
+
+        <a th:if="${session.currentUserId == null}"
+           th:href="@{/login}"
+           href="/login"
+           class="login-link header-auth-link">
+          <i class="fa-regular fa-user"></i>
+          Đăng nhập
+        </a>
+
+        <div th:if="${session.currentUserId != null}" class="user-menu">
+        <span class="login-link user-name">
+          <i class="fa-regular fa-user"></i>
+          <span th:text="${session.currentUserName}">Người dùng</span>
+        </span>
+          <form th:action="@{/logout}" action="/logout" method="post">
+            <button type="submit" class="logout-link">Đăng xuất</button>
+          </form>
+        </div>
       </div>
 
-      <a class="btn user-icon d-lg-none" th:href="@{/login}" href="/login">
+      <a th:if="${session.currentUserId == null}"
+         class="btn user-icon d-lg-none"
+         th:href="@{/login}"
+         href="/login">
         <i class="fa-regular fa-user"></i>
+      </a>
+
+      <a th:if="${session.currentUserId != null}"
+         class="btn user-icon d-lg-none"
+         th:href="@{/}"
+         href="/">
+        <i class="fa-solid fa-user-check"></i>
       </a>
     </nav>
   </div>
@@ -72,6 +118,38 @@
         <li><a th:href="@{/blog}" href="/blog">Cẩm nang</a></li>
         <li><a th:href="@{/contact}" href="/contact">Liên hệ</a></li>
       </ul>
+      <div class="mobile-auth-box">
+        <div th:if="${session.currentUserId == null}">
+          <a class="btn btn-theme w-100 mb-2" th:href="@{/login}" href="/login">Đăng nhập</a>
+          <a class="btn btn-outline-theme w-100" th:href="@{/register}" href="/register">Tạo tài khoản</a>
+        </div>
+
+        <div th:if="${session.currentUserId != null}">
+          <p class="mobile-user-name">
+            <i class="fa-regular fa-user"></i>
+            Xin chào, <strong th:text="${session.currentUserName}">Người dùng</strong>
+          </p>
+          <form th:action="@{/logout}" action="/logout" method="post">
+            <button type="submit" class="btn btn-outline-theme w-100">Đăng xuất</button>
+          </form>
+        </div>
+      </div>
+      <div class="mobile-auth-box">
+        <div th:if="${session.currentUserId == null}">
+          <a class="btn btn-theme w-100 mb-2" th:href="@{/login}" href="/login">Đăng nhập</a>
+          <a class="btn btn-outline-theme w-100" th:href="@{/register}" href="/register">Tạo tài khoản</a>
+        </div>
+
+        <div th:if="${session.currentUserId != null}">
+          <p class="mobile-user-name">
+            <i class="fa-regular fa-user"></i>
+            Xin chào, <strong th:text="${session.currentUserName}">Người dùng</strong>
+          </p>
+          <form th:action="@{/logout}" action="/logout" method="post">
+            <button type="submit" class="btn btn-outline-theme w-100">Đăng xuất</button>
+          </form>
+        </div>
+      </div>
       <div class="mobile-contact">
         <h6>Hotline tư vấn tour</h6><p><i class="fa-solid fa-phone"></i> 1900 2026</p>
         <h6>Hỗ trợ trực tuyến</h6><p><i class="fa-regular fa-envelope"></i> hello@webdulich.vn</p>

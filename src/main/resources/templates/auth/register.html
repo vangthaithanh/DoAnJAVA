@@ -10,17 +10,59 @@
       <span class="brand-mark"><i class="fa-solid fa-plane-departure"></i></span>
       <span>WebDuLich</span>
     </a>
-    <h1>Tạo tài khoản</h1>
-    <p>Giao diện đăng ký mẫu. Sau này có thể kết nối bảng người dùng và Spring Security.</p>
 
-    <form>
-      <input class="form-control" type="text" placeholder="Họ và tên">
-      <input class="form-control" type="email" placeholder="Email của bạn">
+    <h1>Tạo tài khoản</h1>
+    <p>Tạo tài khoản để sử dụng các chức năng cá nhân hóa như lưu lịch trình, theo dõi tour và gửi yêu cầu tư vấn.</p>
+
+    <div class="alert alert-danger" th:if="${errorMessage}">
+      <i class="fa-solid fa-circle-exclamation me-2"></i>
+      <span th:text="${errorMessage}">Có lỗi xảy ra</span>
+    </div>
+
+    <form th:action="@{/register}" action="/register" method="post">
+      <input class="form-control"
+             type="text"
+             name="fullName"
+             placeholder="Họ và tên"
+             th:value="${fullName}"
+             required>
+
+      <input class="form-control"
+             type="email"
+             name="email"
+             placeholder="Email của bạn"
+             th:value="${email}"
+             required>
+
+      <input class="form-control"
+             type="text"
+             name="phone"
+             placeholder="Số điện thoại"
+             th:value="${phone}">
+
       <div class="password-field">
-        <input class="form-control" type="password" placeholder="Mật khẩu">
-        <button type="button" class="password-toggle"><i class="fa-regular fa-eye"></i></button>
+        <input class="form-control"
+               type="password"
+               name="password"
+               placeholder="Mật khẩu"
+               required>
+        <button type="button" class="password-toggle">
+          <i class="fa-regular fa-eye"></i>
+        </button>
       </div>
-      <button class="btn btn-theme w-100 magnetic-btn" type="button">Tạo tài khoản</button>
+
+      <div class="password-field">
+        <input class="form-control"
+               type="password"
+               name="confirmPassword"
+               placeholder="Nhập lại mật khẩu"
+               required>
+        <button type="button" class="password-toggle">
+          <i class="fa-regular fa-eye"></i>
+        </button>
+      </div>
+
+      <button class="btn btn-theme w-100 magnetic-btn" type="submit">Tạo tài khoản</button>
     </form>
 
     <p class="auth-bottom">Đã có tài khoản? <a th:href="@{/login}" href="/login">Đăng nhập</a></p>
