@@ -9,6 +9,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const tabButtons = document.querySelectorAll(".tab-btn");
   const pageTransition = document.getElementById("pageTransition");
 
+  const hidePageTransition = () => {
+    if (pageTransition) {
+      pageTransition.classList.remove("active");
+    }
+  };
+
+  hidePageTransition();
+  window.addEventListener("pageshow", hidePageTransition);
+  window.addEventListener("popstate", hidePageTransition);
+
   // Header sticky, scroll progress, back to top
   const handleScroll = () => {
     const scrollTop = window.scrollY;
@@ -146,24 +156,64 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Smooth page transition for internal links
+  // Smooth page transition for internal links
+// Fix lỗi quay lại bằng nút Back bị kẹt overlay: luôn gỡ transition khi pageshow/popstate.
   document.querySelectorAll("a[href]").forEach(link => {
     link.addEventListener("click", event => {
       const href = link.getAttribute("href");
 
-      if (!href || href.startsWith("#") || href.startsWith("mailto:") || href.startsWith("tel:") || href.startsWith("http")) {
+      if (
+          !href ||
+          href.startsWith("#") ||
+          href.startsWith("mailto:") ||
+          href.startsWith("tel:") ||
+          href.startsWith("javascript:")
+      ) {
         return;
       }
 
-      if (link.target === "_blank" || event.ctrlKey || event.metaKey) {
+      if (
+          link.target === "_blank" ||
+          event.ctrlKey ||
+          event.metaKey ||
+          event.shiftKey ||
+          event.altKey
+      ) {
+        return;
+      }
+
+      let url;
+
+      try {
+        url = new URL(href, window.location.href);
+      } catch (error) {
+        return;
+      }
+
+      if (url.origin !== window.location.origin) {
+        return;
+      }
+
+      const samePage =
+          url.pathname === window.location.pathname &&
+          url.search === window.location.search;
+
+      if (samePage && url.hash) {
         return;
       }
 
       if (pageTransition) {
         event.preventDefault();
-        pageTransition.classList.add("active");
-        setTimeout(() => {
-          window.location.href = href;
-        }, 240);
+
+        pageTransition.classList.remove("active");
+
+        requestAnimationFrame(() => {
+          pageTransition.classList.add("active");
+
+          setTimeout(() => {
+            window.location.assign(url.href);
+          }, 180);
+        });
       }
     });
   });
@@ -196,4 +246,36 @@ document.addEventListener("DOMContentLoaded", () => {
       card.style.transform = "";
     });
   });
+});
+
+// =========================
+// ACCOUNT / ADMIN TAB UI
+// =========================
+document.addEventListener("DOMContentLoaded", () => {
+  const activateTabGroup = (buttonSelector, panelSelector, buttonAttr, panelAttr) => {
+    const buttons = document.querySelectorAll(buttonSelector);
+    const panels = document.querySelectorAll(panelSelector);
+
+    if (!buttons.length || !panels.length) return;
+
+    buttons.forEach(button => {
+      button.addEventListener("click", () => {
+        const target = button.getAttribute(buttonAttr);
+
+        buttons.forEach(item => item.classList.remove("active"));
+        panels.forEach(panel => panel.classList.remove("active"));
+
+        button.classList.add("active");
+
+        const activePanel = document.querySelector(`${panelSelector}[${panelAttr}="${target}"]`);
+
+        if (activePanel) {
+          activePanel.classList.add("active");
+        }
+      });
+    });
+  };
+
+  activateTabGroup(".account-tab-btn", ".account-panel", "data-account-tab", "data-account-panel");
+  activateTabGroup(".admin-nav-link", ".admin-panel", "data-admin-tab", "data-admin-panel");
 });

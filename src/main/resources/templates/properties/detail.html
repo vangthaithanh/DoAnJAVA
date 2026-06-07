@@ -68,6 +68,13 @@
           </div>
         </div>
 
+        <form th:action="@{/cart/add/{id}(id=${property.id})}" method="post">
+          <button type="submit" class="btn btn-outline-theme">
+            <i class="fa-solid fa-cart-plus"></i>
+            Thêm vào giỏ
+          </button>
+        </form>
+
         <div class="detail-card reveal">
           <h4>Tour gợi ý khác</h4>
           <div class="row g-3">

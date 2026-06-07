@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head(${pageTitle})}"></head>
+<body>
+<header th:replace="~{fragments/layout :: header}"></header>
+
+<section th:replace="~{fragments/layout :: pageBanner('Bảng điều khiển quản trị', 'Khu vực tổng quan dành cho tài khoản quản trị WebDuLich.')}"></section>
+<div th:replace="~{fragments/layout :: flash}"></div>
+
+<main class="section-padding admin-page">
+    <div class="container">
+        <div class="admin-layout">
+            <aside class="admin-sidebar reveal">
+                <div class="admin-brand-box">
+                    <i class="fa-solid fa-gauge-high"></i>
+
+                    <div>
+                        <h3>WebDuLich Admin</h3>
+                        <p>Quản trị hệ thống</p>
+                    </div>
+                </div>
+
+                <nav class="admin-nav">
+                    <button type="button" class="admin-nav-link active" data-admin-tab="dashboard">
+                        <i class="fa-solid fa-chart-line"></i> Tổng quan
+                    </button>
+
+                    <button type="button" class="admin-nav-link" data-admin-tab="tours">
+                        <i class="fa-solid fa-suitcase-rolling"></i> Quản lý tour
+                    </button>
+
+                    <button type="button" class="admin-nav-link" data-admin-tab="destinations">
+                        <i class="fa-solid fa-location-dot"></i> Quản lý điểm đến
+                    </button>
+
+                    <button type="button" class="admin-nav-link" data-admin-tab="bookings">
+                        <i class="fa-regular fa-paper-plane"></i> Yêu cầu đặt tour
+                    </button>
+
+                    <button type="button" class="admin-nav-link" data-admin-tab="users">
+                        <i class="fa-regular fa-user"></i> Người dùng
+                    </button>
+
+                    <button type="button" class="admin-nav-link" data-admin-tab="content">
+                        <i class="fa-regular fa-newspaper"></i> Cẩm nang
+                    </button>
+                </nav>
+            </aside>
+
+            <section class="admin-content reveal delay-1">
+                <div class="admin-panel active" data-admin-panel="dashboard">
+                    <div class="admin-panel-head">
+                        <div>
+                            <span class="section-kicker"><i class="fa-solid fa-gauge-high"></i> Dashboard</span>
+                            <h2>Tổng quan hệ thống</h2>
+                        </div>
+
+                        <a class="btn btn-theme" th:href="@{/tours}" href="/tours">Xem website</a>
+                    </div>
+
+                    <div class="admin-stat-grid">
+                        <div class="admin-stat-card">
+                            <i class="fa-solid fa-suitcase-rolling"></i>
+                            <strong th:text="${latestTourCount}">0</strong>
+                            <span>Tour mới hiển thị nhanh</span>
+                        </div>
+
+                        <div class="admin-stat-card">
+                            <i class="fa-regular fa-user"></i>
+                            <strong th:text="${userCount}">0</strong>
+                            <span>Người dùng</span>
+                        </div>
+
+                        <div class="admin-stat-card">
+                            <i class="fa-solid fa-route"></i>
+                            <strong>0</strong>
+                            <span>Lịch trình tự tạo</span>
+                        </div>
+
+                        <div class="admin-stat-card">
+                            <i class="fa-regular fa-paper-plane"></i>
+                            <strong>0</strong>
+                            <span>Yêu cầu tư vấn</span>
+                        </div>
+                    </div>
+
+                    <div class="admin-card">
+                        <h3>Tour mới</h3>
+
+                        <div class="admin-tour-list">
+                            <a th:each="tour : ${latestTours}" th:href="@{/tours/{id}(id=${tour.id})}">
+                                <img th:src="${tour.imageUrl}" th:alt="${tour.title}">
+
+                                <span>
+                  <strong th:text="${tour.title}">Tour</strong>
+                  <em th:text="${#numbers.formatDecimal(tour.price, 0, 'COMMA', 0, 'POINT') + ' đ'}">0 đ</em>
+                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="admin-panel" data-admin-panel="tours">
+                    <div class="admin-panel-head">
+                        <div>
+                            <span class="section-kicker"><i class="fa-solid fa-suitcase-rolling"></i> Tour</span>
+                            <h2>Quản lý tour</h2>
+                        </div>
+                    </div>
+
+                    <div class="admin-card">
+                        <p>
+                            Giao diện định hướng cho CRUD tour. Hiện project đang dùng Entity <strong>Property</strong> như Tour,
+                            nên khi làm quản lý thật có thể nối với bảng <strong>properties</strong>.
+                        </p>
+
+                        <div class="admin-action-grid">
+                            <a th:href="@{/tours}" href="/tours">Xem danh sách tour</a>
+                            <a href="#">Thêm tour mới</a>
+                            <a href="#">Duyệt trạng thái mở bán</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="admin-panel" data-admin-panel="destinations">
+                    <div class="admin-panel-head">
+                        <div>
+                            <span class="section-kicker"><i class="fa-solid fa-location-dot"></i> Điểm đến</span>
+                            <h2>Quản lý điểm đến</h2>
+                        </div>
+                    </div>
+
+                    <div class="admin-card">
+                        <p>Phần này dùng cho bảng <strong>destinations</strong> và liên kết <strong>tour_destinations</strong>.</p>
+                    </div>
+                </div>
+
+                <div class="admin-panel" data-admin-panel="bookings">
+                    <div class="admin-panel-head">
+                        <div>
+                            <span class="section-kicker"><i class="fa-regular fa-paper-plane"></i> Yêu cầu</span>
+                            <h2>Yêu cầu tư vấn / đặt tour</h2>
+                        </div>
+                    </div>
+
+                    <div class="admin-card">
+                        <p>Có thể nối với bảng <strong>inquiries</strong> để quản trị viên xem khách đã gửi yêu cầu từ trang chi tiết tour.</p>
+                    </div>
+                </div>
+
+                <div class="admin-panel" data-admin-panel="users">
+                    <div class="admin-panel-head">
+                        <div>
+                            <span class="section-kicker"><i class="fa-regular fa-user"></i> Người dùng</span>
+                            <h2>Quản lý người dùng</h2>
+                        </div>
+                    </div>
+
+                    <div class="admin-card">
+                        <p>Có thể nối với bảng <strong>users</strong> và <strong>profiles</strong>. Hiện dashboard đã đọc được số lượng người dùng từ UserRepository.</p>
+                    </div>
+                </div>
+
+                <div class="admin-panel" data-admin-panel="content">
+                    <div class="admin-panel-head">
+                        <div>
+                            <span class="section-kicker"><i class="fa-regular fa-newspaper"></i> Nội dung</span>
+                            <h2>Quản lý cẩm nang</h2>
+                        </div>
+                    </div>
+
+                    <div class="admin-card">
+                        <p>Phần này dùng cho bảng <strong>blog_posts</strong>, sau này có thể thêm CRUD bài viết cẩm nang du lịch.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</main>
+
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+<th:block th:replace="~{fragments/layout :: scripts}"></th:block>
+</body>
+</html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head(${pageTitle})}"></head>
+<body>
+<header th:replace="~{fragments/layout :: header}"></header>
+
+<section th:replace="~{fragments/layout :: pageBanner('Trang cá nhân', 'Quản lý hồ sơ, tour yêu thích, lịch trình và các yêu cầu tư vấn của bạn.')}"></section>
+<div th:replace="~{fragments/layout :: flash}"></div>
+
+<main class="section-padding account-page">
+    <div class="container">
+        <div class="account-layout">
+
+            <aside class="account-sidebar reveal">
+                <div class="account-profile-card">
+                    <div class="account-avatar">
+                        <span th:text="${#strings.substring(accountUser.fullName, 0, 1)}">U</span>
+                    </div>
+
+                    <h3 th:text="${accountUser.fullName}">Người dùng</h3>
+                    <p th:text="${accountUser.email}">email@example.com</p>
+                    <span class="account-role-badge" th:text="${accountUser.role}">USER</span>
+                </div>
+
+                <nav class="account-tabs">
+                    <button type="button" class="account-tab-btn active" data-account-tab="overview">
+                        <i class="fa-solid fa-chart-pie"></i> Tổng quan
+                    </button>
+
+                    <button type="button" class="account-tab-btn" data-account-tab="profile">
+                        <i class="fa-regular fa-address-card"></i> Hồ sơ cá nhân
+                    </button>
+
+                    <button type="button" class="account-tab-btn" data-account-tab="favorites">
+                        <i class="fa-regular fa-heart"></i> Tour yêu thích
+                    </button>
+
+                    <button type="button" class="account-tab-btn" data-account-tab="itineraries">
+                        <i class="fa-solid fa-route"></i> Lịch trình của tôi
+                    </button>
+
+                    <button type="button" class="account-tab-btn" data-account-tab="requests">
+                        <i class="fa-regular fa-paper-plane"></i> Yêu cầu tư vấn
+                    </button>
+
+                    <button type="button" class="account-tab-btn" data-account-tab="reviews">
+                        <i class="fa-regular fa-star"></i> Đánh giá của tôi
+                    </button>
+
+                    <button type="button" class="account-tab-btn" data-account-tab="security">
+                        <i class="fa-solid fa-shield-halved"></i> Bảo mật
+                    </button>
+                </nav>
+            </aside>
+
+            <section class="account-content reveal delay-1">
+
+                <div class="account-panel active" data-account-panel="overview">
+                    <div class="account-panel-head">
+                        <div>
+              <span class="section-kicker">
+                <i class="fa-solid fa-user"></i> Tài khoản
+              </span>
+                            <h2>Xin chào, <span th:text="${accountUser.fullName}">Người dùng</span></h2>
+                        </div>
+
+                        <a th:if="${#strings.equalsIgnoreCase(accountUser.role, 'ADMIN')}"
+                           class="btn btn-theme"
+                           th:href="@{/admin}"
+                           href="/admin">
+                            Vào trang quản trị
+                        </a>
+                    </div>
+
+                    <div class="account-stat-grid">
+                        <div class="account-stat-card">
+                            <i class="fa-regular fa-heart"></i>
+                            <strong>0</strong>
+                            <span>Tour yêu thích</span>
+                        </div>
+
+                        <div class="account-stat-card">
+                            <i class="fa-solid fa-route"></i>
+                            <strong>0</strong>
+                            <span>Lịch trình tự tạo</span>
+                        </div>
+
+                        <div class="account-stat-card">
+                            <i class="fa-regular fa-paper-plane"></i>
+                            <strong>0</strong>
+                            <span>Yêu cầu tư vấn</span>
+                        </div>
+
+                        <div class="account-stat-card">
+                            <i class="fa-regular fa-star"></i>
+                            <strong>0</strong>
+                            <span>Đánh giá</span>
+                        </div>
+                    </div>
+
+                    <div class="account-note-card">
+                        <h3>Trung tâm cá nhân</h3>
+                        <p>
+                            Đây là khu vực quản lý thông tin cá nhân, tour yêu thích,
+                            lịch trình tự tạo, yêu cầu tư vấn và đánh giá của người dùng.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="account-panel" data-account-panel="profile">
+                    <div class="account-panel-head">
+                        <div>
+              <span class="section-kicker">
+                <i class="fa-regular fa-address-card"></i> Hồ sơ
+              </span>
+                            <h2>Thông tin cá nhân</h2>
+                        </div>
+                    </div>
+
+                    <div class="profile-info-grid">
+                        <div>
+                            <span>Họ tên</span>
+                            <strong th:text="${accountUser.fullName}">Người dùng</strong>
+                        </div>
+
+                        <div>
+                            <span>Email</span>
+                            <strong th:text="${accountUser.email}">email@example.com</strong>
+                        </div>
+
+                        <div>
+                            <span>Số điện thoại</span>
+                            <strong th:text="${accountUser.phone != null and !#strings.isEmpty(accountUser.phone) ? accountUser.phone : 'Chưa cập nhật'}">
+                                Chưa cập nhật
+                            </strong>
+                        </div>
+
+                        <div>
+                            <span>Trạng thái</span>
+                            <strong th:text="${accountUser.status}">ACTIVE</strong>
+                        </div>
+                    </div>
+
+                    <div class="account-form-placeholder">
+                        <h3>Cập nhật hồ sơ</h3>
+                        <p>
+                            Phần này hiện là giao diện. Sau này có thể nối thêm chức năng
+                            cập nhật họ tên, số điện thoại, ảnh đại diện và thông tin cá nhân.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="account-panel" data-account-panel="favorites">
+                    <div class="account-panel-head">
+                        <div>
+              <span class="section-kicker">
+                <i class="fa-regular fa-heart"></i> Yêu thích
+              </span>
+                            <h2>Tour yêu thích</h2>
+                        </div>
+
+                        <a class="btn btn-outline-theme" th:href="@{/tours}" href="/tours">
+                            Tìm thêm tour
+                        </a>
+                    </div>
+
+                    <div class="empty-state compact">
+                        <div class="empty-icon">
+                            <i class="fa-regular fa-heart"></i>
+                        </div>
+                        <h3>Chưa có tour yêu thích</h3>
+                        <p>
+                            Sau này có thể nối với bảng tour yêu thích để hiển thị danh sách
+                            tour người dùng đã lưu.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="account-panel" data-account-panel="itineraries">
+                    <div class="account-panel-head">
+                        <div>
+              <span class="section-kicker">
+                <i class="fa-solid fa-route"></i> Lịch trình
+              </span>
+                            <h2>Lịch trình của tôi</h2>
+                        </div>
+
+                        <a class="btn btn-theme" th:href="@{/itinerary}" href="/itinerary">
+                            Tạo lịch trình mới
+                        </a>
+                    </div>
+
+                    <div class="timeline-preview">
+                        <div class="timeline-dot"></div>
+                        <div>
+                            <h3>Chưa có lịch trình tự tạo</h3>
+                            <p>
+                                Sau này có thể nối với dữ liệu lịch trình tự tạo của người dùng.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="account-panel" data-account-panel="requests">
+                    <div class="account-panel-head">
+                        <div>
+              <span class="section-kicker">
+                <i class="fa-regular fa-paper-plane"></i> Tư vấn
+              </span>
+                            <h2>Yêu cầu tư vấn / đặt tour</h2>
+                        </div>
+                    </div>
+
+                    <div class="account-note-card">
+                        <h3>Theo dõi yêu cầu</h3>
+                        <p>
+                            Phần này dùng để hiển thị các yêu cầu tư vấn hoặc đặt tour
+                            mà người dùng đã gửi từ trang chi tiết tour.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="account-panel" data-account-panel="reviews">
+                    <div class="account-panel-head">
+                        <div>
+              <span class="section-kicker">
+                <i class="fa-regular fa-star"></i> Đánh giá
+              </span>
+                            <h2>Đánh giá của tôi</h2>
+                        </div>
+                    </div>
+
+                    <div class="empty-state compact">
+                        <div class="empty-icon">
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                        <h3>Chưa có đánh giá</h3>
+                        <p>
+                            Sau này có thể nối với phần đánh giá tour để người dùng quản lý
+                            các nhận xét đã gửi.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="account-panel" data-account-panel="security">
+                    <div class="account-panel-head">
+                        <div>
+              <span class="section-kicker">
+                <i class="fa-solid fa-shield-halved"></i> Bảo mật
+              </span>
+                            <h2>Bảo mật tài khoản</h2>
+                        </div>
+                    </div>
+
+                    <div class="security-list">
+                        <div>
+                            <i class="fa-solid fa-lock"></i>
+                            <div>
+                                <h3>Mật khẩu đã được mã hóa</h3>
+                                <p>
+                                    Tài khoản sử dụng mật khẩu đã mã hóa, không lưu mật khẩu gốc.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div>
+                            <i class="fa-solid fa-user-check"></i>
+                            <div>
+                                <h3>Trạng thái tài khoản</h3>
+                                <p>
+                                    Tài khoản hiện tại:
+                                    <strong th:text="${accountUser.status}">ACTIVE</strong>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+    </div>
+</main>
+
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+<th:block th:replace="~{fragments/layout :: scripts}"></th:block>
+</body>
+</html>
