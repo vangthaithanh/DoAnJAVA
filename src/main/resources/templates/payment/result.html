@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head(${pageTitle})}"></head>
+<body>
+<header th:replace="~{fragments/layout :: header}"></header>
+
+<div th:replace="~{fragments/layout :: flash}"></div>
+
+<main class="section-padding payment-result-page"
+      th:with="
+        isPaid=${paid == true or (paymentOrder != null and #strings.equalsIgnoreCase(paymentOrder.status, 'PAID'))},
+        isCanceled=${paymentOrder != null and #strings.equalsIgnoreCase(paymentOrder.status, 'CANCELED')},
+        isInvalidSignature=${paymentOrder != null and #strings.equalsIgnoreCase(paymentOrder.status, 'INVALID_SIGNATURE')}
+      ">
+
+    <style>
+        .payment-result-page {
+            background: #f6f8fb;
+            min-height: 70vh;
+        }
+
+        .payment-result-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 335px;
+            gap: 28px;
+            align-items: start;
+        }
+
+        .payment-result-card,
+        .payment-note-card {
+            background: #ffffff;
+            border-radius: 22px;
+            box-shadow: 0 18px 45px rgba(15, 23, 42, 0.09);
+        }
+
+        .payment-result-card {
+            padding: 34px 32px;
+        }
+
+        .payment-note-card {
+            padding: 28px 26px;
+        }
+
+        .payment-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #0ea5a3;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+
+        .payment-result-title {
+            margin: 0 0 22px;
+            font-size: 31px;
+            font-weight: 900;
+            color: #111827;
+        }
+
+        .status-box {
+            border-radius: 8px;
+            padding: 16px 16px;
+            margin-bottom: 24px;
+            line-height: 1.7;
+        }
+
+        .status-success {
+            background: #dcfce7;
+            border: 1px solid #86efac;
+            color: #166534;
+        }
+
+        .status-canceled {
+            background: #fff7ed;
+            border: 1px solid #fdba74;
+            color: #9a3412;
+        }
+
+        .status-failed {
+            background: #fef3c7;
+            border: 1px solid #fcd34d;
+            color: #92400e;
+        }
+
+        .status-invalid {
+            background: #fee2e2;
+            border: 1px solid #fecaca;
+            color: #991b1b;
+        }
+
+        .status-box strong {
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .payment-detail-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .payment-detail-table tr {
+            border-bottom: 1px solid #dbe2ea;
+        }
+
+        .payment-detail-table th,
+        .payment-detail-table td {
+            padding: 11px 8px;
+            text-align: left;
+            vertical-align: top;
+            font-size: 15px;
+        }
+
+        .payment-detail-table th {
+            width: 42%;
+            font-weight: 800;
+            color: #000000;
+        }
+
+        .payment-detail-table td {
+            color: #111827;
+            word-break: break-word;
+        }
+
+        .payment-result-actions {
+            margin-top: 38px;
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-result-primary {
+            background: #0ea5a3;
+            color: #ffffff;
+            border: 0;
+            border-radius: 9px;
+            padding: 14px 22px;
+            font-weight: 800;
+            text-decoration: none;
+            box-shadow: 0 14px 28px rgba(14, 165, 163, 0.22);
+        }
+
+        .btn-result-outline {
+            background: #ffffff;
+            color: #0ea5a3;
+            border: 1px solid #0ea5a3;
+            border-radius: 9px;
+            padding: 14px 22px;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .payment-note-card h3 {
+            margin: 0 0 18px;
+            font-size: 27px;
+            font-weight: 900;
+            color: #1f2937;
+        }
+
+        .note-box {
+            border-radius: 13px;
+            padding: 15px 16px;
+            line-height: 1.7;
+            font-size: 14px;
+            margin-bottom: 22px;
+        }
+
+        .note-success {
+            background: #ecfdf5;
+            color: #166534;
+        }
+
+        .note-canceled {
+            background: #fff7ed;
+            color: #9a3412;
+        }
+
+        .note-failed {
+            background: #eefbfb;
+            color: #0f766e;
+        }
+
+        .support-box {
+            background: #f4f6fb;
+            border-radius: 16px;
+            padding: 18px 18px;
+        }
+
+        .support-box h4 {
+            margin: 0 0 12px;
+            font-size: 25px;
+            font-weight: 900;
+            color: #1f2937;
+        }
+
+        .support-box p {
+            margin: 8px 0;
+            color: #6b7280;
+        }
+
+        .support-box i {
+            color: #0ea5a3;
+            margin-right: 8px;
+        }
+
+        @media (max-width: 992px) {
+            .payment-result-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <div class="container">
+        <div class="payment-result-layout">
+
+            <section class="payment-result-card">
+                <div class="payment-kicker">
+                    <i class="fa-solid fa-circle-info"></i>
+                    Thanh toán MoMo
+                </div>
+
+                <h1 class="payment-result-title"
+                    th:text="${isPaid ? 'Thanh toán thành công' : (isCanceled ? 'Đã hủy thanh toán' : 'Thanh toán chưa thành công')}">
+                    Thanh toán chưa thành công
+                </h1>
+
+                <div th:if="${isPaid}" class="status-box status-success">
+                    <strong>Giao dịch đã hoàn tất.</strong>
+                    Thanh toán MoMo thành công. Hệ thống đã ghi nhận đơn thanh toán và làm trống giỏ tour hiện tại.
+                </div>
+
+                <div th:if="${isCanceled}" class="status-box status-canceled">
+                    <strong>Giao dịch đã bị hủy.</strong>
+                    Bạn đã hủy thanh toán demo MoMo. Đơn hàng chưa được thanh toán và giỏ tour vẫn có thể tạo lại thanh toán mới.
+                </div>
+
+                <div th:if="${!isPaid and !isCanceled and isInvalidSignature}" class="status-box status-invalid">
+                    <strong>Giao dịch không hợp lệ.</strong>
+                    Chữ ký thanh toán không hợp lệ hoặc dữ liệu phản hồi từ MoMo không đúng.
+                </div>
+
+                <div th:if="${!isPaid and !isCanceled and !isInvalidSignature}" class="status-box status-failed">
+                    <strong>Giao dịch chưa hoàn tất.</strong>
+                    <span th:text="${message != null ? message : 'Thanh toán chưa thành công hoặc chưa nhận được phản hồi hợp lệ.'}">
+                        Thanh toán chưa thành công.
+                    </span>
+                </div>
+
+                <table class="payment-detail-table">
+                    <tbody>
+                    <tr>
+                        <th>Mã đơn</th>
+                        <td th:text="${paymentOrder != null ? paymentOrder.orderId : momoParams['orderId']}">WD...</td>
+                    </tr>
+
+                    <tr>
+                        <th>Mã request</th>
+                        <td th:text="${paymentOrder != null ? paymentOrder.requestId : momoParams['requestId']}">WD...</td>
+                    </tr>
+
+                    <tr>
+                        <th>Mã giao dịch MoMo</th>
+                        <td th:text="${paymentOrder != null and paymentOrder.transId != null ? paymentOrder.transId : momoParams['transId']}">
+                            -
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>Số tiền</th>
+                        <td th:text="${
+                            paymentOrder != null and paymentOrder.amount != null
+                            ? #numbers.formatDecimal(paymentOrder.amount, 0, 'COMMA', 0, 'POINT') + ' đ'
+                            : #numbers.formatDecimal(amount, 0, 'COMMA', 0, 'POINT') + ' đ'
+                        }">
+                            0 đ
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>Result code</th>
+                        <td th:text="${paymentOrder != null and paymentOrder.resultCode != null ? paymentOrder.resultCode : momoParams['resultCode']}">
+                            -
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>Trạng thái hệ thống</th>
+                        <td th:text="${paymentOrder != null ? paymentOrder.status : '-'}">-</td>
+                    </tr>
+
+                    <tr th:if="${paymentOrder != null and paymentOrder.message != null}">
+                        <th>Thông báo</th>
+                        <td th:text="${paymentOrder.message}">Thông báo</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <div class="payment-result-actions">
+                    <a class="btn-result-primary" th:href="@{/tours}" href="/tours">
+                        Tiếp tục xem tour
+                    </a>
+
+                    <a class="btn-result-outline" th:href="@{/cart}" href="/cart">
+                        Quay lại giỏ tour
+                    </a>
+                </div>
+            </section>
+
+            <aside class="payment-note-card">
+                <h3>Ghi chú xử lý</h3>
+
+                <div th:if="${isPaid}" class="note-box note-success">
+                    <i class="fa-solid fa-circle-check"></i>
+                    Thanh toán đã thành công. Giỏ tour trên trình duyệt hiện tại đã được làm trống.
+                </div>
+
+                <div th:if="${isCanceled}" class="note-box note-canceled">
+                    <i class="fa-solid fa-ban"></i>
+                    Bạn đã hủy thanh toán. Hệ thống không trừ tiền và không ghi nhận đơn là đã thanh toán.
+                </div>
+
+                <div th:if="${!isPaid and !isCanceled}" class="note-box note-failed">
+                    <i class="fa-solid fa-circle-info"></i>
+                    Thanh toán chưa hoàn tất. Bạn có thể quay lại giỏ tour để tạo giao dịch mới.
+                </div>
+
+                <div class="support-box">
+                    <h4>Cần hỗ trợ?</h4>
+                    <p><i class="fa-solid fa-phone"></i> 1900 2026</p>
+                    <p><i class="fa-regular fa-envelope"></i> hello@webdulich.vn</p>
+                </div>
+            </aside>
+
+        </div>
+    </div>
+</main>
+
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+<th:block th:replace="~{fragments/layout :: scripts}"></th:block>
+</body>
+</html>
