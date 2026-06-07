@@ -279,3 +279,30 @@ document.addEventListener("DOMContentLoaded", () => {
   activateTabGroup(".account-tab-btn", ".account-panel", "data-account-tab", "data-account-panel");
   activateTabGroup(".admin-nav-link", ".admin-panel", "data-admin-tab", "data-admin-panel");
 });
+
+// =========================
+// SCROLL PROGRESS BAR
+// =========================
+document.addEventListener("DOMContentLoaded", () => {
+  const scrollProgress = document.getElementById("scrollProgress");
+
+  if (!scrollProgress) return;
+
+  const updateScrollProgress = () => {
+    const documentElement = document.documentElement;
+    const scrollTop = window.scrollY || documentElement.scrollTop;
+    const scrollableHeight = documentElement.scrollHeight - documentElement.clientHeight;
+
+    const progress = scrollableHeight > 0
+        ? (scrollTop / scrollableHeight) * 100
+        : 0;
+
+    scrollProgress.style.width = `${progress}%`;
+  };
+
+  updateScrollProgress();
+
+  window.addEventListener("scroll", updateScrollProgress, { passive: true });
+  window.addEventListener("resize", updateScrollProgress);
+  window.addEventListener("pageshow", updateScrollProgress);
+});

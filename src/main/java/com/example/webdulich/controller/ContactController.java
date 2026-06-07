@@ -22,15 +22,19 @@ public class ContactController {
     public String contactPage(Model model) {
         model.addAttribute("pageTitle", "Liên hệ - WebDuLich");
         model.addAttribute("activePage", "contact");
-        model.addAttribute("contactMessage", new ContactMessage());
+
+        if (!model.containsAttribute("contactMessage")) {
+            model.addAttribute("contactMessage", new ContactMessage());
+        }
+
         return "contact/index";
     }
 
     @PostMapping("/contact")
-    public String contact(@Valid @ModelAttribute("contactMessage") ContactMessage contactMessage,
-                          BindingResult bindingResult,
-                          RedirectAttributes redirectAttributes,
-                          Model model) {
+    public String submitContact(@Valid @ModelAttribute("contactMessage") ContactMessage contactMessage,
+                                BindingResult bindingResult,
+                                RedirectAttributes redirectAttributes,
+                                Model model) {
 
         if (bindingResult.hasErrors()) {
             model.addAttribute("pageTitle", "Liên hệ - WebDuLich");
@@ -39,7 +43,8 @@ public class ContactController {
         }
 
         contactService.save(contactMessage);
-        redirectAttributes.addFlashAttribute("successMessage", "Đã nhận thông tin liên hệ từ " + contactMessage.getName() + "!");
+        redirectAttributes.addFlashAttribute("successMessage", "Cảm ơn bạn đã liên hệ. WebDuLich sẽ phản hồi trong thời gian sớm nhất!");
+
         return "redirect:/contact";
     }
 
@@ -47,7 +52,7 @@ public class ContactController {
     public String newsletter(@RequestParam String email,
                              RedirectAttributes redirectAttributes) {
 
-        redirectAttributes.addFlashAttribute("successMessage", "Đăng ký nhận tin thành công: " + email);
+        redirectAttributes.addFlashAttribute("successMessage", "Đăng ký nhận thông tin ưu đãi thành công: " + email);
         return "redirect:/";
     }
 }

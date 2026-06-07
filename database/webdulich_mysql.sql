@@ -273,3 +273,21 @@ CREATE INDEX idx_properties_type ON properties(type);
 CREATE INDEX idx_properties_city ON properties(city);
 CREATE INDEX idx_properties_price ON properties(price);
 CREATE INDEX idx_destinations_region ON destinations(region);
+
+INSERT INTO users (full_name, email, phone, password_hash, avatar_url, role, status, created_at)
+VALUES (
+           'Quản trị viên',
+           'admin@webdulich.vn',
+           '0909000001',
+           '$2a$05$0gHxBCU/FElCKMR9EkWhIuwBMecHa5imYy3IgfposhbzDUGJjE8mK',
+           NULL,
+           'ADMIN',
+           'ACTIVE',
+           NOW()
+       )
+    ON DUPLICATE KEY UPDATE
+                         full_name = VALUES(full_name),
+                         phone = VALUES(phone),
+                         password_hash = VALUES(password_hash),
+                         role = 'ADMIN',
+                         status = 'ACTIVE';

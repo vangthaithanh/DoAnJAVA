@@ -3,57 +3,217 @@
 <head th:replace="~{fragments/layout :: head(${pageTitle})}"></head>
 <body>
 <header th:replace="~{fragments/layout :: header}"></header>
-<section th:replace="~{fragments/layout :: pageBanner('Liên hệ tư vấn', 'Leave your information and our consultant will contact you soon.')}"></section>
+
+<section th:replace="~{fragments/layout :: pageBanner('Liên hệ WebDuLich', 'Đội ngũ tư vấn luôn sẵn sàng hỗ trợ bạn chọn tour, tạo lịch trình và giải đáp thông tin du lịch Việt Nam.')}"></section>
+
 <div th:replace="~{fragments/layout :: flash}"></div>
 
-<main class="section-padding contact-section">
+<main class="section-padding contact-page">
   <div class="container">
-    <div class="row g-4 align-items-stretch">
-      <div class="col-lg-6 reveal">
-        <div class="contact-copy">
-          <div class="section-kicker"><i class="fa-solid fa-house-chimney"></i> Liên hệ</div>
-          <h2>Liên hệ tư vấn</h2>
-          <p>Gửi thông tin để WebDuLich tư vấn tour trong nước hoặc hỗ trợ tạo lịch trình phù hợp.</p>
 
-          <div class="contact-feature">
-            <i class="fa-solid fa-house-user"></i>
-            <div><h5>Đặt tour trong nước</h5><p>Nhận tư vấn tuyến tour, ngày khởi hành, số chỗ còn và chi phí dự kiến.</p></div>
+    <section class="contact-hero-box reveal">
+      <div class="contact-hero-content">
+        <span class="section-kicker">
+          <i class="fa-solid fa-headset"></i>
+          Hỗ trợ khách hàng
+        </span>
+
+        <h2>Liên hệ với WebDuLich</h2>
+
+        <p>
+          Bạn cần tư vấn tour trong nước, muốn được hỗ trợ tự tạo lịch trình,
+          hoặc cần báo giá theo nhóm/gia đình? Hãy gửi thông tin,
+          WebDuLich sẽ liên hệ lại sớm.
+        </p>
+      </div>
+
+      <div class="contact-hotline-card">
+        <span>Hotline tư vấn tour</span>
+        <strong>1900 2026</strong>
+        <p>Hỗ trợ từ 08:00 - 21:00 mỗi ngày</p>
+      </div>
+    </section>
+
+    <section class="contact-grid">
+      <div class="contact-info-column reveal">
+        <div class="contact-info-card">
+          <div class="contact-info-icon">
+            <i class="fa-solid fa-phone-volume"></i>
           </div>
-          <div class="contact-feature">
-            <i class="fa-solid fa-building-user"></i>
-            <div><h5>Buy New Tour</h5><p>Chọn điểm đến, số ngày, ngân sách và nhận gợi ý lịch trình theo từng ngày.</p></div>
+
+          <div>
+            <h3>Hotline</h3>
+            <p>1900 2026</p>
+            <span>Gọi để được tư vấn tour nhanh</span>
           </div>
-          <div class="contact-map">
+        </div>
+
+        <div class="contact-info-card">
+          <div class="contact-info-icon">
+            <i class="fa-regular fa-envelope"></i>
+          </div>
+
+          <div>
+            <h3>Email</h3>
+            <p>hello@webdulich.vn</p>
+            <span>Gửi yêu cầu tư vấn hoặc hợp tác</span>
+          </div>
+        </div>
+
+        <div class="contact-info-card">
+          <div class="contact-info-icon">
+            <i class="fa-solid fa-location-dot"></i>
+          </div>
+
+          <div>
+            <h3>Văn phòng</h3>
+            <p>TP.HCM - Hà Nội - Đà Nẵng</p>
+            <span>Hỗ trợ tour du lịch trong nước Việt Nam</span>
+          </div>
+        </div>
+
+        <div class="contact-info-card">
+          <div class="contact-info-icon">
+            <i class="fa-solid fa-route"></i>
+          </div>
+
+          <div>
+            <h3>Tạo lịch trình</h3>
+            <p>Lên kế hoạch theo ngày, ngân sách và điểm đến</p>
+            <span>Dành cho người muốn tự thiết kế chuyến đi</span>
+          </div>
+        </div>
+
+        <div class="contact-map-card">
+          <div class="map-pin">
             <i class="fa-solid fa-map-location-dot"></i>
-            <span>Bản đồ điểm đến Việt Nam</span>
           </div>
+
+          <h3>Bản đồ hỗ trợ</h3>
+          <p>
+            Khu vực bản đồ có thể tích hợp Google Maps hoặc OpenStreetMap ở bước sau.
+          </p>
         </div>
       </div>
 
-      <div class="col-lg-6 reveal delay-1">
-        <form class="contact-form" th:action="@{/contact}" th:object="${contactNội dung cần tư vấn}" method="post">
+      <div class="contact-form-column reveal delay-1">
+        <form class="contact-form-card"
+              th:action="@{/contact}"
+              th:object="${contactMessage}"
+              method="post">
+
+          <div class="contact-form-head">
+            <span class="section-kicker">
+              <i class="fa-regular fa-paper-plane"></i>
+              Gửi thông tin
+            </span>
+
+            <h2>Nhận tư vấn miễn phí</h2>
+
+            <p>
+              Điền thông tin bên dưới, WebDuLich sẽ hỗ trợ bạn chọn tour
+              hoặc thiết kế lịch trình phù hợp.
+            </p>
+          </div>
+
           <div class="row g-3">
             <div class="col-md-6">
-              <input type="text" th:field="*{name}" class="form-control" placeholder="Họ tên">
-              <span class="error-text" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+              <label class="form-label">Họ và tên</label>
+              <input type="text"
+                     class="form-control"
+                     th:field="*{name}"
+                     placeholder="Nhập họ tên của bạn">
             </div>
+
             <div class="col-md-6">
-              <input type="email" th:field="*{email}" class="form-control" placeholder="Email">
-              <span class="error-text" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+              <label class="form-label">Email</label>
+              <input type="email"
+                     class="form-control"
+                     th:field="*{email}"
+                     placeholder="Nhập email của bạn">
             </div>
+
             <div class="col-12">
-              <input type="text" th:field="*{phone}" class="form-control" placeholder="Số điện thoại">
+              <label class="form-label">Số điện thoại</label>
+              <input type="text"
+                     class="form-control"
+                     th:field="*{phone}"
+                     placeholder="Nhập số điện thoại">
             </div>
+
             <div class="col-12">
-              <textarea th:field="*{message}" class="form-control" rows="6" placeholder="Nội dung cần tư vấn"></textarea>
+              <label class="form-label">Nội dung cần tư vấn</label>
+              <textarea class="form-control"
+                        th:field="*{message}"
+                        rows="6"
+                        placeholder="Ví dụ: Tôi muốn đi Đà Nẵng 3 ngày 2 đêm, ngân sách khoảng 6 triệu/người..."></textarea>
             </div>
+
             <div class="col-12">
-              <button class="btn btn-theme w-100 magnetic-btn" type="submit">Send Nội dung cần tư vấn</button>
+              <button type="submit" class="btn btn-theme w-100 contact-submit-btn">
+                <i class="fa-regular fa-paper-plane"></i>
+                Gửi yêu cầu liên hệ
+              </button>
             </div>
           </div>
         </form>
+
+        <div class="contact-support-note">
+          <div>
+            <i class="fa-solid fa-circle-check"></i>
+            Tư vấn tour trong nước Việt Nam
+          </div>
+
+          <div>
+            <i class="fa-solid fa-circle-check"></i>
+            Hỗ trợ tạo lịch trình cá nhân
+          </div>
+
+          <div>
+            <i class="fa-solid fa-circle-check"></i>
+            Gợi ý điểm đến theo nhu cầu
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
+
+    <section class="contact-faq-section reveal">
+      <div class="text-center section-heading">
+        <span class="section-kicker justify-content-center">
+          <i class="fa-regular fa-circle-question"></i>
+          Câu hỏi thường gặp
+        </span>
+
+        <h2>Cần hỗ trợ thêm?</h2>
+      </div>
+
+      <div class="contact-faq-grid">
+        <article class="contact-faq-card">
+          <h3>Tôi có thể tự tạo lịch trình không?</h3>
+          <p>
+            Có. Bạn có thể vào mục “Tạo lịch trình” để chọn điểm đến,
+            số ngày, ngân sách và các điểm tham quan mong muốn.
+          </p>
+        </article>
+
+        <article class="contact-faq-card">
+          <h3>WebDuLich có bán tour nước ngoài không?</h3>
+          <p>
+            Hiện tại hệ thống tập trung vào tour du lịch trong nước Việt Nam
+            để phù hợp với phạm vi của project.
+          </p>
+        </article>
+
+        <article class="contact-faq-card">
+          <h3>Tôi có thể gửi yêu cầu tour riêng cho nhóm không?</h3>
+          <p>
+            Có. Bạn có thể gửi thông tin qua form liên hệ,
+            đội ngũ tư vấn sẽ hỗ trợ thiết kế chương trình phù hợp với nhóm của bạn.
+          </p>
+        </article>
+      </div>
+    </section>
+
   </div>
 </main>
 

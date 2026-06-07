@@ -59,14 +59,6 @@
           <button class="btn btn-theme w-100 mt-3" type="submit">Tìm tour</button>
           <a class="btn btn-light w-100 mt-2" th:href="@{/tours}">Xóa bộ lọc</a>
         </form>
-
-        <div class="sidebar-widget reveal delay-1">
-          <h4>Tour mới nhất</h4>
-          <a class="mini-property" th:each="p : ${latestTours}" th:href="@{/tours/{id}(id=${p.id})}">
-            <img th:src="${p.imageUrl}" th:alt="${p.title}">
-            <span><strong th:text="${p.title}">Tên tour</strong><em th:text="${#numbers.formatDecimal(p.price, 0, 'COMMA', 0, 'POINT') + 'đ'}">3,990,000đ</em></span>
-          </a>
-        </div>
       </aside>
 
       <div class="col-lg-8">
