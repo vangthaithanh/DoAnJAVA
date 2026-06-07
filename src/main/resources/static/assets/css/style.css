@@ -917,6 +917,25 @@ img {
   margin-right: 6px;
 }
 
+.tour-card-agent {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: -4px 0 14px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.tour-card-agent i {
+  color: var(--theme);
+}
+
+.tour-card-agent a,
+.tour-card-agent strong {
+  color: var(--heading);
+  font-weight: 850;
+}
+
 .card-actions {
   display: flex;
   justify-content: space-between;
@@ -1161,6 +1180,44 @@ img {
 .agent-profile-side h4 {
   color: var(--heading);
   font-weight: 900;
+}
+
+.tour-agent-contact {
+  margin: 14px 0 18px;
+  padding: 14px;
+  border-radius: 14px;
+  background: var(--light-bg);
+  text-align: left;
+}
+
+.tour-agent-contact p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.tour-agent-contact p + p {
+  margin-top: 8px;
+}
+
+.tour-agent-contact i {
+  color: var(--theme);
+  width: 16px;
+}
+
+.agent-fallback-avatar {
+  width: 138px;
+  height: 138px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  margin: 0 auto 18px;
+  background: rgba(14, 165, 164, 0.1);
+  color: var(--theme);
+  font-size: 42px;
 }
 
 .inquiry-form {
@@ -2532,8 +2589,77 @@ img {
   color: var(--theme-dark);
 }
 
+.recommendation-card-hint {
+  margin: -2px 0 8px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.recommendation-select-tour {
+  display: inline-block;
+  margin-top: 8px;
+  margin-right: 10px;
+  border: 0;
+  background: transparent;
+  color: var(--theme);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.recommendation-select-tour:hover {
+  color: var(--theme-dark);
+}
+
+.recommendation-tour-item.selected {
+  margin: 8px -10px;
+  padding: 13px 10px;
+  border: 1px solid rgba(14, 165, 164, 0.25);
+  border-radius: 12px;
+  background: rgba(14, 165, 164, 0.07);
+}
+
 .recommendation-empty {
   margin: 14px 0 0;
+}
+
+.itinerary-model-summary {
+  padding: 16px;
+  border: 1px solid rgba(14, 165, 164, 0.20);
+  border-radius: 16px;
+  background: rgba(14, 165, 164, 0.06);
+}
+
+.itinerary-model-summary-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.itinerary-model-summary-head i {
+  color: var(--theme);
+  margin-top: 3px;
+}
+
+.itinerary-model-summary-head strong,
+.itinerary-model-summary-grid strong {
+  display: block;
+  color: var(--heading);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.itinerary-model-summary-head span,
+.itinerary-model-summary-grid span {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.itinerary-model-summary-grid {
+  display: grid;
+  gap: 10px;
 }
 
 .tour-model-highlights {
@@ -3658,6 +3784,108 @@ img {
   color: var(--muted);
   line-height: 1.75;
   margin: 0;
+}
+
+.itinerary-list {
+  display: grid;
+  gap: 16px;
+}
+
+.itinerary-card {
+  display: flex;
+  gap: 16px;
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: #ffffff;
+}
+
+.itinerary-card-body {
+  flex: 1;
+}
+
+.itinerary-card-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.itinerary-card-head h3 {
+  color: var(--heading);
+  font-size: 20px;
+  font-weight: 950;
+  margin: 6px 0 0;
+}
+
+.itinerary-card-head small {
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.itinerary-status {
+  display: inline-flex;
+  border-radius: 999px;
+  padding: 5px 10px;
+  background: rgba(14, 165, 164, 0.10);
+  color: var(--theme);
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.itinerary-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  margin-bottom: 12px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.itinerary-meta i {
+  color: var(--theme);
+  margin-right: 5px;
+}
+
+.itinerary-card p {
+  color: var(--muted);
+  line-height: 1.75;
+  margin: 0;
+}
+
+.itinerary-card p + p {
+  margin-top: 8px;
+}
+
+.itinerary-model-details {
+  margin: 14px 0;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: #fbfcfe;
+}
+
+.itinerary-model-details h4 {
+  margin: 0 0 8px;
+  color: var(--heading);
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.itinerary-model-details h4 i {
+  color: var(--theme);
+  margin-right: 6px;
+}
+
+.itinerary-model-details p {
+  margin: 4px 0 0;
+  font-size: 13px;
+}
+
+.itinerary-model-details a,
+.itinerary-model-details strong {
+  color: var(--heading);
+  font-weight: 850;
 }
 
 .security-list {

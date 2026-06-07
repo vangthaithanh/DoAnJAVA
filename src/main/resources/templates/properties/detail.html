@@ -90,11 +90,26 @@
       </div>
 
       <aside class="col-lg-4">
-        <div class="agent-profile-side reveal" th:if="${property.agent != null}">
-          <img th:src="${property.agent.avatarUrl}" th:alt="${property.agent.fullName}">
-          <h4 th:text="${property.agent.fullName}">Tư vấn viên</h4>
-          <p th:text="${property.agent.role}">Vai trò</p>
-          <a th:href="@{/agents/{id}(id=${property.agent.id})}" class="btn btn-outline-theme w-100">Xem tư vấn viên</a>
+        <div class="agent-profile-side reveal">
+          <div th:if="${property.agent != null}">
+            <img th:src="${property.agent.avatarUrl}" th:alt="${property.agent.fullName}">
+            <h4 th:text="${property.agent.fullName}">Tư vấn viên</h4>
+            <p th:text="${property.agent.role}">Vai trò</p>
+            <div class="tour-agent-contact">
+              <p><i class="fa-solid fa-phone"></i> <span th:text="${property.agent.phone}">Hotline</span></p>
+              <p><i class="fa-regular fa-envelope"></i> <span th:text="${property.agent.email}">Email</span></p>
+            </div>
+            <a th:href="@{/agents/{id}(id=${property.agent.id})}" class="btn btn-outline-theme w-100">Xem tư vấn viên</a>
+          </div>
+          <div th:unless="${property.agent != null}" class="agent-fallback">
+            <div class="agent-fallback-avatar"><i class="fa-regular fa-user"></i></div>
+            <h4>Đội tư vấn WebDuLich</h4>
+            <p>Tư vấn tour trong nước</p>
+            <div class="tour-agent-contact">
+              <p><i class="fa-solid fa-phone"></i> 1900 2026</p>
+              <p><i class="fa-regular fa-envelope"></i> hello@webdulich.vn</p>
+            </div>
+          </div>
         </div>
 
         <form id="bookingForm" class="inquiry-form reveal delay-1" th:action="@{/tours/{id}/inquiry(id=${property.id})}" th:object="${inquiry}" method="post">

@@ -2,6 +2,7 @@ package com.example.webdulich.controller;
 
 import com.example.webdulich.entity.User;
 import com.example.webdulich.repository.UserRepository;
+import com.example.webdulich.service.CustomItineraryService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,9 +12,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class AccountController {
 
     private final UserRepository userRepository;
+    private final CustomItineraryService customItineraryService;
 
-    public AccountController(UserRepository userRepository) {
+    public AccountController(UserRepository userRepository,
+                             CustomItineraryService customItineraryService) {
         this.userRepository = userRepository;
+        this.customItineraryService = customItineraryService;
     }
 
     @GetMapping("/account")
@@ -34,6 +38,8 @@ public class AccountController {
         model.addAttribute("pageTitle", "Trang cá nhân - WebDuLich");
         model.addAttribute("activePage", "account");
         model.addAttribute("accountUser", currentUser);
+        model.addAttribute("itineraries", customItineraryService.findByUser(currentUserId));
+        model.addAttribute("itineraryCount", customItineraryService.countByUser(currentUserId));
 
         return "account/index";
     }

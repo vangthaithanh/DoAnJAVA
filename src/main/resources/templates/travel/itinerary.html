@@ -4,6 +4,7 @@
 <body>
 <header th:replace="~{fragments/layout :: header}"></header>
 <section th:replace="~{fragments/layout :: pageBanner('Tạo lịch trình du lịch', 'Tự tạo lịch trình chuyến đi theo điểm đến, số ngày, ngân sách và sở thích.')}"></section>
+<div th:replace="~{fragments/layout :: flash}"></div>
 <main>
   <section class="section-padding">
     <div class="container">
@@ -56,34 +57,76 @@
           <div class="contact-copy">
             <div class="section-kicker"><i class="fa-solid fa-wand-magic-sparkles"></i> Tạo lịch trình mẫu</div>
             <h2>Nhập thông tin chuyến đi</h2>
-            <p>Form này đang là giao diện mẫu. Sau này có thể tạo bảng LichTrinhTuTao để lưu lịch trình vào database.</p>
+            <p>Lịch trình sẽ được lưu vào tài khoản của bạn kèm địa điểm, dịch vụ và tour đã chọn từ model nếu có.</p>
             <div class="contact-feature">
               <i class="fa-solid fa-lightbulb"></i>
-              <div><h5>Gợi ý theo nhu cầu</h5><p>Gia đình, cặp đôi, phượt, nghỉ dưỡng, văn hóa hoặc ẩm thực.</p></div>
+              <div><h5>Lưu theo tài khoản</h5><p>Mỗi lịch trình gắn với người dùng đang đăng nhập, có trạng thái xử lý và tiêu chí tư vấn riêng.</p></div>
             </div>
             <div class="contact-feature">
               <i class="fa-solid fa-bell"></i>
-              <div><h5>Nhắc lịch trình</h5><p>Có thể mở rộng để thông báo lịch bay, giờ check-in và điểm tham quan.</p></div>
+              <div><h5>Linh hoạt theo model</h5><p>Nếu có tour phù hợp bạn có thể chọn tour; nếu chưa có, lịch trình tự tạo vẫn được lưu để tư vấn tiếp.</p></div>
             </div>
           </div>
         </div>
         <div class="col-lg-6 reveal delay-1">
-          <form class="contact-form">
+          <form class="contact-form" th:action="@{/itinerary}" method="post">
             <div class="row g-3">
-              <div class="col-md-6"><input class="form-control" placeholder="Điểm đến"></div>
-              <div class="col-md-6"><input class="form-control" placeholder="Số ngày"></div>
-              <div class="col-md-6"><input class="form-control" placeholder="Ngân sách dự kiến"></div>
               <div class="col-md-6">
-                <select class="form-select">
-                  <option>Phong cách du lịch</option>
-                  <option>Nghỉ dưỡng</option>
-                  <option>Khám phá</option>
-                  <option>Gia đình</option>
-                  <option>Ẩm thực</option>
+                <input class="form-control" name="destinationText" placeholder="Điểm đến" th:value="${destinationText}" required>
+              </div>
+              <div class="col-md-6">
+                <input class="form-control" type="number" name="totalDays" min="1" placeholder="Số ngày" th:value="${totalDays}" required>
+              </div>
+              <div class="col-md-6">
+                <input class="form-control" type="number" name="budget" min="0" step="100000" placeholder="Ngân sách dự kiến" th:value="${budget}">
+              </div>
+              <div class="col-md-6">
+                <select class="form-select" name="travelStyle">
+                  <option value="">Phong cách du lịch</option>
+                  <option value="Nghỉ dưỡng" th:selected="${travelStyle == 'Nghỉ dưỡng'}">Nghỉ dưỡng</option>
+                  <option value="Khám phá" th:selected="${travelStyle == 'Khám phá'}">Khám phá</option>
+                  <option value="Gia đình" th:selected="${travelStyle == 'Gia đình'}">Gia đình</option>
+                  <option value="Ẩm thực" th:selected="${travelStyle == 'Ẩm thực'}">Ẩm thực</option>
+                  <option value="Cặp đôi" th:selected="${travelStyle == 'Cặp đôi'}">Cặp đôi</option>
                 </select>
               </div>
-              <div class="col-12"><textarea class="form-control" rows="5" placeholder="Ghi chú thêm: đi cùng ai, thích hoạt động gì, cần khách sạn mấy sao..."></textarea></div>
-              <div class="col-12"><a th:href="@{/tours}" class="btn btn-theme w-100">Xem gợi ý lịch trình phù hợp</a></div>
+              <div class="col-12">
+                <textarea class="form-control" name="note" rows="5" placeholder="Ghi chú thêm: đi cùng ai, thích hoạt động gì, cần khách sạn mấy sao..." th:text="${note}"></textarea>
+              </div>
+              <input id="itineraryModelDestinationKey" name="modelDestinationKey" type="hidden" th:value="${modelDestinationKey}">
+              <input id="itinerarySelectedPlaces" name="selectedPlaces" type="hidden" th:value="${selectedPlaces}">
+              <input id="itinerarySelectedServices" name="selectedServices" type="hidden" th:value="${selectedServices}">
+              <input id="itinerarySelectedPropertyId" name="selectedPropertyId" type="hidden" th:value="${selectedPropertyId}">
+              <input id="itinerarySelectedModelMaTour" name="selectedModelMaTour" type="hidden" th:value="${selectedModelMaTour}">
+              <input id="itinerarySelectedTourTitle" name="selectedTourTitle" type="hidden" th:value="${selectedTourTitle}">
+              <div class="col-12">
+                <div class="itinerary-model-summary">
+                  <div class="itinerary-model-summary-head">
+                    <i class="fa-solid fa-sparkles"></i>
+                    <div>
+                      <strong>Tiêu chí từ model</strong>
+                      <span>Lưu cùng lịch trình để tư vấn viên biết bạn đã chọn gì.</span>
+                    </div>
+                  </div>
+                  <div class="itinerary-model-summary-grid">
+                    <div>
+                      <span>Địa điểm đã chọn</span>
+                      <strong id="itinerarySelectedPlacesText">Chưa chọn</strong>
+                    </div>
+                    <div>
+                      <span>Dịch vụ đã chọn</span>
+                      <strong id="itinerarySelectedServicesText">Chưa chọn</strong>
+                    </div>
+                    <div>
+                      <span>Tour phù hợp</span>
+                      <strong id="itinerarySelectedTourText">Chưa chọn tour, vẫn có thể lưu lịch trình tự tạo</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <button class="btn btn-theme w-100" type="submit">Lưu lịch trình vào tài khoản</button>
+              </div>
             </div>
           </form>
         </div>
@@ -140,6 +183,7 @@
           <div class="col-lg-3 col-md-6">
             <div class="recommendation-result-card">
               <h5><i class="fa-solid fa-route"></i> Tour phù hợp</h5>
+              <p class="recommendation-card-hint">Bấm “Chọn tour này” để gắn tour vào lịch trình cần lưu.</p>
               <div id="recommendTours"></div>
             </div>
           </div>

@@ -89,6 +89,14 @@
                   <span><i class="fa-solid fa-users"></i> <span th:text="${property.parking}">18</span> chỗ</span>
                 </div>
                 <p class="property-location"><i class="fa-solid fa-location-dot"></i><span th:text="${property.location}"></span></p>
+                <div class="tour-card-agent">
+                  <i class="fa-regular fa-user"></i>
+                  <span>Tư vấn:</span>
+                  <a th:if="${property.agent != null}"
+                     th:href="@{/agents/{id}(id=${property.agent.id})}"
+                     th:text="${property.agent.fullName}">Tư vấn viên</a>
+                  <strong th:unless="${property.agent != null}">Đội tư vấn WebDuLich</strong>
+                </div>
                 <div class="card-actions"><a class="details-link" th:href="@{/tours/{id}(id=${property.id})}">Xem chi tiết <i class="fa-solid fa-arrow-right-long"></i></a></div>
               </div>
             </article>

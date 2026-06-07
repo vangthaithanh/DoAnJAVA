@@ -20,7 +20,8 @@ public class AuthController {
     @GetMapping("/login")
     public String login(Model model, HttpSession session) {
         if (session.getAttribute("currentUserId") != null) {
-            return "redirect:/";
+            String redirectUrl = consumeSafeRedirect(session);
+            return "redirect:" + redirectUrl;
         }
 
         model.addAttribute("pageTitle", "Đăng nhập - WebDuLich");
@@ -53,7 +54,7 @@ public class AuthController {
         session.setAttribute("currentUserRole", user.getRole());
 
         redirectAttributes.addFlashAttribute("successMessage", "Đăng nhập thành công. Chào mừng " + user.getFullName() + "!");
-        return "redirect:/";
+        return "redirect:" + consumeSafeRedirect(session);
     }
 
     @GetMapping("/register")
@@ -96,5 +97,20 @@ public class AuthController {
         session.invalidate();
         redirectAttributes.addFlashAttribute("successMessage", "Bạn đã đăng xuất khỏi hệ thống.");
         return "redirect:/";
+    }
+
+    private String consumeSafeRedirect(HttpSession session) {
+        Object value = session.getAttribute("afterLoginRedirect");
+        session.removeAttribute("afterLoginRedirect");
+
+        if (value instanceof String redirectUrl
+                && redirectUrl.startsWith("/")
+                && !redirectUrl.startsWith("//")
+                && !redirectUrl.contains("\n")
+                && !redirectUrl.contains("\r")) {
+            return redirectUrl;
+        }
+
+        return "/";
     }
 }

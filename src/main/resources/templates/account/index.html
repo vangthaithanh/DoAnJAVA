@@ -81,7 +81,7 @@
 
                         <div class="account-stat-card">
                             <i class="fa-solid fa-route"></i>
-                            <strong>0</strong>
+                            <strong th:text="${itineraryCount}">0</strong>
                             <span>Lịch trình tự tạo</span>
                         </div>
 
@@ -190,14 +190,67 @@
                         </a>
                     </div>
 
-                    <div class="timeline-preview">
+                    <div class="timeline-preview" th:if="${itineraries == null or #lists.isEmpty(itineraries)}">
                         <div class="timeline-dot"></div>
                         <div>
                             <h3>Chưa có lịch trình tự tạo</h3>
                             <p>
-                                Sau này có thể nối với dữ liệu lịch trình tự tạo của người dùng.
+                                Hãy tạo lịch trình đầu tiên để WebDuLich lưu lại nhu cầu chuyến đi của bạn.
                             </p>
                         </div>
+                    </div>
+
+                    <div class="itinerary-list" th:if="${itineraries != null and !#lists.isEmpty(itineraries)}">
+                        <article class="itinerary-card" th:each="itinerary : ${itineraries}">
+                            <div class="timeline-dot"></div>
+                            <div class="itinerary-card-body">
+                                <div class="itinerary-card-head">
+                                    <div>
+                                        <span class="itinerary-status" th:text="${itinerary.status}">NEW</span>
+                                        <h3 th:text="${itinerary.title}">Lịch trình</h3>
+                                    </div>
+                                    <small th:if="${itinerary.createdAt != null}" th:text="${#temporals.format(itinerary.createdAt, 'dd/MM/yyyy HH:mm')}">08/06/2026</small>
+                                </div>
+                                <div class="itinerary-meta">
+                                    <span><i class="fa-solid fa-location-dot"></i> <span th:text="${itinerary.destinationText}">Điểm đến</span></span>
+                                    <span><i class="fa-solid fa-calendar-day"></i> <span th:text="${itinerary.totalDays}">3</span> ngày</span>
+                                    <span><i class="fa-solid fa-wallet"></i> <span th:text="${itinerary.budget != null ? #numbers.formatDecimal(itinerary.budget, 0, 'COMMA', 0, 'POINT') + 'đ' : 'Chưa nhập ngân sách'}">Ngân sách</span></span>
+                                    <span><i class="fa-solid fa-person-hiking"></i> <span th:text="${itinerary.travelStyle}">Phong cách</span></span>
+                                </div>
+                                <p th:if="${itinerary.note != null and !#strings.isEmpty(itinerary.note)}" th:text="${itinerary.note}">Ghi chú</p>
+                                <div class="itinerary-model-details"
+                                     th:if="${(itinerary.modelDestinationKey != null and !#strings.isEmpty(itinerary.modelDestinationKey))
+                                      or (itinerary.selectedPlaces != null and !#strings.isEmpty(itinerary.selectedPlaces))
+                                      or (itinerary.selectedServices != null and !#strings.isEmpty(itinerary.selectedServices))
+                                      or (itinerary.selectedTourTitle != null and !#strings.isEmpty(itinerary.selectedTourTitle))}">
+                                    <h4><i class="fa-solid fa-sparkles"></i> Tiêu chí từ model</h4>
+                                    <p th:if="${itinerary.modelDestinationKey != null and !#strings.isEmpty(itinerary.modelDestinationKey)}">
+                                        Điểm đến model:
+                                        <strong th:text="${itinerary.modelDestinationKey}">da_lat</strong>
+                                    </p>
+                                    <p th:if="${itinerary.selectedPlaces != null and !#strings.isEmpty(itinerary.selectedPlaces)}">
+                                        Địa điểm:
+                                        <strong th:text="${itinerary.selectedPlacesDisplay}">Hồ Tuyền Lâm</strong>
+                                    </p>
+                                    <p th:if="${itinerary.selectedServices != null and !#strings.isEmpty(itinerary.selectedServices)}">
+                                        Dịch vụ:
+                                        <strong th:text="${itinerary.selectedServicesDisplay}">hotel, guide</strong>
+                                    </p>
+                                    <p th:if="${itinerary.selectedTourTitle != null and !#strings.isEmpty(itinerary.selectedTourTitle)}">
+                                        Tour đã chọn:
+                                        <a th:if="${itinerary.selectedProperty != null}"
+                                           th:href="@{/tours/{id}(id=${itinerary.selectedProperty.id})}"
+                                           th:text="${itinerary.selectedTourTitle}">Tour</a>
+                                        <strong th:unless="${itinerary.selectedProperty != null}"
+                                                th:text="${itinerary.selectedTourTitle}">Tour</strong>
+                                    </p>
+                                </div>
+                                <p th:if="${itinerary.assignedAgent != null}">
+                                    Tư vấn viên phụ trách:
+                                    <strong th:text="${itinerary.assignedAgent.fullName}">Tư vấn viên</strong>
+                                </p>
+                            </div>
+                        </article>
                     </div>
                 </div>
 

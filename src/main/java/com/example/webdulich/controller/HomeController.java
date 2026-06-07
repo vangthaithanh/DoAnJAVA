@@ -22,22 +22,29 @@ public class HomeController {
 
     @GetMapping("/")
     public String index(Model model) {
+        var agents = agentService.findAll();
         model.addAttribute("pageTitle", "WebDuLich - Tour Việt Nam & lịch trình thông minh");
         model.addAttribute("activePage", "home");
         model.addAttribute("properties", propertyService.findLatestSix());
         model.addAttribute("tours", propertyService.findLatestSix());
         model.addAttribute("featuredProperty", propertyService.getFeaturedProperty());
         model.addAttribute("featuredTour", propertyService.getFeaturedProperty());
-        model.addAttribute("agents", agentService.findAll());
+        model.addAttribute("agents", agents);
         model.addAttribute("blogs", blogService.findLatestThree());
 
-        model.addAttribute("singleFamilyCount", propertyService.countByType("Tour miền Bắc"));
-        model.addAttribute("duplexCount", propertyService.countByType("Tour miền Trung"));
-        model.addAttribute("containerHomeCount", propertyService.countByType("Tour biển đảo"));
+        model.addAttribute("tourCount", propertyService.countAll());
+        model.addAttribute("destinationCount", propertyService.countDistinctCities());
+        model.addAttribute("agentCount", agents.size());
 
-        model.addAttribute("californiaCount", propertyService.countByCity("Đà Nẵng"));
-        model.addAttribute("moroccoCount", propertyService.countByCity("Hà Nội"));
-        model.addAttribute("namibiaCount", propertyService.countByCity("Phú Quốc"));
+        model.addAttribute("northTourCount", propertyService.countByType("Tour miền Bắc"));
+        model.addAttribute("centralTourCount", propertyService.countByType("Tour miền Trung"));
+        model.addAttribute("southTourCount", propertyService.countByType("Tour miền Nam"));
+        model.addAttribute("highlandTourCount", propertyService.countByType("Tour Tây Nguyên"));
+        model.addAttribute("islandTourCount", propertyService.countByType("Tour biển đảo"));
+
+        model.addAttribute("daLatCount", propertyService.countByCity("Đà Lạt"));
+        model.addAttribute("phanThietCount", propertyService.countByCity("Phan Thiết / Mũi Né"));
+        model.addAttribute("vungTauCount", propertyService.countByCity("Vũng Tàu"));
 
         return "index";
     }

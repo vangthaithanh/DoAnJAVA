@@ -192,9 +192,13 @@
   </div>
 </section>
 
-<div th:fragment="flash" class="container flash-container" th:if="${successMessage}">
-  <div class="alert alert-success alert-dismissible fade show" role="alert">
+<div th:fragment="flash" class="container flash-container" th:if="${successMessage} or ${errorMessage}">
+  <div class="alert alert-success alert-dismissible fade show" role="alert" th:if="${successMessage}">
     <i class="fa-solid fa-circle-check me-2"></i><span th:text="${successMessage}">Thao tác thành công</span>
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+  </div>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert" th:if="${errorMessage}">
+    <i class="fa-solid fa-circle-exclamation me-2"></i><span th:text="${errorMessage}">Có lỗi xảy ra</span>
     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
   </div>
 </div>

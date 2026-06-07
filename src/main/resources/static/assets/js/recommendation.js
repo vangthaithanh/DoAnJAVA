@@ -13,8 +13,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const nextServices = document.getElementById("recommendNextServices");
   const placeServices = document.getElementById("recommendPlaceServices");
   const tours = document.getElementById("recommendTours");
+  const hiddenDestination = document.getElementById("itineraryModelDestinationKey");
+  const hiddenPlaces = document.getElementById("itinerarySelectedPlaces");
+  const hiddenServices = document.getElementById("itinerarySelectedServices");
+  const hiddenPropertyId = document.getElementById("itinerarySelectedPropertyId");
+  const hiddenModelMaTour = document.getElementById("itinerarySelectedModelMaTour");
+  const hiddenTourTitle = document.getElementById("itinerarySelectedTourTitle");
+  const selectedPlacesText = document.getElementById("itinerarySelectedPlacesText");
+  const selectedServicesText = document.getElementById("itinerarySelectedServicesText");
+  const selectedTourText = document.getElementById("itinerarySelectedTourText");
   const serviceLabels = new Map();
   const destinations = new Map();
+  let selectedTour = null;
 
   const escapeHtml = value => String(value ?? "")
     .replaceAll("&", "&amp;")
@@ -26,6 +36,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const emptyState = message => `<p class="recommendation-empty">${escapeHtml(message)}</p>`;
   const selectedValues = container => Array.from(container.querySelectorAll("input:checked"))
     .map(input => input.value);
+  const labelsForValues = (values, labels) => values
+    .map(value => labels.get(value) ?? value)
+    .join(", ");
 
   const readinessWarning = destinationInfo => destinationInfo?.modelReadiness === "not_ready"
     ? "Dữ liệu điểm đến này còn ít, kết quả chỉ mang tính tham khảo."
@@ -43,6 +56,31 @@ document.addEventListener("DOMContentLoaded", () => {
     status.textContent = "";
   };
 
+  const clearSelectedTour = () => {
+    selectedTour = null;
+    if (hiddenPropertyId) hiddenPropertyId.value = "";
+    if (hiddenModelMaTour) hiddenModelMaTour.value = "";
+    if (hiddenTourTitle) hiddenTourTitle.value = "";
+  };
+
+  const syncItineraryForm = () => {
+    const places = selectedValues(placeList);
+    const services = selectedValues(serviceList);
+    if (hiddenDestination) hiddenDestination.value = destination.value;
+    if (hiddenPlaces) hiddenPlaces.value = JSON.stringify(places);
+    if (hiddenServices) hiddenServices.value = JSON.stringify(services);
+
+    if (selectedPlacesText) {
+      selectedPlacesText.textContent = places.length ? places.join(", ") : "Chưa chọn";
+    }
+    if (selectedServicesText) {
+      selectedServicesText.textContent = services.length ? labelsForValues(services, serviceLabels) : "Chưa chọn";
+    }
+    if (selectedTourText) {
+      selectedTourText.textContent = selectedTour?.title ?? "Chưa chọn tour, vẫn có thể lưu lịch trình tự tạo";
+    }
+  };
+
   const renderChips = (container, items, valueKey, labelKey) => {
     container.innerHTML = items.length ? items.map(item => `
       <label class="recommendation-place">
@@ -54,6 +92,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const loadDestinationCatalog = async () => {
     clearResults();
+    clearSelectedTour();
+    syncItineraryForm();
     serviceLabels.clear();
     showWarning(readinessWarning(destinations.get(destination.value)));
     placeList.innerHTML = "<span class=\"recommendation-status\">Đang tải danh sách địa điểm...</span>";
@@ -70,9 +110,11 @@ document.addEventListener("DOMContentLoaded", () => {
       services.forEach(service => serviceLabels.set(service.serviceKey, service.serviceLabel));
       renderChips(placeList, places, "name", "name");
       renderChips(serviceList, services, "serviceKey", "serviceLabel");
+      syncItineraryForm();
     } catch (error) {
       placeList.innerHTML = emptyState(error.message);
       serviceList.innerHTML = emptyState(error.message);
+      syncItineraryForm();
     }
   };
 
@@ -141,9 +183,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const renderTours = response => {
     const items = response.tours ?? [];
     tours.innerHTML = items.length ? items.map(item => `
-      <div class="recommendation-item">
+      <div class="recommendation-item recommendation-tour-item"
+           data-property-id="${escapeHtml(item.propertyId ?? "")}"
+           data-model-ma-tour="${escapeHtml(item.ma_tour ?? item.modelMaTour ?? "")}"
+           data-tour-title="${escapeHtml(item.tieu_de)}">
         <strong>${escapeHtml(item.tieu_de)}</strong>
         <small>${escapeHtml(item.so_ngay)} ngày · ${escapeHtml(item.nguon)} · ${escapeHtml(item.recommendationReason)}</small>
+        ${item.bookable ? `
+          <button class="recommendation-select-tour" type="button">
+            Chọn tour này
+          </button>
+        ` : ""}
         ${item.detailUrl ? `
           <a class="recommendation-tour-link" href="${escapeHtml(item.detailUrl)}"
              ${item.bookable ? "" : "target=\"_blank\" rel=\"noopener noreferrer\""}>
@@ -155,10 +205,19 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   destination.addEventListener("change", loadDestinationCatalog);
+  placeList.addEventListener("change", () => {
+    clearSelectedTour();
+    syncItineraryForm();
+  });
+  serviceList.addEventListener("change", () => {
+    clearSelectedTour();
+    syncItineraryForm();
+  });
 
   const submitRecommendations = async () => {
     const selectedPlaces = selectedValues(placeList);
     const selectedServices = selectedValues(serviceList);
+    syncItineraryForm();
     if (!selectedPlaces.length && !selectedServices.length) {
       status.textContent = "Vui lòng chọn ít nhất một địa điểm hoặc dịch vụ.";
       results.hidden = true;
@@ -214,7 +273,29 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     if (!input || input.checked) return;
     input.checked = true;
+    clearSelectedTour();
+    syncItineraryForm();
     submitRecommendations();
+  });
+
+  tours.addEventListener("click", event => {
+    const selectButton = event.target.closest(".recommendation-select-tour");
+    if (!selectButton) return;
+
+    const item = selectButton.closest(".recommendation-tour-item");
+    selectedTour = {
+      propertyId: item.dataset.propertyId,
+      modelMaTour: item.dataset.modelMaTour,
+      title: item.dataset.tourTitle
+    };
+
+    if (hiddenPropertyId) hiddenPropertyId.value = selectedTour.propertyId || "";
+    if (hiddenModelMaTour) hiddenModelMaTour.value = selectedTour.modelMaTour || "";
+    if (hiddenTourTitle) hiddenTourTitle.value = selectedTour.title || "";
+    tours.querySelectorAll(".recommendation-tour-item").forEach(tourItem => {
+      tourItem.classList.toggle("selected", tourItem === item);
+    });
+    syncItineraryForm();
   });
 
   button.addEventListener("click", submitRecommendations);

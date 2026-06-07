@@ -45,4 +45,11 @@ public interface PropertyRepository extends JpaRepository<Property, Long> {
     long countByTypeIgnoreCase(String type);
 
     long countByCityIgnoreCase(String city);
+
+    @Query("""
+        SELECT COUNT(DISTINCT p.city)
+        FROM Property p
+        WHERE p.city IS NOT NULL AND p.city <> ''
+    """)
+    long countDistinctCities();
 }

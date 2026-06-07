@@ -86,4 +86,12 @@ public class PropertyService {
     public long countByCity(String city) {
         return propertyRepository.countByCityIgnoreCase(city);
     }
+
+    public long countAll() {
+        return propertyRepository.count();
+    }
+
+    public long countDistinctCities() {
+        return propertyRepository.countDistinctCities();
+    }
 }

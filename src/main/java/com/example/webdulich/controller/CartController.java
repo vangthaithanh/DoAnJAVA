@@ -26,7 +26,13 @@ public class CartController {
     }
 
     @GetMapping
-    public String index(Model model, HttpSession session) {
+    public String index(Model model, HttpSession session, RedirectAttributes redirectAttributes) {
+        if (!isLoggedIn(session)) {
+            session.setAttribute("afterLoginRedirect", "/cart");
+            redirectAttributes.addFlashAttribute("errorMessage", "Vui lòng đăng nhập hoặc tạo tài khoản để xem giỏ tour.");
+            return "redirect:/login";
+        }
+
         List<Property> cartTours = getCartTours(session);
 
         BigDecimal total = cartTours.stream()
@@ -48,6 +54,12 @@ public class CartController {
                       HttpSession session,
                       RedirectAttributes redirectAttributes) {
 
+        if (!isLoggedIn(session)) {
+            session.setAttribute("afterLoginRedirect", "/tours/" + id);
+            redirectAttributes.addFlashAttribute("errorMessage", "Vui lòng đăng nhập hoặc tạo tài khoản để thêm tour vào giỏ.");
+            return "redirect:/login";
+        }
+
         if (propertyService.findById(id).isEmpty()) {
             redirectAttributes.addFlashAttribute("successMessage", "Không tìm thấy tour cần thêm vào giỏ.");
             return "redirect:/tours";
@@ -68,6 +80,12 @@ public class CartController {
                          HttpSession session,
                          RedirectAttributes redirectAttributes) {
 
+        if (!isLoggedIn(session)) {
+            session.setAttribute("afterLoginRedirect", "/cart");
+            redirectAttributes.addFlashAttribute("errorMessage", "Vui lòng đăng nhập để quản lý giỏ tour.");
+            return "redirect:/login";
+        }
+
         List<Long> tourIds = getCartTourIds(session);
         tourIds.removeIf(value -> value.equals(id));
         session.setAttribute(CART_SESSION_KEY, tourIds);
@@ -78,9 +96,19 @@ public class CartController {
 
     @PostMapping("/clear")
     public String clear(HttpSession session, RedirectAttributes redirectAttributes) {
+        if (!isLoggedIn(session)) {
+            session.setAttribute("afterLoginRedirect", "/cart");
+            redirectAttributes.addFlashAttribute("errorMessage", "Vui lòng đăng nhập để quản lý giỏ tour.");
+            return "redirect:/login";
+        }
+
         session.removeAttribute(CART_SESSION_KEY);
         redirectAttributes.addFlashAttribute("successMessage", "Đã làm trống giỏ tour.");
         return "redirect:/cart";
+    }
+
+    private boolean isLoggedIn(HttpSession session) {
+        return session.getAttribute("currentUserId") != null;
     }
 
     @SuppressWarnings("unchecked")

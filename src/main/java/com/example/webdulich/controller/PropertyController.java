@@ -7,6 +7,7 @@ import com.example.webdulich.service.PropertyService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -71,10 +72,17 @@ public class PropertyController {
                               @Valid @ModelAttribute("inquiry") Inquiry inquiry,
                               BindingResult bindingResult,
                               RedirectAttributes redirectAttributes,
+                              HttpSession session,
                               Model model) {
 
         Property property = propertyService.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Không tìm thấy tour id = " + id));
+
+        if (session.getAttribute("currentUserId") == null) {
+            session.setAttribute("afterLoginRedirect", "/tours/" + id + "#bookingForm");
+            redirectAttributes.addFlashAttribute("errorMessage", "Vui lòng đăng nhập hoặc tạo tài khoản để gửi yêu cầu tư vấn tour.");
+            return "redirect:/login";
+        }
 
         if (bindingResult.hasErrors()) {
             model.addAttribute("pageTitle", property.getTitle() + " - WebDuLich");
