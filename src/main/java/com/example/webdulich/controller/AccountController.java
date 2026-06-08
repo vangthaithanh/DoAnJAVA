@@ -3,6 +3,7 @@ package com.example.webdulich.controller;
 import com.example.webdulich.entity.User;
 import com.example.webdulich.repository.UserRepository;
 import com.example.webdulich.service.CustomItineraryService;
+import com.example.webdulich.service.PaymentHistoryService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,11 +14,14 @@ public class AccountController {
 
     private final UserRepository userRepository;
     private final CustomItineraryService customItineraryService;
+    private final PaymentHistoryService paymentHistoryService;
 
     public AccountController(UserRepository userRepository,
-                             CustomItineraryService customItineraryService) {
+                             CustomItineraryService customItineraryService,
+                             PaymentHistoryService paymentHistoryService) {
         this.userRepository = userRepository;
         this.customItineraryService = customItineraryService;
+        this.paymentHistoryService = paymentHistoryService;
     }
 
     @GetMapping("/account")
@@ -38,8 +42,14 @@ public class AccountController {
         model.addAttribute("pageTitle", "Trang cá nhân - WebDuLich");
         model.addAttribute("activePage", "account");
         model.addAttribute("accountUser", currentUser);
+
+        // Giữ lại chức năng lịch trình cũ
         model.addAttribute("itineraries", customItineraryService.findByUser(currentUserId));
         model.addAttribute("itineraryCount", customItineraryService.countByUser(currentUserId));
+
+        // Thêm mới cho hóa đơn và đánh giá
+        model.addAttribute("paidPaymentCount", paymentHistoryService.countPaidOrdersByUserId(currentUserId));
+        model.addAttribute("paymentReviewCount", paymentHistoryService.countReviewsByUserId(currentUserId));
 
         return "account/index";
     }

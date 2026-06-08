@@ -43,8 +43,12 @@
                         <i class="fa-regular fa-paper-plane"></i> Yêu cầu tư vấn
                     </button>
 
-                    <button type="button" class="account-tab-btn" data-account-tab="reviews">
+                    <button type="button" class="account-tab-btn" onclick="window.location.href='/account/reviews'">
                         <i class="fa-regular fa-star"></i> Đánh giá của tôi
+                    </button>
+
+                    <button type="button" class="account-tab-btn" onclick="window.location.href='/account/payments'">
+                        <i class="fa-solid fa-file-invoice-dollar"></i> Hóa đơn thanh toán
                     </button>
 
                     <button type="button" class="account-tab-btn" data-account-tab="security">
@@ -93,11 +97,15 @@
 
                         <div class="account-stat-card">
                             <i class="fa-regular fa-star"></i>
-                            <strong>0</strong>
+                            <strong th:text="${paymentReviewCount != null ? paymentReviewCount : 0}">0</strong>
                             <span>Đánh giá</span>
                         </div>
                     </div>
-
+                    <div class="account-stat-card">
+                        <i class="fa-solid fa-file-invoice-dollar"></i>
+                        <strong th:text="${paidPaymentCount != null ? paidPaymentCount : 0}">0</strong>
+                        <span>Hóa đơn</span>
+                    </div>
                     <div class="account-note-card">
                         <h3>Trung tâm cá nhân</h3>
                         <p>

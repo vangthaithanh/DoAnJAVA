@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head(${pageTitle})}"></head>
+<body>
+<header th:replace="~{fragments/layout :: header}"></header>
+
+<section th:replace="~{fragments/layout :: pageBanner('Đánh giá của tôi', 'Xem lại, chỉnh sửa hoặc xóa các đánh giá tour đã thanh toán.')}"></section>
+<div th:replace="~{fragments/layout :: flash}"></div>
+
+<main class="section-padding account-page">
+    <style>
+        .review-page-layout { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 28px; }
+        .review-side-card, .my-review-card, .empty-review-box { background: #ffffff; border-radius: 22px; box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08); border: 1px solid #edf1f5; }
+        .review-side-card { padding: 24px; height: fit-content; position: sticky; top: 100px; }
+        .review-side-card h3 { margin: 0 0 8px; font-size: 22px; font-weight: 900; }
+        .review-side-card p { color: #6b7280; margin-bottom: 18px; }
+        .account-mini-nav { display: grid; gap: 10px; }
+        .account-mini-nav a { text-decoration: none; color: #1f2937; font-weight: 850; padding: 12px 14px; border-radius: 14px; }
+        .account-mini-nav a:hover, .account-mini-nav a.active { background: rgba(14, 165, 164, 0.11); color: #0f766e; }
+        .review-list { display: grid; gap: 18px; }
+        .my-review-card { padding: 24px; }
+        .review-head { display: flex; justify-content: space-between; gap: 18px; align-items: flex-start; margin-bottom: 14px; }
+        .review-head h3 { margin: 0 0 7px; font-size: 23px; font-weight: 900; }
+        .review-meta { color: #6b7280; font-size: 14px; line-height: 1.7; }
+        .review-stars { color: #f59e0b; font-weight: 900; font-size: 21px; white-space: nowrap; }
+        .current-content { background: #fff7ed; border: 1px solid #fed7aa; color: #9a3412; border-radius: 16px; padding: 14px 16px; margin: 15px 0; line-height: 1.7; }
+        .review-edit-form { background: #f8fafc; border-radius: 16px; padding: 16px; margin-top: 16px; }
+        .form-grid { display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: 14px; }
+        .review-edit-form label { display: block; font-weight: 800; margin-bottom: 7px; }
+        .review-edit-form select, .review-edit-form textarea { width: 100%; border: 1px solid #dbe2ea; border-radius: 12px; padding: 12px 13px; outline: none; }
+        .review-edit-form textarea { min-height: 90px; resize: vertical; }
+        .review-actions { display: flex; justify-content: flex-end; gap: 12px; margin-top: 14px; flex-wrap: wrap; }
+        .btn-danger-soft { background: #fee2e2; color: #991b1b; border: 0; border-radius: 9px; padding: 12px 18px; font-weight: 800; }
+        .empty-review-box { padding: 44px 28px; text-align: center; }
+        .empty-review-box i { font-size: 44px; color: #0ea5a3; margin-bottom: 14px; }
+        @media (max-width: 992px) { .review-page-layout { grid-template-columns: 1fr; } .review-side-card { position: static; } }
+        @media (max-width: 700px) { .review-head, .form-grid { grid-template-columns: 1fr; display: grid; } }
+    </style>
+
+    <div class="container">
+        <div class="review-page-layout">
+            <aside class="review-side-card">
+                <h3 th:text="${accountUser.fullName}">Người dùng</h3>
+                <p th:text="${accountUser.email}">email@example.com</p>
+
+                <nav class="account-mini-nav">
+                    <a th:href="@{/account}"><i class="fa-solid fa-chart-pie"></i> Tổng quan</a>
+                    <a th:href="@{/account/payments}"><i class="fa-solid fa-file-invoice-dollar"></i> Hóa đơn thanh toán</a>
+                    <a class="active" th:href="@{/account/reviews}"><i class="fa-regular fa-star"></i> Đánh giá của tôi</a>
+                </nav>
+            </aside>
+
+            <section>
+                <div class="account-panel-head">
+                    <div>
+                        <span class="section-kicker"><i class="fa-regular fa-star"></i> Đánh giá</span>
+                        <h2>Danh sách đánh giá đã viết</h2>
+                    </div>
+                </div>
+
+                <div class="empty-review-box" th:if="${reviews == null or #lists.isEmpty(reviews)}">
+                    <i class="fa-regular fa-star"></i>
+                    <h3>Chưa có đánh giá nào</h3>
+                    <p>Sau khi thanh toán tour thành công, bạn có thể vào hóa đơn để đánh giá từng tour.</p>
+                    <a class="btn btn-theme" th:href="@{/account/payments}">Xem hóa đơn thanh toán</a>
+                </div>
+
+                <div class="review-list" th:if="${reviews != null and !#lists.isEmpty(reviews)}">
+                    <article class="my-review-card" th:each="review : ${reviews}">
+                        <div class="review-head">
+                            <div>
+                                <h3 th:text="${review.propertyTitle}">Tên tour</h3>
+                                <div class="review-meta">
+                                    <div>Mã hóa đơn: <strong th:text="${review.orderId}">WD...</strong></div>
+                                    <div>Ngày đánh giá: <strong th:text="${#temporals.format(review.updatedAt, 'dd/MM/yyyy HH:mm')}">01/01/2026</strong></div>
+                                </div>
+                            </div>
+
+                            <div class="review-stars">
+                                <span th:each="i : ${#numbers.sequence(1, 5)}" th:text="${i <= review.rating ? '★' : '☆'}">★</span>
+                            </div>
+                        </div>
+
+                        <div class="current-content">
+                            <strong>Nội dung hiện tại:</strong>
+                            <div th:text="${review.content != null and !#strings.isEmpty(review.content) ? review.content : 'Không có nội dung đánh giá.'}">Nội dung đánh giá</div>
+                        </div>
+
+                        <form class="review-edit-form" th:action="@{/account/reviews/{reviewId}/update(reviewId=${review.id})}" method="post">
+                            <div class="form-grid">
+                                <div>
+                                    <label>Số sao</label>
+                                    <select name="rating" required>
+                                        <option value="5" th:selected="${review.rating == 5}">5 sao - Rất tốt</option>
+                                        <option value="4" th:selected="${review.rating == 4}">4 sao - Tốt</option>
+                                        <option value="3" th:selected="${review.rating == 3}">3 sao - Bình thường</option>
+                                        <option value="2" th:selected="${review.rating == 2}">2 sao - Chưa tốt</option>
+                                        <option value="1" th:selected="${review.rating == 1}">1 sao - Không hài lòng</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label>Sửa nội dung đánh giá</label>
+                                    <textarea name="content" placeholder="Nhập nội dung đánh giá mới..." th:text="${review.content}"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="review-actions">
+                                <button type="submit" class="btn btn-theme">Cập nhật đánh giá</button>
+                            </div>
+                        </form>
+
+                        <form th:action="@{/account/reviews/{reviewId}/delete(reviewId=${review.id})}" method="post" class="review-actions" onsubmit="return confirm('Bạn có chắc muốn xóa đánh giá này không?');">
+                            <button type="submit" class="btn-danger-soft">Xóa đánh giá</button>
+                        </form>
+                    </article>
+                </div>
+            </section>
+        </div>
+    </div>
+</main>
+
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+<th:block th:replace="~{fragments/layout :: scripts}"></th:block>
+</body>
+</html>

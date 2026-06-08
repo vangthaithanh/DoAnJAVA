@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head(${pageTitle})}"></head>
+<body>
+<header th:replace="~{fragments/layout :: header}"></header>
+
+<section th:replace="~{fragments/layout :: pageBanner('Hóa đơn thanh toán', 'Theo dõi lịch sử thanh toán tour và quản lý đánh giá sau chuyến đi.')}"></section>
+<div th:replace="~{fragments/layout :: flash}"></div>
+
+<main class="section-padding account-page">
+    <style>
+        .payment-history-layout { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 28px; }
+        .payment-summary-card, .invoice-card { background: #ffffff; border-radius: 22px; box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08); border: 1px solid #edf1f5; }
+        .payment-summary-card { padding: 24px; height: fit-content; position: sticky; top: 100px; }
+        .payment-summary-card h3 { margin: 0 0 10px; font-size: 22px; font-weight: 900; }
+        .summary-user { color: #6b7280; margin-bottom: 18px; }
+        .summary-row { display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid #eef2f7; font-weight: 800; }
+        .summary-row span { color: #6b7280; font-weight: 700; }
+        .account-mini-nav { display: grid; gap: 10px; margin-top: 18px; }
+        .account-mini-nav a { text-decoration: none; color: #1f2937; font-weight: 850; padding: 12px 14px; border-radius: 14px; }
+        .account-mini-nav a:hover, .account-mini-nav a.active { background: rgba(14, 165, 164, 0.11); color: #0f766e; }
+        .invoice-list { display: grid; gap: 18px; }
+        .invoice-card { padding: 24px; }
+        .invoice-head { display: flex; justify-content: space-between; gap: 18px; align-items: flex-start; margin-bottom: 18px; }
+        .invoice-head h3 { margin: 0 0 6px; font-size: 22px; font-weight: 900; }
+        .invoice-meta { color: #6b7280; font-size: 14px; line-height: 1.7; }
+        .invoice-status { display: inline-flex; align-items: center; gap: 8px; background: #dcfce7; color: #166534; padding: 9px 13px; border-radius: 999px; font-weight: 900; white-space: nowrap; }
+        .invoice-info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 18px; }
+        .invoice-info-grid div { background: #f8fafc; border-radius: 16px; padding: 14px; }
+        .invoice-info-grid span { display: block; color: #6b7280; font-size: 13px; margin-bottom: 5px; }
+        .invoice-info-grid strong { font-size: 18px; font-weight: 900; }
+        .invoice-tours { display: grid; gap: 10px; margin: 16px 0; }
+        .invoice-tour-line { display: flex; justify-content: space-between; gap: 14px; align-items: center; padding: 12px 0; border-top: 1px solid #eef2f7; }
+        .invoice-tour-line strong { font-weight: 900; }
+        .review-badge { border-radius: 999px; padding: 7px 10px; font-weight: 800; font-size: 13px; white-space: nowrap; }
+        .reviewed { background: #fef3c7; color: #92400e; }
+        .not-reviewed { background: #e0f2fe; color: #075985; }
+        .invoice-actions { display: flex; justify-content: flex-end; margin-top: 16px; }
+        .empty-box { background: #ffffff; border-radius: 22px; padding: 44px 28px; text-align: center; box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08); }
+        .empty-box i { font-size: 44px; color: #0ea5a3; margin-bottom: 14px; }
+        @media (max-width: 992px) { .payment-history-layout { grid-template-columns: 1fr; } .payment-summary-card { position: static; } .invoice-info-grid { grid-template-columns: 1fr; } }
+    </style>
+
+    <div class="container">
+        <div class="payment-history-layout">
+            <aside class="payment-summary-card">
+                <h3 th:text="${accountUser.fullName}">Người dùng</h3>
+                <div class="summary-user" th:text="${accountUser.email}">email@example.com</div>
+
+                <div class="summary-row"><span>Hóa đơn đã thanh toán</span><strong th:text="${paidPaymentCount}">0</strong></div>
+                <div class="summary-row"><span>Đánh giá đã viết</span><strong th:text="${paymentReviewCount}">0</strong></div>
+
+                <nav class="account-mini-nav">
+                    <a th:href="@{/account}" href="/account"><i class="fa-solid fa-chart-pie"></i> Tổng quan</a>
+                    <a class="active" th:href="@{/account/payments}" href="/account/payments"><i class="fa-solid fa-file-invoice-dollar"></i> Hóa đơn thanh toán</a>
+                    <a th:href="@{/account/reviews}" href="/account/reviews"><i class="fa-regular fa-star"></i> Đánh giá của tôi</a>
+                    <a th:href="@{/tours}" href="/tours"><i class="fa-solid fa-suitcase-rolling"></i> Xem tour</a>
+                </nav>
+            </aside>
+
+            <section>
+                <div class="account-panel-head">
+                    <div>
+                        <span class="section-kicker"><i class="fa-solid fa-file-invoice-dollar"></i> Thanh toán</span>
+                        <h2>Lịch sử thanh toán tour</h2>
+                    </div>
+                </div>
+
+                <div class="empty-box" th:if="${invoices == null or #lists.isEmpty(invoices)}">
+                    <i class="fa-solid fa-file-circle-xmark"></i>
+                    <h3>Chưa có hóa đơn thanh toán</h3>
+                    <p>Sau khi thanh toán MoMo thành công, hóa đơn tour sẽ xuất hiện tại đây.</p>
+                    <a class="btn btn-theme" th:href="@{/tours}" href="/tours">Xem tour ngay</a>
+                </div>
+
+                <div class="invoice-list" th:if="${invoices != null and !#lists.isEmpty(invoices)}">
+                    <article class="invoice-card" th:each="invoice : ${invoices}">
+                        <div class="invoice-head">
+                            <div>
+                                <h3 th:text="${invoice.paymentOrder.orderId}">WD...</h3>
+                                <div class="invoice-meta">
+                                    <div>Mã giao dịch: <strong th:text="${invoice.paymentOrder.transId != null ? invoice.paymentOrder.transId : 'Demo'}">Demo</strong></div>
+                                    <div>Ngày tạo: <strong th:text="${#temporals.format(invoice.paymentOrder.createdAt, 'dd/MM/yyyy HH:mm')}">01/01/2026</strong></div>
+                                </div>
+                            </div>
+                            <span class="invoice-status"><i class="fa-solid fa-circle-check"></i> Đã thanh toán</span>
+                        </div>
+
+                        <div class="invoice-info-grid">
+                            <div><span>Số tiền</span><strong th:text="${#numbers.formatDecimal(invoice.paymentOrder.amount, 0, 'COMMA', 0, 'POINT') + ' đ'}">0 đ</strong></div>
+                            <div><span>Số tour</span><strong th:text="${invoice.tourCount}">0</strong></div>
+                            <div><span>Đã đánh giá</span><strong th:text="${invoice.reviewCount + '/' + invoice.tourCount}">0/0</strong></div>
+                        </div>
+
+                        <div class="invoice-tours">
+                            <div class="invoice-tour-line" th:each="item : ${invoice.items}">
+                                <div>
+                                    <strong th:text="${item.tour.title}">Tên tour</strong>
+                                    <div class="invoice-meta" th:text="${item.tour.location}">Địa điểm</div>
+                                </div>
+                                <span class="review-badge reviewed" th:if="${item.reviewed}">Đã đánh giá</span>
+                                <span class="review-badge not-reviewed" th:if="${!item.reviewed}">Chưa đánh giá</span>
+                            </div>
+                        </div>
+
+                        <div class="invoice-actions">
+                            <a class="btn btn-theme" th:href="@{/account/payments/{orderId}(orderId=${invoice.paymentOrder.orderId})}">Xem hóa đơn & đánh giá</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </div>
+    </div>
+</main>
+
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+<th:block th:replace="~{fragments/layout :: scripts}"></th:block>
+</body>
+</html>
