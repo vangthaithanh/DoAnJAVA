@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head(${pageTitle})}"></head>
+<body>
+<header th:replace="~{fragments/layout :: header}"></header>
+
+<section th:replace="~{fragments/layout :: pageBanner(${isEdit ? 'Sửa bài viết' : 'Thêm bài viết mới'}, ${isEdit ? 'Cập nhật nội dung bài viết.' : 'Viết bài cẩm nang du lịch mới cho website.'})}"></section>
+<div th:replace="~{fragments/layout :: flash}"></div>
+
+<main class="section-padding admin-page">
+    <div class="container" style="max-width: 860px;">
+        <div class="admin-form-wrap reveal">
+            <div class="admin-form-head">
+                <a class="admin-back-btn" th:href="@{/admin#content}" href="/admin#content">
+                    <i class="fa-solid fa-arrow-left"></i> Quay lại
+                </a>
+                <h2 th:text="${isEdit ? 'Sửa bài viết' : 'Thêm bài viết mới'}">Form</h2>
+                <p th:text="${isEdit ? 'Cập nhật nội dung bài viết cẩm nang du lịch.' : 'Điền đầy đủ thông tin để tạo bài viết mới.'}"></p>
+            </div>
+
+            <form th:action="@{/admin/blog/save}" method="post" class="admin-form-grid" enctype="multipart/form-data">
+                <input type="hidden" name="blogId" th:value="${formBlog?.id}">
+
+                <!-- Thông tin cơ bản -->
+                <div class="admin-form-section-title">
+                    <i class="fa-solid fa-info-circle"></i> Thông tin bài viết
+                </div>
+
+                <div class="form-group-full">
+                    <label class="admin-form-label">Tiêu đề bài viết <span class="required">*</span></label>
+                    <input type="text" name="title" class="form-control"
+                           th:value="${formBlog?.title}"
+                           placeholder="VD: Khám phá 10 địa điểm đẹp ở Đà Lạt" required>
+                </div>
+
+                <div class="form-row">
+                    <div>
+                        <label class="admin-form-label">Danh mục</label>
+                        <select name="category" class="form-select">
+                            <option value="">-- Chọn danh mục --</option>
+                            <option value="Điểm đến" th:selected="${formBlog?.category == 'Điểm đến'}">Điểm đến</option>
+                            <option value="Ẩm thực" th:selected="${formBlog?.category == 'Ẩm thực'}">Ẩm thực</option>
+                            <option value="Mẹo du lịch" th:selected="${formBlog?.category == 'Mẹo du lịch'}">Mẹo du lịch</option>
+                            <option value="Cẩm nang" th:selected="${formBlog?.category == 'Cẩm nang'}">Cẩm nang</option>
+                            <option value="Khám phá" th:selected="${formBlog?.category == 'Khám phá'}">Khám phá</option>
+                            <option value="Tổng hợp" th:selected="${formBlog?.category == 'Tổng hợp' or formBlog?.category == null}">Tổng hợp</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="admin-form-label">Tác giả</label>
+                        <input type="text" name="author" class="form-control"
+                               th:value="${formBlog?.author}" placeholder="VD: Admin WebDuLich">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div>
+                        <label class="admin-form-label">Ngày đăng</label>
+                        <input type="date" name="publishedDate" class="form-control"
+                               th:value="${formBlog?.publishedDate}">
+                    </div>
+                </div>
+
+                <!-- Hình ảnh -->
+                <div class="admin-form-section-title">
+                    <i class="fa-solid fa-image"></i> Hình ảnh
+                </div>
+
+                <div class="form-group-full">
+                    <label class="admin-form-label">URL hình ảnh</label>
+                    <input type="url" name="imageUrl" class="form-control"
+                           th:value="${formBlog?.imageUrl}"
+                           placeholder="https://images.unsplash.com/photo-...">
+                    <small class="form-text">Dán URL hình ảnh từ Unsplash hoặc dịch vụ lưu trữ khác.</small>
+                </div>
+
+                <!-- Nội dung -->
+                <div class="admin-form-section-title">
+                    <i class="fa-solid fa-pen-nib"></i> Nội dung
+                </div>
+
+                <div class="form-group-full">
+                    <label class="admin-form-label">Tóm tắt (mô tả ngắn)</label>
+                    <textarea name="summary" class="form-control" rows="3"
+                              th:text="${formBlog?.summary}"
+                              placeholder="Mô tả ngắn gọn về bài viết, hiển thị trong danh sách..."></textarea>
+                </div>
+
+                <div class="form-group-full">
+                    <label class="admin-form-label">Nội dung bài viết</label>
+                    <textarea name="content" class="form-control" rows="12"
+                              th:text="${formBlog?.content}"
+                              placeholder="Viết nội dung bài viết đầy đủ tại đây..."></textarea>
+                </div>
+
+                <!-- Actions -->
+                <div class="form-group-full form-actions">
+                    <a class="btn btn-outline-theme" th:href="@{/admin#content}" href="/admin#content">Hủy</a>
+                    <button type="submit" class="btn btn-theme">
+                        <i class="fa-solid fa-check"></i>
+                        <th:block th:text="${isEdit ? 'Lưu thay đổi' : 'Đăng bài viết'}">Lưu</th:block>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+<th:block th:replace="~{fragments/layout :: scripts}"></th:block>
+
+<style>
+.admin-form-wrap {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 26px;
+    box-shadow: var(--shadow);
+    padding: 40px;
+}
+
+.admin-form-head {
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+}
+
+.admin-back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--theme);
+    font-size: 14px;
+    font-weight: 850;
+    margin-bottom: 14px;
+    transition: 0.2s ease;
+}
+
+.admin-back-btn:hover {
+    color: var(--theme-dark);
+    gap: 10px;
+}
+
+.admin-form-head h2 {
+    color: var(--heading);
+    font-size: 34px;
+    font-weight: 950;
+    letter-spacing: -0.8px;
+    margin-bottom: 8px;
+}
+
+.admin-form-head p {
+    color: var(--muted);
+    margin: 0;
+}
+
+.admin-form-section-title {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--heading);
+    font-size: 17px;
+    font-weight: 900;
+    padding: 18px 0 12px;
+    border-bottom: 2px solid var(--border);
+    margin-bottom: 4px;
+}
+
+.admin-form-section-title i {
+    color: var(--theme);
+}
+
+.admin-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.form-group-full {
+    grid-column: 1 / -1;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.form-text {
+    display: block;
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 6px;
+}
+
+.required {
+    color: #be123c;
+}
+
+.form-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    margin-top: 8px;
+}
+
+@media (max-width: 767px) {
+    .admin-form-wrap {
+        padding: 24px;
+    }
+
+    .admin-form-head h2 {
+        font-size: 28px;
+    }
+
+    .admin-form-grid,
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</body>
+</html>

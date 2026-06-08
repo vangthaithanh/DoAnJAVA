@@ -13,4 +13,10 @@ public interface CustomItineraryRepository extends JpaRepository<CustomItinerary
     long countByUserId(Long userId);
 
     Optional<CustomItinerary> findByIdAndUserId(Long id, Long userId);
+
+    List<CustomItinerary> findAllByOrderByCreatedAtDesc();
+
+    List<CustomItinerary> findByStatusOrderByCreatedAtDesc(String status);
+
+    long countByStatus(String status);
 }

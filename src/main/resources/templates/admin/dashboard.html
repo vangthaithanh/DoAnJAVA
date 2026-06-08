@@ -13,7 +13,6 @@
             <aside class="admin-sidebar reveal">
                 <div class="admin-brand-box">
                     <i class="fa-solid fa-gauge-high"></i>
-
                     <div>
                         <h3>WebDuLich Admin</h3>
                         <p>Quản trị hệ thống</p>
@@ -27,6 +26,7 @@
 
                     <button type="button" class="admin-nav-link" data-admin-tab="tours">
                         <i class="fa-solid fa-suitcase-rolling"></i> Quản lý tour
+                        <span class="admin-badge" th:text="${propertyCount}">0</span>
                     </button>
 
                     <button type="button" class="admin-nav-link" data-admin-tab="destinations">
@@ -35,34 +35,38 @@
 
                     <button type="button" class="admin-nav-link" data-admin-tab="bookings">
                         <i class="fa-regular fa-paper-plane"></i> Yêu cầu đặt tour
+                        <span class="admin-badge" th:if="${pendingItineraryCount > 0}" th:text="${pendingItineraryCount}">0</span>
                     </button>
 
                     <button type="button" class="admin-nav-link" data-admin-tab="users">
                         <i class="fa-regular fa-user"></i> Người dùng
+                        <span class="admin-badge" th:text="${userCount}">0</span>
                     </button>
 
                     <button type="button" class="admin-nav-link" data-admin-tab="content">
                         <i class="fa-regular fa-newspaper"></i> Cẩm nang
+                        <span class="admin-badge" th:text="${blogPostCount}">0</span>
                     </button>
                 </nav>
             </aside>
 
             <section class="admin-content reveal delay-1">
+
+                <!-- ======== DASHBOARD ========== -->
                 <div class="admin-panel active" data-admin-panel="dashboard">
                     <div class="admin-panel-head">
                         <div>
                             <span class="section-kicker"><i class="fa-solid fa-gauge-high"></i> Dashboard</span>
                             <h2>Tổng quan hệ thống</h2>
                         </div>
-
                         <a class="btn btn-theme" th:href="@{/tours}" href="/tours">Xem website</a>
                     </div>
 
                     <div class="admin-stat-grid">
                         <div class="admin-stat-card">
                             <i class="fa-solid fa-suitcase-rolling"></i>
-                            <strong th:text="${latestTourCount}">0</strong>
-                            <span>Tour mới hiển thị nhanh</span>
+                            <strong th:text="${propertyCount}">0</strong>
+                            <span>Tổng tour</span>
                         </div>
 
                         <div class="admin-stat-card">
@@ -73,55 +77,158 @@
 
                         <div class="admin-stat-card">
                             <i class="fa-solid fa-route"></i>
-                            <strong>0</strong>
+                            <strong th:text="${itineraryCount}">0</strong>
                             <span>Lịch trình tự tạo</span>
                         </div>
 
                         <div class="admin-stat-card">
                             <i class="fa-regular fa-paper-plane"></i>
-                            <strong>0</strong>
+                            <strong th:text="${inquiryCount}">0</strong>
                             <span>Yêu cầu tư vấn</span>
                         </div>
                     </div>
 
-                    <div class="admin-card">
-                        <h3>Tour mới</h3>
+                    <div class="admin-stat-grid" style="margin-top: 0;">
+                        <div class="admin-stat-card">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                            <strong th:text="${pendingItineraryCount}">0</strong>
+                            <span>Chờ xử lý</span>
+                        </div>
 
+                        <div class="admin-stat-card">
+                            <i class="fa-solid fa-blog"></i>
+                            <strong th:text="${blogPostCount}">0</strong>
+                            <span>Bài cẩm nang</span>
+                        </div>
+                    </div>
+
+                    <!-- Tour mới gần đây -->
+                    <div class="admin-card" th:if="${not #lists.isEmpty(latestTours)}">
+                        <h3><i class="fa-solid fa-star" style="color: var(--theme); margin-right: 8px;"></i> Tour mới gần đây</h3>
                         <div class="admin-tour-list">
                             <a th:each="tour : ${latestTours}" th:href="@{/tours/{id}(id=${tour.id})}">
-                                <img th:src="${tour.imageUrl}" th:alt="${tour.title}">
-
+                                <img th:src="${tour.imageUrl ?: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=200&q=80'}" th:alt="${tour.title}">
                                 <span>
-                  <strong th:text="${tour.title}">Tour</strong>
-                  <em th:text="${#numbers.formatDecimal(tour.price, 0, 'COMMA', 0, 'POINT') + ' đ'}">0 đ</em>
-                </span>
+                                    <strong th:text="${tour.title}">Tour</strong>
+                                    <em th:text="${#numbers.formatDecimal(tour.price, 0, 'COMMA', 0, 'POINT') + ' đ'}">0 đ</em>
+                                </span>
                             </a>
                         </div>
                     </div>
+
+                    <!-- Yêu cầu chờ xử lý -->
+                    <div class="admin-card" th:if="${not #lists.isEmpty(pendingItineraries)}">
+                        <h3><i class="fa-solid fa-clock" style="color: #f59e0b; margin-right: 8px;"></i> Yêu cầu chờ xử lý</h3>
+                        <div class="admin-list-table">
+                            <div class="admin-list-row" th:each="it : ${pendingItineraries}">
+                                <div class="admin-list-info">
+                                    <strong th:text="${it.title}">Lịch trình</strong>
+                                    <span>
+                                        <i class="fa-solid fa-user"></i>
+                                        <th:block th:text="${it.user?.fullName != null ? it.user.fullName : 'Khách'}">Khách</th:block>
+                                        &nbsp;·&nbsp;
+                                        <i class="fa-solid fa-clock"></i>
+                                        <span class="js-date-format" th:data-date="${it.createdAt}">--</span>
+                                    </span>
+                                </div>
+                                <span class="admin-status-badge pending">Chờ xử lý</span>
+                            </div>
+                        </div>
+                        <a class="admin-view-more" href="#" data-goto="bookings">
+                            Xem tất cả yêu cầu <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
                 </div>
 
+                <!-- ======== TOURS ========== -->
                 <div class="admin-panel" data-admin-panel="tours">
                     <div class="admin-panel-head">
                         <div>
                             <span class="section-kicker"><i class="fa-solid fa-suitcase-rolling"></i> Tour</span>
                             <h2>Quản lý tour</h2>
                         </div>
+                        <a class="btn btn-theme" th:href="@{/admin/tours/new}" href="/admin/tours/new">Thêm tour mới</a>
                     </div>
 
-                    <div class="admin-card">
-                        <p>
-                            Giao diện định hướng cho CRUD tour. Hiện project đang dùng Entity <strong>Property</strong> như Tour,
-                            nên khi làm quản lý thật có thể nối với bảng <strong>properties</strong>.
-                        </p>
+                    <div class="admin-search-bar">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" placeholder="Tìm kiếm tour..." class="admin-search-input" data-search-table="tour-table">
+                    </div>
 
-                        <div class="admin-action-grid">
-                            <a th:href="@{/tours}" href="/tours">Xem danh sách tour</a>
-                            <a href="#">Thêm tour mới</a>
-                            <a href="#">Duyệt trạng thái mở bán</a>
+                    <div class="admin-table-wrap">
+                        <table class="admin-table" id="tour-table">
+                            <thead>
+                                <tr>
+                                    <th>Tour</th>
+                                    <th>Giá</th>
+                                    <th>Địa điểm</th>
+                                    <th>Loại</th>
+                                    <th>Trạng thái</th>
+                                    <th style="min-width:140px;">Thao tác</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="p : ${allProperties}">
+                                    <td>
+                                        <div class="admin-table-tour">
+                                            <img th:src="${p.imageUrl ?: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=100&q=60'}" th:alt="${p.title}">
+                                            <div>
+                                                <strong th:text="${p.title}">Tour</strong>
+                                                <span th:text="${p.type ?: 'Tour'}">Loại tour</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="admin-price" th:text="${#numbers.formatDecimal(p.price, 0, 'COMMA', 0, 'POINT') + ' đ'}">0 đ</span>
+                                    </td>
+                                    <td>
+                                        <span class="admin-location">
+                                            <i class="fa-solid fa-location-dot"></i>
+                                            <th:block th:text="${p.location}">--</th:block>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="admin-category-tag" th:text="${p.type ?: 'Tour'}">Tour</span>
+                                    </td>
+                                    <td>
+                                        <span class="admin-status-badge active" th:if="${p.status == 'Đang mở bán'}" th:text="${p.status}">Đang mở bán</span>
+                                        <span class="admin-status-badge inactive" th:unless="${p.status == 'Đang mở bán'}" th:text="${p.status}">Đã đóng</span>
+                                    </td>
+                                    <td>
+                                        <div class="admin-table-actions">
+                                            <a class="admin-btn-icon" th:href="@{/admin/tours/edit/{id}(id=${p.id})}" title="Sửa tour" style="background: #f0fdf4; border-color: #dcfce7; color: #166534;">
+                                                <i class="fa-solid fa-pen"></i>
+                                            </a>
+                                            <form th:action="@{/admin/properties/toggle-status}" method="post" style="display:inline;">
+                                                <input type="hidden" name="propertyId" th:value="${p.id}">
+                                                <input type="hidden" name="status" th:value="${p.status}">
+                                                <button type="submit" class="admin-btn-icon" title="Bật/Tắt trạng thái">
+                                                    <i class="fa-solid fa-toggle-on" th:if="${p.status == 'Đang mở bán'}"></i>
+                                                    <i class="fa-solid fa-toggle-off" th:unless="${p.status == 'Đang mở bán'}"></i>
+                                                </button>
+                                            </form>
+                                            <button type="button" class="admin-btn-icon admin-btn-danger" title="Xóa tour"
+                                                    th:attr="data-delete-id=${p.id}, data-delete-title=${p.title}, data-delete-type='property'">
+                                                <i class="fa-solid fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="admin-empty-state" th:if="${#lists.isEmpty(allProperties)}">
+                            <div class="empty-state">
+                                <div class="empty-icon"><i class="fa-solid fa-suitcase-rolling"></i></div>
+                                <h3>Chưa có tour nào</h3>
+                                <p>Hệ thống chưa có tour nào. Hãy thêm tour đầu tiên để bắt đầu.</p>
+                                <a class="btn btn-theme" th:href="@{/tours}" href="/tours">Thêm tour mới</a>
+                            </div>
                         </div>
                     </div>
                 </div>
 
+                <!-- ======== DESTINATIONS ========== -->
                 <div class="admin-panel" data-admin-panel="destinations">
                     <div class="admin-panel-head">
                         <div>
@@ -130,24 +237,244 @@
                         </div>
                     </div>
 
+                    <div class="admin-stat-mini-row">
+                        <div class="admin-stat-mini">
+                            <i class="fa-solid fa-city"></i>
+                            <strong th:text="${cityTourCount.size()}">0</strong>
+                            <span>Thành phố</span>
+                        </div>
+                    </div>
+
+                    <div class="admin-search-bar" style="margin-bottom:12px;">
+                        <i class="fa-solid fa-filter"></i>
+                        <input type="text" id="cityFilterInput" placeholder="Lọc theo thành phố..." class="admin-search-input">
+                        <button type="button" id="clearCityFilter" class="admin-clear-filter-btn" style="display:none; border:0; background:#f1f5f9; color:var(--heading); border-radius:8px; padding:6px 12px; font-weight:850; cursor:pointer; font-size:13px;">Bỏ lọc</button>
+                    </div>
+
+                    <div class="admin-destination-grid" style="margin-bottom:24px;">
+                        <th:block th:each="entry : ${cityTourCount}">
+                            <button type="button" class="admin-city-card" th:attr="data-city=${entry.key}">
+                                <i class="fa-solid fa-city"></i>
+                                <div>
+                                    <strong th:text="${entry.key}">Thành phố</strong>
+                                    <span th:text="${entry.value} + ' tour'">0 tour</span>
+                                </div>
+                            </button>
+                        </th:block>
+                    </div>
+
                     <div class="admin-card">
-                        <p>Phần này dùng cho bảng <strong>destinations</strong> và liên kết <strong>tour_destinations</strong>.</p>
+                        <h3><i class="fa-solid fa-table-list" style="color: var(--theme); margin-right: 8px;"></i> Tất cả tour theo địa điểm</h3>
+                        <div class="admin-table-wrap">
+                            <table class="admin-table" id="dest-table">
+                                <thead>
+                                    <tr>
+                                        <th>Tour</th>
+                                        <th>Thành phố</th>
+                                        <th>Địa chỉ</th>
+                                        <th>Giá</th>
+                                        <th>Trạng thái</th>
+                                        <th style="min-width:110px;">Thao tác</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="p : ${allProperties}" th:if="${p.city != null}" th:attr="data-city-row=${p.city}">
+                                        <td>
+                                            <div class="admin-table-tour">
+                                                <img th:src="${p.imageUrl ?: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=100&q=60'}" th:alt="${p.title}">
+                                                <div>
+                                                    <strong th:text="${p.title}">Tour</strong>
+                                                    <span th:text="${p.type ?: 'Tour'}">Loại tour</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><span class="admin-city-badge" th:text="${p.city}">--</span></td>
+                                        <td th:text="${p.location}">--</td>
+                                        <td><span class="admin-price" th:text="${#numbers.formatDecimal(p.price, 0, 'COMMA', 0, 'POINT') + ' đ'}">0 đ</span></td>
+                                        <td>
+                                            <span class="admin-status-badge active" th:if="${p.status == 'Đang mở bán'}" th:text="${p.status}">Đang mở bán</span>
+                                            <span class="admin-status-badge inactive" th:unless="${p.status == 'Đang mở bán'}" th:text="${p.status}">Đã đóng</span>
+                                        </td>
+                                        <td>
+                                            <div class="admin-table-actions">
+                                                <a class="admin-btn-icon" th:href="@{/admin/tours/edit/{id}(id=${p.id})}" title="Sửa tour" style="background:#f0fdf4; border-color:#dcfce7; color:#166534;">
+                                                    <i class="fa-solid fa-pen"></i>
+                                                </a>
+                                                <button type="button" class="admin-btn-icon admin-btn-danger" title="Xóa tour"
+                                                        th:attr="data-delete-id=${p.id}, data-delete-title=${p.title}, data-delete-type='property'">
+                                                    <i class="fa-solid fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="admin-empty-state" th:if="${#lists.isEmpty(allProperties)}">
+                        <div class="empty-state">
+                            <div class="empty-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <h3>Chưa có dữ liệu điểm đến</h3>
+                            <p>Khi có tour được thêm với thông tin thành phố, nó sẽ hiển thị ở đây.</p>
+                        </div>
                     </div>
                 </div>
 
+                <!-- ======== BOOKINGS / INQUIRIES ========== -->
                 <div class="admin-panel" data-admin-panel="bookings">
                     <div class="admin-panel-head">
                         <div>
                             <span class="section-kicker"><i class="fa-regular fa-paper-plane"></i> Yêu cầu</span>
-                            <h2>Yêu cầu tư vấn / đặt tour</h2>
+                            <h2>Yêu cầu tư vấn &amp; đặt tour</h2>
                         </div>
                     </div>
 
-                    <div class="admin-card">
-                        <p>Có thể nối với bảng <strong>inquiries</strong> để quản trị viên xem khách đã gửi yêu cầu từ trang chi tiết tour.</p>
+                    <!-- Tab con: Inquiries vs Lịch trình tự tạo -->
+                    <div class="admin-sub-tabs">
+                        <button type="button" class="admin-sub-tab active" data-sub-tab="inquiries">
+                            <i class="fa-solid fa-envelope"></i> Yêu cầu tư vấn
+                            <span class="admin-badge" th:text="${inquiryCount}">0</span>
+                        </button>
+                        <button type="button" class="admin-sub-tab" data-sub-tab="itineraries">
+                            <i class="fa-solid fa-route"></i> Lịch trình tự tạo
+                            <span class="admin-badge" th:if="${pendingItineraryCount > 0}" th:text="${pendingItineraryCount}">0</span>
+                        </button>
+                    </div>
+
+                    <!-- Inquiries -->
+                    <div class="admin-sub-panel active" data-sub-panel="inquiries">
+                        <div class="admin-table-wrap">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Khách hàng</th>
+                                        <th>Email / Điện thoại</th>
+                                        <th>Nội dung</th>
+                                        <th>Thời gian</th>
+                                        <th>Thao tác</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="inq : ${allInquiries}">
+                                        <td>
+                                            <div class="admin-user-cell">
+                                                <div class="admin-avatar-sm" th:text="${#strings.substring(inq.fullName, 0, 1)}">A</div>
+                                                <strong th:text="${inq.fullName}">--</strong>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span th:text="${inq.email}">--</span>
+                                            <br><small class="admin-text-muted" th:text="${inq.phone}">--</small>
+                                        </td>
+                                        <td class="admin-td-truncate">
+                                            <span th:text="${inq.message ?: 'Không có nội dung'}">--</span>
+                                        </td>
+                                        <td>
+                                            <span class="admin-text-muted js-date-format" th:data-date="${inq.createdAt}">--</span>
+                                        </td>
+                                        <td>
+                                            <form th:action="@{/admin/inquiries/delete}" method="post" style="display:inline;">
+                                                <input type="hidden" name="inquiryId" th:value="${inq.id}">
+                                                <button type="submit" class="admin-btn-icon admin-btn-danger" title="Xóa"
+                                                        onclick="return confirm('Xóa yêu cầu này?')">
+                                                    <i class="fa-solid fa-trash"></i>
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="admin-empty-state" th:if="${#lists.isEmpty(allInquiries)}">
+                                <div class="empty-state">
+                                    <div class="empty-icon"><i class="fa-regular fa-envelope"></i></div>
+                                    <h3>Chưa có yêu cầu nào</h3>
+                                    <p>Khi khách hàng gửi yêu cầu tư vấn từ trang chi tiết tour, nó sẽ hiển thị ở đây.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Itineraries -->
+                    <div class="admin-sub-panel" data-sub-panel="itineraries">
+                        <div class="admin-table-wrap">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Khách hàng</th>
+                                        <th>Tiêu đề lịch trình</th>
+                                        <th>Điểm đến</th>
+                                        <th>Số ngày</th>
+                                        <th>Ngân sách</th>
+                                        <th>Trạng thái</th>
+                                        <th>Thao tác</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="it : ${allItineraries}">
+                                        <td>
+                                            <div class="admin-user-cell">
+                                                <div class="admin-avatar-sm" th:text="${#strings.substring(it.user?.fullName, 0, 1)}">A</div>
+                                                <strong th:text="${it.user?.fullName}">--</strong>
+                                            </div>
+                                        </td>
+                                        <td th:text="${it.title}">--</td>
+                                        <td th:text="${it.destinationText}">--</td>
+                                        <td th:text="${it.totalDays} + ' ngày'">--</td>
+                                        <td>
+                                            <span class="admin-price" th:if="${it.budget != null}"
+                                                  th:text="${#numbers.formatDecimal(it.budget, 0, 'COMMA', 0, 'POINT') + ' đ'}">0 đ</span>
+                                            <span class="admin-text-muted" th:unless="${it.budget != null}">--</span>
+                                        </td>
+                                        <td>
+                                            <span class="admin-status-badge active" th:if="${it.status == 'ADVISED'}" th:text="${it.statusDisplay}">Đã tư vấn</span>
+                                            <span class="admin-status-badge pending" th:unless="${it.status == 'ADVISED'}" th:text="${it.statusDisplay}">Chờ xử lý</span>
+                                        </td>
+                                        <td>
+                                            <div class="admin-table-actions">
+                                                <button type="button" class="admin-btn-icon" title="Xem chi tiết"
+                                                        th:attr="data-detail-id=${it.id},
+                                                        data-detail-title=${it.title},
+                                                        data-detail-user=${it.user?.fullName != null ? it.user.fullName : 'Khách'},
+                                                        data-detail-dest=${it.destinationText ?: '--'},
+                                                        data-detail-days=${it.totalDays ?: 0},
+                                                        data-detail-budget=${it.budget != null ? it.budget : ''},
+                                                        data-detail-status=${it.statusDisplay ?: '--'},
+                                                        data-detail-note=${it.adminNote != null ? it.adminNote : ''}">
+                                                    <i class="fa-regular fa-eye"></i>
+                                                </button>
+
+                                                <th:block th:if="${it.status != 'ADVISED'}">
+                                                    <button type="button" class="admin-btn-icon admin-btn-success"
+                                                            title="Đánh dấu đã tư vấn"
+                                                            th:attr="data-advise-id=${it.id}, data-advise-title=${it.title}">
+                                                        <i class="fa-solid fa-check"></i>
+                                                    </button>
+                                                </th:block>
+
+                                                <button type="button" class="admin-btn-icon admin-btn-danger" title="Xóa lịch trình"
+                                                        th:attr="data-delete-id=${it.id}, data-delete-title=${it.title}, data-delete-type='itinerary'">
+                                                    <i class="fa-solid fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="admin-empty-state" th:if="${#lists.isEmpty(allItineraries)}">
+                                <div class="empty-state">
+                                    <div class="empty-icon"><i class="fa-solid fa-route"></i></div>
+                                    <h3>Chưa có lịch trình nào</h3>
+                                    <p>Khi khách hàng tự tạo lịch trình, nó sẽ hiển thị ở đây để bạn xử lý.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
+                <!-- ======== USERS ========== -->
                 <div class="admin-panel" data-admin-panel="users">
                     <div class="admin-panel-head">
                         <div>
@@ -156,29 +483,434 @@
                         </div>
                     </div>
 
-                    <div class="admin-card">
-                        <p>Có thể nối với bảng <strong>users</strong> và <strong>profiles</strong>. Hiện dashboard đã đọc được số lượng người dùng từ UserRepository.</p>
+                    <div class="admin-stat-mini-row">
+                        <div class="admin-stat-mini">
+                            <i class="fa-solid fa-users"></i>
+                            <strong th:text="${userCount}">0</strong>
+                            <span>Tổng người dùng</span>
+                        </div>
+                    </div>
+
+                    <div class="admin-search-bar">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" placeholder="Tìm kiếm người dùng..." class="admin-search-input" data-search-table="user-table">
+                    </div>
+
+                    <div class="admin-table-wrap">
+                        <table class="admin-table" id="user-table">
+                            <thead>
+                                <tr>
+                                    <th>Người dùng</th>
+                                    <th>Email</th>
+                                    <th>Điện thoại</th>
+                                    <th>Vai trò</th>
+                                    <th>Trạng thái</th>
+                                    <th>Ngày tạo</th>
+                                    <th>Thao tác</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="u : ${allUsers}">
+                                    <td>
+                                        <div class="admin-user-cell">
+                                            <div class="admin-avatar-sm" th:text="${#strings.substring(u.fullName, 0, 1)}">A</div>
+                                            <strong th:text="${u.fullName}">--</strong>
+                                        </div>
+                                    </td>
+                                    <td th:text="${u.email}">--</td>
+                                    <td th:text="${u.phone ?: '--'}">--</td>
+                                    <td>
+                                        <span class="admin-role-badge admin" th:if="${u.role == 'ADMIN'}" th:text="'Quản trị'">Quản trị</span>
+                                        <span class="admin-role-badge user" th:unless="${u.role == 'ADMIN'}" th:text="'Người dùng'">Người dùng</span>
+                                    </td>
+                                    <td>
+                                        <span class="admin-status-badge active" th:if="${u.status == 'ACTIVE'}" th:text="'Hoạt động'">Hoạt động</span>
+                                        <span class="admin-status-badge inactive" th:unless="${u.status == 'ACTIVE'}" th:text="'Bị khóa'">Bị khóa</span>
+                                    </td>
+                                    <td>
+                                        <span class="admin-text-muted js-date-format" th:data-date="${u.createdAt}">--</span>
+                                    </td>
+                                    <td>
+                                        <div class="admin-table-actions">
+                                            <th:block th:if="${u.role != 'ADMIN'}">
+                                                <form th:action="@{/admin/users/toggle-status}" method="post" style="display:inline;">
+                                                    <input type="hidden" name="userId" th:value="${u.id}">
+                                                    <input type="hidden" name="status" th:value="${u.status}">
+                                                    <button type="submit" class="admin-btn-icon" title="Khóa/Mở khóa">
+                                                        <i class="fa-solid fa-ban" th:if="${u.status == 'ACTIVE'}"></i>
+                                                        <i class="fa-solid fa-unlock" th:unless="${u.status == 'ACTIVE'}"></i>
+                                                    </button>
+                                                </form>
+                                            </th:block>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="admin-empty-state" th:if="${#lists.isEmpty(allUsers)}">
+                            <div class="empty-state">
+                                <div class="empty-icon"><i class="fa-regular fa-user"></i></div>
+                                <h3>Chưa có người dùng nào</h3>
+                                <p>Hệ thống chưa có người dùng đăng ký.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
+                <!-- ======== CONTENT / BLOG ========== -->
                 <div class="admin-panel" data-admin-panel="content">
                     <div class="admin-panel-head">
                         <div>
                             <span class="section-kicker"><i class="fa-regular fa-newspaper"></i> Nội dung</span>
                             <h2>Quản lý cẩm nang</h2>
                         </div>
+                        <a class="btn btn-theme" th:href="@{/admin/blog/new}" href="/admin/blog/new">Thêm bài viết</a>
                     </div>
 
-                    <div class="admin-card">
-                        <p>Phần này dùng cho bảng <strong>blog_posts</strong>, sau này có thể thêm CRUD bài viết cẩm nang du lịch.</p>
+                    <div class="admin-stat-mini-row">
+                        <div class="admin-stat-mini">
+                            <i class="fa-solid fa-blog"></i>
+                            <strong th:text="${blogPostCount}">0</strong>
+                            <span>Bài cẩm nang</span>
+                        </div>
+                    </div>
+
+                    <div class="admin-table-wrap">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Bài viết</th>
+                                    <th>Danh mục</th>
+                                    <th>Tác giả</th>
+                                    <th>Ngày đăng</th>
+                                    <th>Thao tác</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="b : ${allBlogPosts}">
+                                    <td>
+                                        <div class="admin-blog-cell">
+                                            <img th:src="${b.imageUrl ?: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=100&q=60'}" th:alt="${b.title}">
+                                            <div>
+                                                <strong th:text="${b.title}">--</strong>
+                                                <span th:text="${b.summary ?: 'Không có mô tả'}">--</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="admin-category-tag" th:text="${b.category ?: 'Tổng hợp'}">--</span>
+                                    </td>
+                                    <td th:text="${b.author ?: '--'}">--</td>
+                                    <td>
+                                        <span class="admin-text-muted js-date-format" th:data-date="${b.publishedDate}">--</span>
+                                    </td>
+                                    <td>
+                                        <div class="admin-table-actions">
+                                            <a class="admin-btn-icon" title="Sửa bài viết" th:href="@{/admin/blog/edit/{id}(id=${b.id})}">
+                                                <i class="fa-solid fa-pen"></i>
+                                            </a>
+                                            <form th:action="@{/admin/blog/delete}" method="post" style="display:inline;">
+                                                <input type="hidden" name="blogId" th:value="${b.id}">
+                                                <button type="submit" class="admin-btn-icon admin-btn-danger" title="Xóa"
+                                                        onclick="return confirm('Xóa bài viết này?')">
+                                                    <i class="fa-solid fa-trash"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="admin-empty-state" th:if="${#lists.isEmpty(allBlogPosts)}">
+                            <div class="empty-state">
+                                <div class="empty-icon"><i class="fa-regular fa-newspaper"></i></div>
+                                <h3>Chưa có bài viết nào</h3>
+                                <p>Hãy tạo bài viết cẩm nang du lịch đầu tiên.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
             </section>
         </div>
     </div>
 </main>
 
+<!-- Detail Modal -->
+<div class="admin-modal-overlay" id="detailModal">
+    <div class="admin-modal" style="max-width: 580px;">
+        <div class="admin-modal-head">
+            <h3><i class="fa-solid fa-route" style="color: var(--theme); margin-right: 8px;"></i> Chi tiết lịch trình</h3>
+            <button type="button" class="admin-modal-close" id="closeDetailModal">&times;</button>
+        </div>
+        <div class="admin-modal-body">
+            <div class="profile-info-grid">
+                <div>
+                    <span>Tiêu đề</span>
+                    <strong id="detailTitle">--</strong>
+                </div>
+                <div>
+                    <span>Khách hàng</span>
+                    <strong id="detailUser">--</strong>
+                </div>
+                <div>
+                    <span>Điểm đến</span>
+                    <strong id="detailDest">--</strong>
+                </div>
+                <div>
+                    <span>Số ngày</span>
+                    <strong id="detailDays">--</strong>
+                </div>
+                <div>
+                    <span>Ngân sách</span>
+                    <strong id="detailBudget" class="admin-price">--</strong>
+                </div>
+                <div>
+                    <span>Trạng thái</span>
+                    <strong id="detailStatus">--</strong>
+                </div>
+            </div>
+            <div th:if="${false}">
+                <span>Ghi chú quản trị</span>
+                <div id="detailNote" style="padding: 12px; background: #f0fdf4; border-radius: 10px; color: #166534; font-size: 14px; margin-top: 6px;">--</div>
+            </div>
+        </div>
+        <div class="admin-modal-foot">
+            <button type="button" class="btn btn-outline-theme" id="cancelDetailModal">Đóng</button>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Confirm Modal -->
+<div class="admin-modal-overlay" id="deleteModal">
+    <div class="admin-modal" style="max-width: 440px;">
+        <div class="admin-modal-head">
+            <h3><i class="fa-solid fa-triangle-exclamation" style="color: #be123c; margin-right: 8px;"></i> Xác nhận xóa</h3>
+            <button type="button" class="admin-modal-close" id="closeDeleteModal">&times;</button>
+        </div>
+        <div class="admin-modal-body">
+            <p>Bạn có chắc muốn xóa <strong id="deleteItemTitle"></strong>?</p>
+            <p style="color: #be123c; font-size: 13px; margin-top: 8px;">Hành động này không thể hoàn tác.</p>
+            <form method="post" id="deleteForm" style="display:none;">
+                <input type="hidden" name="propertyId" id="deletePropertyId">
+                <input type="hidden" name="itineraryId" id="deleteItineraryId">
+            </form>
+        </div>
+        <div class="admin-modal-foot">
+            <button type="button" class="btn btn-outline-theme" id="cancelDeleteModal">Hủy</button>
+            <button type="button" class="btn" id="confirmDeleteBtn" style="background:#be123c;color:#fff;border:0;">Xóa</button>
+        </div>
+    </div>
+</div>
+
+<!-- Advise Modal -->
+<div class="admin-modal-overlay" id="adviseModal">
+    <div class="admin-modal">
+        <div class="admin-modal-head">
+            <h3><i class="fa-solid fa-check-circle" style="color: var(--theme); margin-right: 8px;"></i> Xác nhận đã tư vấn</h3>
+            <button type="button" class="admin-modal-close" id="closeAdviseModal">&times;</button>
+        </div>
+        <form th:action="@{/admin/itineraries/advise}" method="post">
+            <input type="hidden" name="itineraryId" id="adviseItineraryId">
+            <div class="admin-modal-body">
+                <p>Đánh dấu lịch trình <strong id="adviseTitle"></strong> là đã được tư vấn.</p>
+                <label class="admin-form-label">Ghi chú từ quản trị viên</label>
+                <textarea name="adminNote" class="form-control" rows="3" placeholder="Nhập ghi chú tư vấn (tùy chọn)..."></textarea>
+            </div>
+            <div class="admin-modal-foot">
+                <button type="button" class="btn btn-outline-theme" id="cancelAdviseModal">Hủy</button>
+                <button type="submit" class="btn btn-theme">Xác nhận đã tư vấn</button>
+            </div>
+        </form>
+    </div>
+</div>
+
 <footer th:replace="~{fragments/layout :: footer}"></footer>
 <th:block th:replace="~{fragments/layout :: scripts}"></th:block>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    // ---- Date formatting ----
+    document.querySelectorAll('.js-date-format').forEach(function (el) {
+        var raw = el.dataset.date;
+        if (!raw) return;
+        var d = new Date(raw);
+        if (isNaN(d)) return;
+        var day = ('0' + d.getDate()).slice(-2);
+        var month = ('0' + (d.getMonth() + 1)).slice(-2);
+        var year = d.getFullYear();
+        var hours = ('0' + d.getHours()).slice(-2);
+        var minutes = ('0' + d.getMinutes()).slice(-2);
+        el.textContent = day + '/' + month + '/' + year + ' ' + hours + ':' + minutes;
+    });
+
+    // ---- Detail modal ----
+    var detailModal = document.getElementById('detailModal');
+    if (detailModal) {
+        document.querySelectorAll('[data-detail-id]').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                document.getElementById('detailTitle').textContent = this.dataset.detailTitle || '--';
+                document.getElementById('detailUser').textContent = this.dataset.detailUser || '--';
+                document.getElementById('detailDest').textContent = this.dataset.detailDest || '--';
+                document.getElementById('detailDays').textContent = (this.dataset.detailDays || '0') + ' ngày';
+                var budget = this.dataset.detailBudget;
+                document.getElementById('detailBudget').textContent = budget ? formatCurrency(budget) + ' đ' : '--';
+                document.getElementById('detailStatus').textContent = this.dataset.detailStatus || '--';
+                detailModal.style.display = 'flex';
+            });
+        });
+
+        function closeDetail() { detailModal.style.display = 'none'; }
+        document.getElementById('closeDetailModal').addEventListener('click', closeDetail);
+        document.getElementById('cancelDetailModal').addEventListener('click', closeDetail);
+        detailModal.addEventListener('click', function (e) { if (e.target === detailModal) closeDetail(); });
+    }
+
+    // ---- Delete confirm modal ----
+    var deleteModal = document.getElementById('deleteModal');
+    var deleteForm = document.getElementById('deleteForm');
+    if (deleteModal && deleteForm) {
+        document.querySelectorAll('[data-delete-id]').forEach(function (btn) {
+            btn.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.getElementById('deleteItemTitle').textContent = this.dataset.deleteTitle || '';
+                var type = this.dataset.deleteType;
+                if (type === 'property') {
+                    deleteForm.action = '/admin/properties/delete';
+                    document.getElementById('deletePropertyId').value = this.dataset.deleteId;
+                    document.getElementById('deleteItineraryId').removeAttribute('name');
+                    document.getElementById('deleteItineraryId').value = '';
+                } else if (type === 'itinerary') {
+                    deleteForm.action = '/admin/itineraries/delete';
+                    document.getElementById('deleteItineraryId').value = this.dataset.deleteId;
+                    document.getElementById('deletePropertyId').removeAttribute('name');
+                    document.getElementById('deletePropertyId').value = '';
+                }
+                deleteModal.style.display = 'flex';
+            });
+        });
+
+        document.getElementById('confirmDeleteBtn').addEventListener('click', function () {
+            deleteForm.submit();
+        });
+
+        function closeDelete() { deleteModal.style.display = 'none'; }
+        document.getElementById('closeDeleteModal').addEventListener('click', closeDelete);
+        document.getElementById('cancelDeleteModal').addEventListener('click', closeDelete);
+        deleteModal.addEventListener('click', function (e) { if (e.target === deleteModal) closeDelete(); });
+    }
+
+    // ---- Advise modal ----
+    var adviseModal = document.getElementById('adviseModal');
+    if (adviseModal) {
+        document.querySelectorAll('[data-advise-id]').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                document.getElementById('adviseItineraryId').value = this.dataset.adviseId;
+                document.getElementById('adviseTitle').textContent = this.dataset.adviseTitle;
+                adviseModal.style.display = 'flex';
+            });
+        });
+
+        function closeAdvise() { adviseModal.style.display = 'none'; }
+        document.getElementById('closeAdviseModal').addEventListener('click', closeAdvise);
+        document.getElementById('cancelAdviseModal').addEventListener('click', closeAdvise);
+        adviseModal.addEventListener('click', function (e) { if (e.target === adviseModal) closeAdvise(); });
+    }
+
+    // ---- Currency formatter helper ----
+    function formatCurrency(val) {
+        var num = parseFloat(val) || 0;
+        return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    }
+
+    // ---- Inline search for admin tables ----
+    document.querySelectorAll('.admin-search-input[data-search-table]').forEach(function (input) {
+        input.addEventListener('input', function () {
+            var keyword = this.value.toLowerCase();
+            var table = document.getElementById(this.dataset.searchTable);
+            if (!table) return;
+            table.querySelectorAll('tbody tr').forEach(function (row) {
+                row.style.display = row.textContent.toLowerCase().includes(keyword) ? '' : 'none';
+            });
+        });
+    });
+
+    // ---- View more link ----
+    document.querySelectorAll('[data-goto]').forEach(function (link) {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            var tabId = this.dataset.goto;
+            document.querySelectorAll('.admin-nav-link').forEach(function (b) { b.classList.remove('active'); });
+            document.querySelectorAll('.admin-panel').forEach(function (p) { p.classList.remove('active'); });
+            var tabBtn = document.querySelector('[data-admin-tab="' + tabId + '"]');
+            var tabPanel = document.querySelector('[data-admin-panel="' + tabId + '"]');
+            if (tabBtn) tabBtn.classList.add('active');
+            if (tabPanel) tabPanel.classList.add('active');
+        });
+    });
+
+    // ---- City filter for destinations ----
+    var cityFilterInput = document.getElementById('cityFilterInput');
+    var clearCityFilter = document.getElementById('clearCityFilter');
+    var destTable = document.getElementById('dest-table');
+    var activeCity = null;
+
+    if (cityFilterInput && destTable) {
+        cityFilterInput.addEventListener('input', function () {
+            var keyword = this.value.toLowerCase().trim();
+            var rows = destTable.querySelectorAll('tbody tr');
+            activeCity = null;
+            rows.forEach(function (row) {
+                var city = (row.dataset.cityRow || '').toLowerCase();
+                row.style.display = keyword === '' || city.includes(keyword) ? '' : 'none';
+            });
+            document.querySelectorAll('.admin-city-card').forEach(function (btn) {
+                btn.classList.remove('active');
+            });
+            clearCityFilter.style.display = keyword === '' ? 'none' : 'inline-block';
+        });
+
+        document.querySelectorAll('.admin-city-card').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var city = (this.dataset.city || '').trim();
+                activeCity = activeCity === city ? null : city;
+                var rows = destTable.querySelectorAll('tbody tr');
+                rows.forEach(function (row) {
+                    var rowCity = (row.dataset.cityRow || '').trim();
+                    row.style.display = (activeCity === null || rowCity === activeCity) ? '' : 'none';
+                });
+                document.querySelectorAll('.admin-city-card').forEach(function (b) {
+                    b.classList.toggle('active', b.dataset.city === activeCity);
+                });
+                if (activeCity !== null) {
+                    cityFilterInput.value = activeCity;
+                    clearCityFilter.style.display = 'inline-block';
+                } else {
+                    cityFilterInput.value = '';
+                    clearCityFilter.style.display = 'none';
+                }
+            });
+        });
+
+        if (clearCityFilter) {
+            clearCityFilter.addEventListener('click', function () {
+                activeCity = null;
+                cityFilterInput.value = '';
+                this.style.display = 'none';
+                destTable.querySelectorAll('tbody tr').forEach(function (row) {
+                    row.style.display = '';
+                });
+                document.querySelectorAll('.admin-city-card').forEach(function (btn) {
+                    btn.classList.remove('active');
+                });
+            });
+        }
+    }
+
+});
+</script>
 </body>
 </html>

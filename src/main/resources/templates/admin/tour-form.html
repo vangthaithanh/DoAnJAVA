@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head(${pageTitle})}"></head>
+<body>
+<header th:replace="~{fragments/layout :: header}"></header>
+
+<section th:replace="~{fragments/layout :: pageBanner(${isEdit ? 'Sửa tour' : 'Thêm tour mới'}, ${isEdit ? 'Cập nhật thông tin tour trong hệ thống.' : 'Tạo tour mới để thêm vào hệ thống.'})}"></section>
+<div th:replace="~{fragments/layout :: flash}"></div>
+
+<main class="section-padding admin-page">
+    <div class="container" style="max-width: 860px;">
+        <div class="admin-form-wrap reveal">
+            <div class="admin-form-head">
+                <a class="admin-back-btn" th:href="@{/admin#tours}" href="/admin#tours">
+                    <i class="fa-solid fa-arrow-left"></i> Quay lại
+                </a>
+                <h2 th:text="${isEdit ? 'Sửa tour' : 'Thêm tour mới'}">Form</h2>
+                <p th:text="${isEdit ? 'Cập nhật thông tin chi tiết của tour.' : 'Điền đầy đủ thông tin bên dưới để tạo tour mới.'}"></p>
+            </div>
+
+            <form th:action="@{/admin/tours/save}" method="post" class="admin-form-grid" enctype="multipart/form-data">
+                <input type="hidden" name="propertyId" th:value="${formProperty?.id}">
+
+                <!-- Thông tin cơ bản -->
+                <div class="admin-form-section-title">
+                    <i class="fa-solid fa-info-circle"></i> Thông tin cơ bản
+                </div>
+
+                <div class="form-group-full">
+                    <label class="admin-form-label">Tên tour <span class="required">*</span></label>
+                    <input type="text" name="title" class="form-control"
+                           th:value="${formProperty?.title}" placeholder="VD: Tour Đà Lạt 3N2Đ" required>
+                </div>
+
+                <div class="form-row">
+                    <div>
+                        <label class="admin-form-label">Giá (VNĐ) <span class="required">*</span></label>
+                        <input type="number" name="price" class="form-control"
+                               th:value="${formProperty?.price}" placeholder="VD: 2500000" min="0" step="1000" required>
+                    </div>
+                    <div>
+                        <label class="admin-form-label">Loại tour</label>
+                        <select name="type" class="form-select">
+                            <option value="">-- Chọn loại --</option>
+                            <option value="Tour" th:selected="${formProperty?.type == 'Tour'}">Tour</option>
+                            <option value="Combo" th:selected="${formProperty?.type == 'Combo'}">Combo</option>
+                            <option value="Khách sạn" th:selected="${formProperty?.type == 'Khách sạn'}">Khách sạn</option>
+                            <option value="Villa" th:selected="${formProperty?.type == 'Villa'}">Villa</option>
+                            <option value="Resort" th:selected="${formProperty?.type == 'Resort'}">Resort</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div>
+                        <label class="admin-form-label">Địa điểm / Tỉnh thành <span class="required">*</span></label>
+                        <input type="text" name="location" class="form-control"
+                               th:value="${formProperty?.location}" placeholder="VD: Đà Lạt, Lâm Đồng" required>
+                    </div>
+                    <div>
+                        <label class="admin-form-label">Thành phố / Quận</label>
+                        <input type="text" name="city" class="form-control"
+                               th:value="${formProperty?.city}" placeholder="VD: Đà Lạt">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div>
+                        <label class="admin-form-label">Trạng thái</label>
+                        <select name="status" class="form-select">
+                            <option value="Đang mở bán" th:selected="${formProperty?.status == 'Đang mở bán' or formProperty?.status == null}">Đang mở bán</option>
+                            <option value="Đã đóng" th:selected="${formProperty?.status == 'Đã đóng'}">Đã đóng</option>
+                        </select>
+                    </div>
+                    <div class="form-checkbox-wrap">
+                        <label class="admin-form-label">Tour nổi bật</label>
+                        <label class="admin-checkbox-label">
+                            <input type="checkbox" name="featured" value="on"
+                                   th:checked="${formProperty?.featured == true}">
+                            <span>Đánh dấu là tour nổi bật</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Hình ảnh -->
+                <div class="admin-form-section-title">
+                    <i class="fa-solid fa-image"></i> Hình ảnh
+                </div>
+
+                <div class="form-group-full">
+                    <label class="admin-form-label">URL hình ảnh chính</label>
+                    <input type="url" name="imageUrl" class="form-control"
+                           th:value="${formProperty?.imageUrl}"
+                           placeholder="https://images.unsplash.com/photo-...">
+                    <small class="form-text">Dán URL hình ảnh từ Unsplash hoặc dịch vụ lưu trữ khác.</small>
+                </div>
+
+                <!-- Thông tin chi tiết -->
+                <div class="admin-form-section-title">
+                    <i class="fa-solid fa-list-check"></i> Thông tin chi tiết
+                </div>
+
+                <div class="form-row">
+                    <div>
+                        <label class="admin-form-label">Số ngày</label>
+                        <input type="number" name="area" class="form-control"
+                               th:value="${formProperty?.area}" placeholder="VD: 3" min="1">
+                    </div>
+                    <div>
+                        <label class="admin-form-label">Năm khởi hành</label>
+                        <input type="number" name="yearBuilt" class="form-control"
+                               th:value="${formProperty?.yearBuilt}" placeholder="VD: 2024" min="2000" max="2100">
+                    </div>
+                </div>
+
+                <div class="form-group-full">
+                    <label class="admin-form-label">Mô tả tour</label>
+                    <textarea name="description" class="form-control" rows="6"
+                              th:text="${formProperty?.description}"
+                              placeholder="Mô tả chi tiết về lịch trình, các điểm tham quan, dịch vụ bao gồm..."></textarea>
+                </div>
+
+                <!-- Actions -->
+                <div class="form-group-full form-actions">
+                    <a class="btn btn-outline-theme" th:href="@{/admin#tours}" href="/admin#tours">Hủy</a>
+                    <button type="submit" class="btn btn-theme">
+                        <i class="fa-solid fa-check"></i>
+                        <th:block th:text="${isEdit ? 'Lưu thay đổi' : 'Tạo tour mới'}">Lưu</th:block>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+<th:block th:replace="~{fragments/layout :: scripts}"></th:block>
+
+<style>
+.admin-form-wrap {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 26px;
+    box-shadow: var(--shadow);
+    padding: 40px;
+}
+
+.admin-form-head {
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+}
+
+.admin-back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--theme);
+    font-size: 14px;
+    font-weight: 850;
+    margin-bottom: 14px;
+    transition: 0.2s ease;
+}
+
+.admin-back-btn:hover {
+    color: var(--theme-dark);
+    gap: 10px;
+}
+
+.admin-form-head h2 {
+    color: var(--heading);
+    font-size: 34px;
+    font-weight: 950;
+    letter-spacing: -0.8px;
+    margin-bottom: 8px;
+}
+
+.admin-form-head p {
+    color: var(--muted);
+    margin: 0;
+}
+
+.admin-form-section-title {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--heading);
+    font-size: 17px;
+    font-weight: 900;
+    padding: 18px 0 12px;
+    border-bottom: 2px solid var(--border);
+    margin-bottom: 4px;
+}
+
+.admin-form-section-title i {
+    color: var(--theme);
+}
+
+.admin-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.form-group-full {
+    grid-column: 1 / -1;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.form-checkbox-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: 4px;
+}
+
+.admin-checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    color: var(--heading);
+    font-size: 14px;
+    font-weight: 750;
+}
+
+.admin-checkbox-label input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--theme);
+}
+
+.form-text {
+    display: block;
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 6px;
+}
+
+.required {
+    color: #be123c;
+}
+
+.form-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    margin-top: 8px;
+}
+
+@media (max-width: 767px) {
+    .admin-form-wrap {
+        padding: 24px;
+    }
+
+    .admin-form-head h2 {
+        font-size: 28px;
+    }
+
+    .admin-form-grid,
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</body>
+</html>

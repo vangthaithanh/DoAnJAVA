@@ -278,6 +278,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   activateTabGroup(".account-tab-btn", ".account-panel", "data-account-tab", "data-account-panel");
   activateTabGroup(".admin-nav-link", ".admin-panel", "data-admin-tab", "data-admin-panel");
+  activateTabGroup(".admin-sub-tab", ".admin-sub-panel", "data-sub-tab", "data-sub-panel");
 });
 
 // =========================
