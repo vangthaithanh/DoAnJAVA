@@ -14,5 +14,11 @@ public interface TourReviewRepository extends JpaRepository<TourReview, Long> {
 
     List<TourReview> findByPaymentOrderIdAndUserId(Long paymentOrderId, Long userId);
 
+    List<TourReview> findByPropertyIdOrderByUpdatedAtDesc(Long propertyId);
+
+    Optional<TourReview> findFirstByPropertyIdAndUserIdOrderByUpdatedAtDesc(Long propertyId, Long userId);
+
     long countByUserId(Long userId);
+
+    long countByPropertyId(Long propertyId);
 }
