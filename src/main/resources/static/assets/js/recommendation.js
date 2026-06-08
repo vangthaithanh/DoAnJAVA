@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
       selectedServicesText.textContent = services.length ? labelsForValues(services, serviceLabels) : "Chưa chọn";
     }
     if (selectedTourText) {
-      selectedTourText.textContent = selectedTour?.title ?? "Chưa chọn tour, vẫn có thể lưu lịch trình tự tạo";
+      selectedTourText.textContent = selectedTour?.title ?? "Chọn tour trong danh sách gợi ý để đưa vào giỏ hàng";
     }
   };
 
@@ -189,10 +189,12 @@ document.addEventListener("DOMContentLoaded", () => {
            data-tour-title="${escapeHtml(item.tieu_de)}">
         <strong>${escapeHtml(item.tieu_de)}</strong>
         <small>${escapeHtml(item.so_ngay)} ngày · ${escapeHtml(item.nguon)} · ${escapeHtml(item.recommendationReason)}</small>
-        ${item.bookable ? `
-          <button class="recommendation-select-tour" type="button">
-            Chọn tour này
-          </button>
+        ${item.bookable && item.propertyId ? `
+          <form class="recommendation-cart-form" method="post" action="/cart/add/${escapeHtml(item.propertyId)}">
+            <button class="recommendation-select-tour" type="submit">
+              Chọn tour này
+            </button>
+          </form>
         ` : ""}
         ${item.detailUrl ? `
           <a class="recommendation-tour-link" href="${escapeHtml(item.detailUrl)}"

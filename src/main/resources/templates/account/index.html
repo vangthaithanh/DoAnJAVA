@@ -214,7 +214,9 @@
                             <div class="itinerary-card-body">
                                 <div class="itinerary-card-head">
                                     <div>
-                                        <span class="itinerary-status" th:text="${itinerary.status}">NEW</span>
+                                        <span class="itinerary-status"
+                                              th:classappend="${itinerary.advised} ? ' advised' : ' pending'"
+                                              th:text="${itinerary.statusDisplay}">Đang xét duyệt</span>
                                         <h3 th:text="${itinerary.title}">Lịch trình</h3>
                                     </div>
                                     <small th:if="${itinerary.createdAt != null}" th:text="${#temporals.format(itinerary.createdAt, 'dd/MM/yyyy HH:mm')}">08/06/2026</small>
@@ -257,6 +259,56 @@
                                     Tư vấn viên phụ trách:
                                     <strong th:text="${itinerary.assignedAgent.fullName}">Tư vấn viên</strong>
                                 </p>
+                                <div class="itinerary-actions" th:if="${itinerary.editableByUser}">
+                                    <details class="itinerary-edit-panel">
+                                        <summary><i class="fa-regular fa-pen-to-square"></i> Sửa lịch trình</summary>
+                                        <form th:action="@{/itinerary/{id}/update(id=${itinerary.id})}" method="post">
+                                            <div class="itinerary-edit-grid">
+                                                <div>
+                                                    <label>Điểm đến</label>
+                                                    <input class="form-control" name="destinationText" th:value="${itinerary.destinationText}" required>
+                                                </div>
+                                                <div>
+                                                    <label>Số ngày</label>
+                                                    <input class="form-control" type="number" min="1" name="totalDays" th:value="${itinerary.totalDays}" required>
+                                                </div>
+                                                <div>
+                                                    <label>Ngân sách</label>
+                                                    <input class="form-control" type="number" min="0" step="100000" name="budget" th:value="${itinerary.budget}">
+                                                </div>
+                                                <div>
+                                                    <label>Phong cách</label>
+                                                    <select class="form-select" name="travelStyle">
+                                                        <option value="">Phong cách du lịch</option>
+                                                        <option value="Nghỉ dưỡng" th:selected="${itinerary.travelStyle == 'Nghỉ dưỡng'}">Nghỉ dưỡng</option>
+                                                        <option value="Khám phá" th:selected="${itinerary.travelStyle == 'Khám phá'}">Khám phá</option>
+                                                        <option value="Gia đình" th:selected="${itinerary.travelStyle == 'Gia đình'}">Gia đình</option>
+                                                        <option value="Ẩm thực" th:selected="${itinerary.travelStyle == 'Ẩm thực'}">Ẩm thực</option>
+                                                        <option value="Cặp đôi" th:selected="${itinerary.travelStyle == 'Cặp đôi'}">Cặp đôi</option>
+                                                        <option value="Chưa chọn" th:selected="${itinerary.travelStyle == 'Chưa chọn'}">Chưa chọn</option>
+                                                    </select>
+                                                </div>
+                                                <div class="wide">
+                                                    <label>Ghi chú</label>
+                                                    <textarea class="form-control" name="note" rows="3" th:text="${itinerary.note}"></textarea>
+                                                </div>
+                                            </div>
+                                            <button class="btn btn-theme" type="submit">Lưu thay đổi</button>
+                                        </form>
+                                    </details>
+
+                                    <form th:action="@{/itinerary/{id}/delete(id=${itinerary.id})}"
+                                          method="post"
+                                          onsubmit="return confirm('Bạn có chắc muốn xóa lịch trình đang xét duyệt này không?');">
+                                        <button class="itinerary-delete-btn" type="submit">
+                                            <i class="fa-regular fa-trash-can"></i> Xóa lịch trình
+                                        </button>
+                                    </form>
+                                </div>
+                                <div class="itinerary-locked-note" th:if="${!itinerary.editableByUser}">
+                                    <i class="fa-solid fa-lock"></i>
+                                    Lịch trình đã được tư vấn nên người dùng không thể sửa hoặc xóa.
+                                </div>
                             </div>
                         </article>
                     </div>

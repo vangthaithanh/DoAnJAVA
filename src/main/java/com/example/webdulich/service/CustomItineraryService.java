@@ -83,7 +83,7 @@ public class CustomItineraryService {
         itinerary.setBudget(budget);
         itinerary.setTravelStyle(travelStyle.isBlank() ? "Chưa chọn" : travelStyle);
         itinerary.setNote(note);
-        itinerary.setStatus("NEW");
+        itinerary.setStatus(CustomItinerary.STATUS_PENDING_REVIEW);
         itinerary.setTitle(buildTitle(destinationText, totalDays));
         itinerary.setModelDestinationKey(modelDestinationKey);
         itinerary.setSelectedPlaces(selectedPlaces);
@@ -95,12 +95,68 @@ public class CustomItineraryService {
         return customItineraryRepository.save(itinerary);
     }
 
+    public CustomItinerary updateByUser(
+            Long userId,
+            Long itineraryId,
+            String destinationText,
+            Integer totalDays,
+            BigDecimal budget,
+            String travelStyle,
+            String note) {
+
+        CustomItinerary itinerary = findUserEditableItinerary(userId, itineraryId);
+        destinationText = normalize(destinationText);
+        travelStyle = normalize(travelStyle);
+        note = normalize(note);
+
+        if (destinationText.isBlank()) {
+            throw new IllegalArgumentException("Vui lòng nhập điểm đến.");
+        }
+
+        if (totalDays == null || totalDays < 1) {
+            throw new IllegalArgumentException("Số ngày phải từ 1 trở lên.");
+        }
+
+        if (budget != null && budget.signum() < 0) {
+            throw new IllegalArgumentException("Ngân sách không được âm.");
+        }
+
+        itinerary.setDestinationText(destinationText);
+        itinerary.setTotalDays(totalDays);
+        itinerary.setBudget(budget);
+        itinerary.setTravelStyle(travelStyle.isBlank() ? "Chưa chọn" : travelStyle);
+        itinerary.setNote(note);
+        itinerary.setTitle(buildTitle(destinationText, totalDays));
+
+        return customItineraryRepository.save(itinerary);
+    }
+
+    public void deleteByUser(Long userId, Long itineraryId) {
+        CustomItinerary itinerary = findUserEditableItinerary(userId, itineraryId);
+        customItineraryRepository.delete(itinerary);
+    }
+
     public List<CustomItinerary> findByUser(Long userId) {
         return customItineraryRepository.findByUserIdOrderByCreatedAtDesc(userId);
     }
 
     public long countByUser(Long userId) {
         return customItineraryRepository.countByUserId(userId);
+    }
+
+    private CustomItinerary findUserEditableItinerary(Long userId, Long itineraryId) {
+        if (userId == null) {
+            throw new IllegalArgumentException("Bạn cần đăng nhập để thao tác với lịch trình.");
+        }
+
+        CustomItinerary itinerary = customItineraryRepository.findByIdAndUserId(itineraryId, userId)
+                .orElseThrow(() -> new IllegalArgumentException("Không tìm thấy lịch trình của bạn."));
+
+        if (!itinerary.isEditableByUser()) {
+            throw new IllegalArgumentException("Lịch trình đã được tư vấn nên không thể sửa hoặc xóa.");
+        }
+
+        return itinerary;
     }
 
     private String buildTitle(String destinationText, int totalDays) {

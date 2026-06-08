@@ -12,6 +12,9 @@ import java.time.LocalDateTime;
 @Table(name = "custom_itineraries")
 public class CustomItinerary {
 
+    public static final String STATUS_PENDING_REVIEW = "PENDING_REVIEW";
+    public static final String STATUS_ADVISED = "ADVISED";
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -43,7 +46,7 @@ public class CustomItinerary {
     private String note;
 
     @Column(length = 30)
-    private String status = "NEW";
+    private String status = STATUS_PENDING_REVIEW;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "assigned_agent_id")
@@ -85,7 +88,7 @@ public class CustomItinerary {
         }
         updatedAt = now;
         if (status == null || status.isBlank()) {
-            status = "NEW";
+            status = STATUS_PENDING_REVIEW;
         }
     }
 
@@ -115,6 +118,16 @@ public class CustomItinerary {
     public LocalDateTime getUpdatedAt() { return updatedAt; }
     public String getSelectedPlacesDisplay() { return displayJsonArray(selectedPlaces); }
     public String getSelectedServicesDisplay() { return displayServiceArray(selectedServices); }
+    public boolean isPendingReview() { return STATUS_PENDING_REVIEW.equals(normalizeStatus(status)); }
+    public boolean isAdvised() { return STATUS_ADVISED.equals(normalizeStatus(status)); }
+    public boolean isEditableByUser() { return isPendingReview(); }
+    public String getStatusDisplay() {
+        return switch (normalizeStatus(status)) {
+            case STATUS_ADVISED -> "Đã tư vấn";
+            case STATUS_PENDING_REVIEW -> "Đang xét duyệt";
+            default -> "Đang xét duyệt";
+        };
+    }
 
     public void setId(Long id) { this.id = id; }
     public void setUser(User user) { this.user = user; }
@@ -184,5 +197,18 @@ public class CustomItinerary {
             case "resort" -> "Resort";
             default -> serviceKey;
         };
+    }
+
+    private String normalizeStatus(String value) {
+        if (value == null || value.isBlank() || "NEW".equalsIgnoreCase(value)) {
+            return STATUS_PENDING_REVIEW;
+        }
+        if ("Đang xét duyệt".equalsIgnoreCase(value) || "DANG_XET_DUYET".equalsIgnoreCase(value)) {
+            return STATUS_PENDING_REVIEW;
+        }
+        if ("Đã tư vấn".equalsIgnoreCase(value) || "DA_TU_VAN".equalsIgnoreCase(value)) {
+            return STATUS_ADVISED;
+        }
+        return value.trim().toUpperCase();
     }
 }

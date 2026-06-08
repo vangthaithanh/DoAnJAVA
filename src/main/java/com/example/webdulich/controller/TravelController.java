@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -94,6 +95,55 @@ public class TravelController {
             redirectAttributes.addFlashAttribute("selectedTourTitle", selectedTourTitle);
             return "redirect:/itinerary";
         }
+    }
+
+    @PostMapping("/itinerary/{id}/update")
+    public String updateItinerary(@PathVariable Long id,
+                                  @RequestParam String destinationText,
+                                  @RequestParam Integer totalDays,
+                                  @RequestParam(required = false) BigDecimal budget,
+                                  @RequestParam(required = false) String travelStyle,
+                                  @RequestParam(required = false) String note,
+                                  HttpSession session,
+                                  RedirectAttributes redirectAttributes) {
+
+        Long currentUserId = getCurrentUserId(session);
+        if (currentUserId == null) {
+            session.setAttribute("afterLoginRedirect", "/account");
+            redirectAttributes.addFlashAttribute("errorMessage", "Vui lòng đăng nhập để sửa lịch trình.");
+            return "redirect:/login";
+        }
+
+        try {
+            customItineraryService.updateByUser(currentUserId, id, destinationText, totalDays, budget, travelStyle, note);
+            redirectAttributes.addFlashAttribute("successMessage", "Đã cập nhật lịch trình.");
+        } catch (IllegalArgumentException exception) {
+            redirectAttributes.addFlashAttribute("errorMessage", exception.getMessage());
+        }
+
+        return "redirect:/account";
+    }
+
+    @PostMapping("/itinerary/{id}/delete")
+    public String deleteItinerary(@PathVariable Long id,
+                                  HttpSession session,
+                                  RedirectAttributes redirectAttributes) {
+
+        Long currentUserId = getCurrentUserId(session);
+        if (currentUserId == null) {
+            session.setAttribute("afterLoginRedirect", "/account");
+            redirectAttributes.addFlashAttribute("errorMessage", "Vui lòng đăng nhập để xóa lịch trình.");
+            return "redirect:/login";
+        }
+
+        try {
+            customItineraryService.deleteByUser(currentUserId, id);
+            redirectAttributes.addFlashAttribute("successMessage", "Đã xóa lịch trình đang xét duyệt.");
+        } catch (IllegalArgumentException exception) {
+            redirectAttributes.addFlashAttribute("errorMessage", exception.getMessage());
+        }
+
+        return "redirect:/account";
     }
 
     @GetMapping({"/custom-tour", "/suggestions"})

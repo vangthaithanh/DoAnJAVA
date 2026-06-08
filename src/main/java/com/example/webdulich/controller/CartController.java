@@ -18,6 +18,7 @@ import java.util.List;
 public class CartController {
 
     private static final String CART_SESSION_KEY = "cartTourIds";
+    private static final String PENDING_CART_TOUR_KEY = "pendingCartTourId";
 
     private final PropertyService propertyService;
 
@@ -33,6 +34,7 @@ public class CartController {
             return "redirect:/login";
         }
 
+        consumePendingCartTour(session);
         List<Property> cartTours = getCartTours(session);
 
         BigDecimal total = cartTours.stream()
@@ -55,21 +57,18 @@ public class CartController {
                       RedirectAttributes redirectAttributes) {
 
         if (!isLoggedIn(session)) {
-            session.setAttribute("afterLoginRedirect", "/tours/" + id);
+            session.setAttribute(PENDING_CART_TOUR_KEY, id);
+            session.setAttribute("afterLoginRedirect", "/cart");
             redirectAttributes.addFlashAttribute("errorMessage", "Vui lòng đăng nhập hoặc tạo tài khoản để thêm tour vào giỏ.");
             return "redirect:/login";
         }
 
         if (propertyService.findById(id).isEmpty()) {
-            redirectAttributes.addFlashAttribute("successMessage", "Không tìm thấy tour cần thêm vào giỏ.");
+            redirectAttributes.addFlashAttribute("errorMessage", "Không tìm thấy tour cần thêm vào giỏ.");
             return "redirect:/tours";
         }
 
-        List<Long> tourIds = getCartTourIds(session);
-        tourIds.add(id);
-
-        List<Long> uniqueIds = new ArrayList<>(new LinkedHashSet<>(tourIds));
-        session.setAttribute(CART_SESSION_KEY, uniqueIds);
+        addTourToSession(session, id);
 
         redirectAttributes.addFlashAttribute("successMessage", "Đã thêm tour vào giỏ.");
         return "redirect:/cart";
@@ -128,5 +127,33 @@ public class CartController {
                 .map(propertyService::findById)
                 .flatMap(java.util.Optional::stream)
                 .toList();
+    }
+
+    private void addTourToSession(HttpSession session, Long id) {
+        List<Long> tourIds = getCartTourIds(session);
+        tourIds.add(id);
+        session.setAttribute(CART_SESSION_KEY, new ArrayList<>(new LinkedHashSet<>(tourIds)));
+    }
+
+    private void consumePendingCartTour(HttpSession session) {
+        Object value = session.getAttribute(PENDING_CART_TOUR_KEY);
+        session.removeAttribute(PENDING_CART_TOUR_KEY);
+
+        Long tourId = null;
+        if (value instanceof Long id) {
+            tourId = id;
+        } else if (value instanceof Integer id) {
+            tourId = id.longValue();
+        } else if (value instanceof String id) {
+            try {
+                tourId = Long.parseLong(id);
+            } catch (NumberFormatException ignored) {
+                tourId = null;
+            }
+        }
+
+        if (tourId != null && propertyService.findById(tourId).isPresent()) {
+            addTourToSession(session, tourId);
+        }
     }
 }
