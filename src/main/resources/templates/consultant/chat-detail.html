@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head(${pageTitle})}"></head>
+<body>
+<header th:replace="~{fragments/layout :: header}"></header>
+
+<section th:replace="~{fragments/layout :: pageBanner('Trò chuyện', 'Tin nhắn với khách hàng.')}"></section>
+<div th:replace="~{fragments/layout :: flash}"></div>
+
+<main class="section-padding">
+    <div class="container">
+        <div class="row g-4">
+            <!-- Sidebar -->
+            <div class="col-lg-4">
+                <div class="chat-sidebar">
+                    <div class="chat-sidebar-header">
+                        <h4><i class="fa-solid fa-comments"></i> Cuộc trò chuyện</h4>
+                    </div>
+                    <div class="chat-conv-list">
+                        <a class="chat-conv-item" th:each="conv : ${conversations}"
+                           th:href="@{/consultant/chat/{id}(id=${conv.id})}"
+                           th:classappend="${conversation != null and conversation.id == conv.id ? 'active' : ''}">
+                            <div class="chat-conv-avatar-sm" th:text="${#strings.substring(conv.user?.fullName, 0, 1)}">K</div>
+                            <div class="chat-conv-item-info">
+                                <div class="chat-conv-item-head">
+                                    <strong th:text="${conv.user?.fullName}">Khách</strong>
+                                </div>
+                                <p th:text="${conv.lastMessagePreview}">--</p>
+                            </div>
+                            <span class="chat-unread-badge" th:if="${conv.unreadCount > 0}" th:text="${conv.unreadCount}">0</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat area -->
+            <div class="col-lg-8">
+                <div class="chat-window">
+                    <!-- Header -->
+                    <div class="chat-window-head">
+                        <div class="chat-window-user">
+                            <div class="chat-conv-avatar-sm" style="width:44px;height:44px;font-size:16px;"
+                                 th:text="${#strings.substring(conversation.user?.fullName, 0, 1)}">K</div>
+                            <div>
+                                <strong th:text="${conversation.user?.fullName}">Khách hàng</strong>
+                                <span th:if="${conversation.itinerary != null}" style="font-size:12px;color:#64748b;display:block;">
+                                    <i class="fa-solid fa-route"></i> <span th:text="${conversation.itinerary.title}">--</span>
+                                </span>
+                            </div>
+                        </div>
+                        <a class="btn btn-outline-theme btn-sm" th:href="@{/consultant/chat}">
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </a>
+                    </div>
+
+                    <!-- Messages -->
+                    <div class="chat-messages" id="chatMessages">
+                        <div th:each="msg : ${messages}"
+                             class="chat-msg"
+                             th:classappend="${msg.isFrom(currentUserId) ? 'mine' : 'theirs'}">
+                            <div class="chat-msg-bubble" th:text="${msg.content}">--</div>
+                            <div class="chat-msg-time js-date-format-full" th:data-date="${msg.createdAt}">--</div>
+                        </div>
+
+                        <div class="empty-state compact" th:if="${#lists.isEmpty(messages)}">
+                            <div class="empty-icon"><i class="fa-regular fa-comment-dots"></i></div>
+                            <h3>Chưa có tin nhắn</h3>
+                            <p>Hãy gửi tin nhắn đầu tiên cho khách hàng.</p>
+                        </div>
+                    </div>
+
+                    <!-- Input -->
+                    <div class="chat-input-area">
+                        <form th:action="@{/consultant/chat/{id}/send(id=${conversation.id})}" method="post" class="chat-input-form" id="chatForm">
+                            <input type="text" name="content" class="chat-input" placeholder="Nhập tin nhắn..." autocomplete="off" required>
+                            <button type="submit" class="btn btn-theme">
+                                <i class="fa-solid fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+<th:block th:replace="~{fragments/layout :: scripts}"></th:block>
+
+<style>
+.chat-sidebar {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    overflow: hidden;
+}
+.chat-sidebar-header {
+    padding: 20px;
+    border-bottom: 1px solid #e2e8f0;
+}
+.chat-sidebar-header h4 { margin: 0; font-size: 16px; }
+.chat-conv-list { max-height: 600px; overflow-y: auto; }
+.chat-conv-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    text-decoration: none;
+    color: inherit;
+    border-bottom: 1px solid #f1f5f9;
+    transition: background 0.15s;
+}
+.chat-conv-item:hover { background: #f8fafc; }
+.chat-conv-item.active { background: #eff6ff; border-left: 3px solid var(--theme); }
+.chat-conv-avatar-sm {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--theme);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+.chat-conv-item-info { flex: 1; min-width: 0; }
+.chat-conv-item-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px; }
+.chat-conv-item-head strong { font-size: 14px; }
+.chat-conv-item-info p { font-size: 12px; color: #64748b; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.chat-window {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    height: 600px;
+    overflow: hidden;
+}
+.chat-window-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    border-bottom: 1px solid #e2e8f0;
+    background: #f8fafc;
+}
+.chat-window-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: #f8fafc;
+}
+.chat-msg {
+    display: flex;
+    flex-direction: column;
+    max-width: 70%;
+}
+.chat-msg.mine {
+    align-self: flex-end;
+    align-items: flex-end;
+}
+.chat-msg.theirs {
+    align-self: flex-start;
+    align-items: flex-start;
+}
+.chat-msg-bubble {
+    padding: 10px 14px;
+    border-radius: 16px;
+    font-size: 14px;
+    line-height: 1.5;
+    word-break: break-word;
+}
+.chat-msg.mine .chat-msg-bubble {
+    background: var(--theme);
+    color: #fff;
+    border-bottom-right-radius: 4px;
+}
+.chat-msg.theirs .chat-msg-bubble {
+    background: #fff;
+    color: #1e293b;
+    border: 1px solid #e2e8f0;
+    border-bottom-left-radius: 4px;
+}
+.chat-msg-time {
+    font-size: 11px;
+    color: #94a3b8;
+    margin-top: 4px;
+    padding: 0 4px;
+}
+.chat-input-area {
+    padding: 16px 20px;
+    border-top: 1px solid #e2e8f0;
+    background: #fff;
+}
+.chat-input-form {
+    display: flex;
+    gap: 10px;
+}
+.chat-input {
+    flex: 1;
+    padding: 10px 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 24px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+.chat-input:focus {
+    border-color: var(--theme);
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var messages = document.getElementById('chatMessages');
+    var form = document.getElementById('chatForm');
+    var currentUserId = Number('[[${currentUserId}]]');
+    var messagesEndpoint = '[[${'/consultant/chat/' + conversation.id + '/messages'}]]';
+    var lastSignature = '';
+
+    function formatFullDate(raw) {
+        if (!raw) return '--';
+        var d = new Date(raw);
+        if (isNaN(d)) return '--';
+        return ('0' + d.getDate()).slice(-2) + '/' + ('0' + (d.getMonth() + 1)).slice(-2) + '/' + d.getFullYear() + ' ' + ('0' + d.getHours()).slice(-2) + ':' + ('0' + d.getMinutes()).slice(-2);
+    }
+
+    function escapeHtml(value) {
+        return String(value || '')
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+    }
+
+    function scrollToBottom() {
+        if (messages) {
+            messages.scrollTop = messages.scrollHeight;
+        }
+    }
+
+    function isNearBottom() {
+        if (!messages) return false;
+        return messages.scrollHeight - messages.scrollTop - messages.clientHeight < 80;
+    }
+
+    function buildSignature(items) {
+        return items.map(function (msg) {
+            return [msg.id, msg.createdAt, msg.content].join('|');
+        }).join('||');
+    }
+
+    function renderMessages(items) {
+        if (!messages) return;
+
+        if (!items || items.length === 0) {
+            messages.innerHTML = '<div class="empty-state compact"><div class="empty-icon"><i class="fa-regular fa-comment-dots"></i></div><h3>Chưa có tin nhắn</h3><p>Hãy gửi tin nhắn đầu tiên cho khách hàng.</p></div>';
+            return;
+        }
+
+        messages.innerHTML = items.map(function (msg) {
+            var mine = msg.sender && Number(msg.sender.id) === currentUserId;
+            return '<div class="chat-msg ' + (mine ? 'mine' : 'theirs') + '">' +
+                '<div class="chat-msg-bubble">' + escapeHtml(msg.content) + '</div>' +
+                '<div class="chat-msg-time">' + formatFullDate(msg.createdAt) + '</div>' +
+                '</div>';
+        }).join('');
+    }
+
+    function refreshMessages(forceScroll) {
+        if (!messagesEndpoint) return;
+        var shouldStickBottom = forceScroll || isNearBottom();
+
+        fetch(messagesEndpoint, {
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+        })
+            .then(function (response) { return response.ok ? response.json() : Promise.reject(); })
+            .then(function (items) {
+                var signature = buildSignature(items || []);
+                if (signature === lastSignature) {
+                    return;
+                }
+                lastSignature = signature;
+                renderMessages(items || []);
+                if (shouldStickBottom) {
+                    scrollToBottom();
+                }
+            })
+            .catch(function () {
+            });
+    }
+
+    scrollToBottom();
+
+    document.querySelectorAll('.js-date-format-full').forEach(function(el) {
+        el.textContent = formatFullDate(el.dataset.date);
+    });
+
+    lastSignature = buildSignature(Array.from(document.querySelectorAll('#chatMessages .chat-msg-bubble')).map(function (bubble, index) {
+        var parent = bubble.closest('.chat-msg');
+        var time = parent ? parent.querySelector('.chat-msg-time') : null;
+        return {
+            id: index,
+            createdAt: time ? time.dataset.date || time.textContent : '',
+            content: bubble.textContent
+        };
+    }));
+
+    if (form) {
+        form.addEventListener('submit', function () {
+            setTimeout(function () {
+                form.reset();
+                refreshMessages(true);
+            }, 250);
+        });
+    }
+
+    setInterval(function () {
+        refreshMessages(false);
+    }, 3000);
+});
+</script>
+</body>
+</html>

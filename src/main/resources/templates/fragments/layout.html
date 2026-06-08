@@ -80,6 +80,14 @@
           Quản trị
         </a>
 
+        <a th:if="${session.currentUserRole != null and #strings.equalsIgnoreCase(session.currentUserRole, 'CONSULTANT')}"
+           th:href="@{/consultant}"
+           href="/consultant"
+           class="admin-header-link">
+          <i class="fa-solid fa-headset"></i>
+          Tư vấn viên
+        </a>
+
         <a th:if="${session.currentUserId == null}"
            th:href="@{/login}"
            href="/login"
@@ -151,6 +159,10 @@
 
         <li th:if="${session.currentUserRole != null and #strings.equalsIgnoreCase(session.currentUserRole, 'ADMIN')}">
           <a th:href="@{/admin}" href="/admin">Quản trị</a>
+        </li>
+
+        <li th:if="${session.currentUserRole != null and #strings.equalsIgnoreCase(session.currentUserRole, 'CONSULTANT')}">
+          <a th:href="@{/consultant}" href="/consultant">Tư vấn viên</a>
         </li>
       </ul>
 

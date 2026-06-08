@@ -4,6 +4,7 @@ import com.example.webdulich.entity.Inquiry;
 import com.example.webdulich.entity.Property;
 import com.example.webdulich.entity.TourReview;
 import com.example.webdulich.repository.TourReviewRepository;
+import com.example.webdulich.service.CustomItineraryService;
 import com.example.webdulich.service.InquiryService;
 import com.example.webdulich.service.PropertyService;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -28,15 +29,18 @@ public class PropertyController {
 
     private final PropertyService propertyService;
     private final InquiryService inquiryService;
+    private final CustomItineraryService customItineraryService;
     private final ObjectMapper objectMapper;
     private final TourReviewRepository tourReviewRepository;
 
     public PropertyController(PropertyService propertyService,
                               InquiryService inquiryService,
+                              CustomItineraryService customItineraryService,
                               ObjectMapper objectMapper,
                               TourReviewRepository tourReviewRepository) {
         this.propertyService = propertyService;
         this.inquiryService = inquiryService;
+        this.customItineraryService = customItineraryService;
         this.objectMapper = objectMapper;
         this.tourReviewRepository = tourReviewRepository;
     }
@@ -88,7 +92,8 @@ public class PropertyController {
         Property property = propertyService.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Không tìm thấy tour id = " + id));
 
-        if (session.getAttribute("currentUserId") == null) {
+        Long currentUserId = getCurrentUserId(session);
+        if (currentUserId == null) {
             session.setAttribute("afterLoginRedirect", "/tours/" + id + "#bookingForm");
             redirectAttributes.addFlashAttribute("errorMessage", "Vui lòng đăng nhập hoặc tạo tài khoản để gửi yêu cầu tư vấn tour.");
             return "redirect:/login";
@@ -107,8 +112,39 @@ public class PropertyController {
 
         inquiry.setProperty(property);
         inquiryService.save(inquiry);
+
+        customItineraryService.create(
+                currentUserId,
+                property.getLocation(),
+                property.getBedrooms() != null && property.getBedrooms() > 0 ? property.getBedrooms() : 1,
+                property.getPrice(),
+                "Tư vấn tour",
+                buildInquiryNote(inquiry, property),
+                property.getModelDestinationKey(),
+                property.getModelPlaces(),
+                property.getModelServices(),
+                property.getId(),
+                property.getModelMaTour(),
+                property.getTitle());
+
         redirectAttributes.addFlashAttribute("successMessage", "Đã gửi yêu cầu tư vấn/đặt tour thành công!");
         return "redirect:/tours/" + id;
+    }
+
+    private String buildInquiryNote(Inquiry inquiry, Property property) {
+        StringBuilder note = new StringBuilder();
+        note.append("Yêu cầu tư vấn từ trang tour: ").append(property.getTitle());
+
+        if (inquiry.getMessage() != null && !inquiry.getMessage().isBlank()) {
+            note.append("\nNội dung khách gửi: ").append(inquiry.getMessage().trim());
+        }
+        if (inquiry.getPhone() != null && !inquiry.getPhone().isBlank()) {
+            note.append("\nSĐT liên hệ: ").append(inquiry.getPhone().trim());
+        }
+        if (inquiry.getEmail() != null && !inquiry.getEmail().isBlank()) {
+            note.append("\nEmail liên hệ: ").append(inquiry.getEmail().trim());
+        }
+        return note.toString();
     }
 
     private void addTourReviewData(Model model, Property property, HttpSession session) {

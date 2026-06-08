@@ -14,6 +14,8 @@ public class CustomItinerary {
 
     public static final String STATUS_PENDING_REVIEW = "PENDING_REVIEW";
     public static final String STATUS_ADVISED = "ADVISED";
+    public static final String STATUS_APPROVED = "APPROVED";
+    public static final String STATUS_REJECTED = "REJECTED";
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -54,6 +56,9 @@ public class CustomItinerary {
 
     @Column(name = "admin_note", columnDefinition = "TEXT")
     private String adminNote;
+
+    @Column(name = "consultant_note", columnDefinition = "TEXT")
+    private String consultantNote;
 
     @Column(name = "model_destination_key", length = 64)
     private String modelDestinationKey;
@@ -108,6 +113,7 @@ public class CustomItinerary {
     public String getStatus() { return status; }
     public Agent getAssignedAgent() { return assignedAgent; }
     public String getAdminNote() { return adminNote; }
+    public String getConsultantNote() { return consultantNote; }
     public String getModelDestinationKey() { return modelDestinationKey; }
     public String getSelectedPlaces() { return selectedPlaces; }
     public String getSelectedServices() { return selectedServices; }
@@ -120,10 +126,14 @@ public class CustomItinerary {
     public String getSelectedServicesDisplay() { return displayServiceArray(selectedServices); }
     public boolean isPendingReview() { return STATUS_PENDING_REVIEW.equals(normalizeStatus(status)); }
     public boolean isAdvised() { return STATUS_ADVISED.equals(normalizeStatus(status)); }
+    public boolean isApproved() { return STATUS_APPROVED.equals(normalizeStatus(status)); }
+    public boolean isRejected() { return STATUS_REJECTED.equals(normalizeStatus(status)); }
     public boolean isEditableByUser() { return isPendingReview(); }
     public String getStatusDisplay() {
         return switch (normalizeStatus(status)) {
             case STATUS_ADVISED -> "Đã tư vấn";
+            case STATUS_APPROVED -> "Đã phê duyệt";
+            case STATUS_REJECTED -> "Từ chối";
             case STATUS_PENDING_REVIEW -> "Đang xét duyệt";
             default -> "Đang xét duyệt";
         };
@@ -140,6 +150,7 @@ public class CustomItinerary {
     public void setStatus(String status) { this.status = status; }
     public void setAssignedAgent(Agent assignedAgent) { this.assignedAgent = assignedAgent; }
     public void setAdminNote(String adminNote) { this.adminNote = adminNote; }
+    public void setConsultantNote(String consultantNote) { this.consultantNote = consultantNote; }
     public void setModelDestinationKey(String modelDestinationKey) { this.modelDestinationKey = modelDestinationKey; }
     public void setSelectedPlaces(String selectedPlaces) { this.selectedPlaces = selectedPlaces; }
     public void setSelectedServices(String selectedServices) { this.selectedServices = selectedServices; }
@@ -208,6 +219,12 @@ public class CustomItinerary {
         }
         if ("Đã tư vấn".equalsIgnoreCase(value) || "DA_TU_VAN".equalsIgnoreCase(value)) {
             return STATUS_ADVISED;
+        }
+        if ("Đã phê duyệt".equalsIgnoreCase(value) || "APPROVED".equalsIgnoreCase(value)) {
+            return STATUS_APPROVED;
+        }
+        if ("Từ chối".equalsIgnoreCase(value) || "REJECTED".equalsIgnoreCase(value)) {
+            return STATUS_REJECTED;
         }
         return value.trim().toUpperCase();
     }

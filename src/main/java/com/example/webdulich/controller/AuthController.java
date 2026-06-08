@@ -54,7 +54,11 @@ public class AuthController {
         session.setAttribute("currentUserRole", user.getRole());
 
         redirectAttributes.addFlashAttribute("successMessage", "Đăng nhập thành công. Chào mừng " + user.getFullName() + "!");
-        return "redirect:" + consumeSafeRedirect(session);
+        String redirectUrl = consumeSafeRedirect(session);
+        if ("/".equals(redirectUrl)) {
+            redirectUrl = defaultRedirectByRole(user.getRole());
+        }
+        return "redirect:" + redirectUrl;
     }
 
     @GetMapping("/register")
@@ -111,6 +115,16 @@ public class AuthController {
             return redirectUrl;
         }
 
+        return "/";
+    }
+
+    private String defaultRedirectByRole(String role) {
+        if ("ADMIN".equalsIgnoreCase(role)) {
+            return "/admin";
+        }
+        if ("CONSULTANT".equalsIgnoreCase(role)) {
+            return "/consultant";
+        }
         return "/";
     }
 }
