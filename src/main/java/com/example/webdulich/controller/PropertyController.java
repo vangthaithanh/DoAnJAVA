@@ -2,6 +2,8 @@ package com.example.webdulich.controller;
 
 import com.example.webdulich.entity.Inquiry;
 import com.example.webdulich.entity.Property;
+import com.example.webdulich.entity.TourReview;
+import com.example.webdulich.repository.TourReviewRepository;
 import com.example.webdulich.service.InquiryService;
 import com.example.webdulich.service.PropertyService;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -18,6 +20,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @Controller
 @RequestMapping({"/tours", "/properties"})
@@ -26,11 +29,16 @@ public class PropertyController {
     private final PropertyService propertyService;
     private final InquiryService inquiryService;
     private final ObjectMapper objectMapper;
+    private final TourReviewRepository tourReviewRepository;
 
-    public PropertyController(PropertyService propertyService, InquiryService inquiryService, ObjectMapper objectMapper) {
+    public PropertyController(PropertyService propertyService,
+                              InquiryService inquiryService,
+                              ObjectMapper objectMapper,
+                              TourReviewRepository tourReviewRepository) {
         this.propertyService = propertyService;
         this.inquiryService = inquiryService;
         this.objectMapper = objectMapper;
+        this.tourReviewRepository = tourReviewRepository;
     }
 
     @GetMapping
@@ -53,9 +61,11 @@ public class PropertyController {
     }
 
     @GetMapping("/{id}")
-    public String detail(@PathVariable Long id, Model model) {
+    public String detail(@PathVariable Long id, Model model, HttpSession session) {
         Property property = propertyService.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Không tìm thấy tour id = " + id));
+
+        addTourReviewData(model, property, session);
 
         model.addAttribute("pageTitle", property.getTitle() + " - WebDuLich");
         model.addAttribute("activePage", "tours");
@@ -85,6 +95,7 @@ public class PropertyController {
         }
 
         if (bindingResult.hasErrors()) {
+            addTourReviewData(model, property, session);
             model.addAttribute("pageTitle", property.getTitle() + " - WebDuLich");
             model.addAttribute("activePage", "tours");
             model.addAttribute("property", property);
@@ -100,6 +111,55 @@ public class PropertyController {
         return "redirect:/tours/" + id;
     }
 
+    private void addTourReviewData(Model model, Property property, HttpSession session) {
+        Long currentUserId = getCurrentUserId(session);
+
+        List<TourReview> tourReviews = tourReviewRepository.findByPropertyIdOrderByUpdatedAtDesc(property.getId());
+
+        Optional<TourReview> currentUserReview = currentUserId == null
+                ? Optional.empty()
+                : tourReviewRepository.findFirstByPropertyIdAndUserIdOrderByUpdatedAtDesc(property.getId(), currentUserId);
+
+        double averageRating = 0.0;
+
+        if (!tourReviews.isEmpty()) {
+            averageRating = tourReviews.stream()
+                    .map(TourReview::getRating)
+                    .filter(rating -> rating != null)
+                    .mapToInt(Integer::intValue)
+                    .average()
+                    .orElse(0.0);
+        }
+
+        model.addAttribute("tourReviews", tourReviews);
+        model.addAttribute("tourReviewCount", tourReviews.size());
+        model.addAttribute("tourAverageRating", averageRating);
+        model.addAttribute("currentUserId", currentUserId);
+        model.addAttribute("currentUserReview", currentUserReview.orElse(null));
+    }
+
+    private Long getCurrentUserId(HttpSession session) {
+        Object value = session.getAttribute("currentUserId");
+
+        if (value instanceof Long id) {
+            return id;
+        }
+
+        if (value instanceof Integer id) {
+            return id.longValue();
+        }
+
+        if (value instanceof String id) {
+            try {
+                return Long.parseLong(id);
+            } catch (NumberFormatException ignored) {
+                return null;
+            }
+        }
+
+        return null;
+    }
+
     private void addModelTourHighlights(Model model, Property property) {
         model.addAttribute("modelTourPlaces", readJsonList(property.getModelPlaces(), new TypeReference<List<String>>() { }));
         model.addAttribute("modelTourServices", readJsonList(
@@ -110,10 +170,11 @@ public class PropertyController {
         if (value == null || value.isBlank()) {
             return List.of();
         }
+
         try {
             return objectMapper.readValue(value, type);
         } catch (JsonProcessingException exception) {
             return List.of();
         }
-    }
+    } 
 }
