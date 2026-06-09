@@ -297,7 +297,93 @@
 </footer>
 <th:block th:fragment="scripts">
   <div class="page-transition" id="pageTransition"></div>
+
+  <!-- NOTE THÊM MỚI:
+       - Thêm nút tin nhắn nổi ở góc phải dưới màn hình.
+       - Nếu chưa đăng nhập thì chuyển về /login.
+       - Nếu role CONSULTANT thì vào /consultant/chat.
+       - Các role còn lại thì vào /account/chat.
+       - Nút mũi tên back-to-top giữ logic cũ trong main.js, chỉ đổi vị trí lên trên nút tin nhắn. -->
+  <a th:if="${session.currentUserId == null}"
+     class="floating-chat-btn"
+     th:href="@{/login}"
+     href="/login"
+     aria-label="Đăng nhập để nhắn tin"
+     title="Đăng nhập để nhắn tin">
+    <i class="fa-regular fa-comments"></i>
+  </a>
+
+  <a th:if="${session.currentUserId != null and session.currentUserRole != null and #strings.equalsIgnoreCase(session.currentUserRole, 'CONSULTANT')}"
+     class="floating-chat-btn"
+     th:href="@{/consultant/chat}"
+     href="/consultant/chat"
+     aria-label="Tin nhắn tư vấn viên"
+     title="Tin nhắn">
+    <i class="fa-regular fa-comments"></i>
+  </a>
+
+  <a th:if="${session.currentUserId != null and (session.currentUserRole == null or !#strings.equalsIgnoreCase(session.currentUserRole, 'CONSULTANT'))}"
+     class="floating-chat-btn"
+     th:href="@{/account/chat}"
+     href="/account/chat"
+     aria-label="Tin nhắn"
+     title="Tin nhắn">
+    <i class="fa-regular fa-comments"></i>
+  </a>
+
   <button class="back-to-top" id="backToTop"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <style>
+    /* NOTE THÊM MỚI: vị trí nút nổi tin nhắn và đẩy nút mũi tên lên trên khi scroll */
+    .floating-chat-btn {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      border: 0;
+      border-radius: 50%;
+      background: var(--theme);
+      color: var(--white);
+      text-decoration: none;
+      box-shadow: 0 12px 30px rgba(14, 165, 164, 0.35);
+      z-index: 1000;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .floating-chat-btn:hover {
+      color: var(--white);
+      transform: translateY(-3px);
+      box-shadow: 0 16px 36px rgba(14, 165, 164, 0.45);
+    }
+
+    .floating-chat-btn i {
+      font-size: 18px;
+    }
+
+    .back-to-top {
+      bottom: 82px;
+    }
+
+    @media (max-width: 576px) {
+      .floating-chat-btn {
+        right: 16px;
+        bottom: 16px;
+        width: 44px;
+        height: 44px;
+      }
+
+      .back-to-top {
+        right: 16px;
+        bottom: 74px;
+        width: 44px;
+        height: 44px;
+      }
+    }
+  </style>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script th:src="@{/assets/js/main.js}" src="/assets/js/main.js"></script>
 </th:block>
