@@ -95,7 +95,7 @@
 
                         <div class="account-stat-card">
                             <i class="fa-regular fa-paper-plane"></i>
-                            <strong>0</strong>
+                            <strong th:text="${consultationRequestCount != null ? consultationRequestCount : 0}">0</strong>
                             <span>Yêu cầu tư vấn</span>
                         </div>
 
@@ -348,24 +348,21 @@
                 </div>
 
                 <div class="account-panel" data-account-panel="requests">
-                    <div class="account-panel-head">
-                        <div>
-              <span class="section-kicker">
-                <i class="fa-regular fa-paper-plane"></i> Tư vấn
-              </span>
-                            <h2>Yêu cầu tư vấn / đặt tour</h2>
-                        </div>
-                    </div>
-
-                    <div class="empty-state compact" th:if="${#lists.isEmpty(itineraries)}">
+                    <div class="empty-state compact" th:if="${#lists.isEmpty(itineraries) and (customerInquiries == null or #lists.isEmpty(customerInquiries))}">
                         <div class="empty-icon">
                             <i class="fa-regular fa-paper-plane"></i>
                         </div>
                         <h3>Chưa có yêu cầu tư vấn</h3>
-                        <p>Hãy tạo lịch trình để gửi yêu cầu và nhận tư vấn 1-1 từ nhân viên phụ trách.</p>
+                        <p>Hãy tạo lịch trình hoặc gửi yêu cầu từ trang chi tiết tour để được tư vấn.</p>
                     </div>
 
                     <div class="itinerary-list" th:if="${!#lists.isEmpty(itineraries)}">
+                        <div class="account-panel-head" style="margin-bottom:16px;">
+                            <div>
+                                <span class="section-kicker"><i class="fa-solid fa-route"></i> Lịch trình cá nhân</span>
+                                <h2>Yêu cầu tư vấn lịch trình</h2>
+                            </div>
+                        </div>
                         <article class="itinerary-card" th:each="itinerary : ${itineraries}">
                             <div class="itinerary-card-head">
                                 <div>
@@ -413,6 +410,63 @@
                                 <span th:if="${itinerary.assignedAgent == null}" style="font-size:13px;color:#64748b;">
                                     Yêu cầu của bạn sẽ mở chat ngay khi có tư vấn viên phụ trách.
                                 </span>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="itinerary-list" th:if="${customerInquiries != null and !#lists.isEmpty(customerInquiries)}" style="margin-top:28px;">
+                        <div class="account-panel-head" style="margin-bottom:16px;">
+                            <div>
+                                <span class="section-kicker"><i class="fa-solid fa-headset"></i> Tour / liên hệ</span>
+                                <h2>Yêu cầu tư vấn tour và liên hệ</h2>
+                            </div>
+                        </div>
+
+                        <article class="itinerary-card" th:each="inq : ${customerInquiries}">
+                            <div class="itinerary-card-head">
+                                <div>
+                                    <h3 th:text="${inq.property != null ? inq.property.title : 'Yêu cầu liên hệ'}">Yêu cầu tư vấn</h3>
+                                    <p>
+                                        <span th:text="${inq.sourceDisplay}">Tour</span>
+                                        <th:block th:if="${inq.property != null}">
+                                            • <span th:text="${inq.property.city != null ? inq.property.city : inq.property.location}">Điểm đến</span>
+                                        </th:block>
+                                    </p>
+                                </div>
+                                <span class="itinerary-status-badge"
+                                      th:classappend="${inq.status == 'HANDLED'} ? 'status-advised' : 'status-pending'"
+                                      th:text="${inq.statusDisplay}">Đang chờ</span>
+                            </div>
+
+                            <div class="itinerary-meta-grid" style="margin-top:14px;">
+                                <div>
+                                    <span>Ngày gửi</span>
+                                    <strong th:text="${inq.createdAt != null ? #temporals.format(inq.createdAt, 'dd/MM/yyyy HH:mm') : 'Chưa cập nhật'}">--</strong>
+                                </div>
+                                <div>
+                                    <span>Tư vấn viên phụ trách</span>
+                                    <strong th:text="${inq.assignedAgent != null ? inq.assignedAgent.fullName : 'Đội tư vấn tour'}">Đội tư vấn tour</strong>
+                                </div>
+                                <div>
+                                    <span>Điện thoại</span>
+                                    <strong th:text="${inq.phone != null and !#strings.isEmpty(inq.phone) ? inq.phone : 'Chưa nhập'}">Chưa nhập</strong>
+                                </div>
+                            </div>
+
+                            <p th:if="${inq.message != null and !#strings.isEmpty(#strings.trim(inq.message))}" th:text="${inq.message}" style="margin-top:14px;">Nội dung</p>
+
+                            <div class="itinerary-locked-note" th:if="${inq.consultantNote != null and !#strings.isEmpty(#strings.trim(inq.consultantNote))}" style="margin-top:14px;">
+                                <i class="fa-regular fa-note-sticky"></i>
+                                <span th:text="${inq.consultantNote}">Ghi chú tư vấn</span>
+                            </div>
+
+                            <div class="itinerary-actions" style="margin-top:16px; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;">
+                                <a class="btn btn-outline-theme" th:href="@{/account/chat}">
+                                    <i class="fa-regular fa-comments"></i> Xem tất cả tin nhắn
+                                </a>
+                                <a class="btn btn-theme" th:if="${inq.property != null}" th:href="@{/tours/{id}(id=${inq.property.id})}">
+                                    <i class="fa-solid fa-route"></i> Xem tour đã tư vấn
+                                </a>
                             </div>
                         </article>
                     </div>

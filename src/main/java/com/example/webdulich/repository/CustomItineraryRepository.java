@@ -22,6 +22,8 @@ public interface CustomItineraryRepository extends JpaRepository<CustomItinerary
 
     List<CustomItinerary> findByAssignedAgentIdOrderByCreatedAtDesc(Long agentId);
 
+    List<CustomItinerary> findByAssignedAgentIdAndStatusOrderByCreatedAtDesc(Long agentId, String status);
+
     long countByAssignedAgentId(Long agentId);
 
     long countByAssignedAgentIdAndStatus(Long agentId, String status);

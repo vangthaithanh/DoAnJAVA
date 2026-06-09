@@ -25,12 +25,15 @@
                     </button>
 
                     <button type="button" class="admin-nav-link" data-admin-tab="requests">
-                        <i class="fa-solid fa-paper-plane"></i> Yêu cầu mới
-                        <span class="admin-badge" th:if="${pendingItineraries != null and !#lists.isEmpty(pendingItineraries)}" th:text="${pendingItineraries.size()}">0</span>
+                        <i class="fa-solid fa-paper-plane"></i>
+                        <span th:text="${itineraryConsultant ? 'Lịch trình mới' : 'Tour / liên hệ mới'}">Yêu cầu mới</span>
+                        <span class="admin-badge" th:if="${itineraryConsultant and pendingItineraries != null and !#lists.isEmpty(pendingItineraries)}" th:text="${pendingItineraries.size()}">0</span>
+                        <span class="admin-badge" th:if="${!itineraryConsultant and pendingInquiryAssignments != null and !#lists.isEmpty(pendingInquiryAssignments)}" th:text="${pendingInquiryAssignments.size()}">0</span>
                     </button>
 
                     <button type="button" class="admin-nav-link" data-admin-tab="myrequests">
-                        <i class="fa-solid fa-list-check"></i> Yêu cầu của tôi
+                        <i class="fa-solid fa-list-check"></i>
+                        <span th:text="${itineraryConsultant ? 'Lịch trình đã nhận' : 'Yêu cầu đã nhận'}">Yêu cầu của tôi</span>
                     </button>
 
                     <button type="button" class="admin-nav-link" data-admin-tab="chat">
@@ -78,7 +81,7 @@
                     </div>
 
                     <!-- Yêu cầu chờ duyệt gần đây -->
-                    <div class="admin-card" th:if="${pendingItineraries != null and !#lists.isEmpty(pendingItineraries)}">
+                    <div class="admin-card" th:if="${itineraryConsultant and pendingItineraries != null and !#lists.isEmpty(pendingItineraries)}">
                         <h3><i class="fa-solid fa-clock" style="color: #f59e0b; margin-right: 8px;"></i> Yêu cầu chờ xử lý gần đây</h3>
                         <div class="admin-list-table">
                             <div class="admin-list-row" th:each="it : ${pendingItineraries}" th:if="${itStat.index < 5}">
@@ -114,11 +117,42 @@
                         </button>
                     </div>
 
-                    <div class="admin-empty-state" th:if="${pendingItineraries == null or #lists.isEmpty(pendingItineraries)}">
+                    <div class="admin-empty-state" th:if="${itineraryConsultant and (pendingItineraries == null or #lists.isEmpty(pendingItineraries))}">
                         <div class="empty-state">
                             <div class="empty-icon"><i class="fa-solid fa-check-circle"></i></div>
                             <h3>Không có yêu cầu chờ duyệt</h3>
                             <p>Tất cả yêu cầu đã được xử lý. Hãy kiểm tra lại sau.</p>
+                        </div>
+                    </div>
+
+                    <div class="admin-card" th:if="${!itineraryConsultant and pendingInquiryAssignments != null and !#lists.isEmpty(pendingInquiryAssignments)}">
+                        <h3><i class="fa-solid fa-headset" style="color: var(--theme); margin-right: 8px;"></i> Yêu cầu tư vấn tour/liên hệ</h3>
+                        <div class="admin-list-table">
+                            <div class="admin-list-row" th:each="assignment : ${pendingInquiryAssignments}" th:if="${assignmentStat.index < 5}">
+                                <div class="admin-list-info">
+                                    <strong th:text="${assignment.inquiry.fullName}">Khách hàng</strong>
+                                    <span>
+                                        <i class="fa-solid fa-tag"></i>
+                                        <th:block th:text="${assignment.inquiry.sourceDisplay}">Tour</th:block>
+                                        <th:block th:if="${assignment.inquiry.property != null}">
+                                            · <span th:text="${assignment.inquiry.property.title}">Tên tour</span>
+                                        </th:block>
+                                    </span>
+                                </div>
+                                <form th:action="@{/consultant/inquiries/{id}/handle(id=${assignment.inquiry.id})}" method="post" class="admin-table-actions">
+                                    <input type="hidden" name="note" value="">
+                                    <button type="submit" class="admin-btn-icon admin-btn-success" title="Xác nhận đã xử lý">
+                                        <i class="fa-solid fa-check"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="admin-empty-state" th:if="${!itineraryConsultant and (pendingInquiryAssignments == null or #lists.isEmpty(pendingInquiryAssignments))}">
+                        <div class="empty-state">
+                            <div class="empty-icon"><i class="fa-solid fa-check-circle"></i></div>
+                            <h3>Không có yêu cầu tour/liên hệ mới</h3>
+                            <p>Các yêu cầu từ trang chi tiết tour và trang liên hệ sẽ hiển thị tại đây.</p>
                         </div>
                     </div>
                 </div>
@@ -128,11 +162,11 @@
                     <div class="admin-panel-head">
                         <div>
                             <span class="section-kicker"><i class="fa-solid fa-paper-plane"></i> Yêu cầu</span>
-                            <h2>Yêu cầu tư vấn mới</h2>
+                            <h2 th:text="${itineraryConsultant ? 'Yêu cầu lịch trình mới' : 'Yêu cầu tư vấn tour và liên hệ mới'}">Yêu cầu tư vấn mới</h2>
                         </div>
                     </div>
 
-                    <div class="admin-table-wrap">
+                    <div class="admin-table-wrap" th:if="${itineraryConsultant}">
                         <table class="admin-table">
                             <thead>
                                 <tr>
@@ -203,16 +237,65 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="admin-table-wrap" th:if="${!itineraryConsultant}">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Khách hàng</th>
+                                    <th>Loại yêu cầu</th>
+                                    <th>Tour</th>
+                                    <th>Nội dung</th>
+                                    <th>Trạng thái</th>
+                                    <th>Thao tác</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="assignment : ${pendingInquiryAssignments}">
+                                    <td>
+                                        <div class="admin-user-cell">
+                                            <div class="admin-avatar-sm" th:text="${#strings.substring(assignment.inquiry.fullName, 0, 1)}">K</div>
+                                            <div>
+                                                <strong th:text="${assignment.inquiry.fullName}">--</strong>
+                                                <br><small class="admin-text-muted" th:text="${assignment.inquiry.email}">--</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td th:text="${assignment.inquiry.sourceDisplay}">Tour</td>
+                                    <td>
+                                        <a th:if="${assignment.inquiry.property != null}" th:href="@{/tours/{id}(id=${assignment.inquiry.property.id})}" th:text="${assignment.inquiry.property.title}">Tour</a>
+                                        <span th:unless="${assignment.inquiry.property != null}" class="admin-text-muted">Không gắn tour</span>
+                                    </td>
+                                    <td th:text="${assignment.inquiry.message ?: 'Không có nội dung'}">--</td>
+                                    <td>
+                                        <span class="admin-status-badge pending" th:text="${assignment.statusDisplay}">Đang chờ</span>
+                                    </td>
+                                    <td>
+                                        <form th:action="@{/consultant/inquiries/{id}/handle(id=${assignment.inquiry.id})}" method="post" class="d-flex gap-2">
+                                            <input type="text" class="form-control" name="note" placeholder="Ghi chú xử lý..." style="min-width:160px;">
+                                            <button type="submit" class="admin-btn-icon admin-btn-success" title="Xác nhận xử lý">
+                                                <i class="fa-solid fa-check"></i>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="admin-empty-state" th:if="${#lists.isEmpty(pendingInquiryAssignments)}">
+                            <div class="empty-state">
+                                <div class="empty-icon"><i class="fa-solid fa-inbox"></i></div>
+                                <h3>Không có yêu cầu nào</h3>
+                                <p>Hiện không có yêu cầu tư vấn tour hoặc liên hệ nào đang chờ xử lý.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- ======== YÊU CẦU CỦA TÔI ========== -->
                 <div class="admin-panel" data-admin-panel="myrequests">
-                    <div class="admin-panel-head">
-                        <div>
-                            <span class="section-kicker"><i class="fa-solid fa-list-check"></i> Của tôi</span>
-                            <h2>Yêu cầu đã nhận</h2>
-                        </div>
-                        <div class="d-flex gap-2">
+                    <div class="admin-panel-head" th:if="${itineraryConsultant}">
+                        <div class="d-flex gap-2" th:if="${itineraryConsultant}">
                             <select class="form-select" id="myRequestsFilter" style="min-width:160px;">
                                 <option value="ALL">Tất cả</option>
                                 <option value="PENDING_REVIEW">Chờ duyệt</option>
@@ -223,7 +306,7 @@
                         </div>
                     </div>
 
-                    <div class="admin-table-wrap">
+                    <div class="admin-table-wrap" th:if="${itineraryConsultant}">
                         <table class="admin-table" id="myRequestsTable">
                             <thead>
                                 <tr>
@@ -293,6 +376,69 @@
                                 <div class="empty-icon"><i class="fa-solid fa-inbox"></i></div>
                                 <h3>Chưa có yêu cầu nào</h3>
                                 <p>Bạn chưa nhận yêu cầu tư vấn nào.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="admin-panel-head mt-4" th:if="${!itineraryConsultant}">
+                        <div>
+                            <span class="section-kicker"><i class="fa-solid fa-headset"></i> Tour / liên hệ</span>
+                            <h2>Yêu cầu tư vấn tour và liên hệ</h2>
+                        </div>
+                    </div>
+
+                    <div class="admin-table-wrap" th:if="${!itineraryConsultant}">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Khách hàng</th>
+                                    <th>Loại yêu cầu</th>
+                                    <th>Tour</th>
+                                    <th>Nội dung</th>
+                                    <th>Trạng thái</th>
+                                    <th>Thao tác</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="assignment : ${myInquiryAssignments}">
+                                    <td>
+                                        <div class="admin-user-cell">
+                                            <div class="admin-avatar-sm" th:text="${#strings.substring(assignment.inquiry.fullName, 0, 1)}">K</div>
+                                            <div>
+                                                <strong th:text="${assignment.inquiry.fullName}">--</strong>
+                                                <br><small class="admin-text-muted" th:text="${assignment.inquiry.email}">--</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td th:text="${assignment.inquiry.sourceDisplay}">Tour</td>
+                                    <td>
+                                        <a th:if="${assignment.inquiry.property != null}" th:href="@{/tours/{id}(id=${assignment.inquiry.property.id})}" th:text="${assignment.inquiry.property.title}">Tour</a>
+                                        <span th:unless="${assignment.inquiry.property != null}" class="admin-text-muted">Không gắn tour</span>
+                                    </td>
+                                    <td th:text="${assignment.inquiry.message ?: 'Không có nội dung'}">--</td>
+                                    <td>
+                                        <span class="admin-status-badge pending" th:if="${assignment.status == 'PENDING'}" th:text="${assignment.statusDisplay}">Đang chờ</span>
+                                        <span class="admin-status-badge active" th:if="${assignment.status == 'HANDLED'}" th:text="${assignment.statusDisplay}">Bạn đã xử lý</span>
+                                        <span class="admin-status-badge inactive" th:if="${assignment.status == 'COLLEAGUE_HANDLED'}" th:text="${assignment.statusDisplay}">Đồng nghiệp đã xử lý</span>
+                                    </td>
+                                    <td>
+                                        <form th:if="${assignment.status == 'PENDING'}" th:action="@{/consultant/inquiries/{id}/handle(id=${assignment.inquiry.id})}" method="post" class="d-flex gap-2">
+                                            <input type="text" class="form-control" name="note" placeholder="Ghi chú xử lý..." style="min-width:160px;">
+                                            <button type="submit" class="admin-btn-icon admin-btn-success" title="Xác nhận xử lý">
+                                                <i class="fa-solid fa-check"></i>
+                                            </button>
+                                        </form>
+                                        <span th:unless="${assignment.status == 'PENDING'}" class="admin-text-muted">Đã cập nhật</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="admin-empty-state" th:if="${myInquiryAssignments == null or #lists.isEmpty(myInquiryAssignments)}">
+                            <div class="empty-state">
+                                <div class="empty-icon"><i class="fa-solid fa-inbox"></i></div>
+                                <h3>Chưa có yêu cầu tư vấn tour/liên hệ</h3>
+                                <p>Các yêu cầu từ trang chi tiết tour và trang liên hệ sẽ hiển thị tại đây.</p>
                             </div>
                         </div>
                     </div>

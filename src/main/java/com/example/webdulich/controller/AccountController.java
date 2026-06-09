@@ -4,6 +4,7 @@ import com.example.webdulich.entity.User;
 import com.example.webdulich.repository.UserRepository;
 import com.example.webdulich.service.CustomItineraryService;
 import com.example.webdulich.service.FavoriteTourService;
+import com.example.webdulich.service.InquiryService;
 import com.example.webdulich.service.PaymentHistoryService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
@@ -17,15 +18,18 @@ public class AccountController {
     private final CustomItineraryService customItineraryService;
     private final PaymentHistoryService paymentHistoryService;
     private final FavoriteTourService favoriteTourService;
+    private final InquiryService inquiryService;
 
     public AccountController(UserRepository userRepository,
                              CustomItineraryService customItineraryService,
                              PaymentHistoryService paymentHistoryService,
-                             FavoriteTourService favoriteTourService) {
+                             FavoriteTourService favoriteTourService,
+                             InquiryService inquiryService) {
         this.userRepository = userRepository;
         this.customItineraryService = customItineraryService;
         this.paymentHistoryService = paymentHistoryService;
         this.favoriteTourService = favoriteTourService;
+        this.inquiryService = inquiryService;
     }
 
     @GetMapping("/account")
@@ -48,8 +52,14 @@ public class AccountController {
         model.addAttribute("accountUser", currentUser);
 
         // Giữ lại chức năng lịch trình cũ
-        model.addAttribute("itineraries", customItineraryService.findByUser(currentUserId));
-        model.addAttribute("itineraryCount", customItineraryService.countByUser(currentUserId));
+        var itineraries = customItineraryService.findByUser(currentUserId);
+        var customerInquiries = inquiryService.findByCustomerEmail(currentUser.getEmail());
+        long inquiryCount = customerInquiries.size();
+        model.addAttribute("itineraries", itineraries);
+        model.addAttribute("itineraryCount", itineraries.size());
+        model.addAttribute("customerInquiries", customerInquiries);
+        model.addAttribute("customerInquiryCount", inquiryCount);
+        model.addAttribute("consultationRequestCount", itineraries.size() + inquiryCount);
         model.addAttribute("favoriteTours", favoriteTourService.findToursByUser(currentUserId));
         model.addAttribute("favoriteTourCount", favoriteTourService.countByUser(currentUserId));
 

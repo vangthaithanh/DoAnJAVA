@@ -53,9 +53,17 @@ public class ConsultantController {
         if (redirect != null) return redirect;
 
         Long userId = getUserId(session);
+        Long agentId = consultantService.resolveAgentId(userId);
+        boolean itineraryConsultant = Long.valueOf(3L).equals(agentId);
         Map<String, Long> stats = consultantService.getDashboardStats(userId);
-        List<CustomItinerary> pending = consultantService.getPendingItineraries();
-        List<CustomItinerary> myItineraries = consultantService.getAssignedItineraries(userId);
+        List<CustomItinerary> pending = itineraryConsultant
+                ? consultantService.getItinerariesByStatus(userId, CustomItinerary.STATUS_PENDING_REVIEW)
+                : Collections.emptyList();
+        List<CustomItinerary> myItineraries = itineraryConsultant
+                ? consultantService.getAssignedItineraries(userId)
+                : Collections.emptyList();
+        var pendingInquiryAssignments = itineraryConsultant ? Collections.emptyList() : consultantService.getPendingInquiryAssignments(userId);
+        var myInquiryAssignments = itineraryConsultant ? Collections.emptyList() : consultantService.getInquiryAssignments(userId);
 
         long unread = 0;
         List<Conversation> conversations = Collections.emptyList();
@@ -72,6 +80,10 @@ public class ConsultantController {
         model.addAttribute("unreadMessages", unread);
         model.addAttribute("pendingItineraries", pending);
         model.addAttribute("myItineraries", myItineraries);
+        model.addAttribute("pendingInquiryAssignments", pendingInquiryAssignments);
+        model.addAttribute("myInquiryAssignments", myInquiryAssignments);
+        model.addAttribute("consultantAgentId", agentId);
+        model.addAttribute("itineraryConsultant", itineraryConsultant);
         model.addAttribute("conversations", conversations);
         model.addAttribute("pageTitle", "Trang tư vấn viên - WebDuLich");
 
@@ -88,7 +100,7 @@ public class ConsultantController {
         List<CustomItinerary> itineraries;
 
         if ("PENDING_REVIEW".equals(status)) {
-            itineraries = consultantService.getPendingItineraries();
+            itineraries = consultantService.getItinerariesByStatus(userId, CustomItinerary.STATUS_PENDING_REVIEW);
         } else if ("ALL".equalsIgnoreCase(status)) {
             itineraries = consultantService.getAssignedItineraries(userId);
         } else {
@@ -163,6 +175,23 @@ public class ConsultantController {
         try {
             consultantService.rejectItinerary(id, reason);
             redirectAttributes.addFlashAttribute("successMessage", "Đã từ chối lịch trình!");
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("errorMessage", "Lỗi: " + e.getMessage());
+        }
+        return "redirect:/consultant";
+    }
+
+    @PostMapping("/inquiries/{id}/handle")
+    public String handleInquiry(@PathVariable Long id,
+                                @RequestParam(required = false) String note,
+                                HttpSession session,
+                                RedirectAttributes redirectAttributes) {
+        String redirect = requireConsultant(session);
+        if (redirect != null) return redirect;
+
+        try {
+            consultantService.handleInquiry(id, note, getUserId(session));
+            redirectAttributes.addFlashAttribute("successMessage", "Đã xác nhận xử lý yêu cầu tư vấn.");
         } catch (Exception e) {
             redirectAttributes.addFlashAttribute("errorMessage", "Lỗi: " + e.getMessage());
         }

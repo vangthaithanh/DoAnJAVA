@@ -350,7 +350,9 @@
                                     <tr>
                                         <th>Khách hàng</th>
                                         <th>Email / Điện thoại</th>
+                                        <th>Loại / phụ trách</th>
                                         <th>Nội dung</th>
+                                        <th>Trạng thái</th>
                                         <th>Thời gian</th>
                                         <th>Thao tác</th>
                                     </tr>
@@ -367,8 +369,19 @@
                                             <span th:text="${inq.email}">--</span>
                                             <br><small class="admin-text-muted" th:text="${inq.phone}">--</small>
                                         </td>
+                                        <td>
+                                            <strong th:text="${inq.sourceDisplay}">Tour</strong>
+                                            <br>
+                                            <small class="admin-text-muted" th:text="${inq.assignedAgent != null ? inq.assignedAgent.fullName : 'Gửi nhiều tư vấn viên'}">Tư vấn viên</small>
+                                        </td>
                                         <td class="admin-td-truncate">
                                             <span th:text="${inq.message ?: 'Không có nội dung'}">--</span>
+                                        </td>
+                                        <td>
+                                            <span class="admin-status-badge pending" th:if="${inq.status != 'HANDLED'}" th:text="${inq.statusDisplay}">Đang chờ</span>
+                                            <span class="admin-status-badge active" th:if="${inq.status == 'HANDLED'}" th:text="${inq.statusDisplay}">Đã xử lý</span>
+                                            <br>
+                                            <small class="admin-text-muted" th:if="${inq.handledByAgent != null}" th:text="${'Bởi ' + inq.handledByAgent.fullName}">Bởi tư vấn viên</small>
                                         </td>
                                         <td>
                                             <span class="admin-text-muted js-date-format" th:data-date="${inq.createdAt}">--</span>

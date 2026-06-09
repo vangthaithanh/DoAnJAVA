@@ -1,7 +1,7 @@
 package com.example.webdulich.controller;
 
 import com.example.webdulich.entity.ContactMessage;
-import com.example.webdulich.service.ContactService;
+import com.example.webdulich.service.InquiryService;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,10 +12,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 public class ContactController {
 
-    private final ContactService contactService;
+    private final InquiryService inquiryService;
 
-    public ContactController(ContactService contactService) {
-        this.contactService = contactService;
+    public ContactController(InquiryService inquiryService) {
+        this.inquiryService = inquiryService;
     }
 
     @GetMapping("/contact")
@@ -42,7 +42,7 @@ public class ContactController {
             return "contact/index";
         }
 
-        contactService.save(contactMessage);
+        inquiryService.createContactInquiry(contactMessage);
         redirectAttributes.addFlashAttribute("successMessage", "Cảm ơn bạn đã liên hệ. WebDuLich sẽ phản hồi trong thời gian sớm nhất!");
 
         return "redirect:/contact";

@@ -3,6 +3,7 @@ package com.example.webdulich.service;
 import com.example.webdulich.entity.CustomItinerary;
 import com.example.webdulich.entity.Property;
 import com.example.webdulich.entity.User;
+import com.example.webdulich.repository.AgentRepository;
 import com.example.webdulich.repository.CustomItineraryRepository;
 import com.example.webdulich.repository.PropertyRepository;
 import com.example.webdulich.repository.UserRepository;
@@ -17,13 +18,16 @@ public class CustomItineraryService {
     private final CustomItineraryRepository customItineraryRepository;
     private final UserRepository userRepository;
     private final PropertyRepository propertyRepository;
+    private final AgentRepository agentRepository;
 
     public CustomItineraryService(CustomItineraryRepository customItineraryRepository,
                                   UserRepository userRepository,
-                                  PropertyRepository propertyRepository) {
+                                  PropertyRepository propertyRepository,
+                                  AgentRepository agentRepository) {
         this.customItineraryRepository = customItineraryRepository;
         this.userRepository = userRepository;
         this.propertyRepository = propertyRepository;
+        this.agentRepository = agentRepository;
     }
 
     public CustomItinerary create(
@@ -91,6 +95,7 @@ public class CustomItineraryService {
         itinerary.setSelectedProperty(selectedProperty);
         itinerary.setSelectedModelMaTour(selectedModelMaTour);
         itinerary.setSelectedTourTitle(selectedTourTitle);
+        agentRepository.findById(3L).ifPresent(itinerary::setAssignedAgent);
 
         return customItineraryRepository.save(itinerary);
     }
