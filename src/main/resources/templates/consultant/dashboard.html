@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head(${pageTitle})}"></head>
+<body>
+<header th:replace="~{fragments/layout :: header}"></header>
+
+<section th:replace="~{fragments/layout :: pageBanner('Trang Tư Vấn Viên', 'Khu vực quản lý yêu cầu tư vấn và trò chuyện với khách hàng.')}"></section>
+<div th:replace="~{fragments/layout :: flash}"></div>
+
+<main class="section-padding admin-page">
+    <div class="container">
+        <div class="admin-layout">
+            <aside class="admin-sidebar reveal">
+                <div class="admin-brand-box">
+                    <i class="fa-solid fa-headset"></i>
+                    <div>
+                        <h3>WebDuLich</h3>
+                        <p>Tư vấn viên</p>
+                    </div>
+                </div>
+
+                <nav class="admin-nav">
+                    <button type="button" class="admin-nav-link active" data-admin-tab="dashboard">
+                        <i class="fa-solid fa-chart-line"></i> Tổng quan
+                    </button>
+
+                    <button type="button" class="admin-nav-link" data-admin-tab="requests">
+                        <i class="fa-solid fa-paper-plane"></i> Yêu cầu mới
+                        <span class="admin-badge" th:if="${pendingItineraries != null and !#lists.isEmpty(pendingItineraries)}" th:text="${pendingItineraries.size()}">0</span>
+                    </button>
+
+                    <button type="button" class="admin-nav-link" data-admin-tab="myrequests">
+                        <i class="fa-solid fa-list-check"></i> Yêu cầu của tôi
+                    </button>
+
+                    <button type="button" class="admin-nav-link" data-admin-tab="chat">
+                        <i class="fa-solid fa-comments"></i> Trò chuyện
+                        <span class="admin-badge" th:if="${unreadMessages > 0}" th:text="${unreadMessages}">0</span>
+                    </button>
+                </nav>
+            </aside>
+
+            <section class="admin-content reveal delay-1">
+
+                <!-- ======== DASHBOARD ========== -->
+                <div class="admin-panel active" data-admin-panel="dashboard">
+                    <div class="admin-panel-head">
+                        <div>
+                            <span class="section-kicker"><i class="fa-solid fa-chart-line"></i> Dashboard</span>
+                            <h2>Tổng quan tư vấn viên</h2>
+                        </div>
+                    </div>
+
+                    <div class="admin-stat-grid">
+                        <div class="admin-stat-card">
+                            <i class="fa-solid fa-clock"></i>
+                            <strong th:text="${stats != null ? stats.get('pending') : 0}">0</strong>
+                            <span>Chờ duyệt</span>
+                        </div>
+
+                        <div class="admin-stat-card">
+                            <i class="fa-solid fa-comments"></i>
+                            <strong th:text="${unreadMessages}">0</strong>
+                            <span>Tin nhắn mới</span>
+                        </div>
+
+                        <div class="admin-stat-card">
+                            <i class="fa-solid fa-check-circle" style="color: #16a34a;"></i>
+                            <strong th:text="${stats != null ? stats.get('advised') : 0}">0</strong>
+                            <span>Đã tư vấn</span>
+                        </div>
+
+                        <div class="admin-stat-card">
+                            <i class="fa-solid fa-thumbs-up" style="color: #2563eb;"></i>
+                            <strong th:text="${stats != null ? stats.get('approved') : 0}">0</strong>
+                            <span>Đã phê duyệt</span>
+                        </div>
+                    </div>
+
+                    <!-- Yêu cầu chờ duyệt gần đây -->
+                    <div class="admin-card" th:if="${pendingItineraries != null and !#lists.isEmpty(pendingItineraries)}">
+                        <h3><i class="fa-solid fa-clock" style="color: #f59e0b; margin-right: 8px;"></i> Yêu cầu chờ xử lý gần đây</h3>
+                        <div class="admin-list-table">
+                            <div class="admin-list-row" th:each="it : ${pendingItineraries}" th:if="${itStat.index < 5}">
+                                <div class="admin-list-info">
+                                    <strong th:text="${it.title}">--</strong>
+                                    <span>
+                                        <i class="fa-solid fa-user"></i>
+                                        <th:block th:text="${it.user?.fullName != null ? it.user.fullName : 'Khách'}">Khách</th:block>
+                                        &nbsp;·&nbsp;
+                                        <i class="fa-solid fa-location-dot"></i>
+                                        <th:block th:text="${it.destinationText}">--</th:block>
+                                    </span>
+                                </div>
+                                <div class="admin-table-actions">
+                                    <span class="admin-status-badge pending">Chờ duyệt</span>
+                                    <button type="button" class="admin-btn-icon" title="Xem chi tiết"
+                                            th:attr="data-detail-id=${it.id},
+                                            data-detail-title=${it.title},
+                                            data-detail-user=${it.user?.fullName != null ? it.user.fullName : 'Khách'},
+                                            data-detail-email=${it.user?.email != null ? it.user.email : ''},
+                                            data-detail-dest=${it.destinationText ?: '--'},
+                                            data-detail-days=${it.totalDays ?: 0},
+                                            data-detail-budget=${it.budget != null ? it.budget : ''},
+                                            data-detail-style=${it.travelStyle ?: ''},
+                                            data-detail-note=${it.note != null ? it.note : ''}">
+                                        <i class="fa-regular fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="admin-view-more" type="button" data-goto="requests">
+                            Xem tất cả yêu cầu <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+
+                    <div class="admin-empty-state" th:if="${pendingItineraries == null or #lists.isEmpty(pendingItineraries)}">
+                        <div class="empty-state">
+                            <div class="empty-icon"><i class="fa-solid fa-check-circle"></i></div>
+                            <h3>Không có yêu cầu chờ duyệt</h3>
+                            <p>Tất cả yêu cầu đã được xử lý. Hãy kiểm tra lại sau.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ======== YÊU CẦU MỚI ========== -->
+                <div class="admin-panel" data-admin-panel="requests">
+                    <div class="admin-panel-head">
+                        <div>
+                            <span class="section-kicker"><i class="fa-solid fa-paper-plane"></i> Yêu cầu</span>
+                            <h2>Yêu cầu tư vấn mới</h2>
+                        </div>
+                    </div>
+
+                    <div class="admin-table-wrap">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Khách hàng</th>
+                                    <th>Tiêu đề</th>
+                                    <th>Điểm đến</th>
+                                    <th>Số ngày</th>
+                                    <th>Ngân sách</th>
+                                    <th>Trạng thái</th>
+                                    <th>Thao tác</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="it : ${pendingItineraries}">
+                                    <td>
+                                        <div class="admin-user-cell">
+                                            <div class="admin-avatar-sm" th:text="${#strings.substring(it.user?.fullName, 0, 1)}">K</div>
+                                            <strong th:text="${it.user?.fullName}">--</strong>
+                                        </div>
+                                    </td>
+                                    <td th:text="${it.title}">--</td>
+                                    <td th:text="${it.destinationText}">--</td>
+                                    <td th:text="${it.totalDays} + ' ngày'">--</td>
+                                    <td>
+                                        <span class="admin-price" th:if="${it.budget != null}"
+                                              th:text="${#numbers.formatDecimal(it.budget, 0, 'COMMA', 0, 'POINT') + ' đ'}">--</span>
+                                        <span class="admin-text-muted" th:unless="${it.budget != null}">--</span>
+                                    </td>
+                                    <td>
+                                        <span class="admin-status-badge pending" th:text="${it.statusDisplay}">Chờ duyệt</span>
+                                    </td>
+                                    <td>
+                                        <div class="admin-table-actions">
+                                            <button type="button" class="admin-btn-icon" title="Xem chi tiết"
+                                                    th:attr="data-detail-id=${it.id},
+                                                    data-detail-title=${it.title},
+                                                    data-detail-user=${it.user?.fullName != null ? it.user.fullName : 'Khách'},
+                                                    data-detail-email=${it.user?.email != null ? it.user.email : ''},
+                                                    data-detail-dest=${it.destinationText ?: '--'},
+                                                    data-detail-days=${it.totalDays ?: 0},
+                                                    data-detail-budget=${it.budget != null ? it.budget : ''},
+                                                    data-detail-style=${it.travelStyle ?: ''},
+                                                    data-detail-note=${it.note != null ? it.note : ''}">
+                                                <i class="fa-regular fa-eye"></i>
+                                            </button>
+
+                                            <button type="button" class="admin-btn-icon admin-btn-success" title="Tư vấn"
+                                                    th:attr="data-advise-id=${it.id}, data-advise-title=${it.title}">
+                                                <i class="fa-solid fa-comment-dots"></i>
+                                            </button>
+
+                                            <button type="button" class="admin-btn-icon" title="Từ chối"
+                                                    style="background:#fef2f2;border-color:#fecaca;color:#b91c1c;"
+                                                    th:attr="data-reject-id=${it.id}, data-reject-title=${it.title}">
+                                                <i class="fa-solid fa-xmark"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="admin-empty-state" th:if="${#lists.isEmpty(pendingItineraries)}">
+                            <div class="empty-state">
+                                <div class="empty-icon"><i class="fa-solid fa-inbox"></i></div>
+                                <h3>Không có yêu cầu nào</h3>
+                                <p>Hiện không có yêu cầu tư vấn nào đang chờ xử lý.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ======== YÊU CẦU CỦA TÔI ========== -->
+                <div class="admin-panel" data-admin-panel="myrequests">
+                    <div class="admin-panel-head">
+                        <div>
+                            <span class="section-kicker"><i class="fa-solid fa-list-check"></i> Của tôi</span>
+                            <h2>Yêu cầu đã nhận</h2>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <select class="form-select" id="myRequestsFilter" style="min-width:160px;">
+                                <option value="ALL">Tất cả</option>
+                                <option value="PENDING_REVIEW">Chờ duyệt</option>
+                                <option value="ADVISED">Đã tư vấn</option>
+                                <option value="APPROVED">Đã phê duyệt</option>
+                                <option value="REJECTED">Từ chối</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="admin-table-wrap">
+                        <table class="admin-table" id="myRequestsTable">
+                            <thead>
+                                <tr>
+                                    <th>Khách hàng</th>
+                                    <th>Tiêu đề</th>
+                                    <th>Điểm đến</th>
+                                    <th>Số ngày</th>
+                                    <th>Trạng thái</th>
+                                    <th>Thao tác</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="it : ${myItineraries}" th:attr="data-status=${it.status}">
+                                    <td>
+                                        <div class="admin-user-cell">
+                                            <div class="admin-avatar-sm" th:text="${#strings.substring(it.user?.fullName, 0, 1)}">K</div>
+                                            <strong th:text="${it.user?.fullName}">--</strong>
+                                        </div>
+                                    </td>
+                                    <td th:text="${it.title}">--</td>
+                                    <td th:text="${it.destinationText}">--</td>
+                                    <td th:text="${it.totalDays} + ' ngày'">--</td>
+                                    <td>
+                                        <span class="admin-status-badge pending" th:if="${it.status == 'PENDING_REVIEW'}" th:text="${it.statusDisplay}">Chờ duyệt</span>
+                                        <span class="admin-status-badge" th:if="${it.status == 'ADVISED'}" th:text="${it.statusDisplay}" style="background:#dcfce7;color:#166534;">Đã tư vấn</span>
+                                        <span class="admin-status-badge" th:if="${it.status == 'APPROVED'}" th:text="${it.statusDisplay}" style="background:#dbeafe;color:#1d4ed8;">Đã phê duyệt</span>
+                                        <span class="admin-status-badge inactive" th:if="${it.status == 'REJECTED'}" th:text="${it.statusDisplay}">Từ chối</span>
+                                    </td>
+                                    <td>
+                                        <div class="admin-table-actions">
+                                            <button type="button" class="admin-btn-icon" title="Xem chi tiết"
+                                                    th:attr="data-detail-id=${it.id},
+                                                    data-detail-title=${it.title},
+                                                    data-detail-user=${it.user?.fullName != null ? it.user.fullName : 'Khách'},
+                                                    data-detail-email=${it.user?.email != null ? it.user.email : ''},
+                                                    data-detail-dest=${it.destinationText ?: '--'},
+                                                    data-detail-days=${it.totalDays ?: 0},
+                                                    data-detail-budget=${it.budget != null ? it.budget : ''},
+                                                    data-detail-style=${it.travelStyle ?: ''},
+                                                    data-detail-note=${it.note != null ? it.note : ''},
+                                                    data-detail-consultant-note=${it.consultantNote != null ? it.consultantNote : ''}">
+                                                <i class="fa-regular fa-eye"></i>
+                                            </button>
+
+                                            <th:block th:if="${it.status == 'ADVISED'}">
+                                                <form th:action="@{/consultant/requests/{id}/approve(id=${it.id})}" method="post" style="display:inline;">
+                                                    <button type="submit" class="admin-btn-icon admin-btn-success" title="Phê duyệt">
+                                                        <i class="fa-solid fa-check"></i>
+                                                    </button>
+                                                </form>
+                                            </th:block>
+
+                                            <th:block th:if="${it.status == 'PENDING_REVIEW'}">
+                                                <button type="button" class="admin-btn-icon admin-btn-success" title="Tư vấn"
+                                                        th:attr="data-advise-id=${it.id}, data-advise-title=${it.title}">
+                                                    <i class="fa-solid fa-comment-dots"></i>
+                                                </button>
+                                            </th:block>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="admin-empty-state" th:if="${#lists.isEmpty(myItineraries)}">
+                            <div class="empty-state">
+                                <div class="empty-icon"><i class="fa-solid fa-inbox"></i></div>
+                                <h3>Chưa có yêu cầu nào</h3>
+                                <p>Bạn chưa nhận yêu cầu tư vấn nào.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ======== CHAT ========== -->
+                <div class="admin-panel" data-admin-panel="chat">
+                    <div class="admin-panel-head">
+                        <div>
+                            <span class="section-kicker"><i class="fa-solid fa-comments"></i> Chat</span>
+                            <h2>Trò chuyện với khách hàng</h2>
+                        </div>
+                    </div>
+
+                    <div class="chat-conversation-list">
+                        <div class="admin-card" th:if="${#lists.isEmpty(conversations)}">
+                            <div class="empty-state compact">
+                                <div class="empty-icon"><i class="fa-regular fa-comments"></i></div>
+                                <h3>Chưa có cuộc trò chuyện nào</h3>
+                                <p>Khách hàng sẽ bắt đầu trò chuyện khi cần hỗ trợ.</p>
+                            </div>
+                        </div>
+
+                        <a class="chat-conversation-item" th:each="conv : ${conversations}"
+                           th:href="@{/consultant/chat/{id}(id=${conv.id})}">
+                            <div class="chat-conv-avatar" th:text="${#strings.substring(conv.user?.fullName, 0, 1)}">K</div>
+                            <div class="chat-conv-info">
+                                <div class="chat-conv-head">
+                                    <strong th:text="${conv.user?.fullName}">Khách hàng</strong>
+                                    <span class="chat-conv-time js-date-format" th:data-date="${conv.updatedAt}">--</span>
+                                </div>
+                                <p class="chat-conv-preview" th:text="${conv.lastMessagePreview}"> Tin nhắn cuối</p>
+                            </div>
+                            <span class="chat-unread-badge" th:if="${conv.unreadCount > 0}" th:text="${conv.unreadCount}">0</span>
+                        </a>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+    </div>
+</main>
+
+<!-- Detail Modal -->
+<div class="admin-modal-overlay" id="detailModal">
+    <div class="admin-modal">
+        <div class="admin-modal-head">
+            <h3><i class="fa-solid fa-route" style="color: var(--theme); margin-right: 8px;"></i> Chi tiết yêu cầu</h3>
+            <button type="button" class="admin-modal-close" id="closeDetailModal">&times;</button>
+        </div>
+        <div class="admin-modal-body">
+            <div class="profile-info-grid">
+                <div>
+                    <span>Tiêu đề</span>
+                    <strong id="detailTitle">--</strong>
+                </div>
+                <div>
+                    <span>Khách hàng</span>
+                    <strong id="detailUser">--</strong>
+                </div>
+                <div>
+                    <span>Email</span>
+                    <strong id="detailEmail">--</strong>
+                </div>
+                <div>
+                    <span>Điểm đến</span>
+                    <strong id="detailDest">--</strong>
+                </div>
+                <div>
+                    <span>Số ngày</span>
+                    <strong id="detailDays">--</strong>
+                </div>
+                <div>
+                    <span>Ngân sách</span>
+                    <strong id="detailBudget" class="admin-price">--</strong>
+                </div>
+                <div>
+                    <span>Phong cách</span>
+                    <strong id="detailStyle">--</strong>
+                </div>
+            </div>
+            <div>
+                <span>Ghi chú của khách</span>
+                <p id="detailNote" style="padding: 12px; background: #f8fafc; border-radius: 10px; font-size: 14px; margin-top: 6px;">--</p>
+            </div>
+            <div id="consultantNoteSection" style="display:none;">
+                <span>Ghi chú tư vấn</span>
+                <p id="detailConsultantNote" style="padding: 12px; background: #f0fdf4; border-radius: 10px; color: #166534; font-size: 14px; margin-top: 6px;">--</p>
+            </div>
+        </div>
+        <div class="admin-modal-foot">
+            <button type="button" class="btn btn-outline-theme" id="cancelDetailModal">Đóng</button>
+        </div>
+    </div>
+</div>
+
+<!-- Advise Modal -->
+<div class="admin-modal-overlay" id="adviseModal">
+    <div class="admin-modal">
+        <div class="admin-modal-head">
+            <h3><i class="fa-solid fa-comment-dots" style="color: var(--theme); margin-right: 8px;"></i> Tư vấn yêu cầu</h3>
+            <button type="button" class="admin-modal-close" id="closeAdviseModal">&times;</button>
+        </div>
+        <form th:action="@{/consultant/requests/{id}/advise(id='__id__')}" method="post" id="adviseForm">
+            <div class="admin-modal-body">
+                <p>Đánh dấu yêu cầu <strong id="adviseTitle"></strong> là đã được tư vấn.</p>
+                <label class="admin-form-label">Ghi chú tư vấn</label>
+                <textarea name="note" class="form-control" rows="4" placeholder="Nhập nội dung tư vấn cho khách hàng..."></textarea>
+            </div>
+            <div class="admin-modal-foot">
+                <button type="button" class="btn btn-outline-theme" id="cancelAdviseModal">Hủy</button>
+                <button type="submit" class="btn btn-theme">Xác nhận tư vấn</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Reject Modal -->
+<div class="admin-modal-overlay" id="rejectModal">
+    <div class="admin-modal">
+        <div class="admin-modal-head">
+            <h3><i class="fa-solid fa-xmark-circle" style="color: #b91c1c; margin-right: 8px;"></i> Từ chối yêu cầu</h3>
+            <button type="button" class="admin-modal-close" id="closeRejectModal">&times;</button>
+        </div>
+        <form th:action="@{/consultant/requests/{id}/reject(id='__id__')}" method="post" id="rejectForm">
+            <div class="admin-modal-body">
+                <p>Từ chối yêu cầu <strong id="rejectTitle"></strong>.</p>
+                <label class="admin-form-label">Lý do từ chối</label>
+                <textarea name="reason" class="form-control" rows="3" placeholder="Nhập lý do từ chối..."></textarea>
+            </div>
+            <div class="admin-modal-foot">
+                <button type="button" class="btn btn-outline-theme" id="cancelRejectModal">Hủy</button>
+                <button type="submit" class="btn" style="background:#b91c1c;color:#fff;border:0;">Từ chối</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+<th:block th:replace="~{fragments/layout :: scripts}"></th:block>
+
+<style>
+.chat-conversation-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.chat-conversation-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s;
+}
+.chat-conversation-item:hover {
+    border-color: var(--theme);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    background: #f8fafc;
+}
+.chat-conv-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--theme);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+.chat-conv-info {
+    flex: 1;
+    min-width: 0;
+}
+.chat-conv-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+.chat-conv-head strong {
+    font-size: 15px;
+}
+.chat-conv-time {
+    font-size: 12px;
+    color: #94a3b8;
+}
+.chat-conv-preview {
+    font-size: 13px;
+    color: #64748b;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+}
+.chat-unread-badge {
+    background: var(--theme);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    min-width: 22px;
+    height: 22px;
+    border-radius: 11px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 6px;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    // ---- Date formatting ----
+    document.querySelectorAll('.js-date-format').forEach(function (el) {
+        var raw = el.dataset.date;
+        if (!raw) return;
+        var d = new Date(raw);
+        if (isNaN(d)) return;
+        var day = ('0' + d.getDate()).slice(-2);
+        var month = ('0' + (d.getMonth() + 1)).slice(-2);
+        var year = d.getFullYear();
+        var hours = ('0' + d.getHours()).slice(-2);
+        var minutes = ('0' + d.getMinutes()).slice(-2);
+        el.textContent = day + '/' + month + '/' + year + ' ' + hours + ':' + minutes;
+    });
+
+    // ---- Admin tab switching ----
+    document.querySelectorAll('.admin-nav-link[data-admin-tab]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            var tabId = this.dataset.adminTab;
+            document.querySelectorAll('.admin-nav-link').forEach(function (b) { b.classList.remove('active'); });
+            document.querySelectorAll('.admin-panel').forEach(function (p) { p.classList.remove('active'); });
+            this.classList.add('active');
+            var panel = document.querySelector('[data-admin-panel="' + tabId + '"]');
+            if (panel) panel.classList.add('active');
+        });
+    });
+
+    // ---- View more link ----
+    document.querySelectorAll('[data-goto]').forEach(function (link) {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            var tabId = this.dataset.goto;
+            document.querySelectorAll('.admin-nav-link').forEach(function (b) { b.classList.remove('active'); });
+            document.querySelectorAll('.admin-panel').forEach(function (p) { p.classList.remove('active'); });
+            var tabBtn = document.querySelector('[data-admin-tab="' + tabId + '"]');
+            var tabPanel = document.querySelector('[data-admin-panel="' + tabId + '"]');
+            if (tabBtn) tabBtn.classList.add('active');
+            if (tabPanel) tabPanel.classList.add('active');
+        });
+    });
+
+    // ---- Detail modal ----
+    var detailModal = document.getElementById('detailModal');
+    if (detailModal) {
+        document.querySelectorAll('[data-detail-id]').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                document.getElementById('detailTitle').textContent = this.dataset.detailTitle || '--';
+                document.getElementById('detailUser').textContent = this.dataset.detailUser || '--';
+                document.getElementById('detailEmail').textContent = this.dataset.detailEmail || '--';
+                document.getElementById('detailDest').textContent = this.dataset.detailDest || '--';
+                document.getElementById('detailDays').textContent = (this.dataset.detailDays || '0') + ' ngày';
+                var budget = this.dataset.detailBudget;
+                document.getElementById('detailBudget').textContent = budget ? formatCurrency(budget) + ' đ' : '--';
+                document.getElementById('detailStyle').textContent = this.dataset.detailStyle || '--';
+                document.getElementById('detailNote').textContent = this.dataset.detailNote || 'Không có';
+                var consNote = this.dataset.detailConsultantNote;
+                var noteSection = document.getElementById('consultantNoteSection');
+                if (consNote && consNote.length > 0) {
+                    document.getElementById('detailConsultantNote').textContent = consNote;
+                    noteSection.style.display = 'block';
+                } else {
+                    noteSection.style.display = 'none';
+                }
+                detailModal.style.display = 'flex';
+            });
+        });
+
+        function closeDetail() { detailModal.style.display = 'none'; }
+        document.getElementById('closeDetailModal').addEventListener('click', closeDetail);
+        document.getElementById('cancelDetailModal').addEventListener('click', closeDetail);
+        detailModal.addEventListener('click', function (e) { if (e.target === detailModal) closeDetail(); });
+    }
+
+    // ---- Advise modal ----
+    var adviseModal = document.getElementById('adviseModal');
+    if (adviseModal) {
+        document.querySelectorAll('[data-advise-id]').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var id = this.dataset.adviseId;
+                document.getElementById('adviseTitle').textContent = this.dataset.adviseTitle;
+                document.getElementById('adviseForm').action = '/consultant/requests/' + id + '/advise';
+                adviseModal.style.display = 'flex';
+            });
+        });
+
+        function closeAdvise() { adviseModal.style.display = 'none'; }
+        document.getElementById('closeAdviseModal').addEventListener('click', closeAdvise);
+        document.getElementById('cancelAdviseModal').addEventListener('click', closeAdvise);
+        adviseModal.addEventListener('click', function (e) { if (e.target === adviseModal) closeAdvise(); });
+    }
+
+    // ---- Reject modal ----
+    var rejectModal = document.getElementById('rejectModal');
+    if (rejectModal) {
+        document.querySelectorAll('[data-reject-id]').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var id = this.dataset.rejectId;
+                document.getElementById('rejectTitle').textContent = this.dataset.rejectTitle;
+                document.getElementById('rejectForm').action = '/consultant/requests/' + id + '/reject';
+                rejectModal.style.display = 'flex';
+            });
+        });
+
+        function closeReject() { rejectModal.style.display = 'none'; }
+        document.getElementById('closeRejectModal').addEventListener('click', closeReject);
+        document.getElementById('cancelRejectModal').addEventListener('click', closeReject);
+        rejectModal.addEventListener('click', function (e) { if (e.target === rejectModal) closeReject(); });
+    }
+
+    // ---- My requests filter ----
+    var filterSelect = document.getElementById('myRequestsFilter');
+    var myRequestsTable = document.getElementById('myRequestsTable');
+    if (filterSelect && myRequestsTable) {
+        filterSelect.addEventListener('change', function () {
+            var status = this.value;
+            myRequestsTable.querySelectorAll('tbody tr').forEach(function (row) {
+                row.style.display = (status === 'ALL' || row.dataset.status === status) ? '' : 'none';
+            });
+        });
+    }
+
+    function formatCurrency(val) {
+        var num = parseFloat(val) || 0;
+        return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    }
+});
+</script>
+</body>
+</html>

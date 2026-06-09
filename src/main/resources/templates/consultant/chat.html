@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head(${pageTitle})}"></head>
+<body>
+<header th:replace="~{fragments/layout :: header}"></header>
+
+<section th:replace="~{fragments/layout :: pageBanner('Trò chuyện', 'Quản lý các cuộc trò chuyện với khách hàng.')}"></section>
+<div th:replace="~{fragments/layout :: flash}"></div>
+
+<main class="section-padding">
+    <div class="container">
+        <div class="row g-4">
+            <!-- Sidebar: conversation list -->
+            <div class="col-lg-4">
+                <div class="chat-sidebar">
+                    <div class="chat-sidebar-header">
+                        <h4><i class="fa-solid fa-comments"></i> Cuộc trò chuyện</h4>
+                    </div>
+
+                    <div class="chat-conv-list">
+                        <a class="chat-conv-item" th:each="conv : ${conversations}"
+                           th:href="@{/consultant/chat/{id}(id=${conv.id})}"
+                           th:classappend="${conversation != null and conversation.id == conv.id ? 'active' : ''}">
+                            <div class="chat-conv-avatar-sm" th:text="${#strings.substring(conv.user?.fullName, 0, 1)}">K</div>
+                            <div class="chat-conv-item-info">
+                                <div class="chat-conv-item-head">
+                                    <strong th:text="${conv.user?.fullName}">Khách</strong>
+                                    <span class="js-date-format" th:data-date="${conv.updatedAt}">--</span>
+                                </div>
+                                <p th:text="${conv.lastMessagePreview}">--</p>
+                            </div>
+                            <span class="chat-unread-badge" th:if="${conv.unreadCount > 0}" th:text="${conv.unreadCount}">0</span>
+                        </a>
+
+                        <div class="empty-state compact" th:if="${#lists.isEmpty(conversations)}">
+                            <div class="empty-icon"><i class="fa-regular fa-comments"></i></div>
+                            <h3>Chưa có cuộc trò chuyện</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main: chat detail (shown when no conversation selected) -->
+            <div class="col-lg-8">
+                <div class="empty-state" style="padding: 60px 20px;">
+                    <div class="empty-icon"><i class="fa-solid fa-comment-dots"></i></div>
+                    <h3>Chọn một cuộc trò chuyện</h3>
+                    <p>Chọn cuộc trò chuyện từ danh sách bên trái để xem tin nhắn.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+<th:block th:replace="~{fragments/layout :: scripts}"></th:block>
+
+<style>
+.chat-sidebar {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    overflow: hidden;
+}
+.chat-sidebar-header {
+    padding: 20px;
+    border-bottom: 1px solid #e2e8f0;
+}
+.chat-sidebar-header h4 {
+    margin: 0;
+    font-size: 16px;
+}
+.chat-conv-list {
+    max-height: 500px;
+    overflow-y: auto;
+}
+.chat-conv-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    text-decoration: none;
+    color: inherit;
+    border-bottom: 1px solid #f1f5f9;
+    transition: background 0.15s;
+}
+.chat-conv-item:hover {
+    background: #f8fafc;
+}
+.chat-conv-item.active {
+    background: #eff6ff;
+    border-left: 3px solid var(--theme);
+}
+.chat-conv-avatar-sm {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--theme);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+.chat-conv-item-info {
+    flex: 1;
+    min-width: 0;
+}
+.chat-conv-item-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2px;
+}
+.chat-conv-item-head strong {
+    font-size: 14px;
+}
+.chat-conv-item-head span {
+    font-size: 11px;
+    color: #94a3b8;
+}
+.chat-conv-item-info p {
+    font-size: 12px;
+    color: #64748b;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+</style>
+
+<script>
+document.querySelectorAll('.js-date-format').forEach(function(el) {
+    var raw = el.dataset.date;
+    if (!raw) return;
+    var d = new Date(raw);
+    if (isNaN(d)) return;
+    el.textContent = ('0' + d.getDate()).slice(-2) + '/' + ('0' + (d.getMonth()+1)).slice(-2) + '/' + d.getFullYear();
+});
+</script>
+</body>
+</html>

@@ -43,6 +43,10 @@
                         <i class="fa-regular fa-paper-plane"></i> Yêu cầu tư vấn
                     </button>
 
+                    <button type="button" class="account-tab-btn" onclick="window.location.href='/account/chat'">
+                        <i class="fa-regular fa-comments"></i> Tin nhắn
+                    </button>
+
                     <button type="button" class="account-tab-btn" onclick="window.location.href='/account/reviews'">
                         <i class="fa-regular fa-star"></i> Đánh giá của tôi
                     </button>
@@ -353,12 +357,64 @@
                         </div>
                     </div>
 
-                    <div class="account-note-card">
-                        <h3>Theo dõi yêu cầu</h3>
-                        <p>
-                            Phần này dùng để hiển thị các yêu cầu tư vấn hoặc đặt tour
-                            mà người dùng đã gửi từ trang chi tiết tour.
-                        </p>
+                    <div class="empty-state compact" th:if="${#lists.isEmpty(itineraries)}">
+                        <div class="empty-icon">
+                            <i class="fa-regular fa-paper-plane"></i>
+                        </div>
+                        <h3>Chưa có yêu cầu tư vấn</h3>
+                        <p>Hãy tạo lịch trình để gửi yêu cầu và nhận tư vấn 1-1 từ nhân viên phụ trách.</p>
+                    </div>
+
+                    <div class="itinerary-list" th:if="${!#lists.isEmpty(itineraries)}">
+                        <article class="itinerary-card" th:each="itinerary : ${itineraries}">
+                            <div class="itinerary-card-head">
+                                <div>
+                                    <h3 th:text="${itinerary.title}">Lịch trình</h3>
+                                    <p>
+                                        <span th:text="${itinerary.destinationText}">Điểm đến</span>
+                                        • <span th:text="${itinerary.totalDays + ' ngày'}">0 ngày</span>
+                                    </p>
+                                </div>
+                                <span class="itinerary-status-badge"
+                                      th:classappend="${itinerary.pendingReview} ? 'status-pending' : (${itinerary.advised} ? 'status-advised' : (${itinerary.approved} ? 'status-approved' : 'status-rejected'))"
+                                      th:text="${itinerary.statusDisplay}">Đang xét duyệt</span>
+                            </div>
+
+                            <div class="itinerary-meta-grid" style="margin-top:14px;">
+                                <div>
+                                    <span>Ngân sách</span>
+                                    <strong th:text="${itinerary.budget != null ? #numbers.formatDecimal(itinerary.budget, 0, 'COMMA', 0, 'POINT') + ' đ' : 'Chưa cập nhật'}">Chưa cập nhật</strong>
+                                </div>
+                                <div>
+                                    <span>Phong cách</span>
+                                    <strong th:text="${itinerary.travelStyle}">Chưa chọn</strong>
+                                </div>
+                                <div>
+                                    <span>Tư vấn viên phụ trách</span>
+                                    <strong th:text="${itinerary.assignedAgent != null ? itinerary.assignedAgent.fullName : 'Chưa phân công'}">Chưa phân công</strong>
+                                </div>
+                            </div>
+
+                            <div class="itinerary-locked-note" th:if="${itinerary.consultantNote != null and !#strings.isEmpty(#strings.trim(itinerary.consultantNote))}" style="margin-top:14px;">
+                                <i class="fa-regular fa-note-sticky"></i>
+                                <span th:text="${itinerary.consultantNote}">Ghi chú tư vấn</span>
+                            </div>
+
+                            <div class="itinerary-actions" style="margin-top:16px; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;">
+                                <a class="btn btn-outline-theme" th:href="@{/account/chat}">
+                                    <i class="fa-regular fa-comments"></i> Xem tất cả tin nhắn
+                                </a>
+                                <form th:if="${itinerary.assignedAgent != null}" th:action="@{/account/chat/new}" method="post">
+                                    <input type="hidden" name="itineraryId" th:value="${itinerary.id}">
+                                    <button class="btn btn-theme" type="submit">
+                                        <i class="fa-regular fa-comments"></i> Chat với tư vấn viên phụ trách
+                                    </button>
+                                </form>
+                                <span th:if="${itinerary.assignedAgent == null}" style="font-size:13px;color:#64748b;">
+                                    Yêu cầu của bạn sẽ mở chat ngay khi có tư vấn viên phụ trách.
+                                </span>
+                            </div>
+                        </article>
                     </div>
                 </div>
 
