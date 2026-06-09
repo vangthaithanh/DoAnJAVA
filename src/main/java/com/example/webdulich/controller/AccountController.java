@@ -3,6 +3,7 @@ package com.example.webdulich.controller;
 import com.example.webdulich.entity.User;
 import com.example.webdulich.repository.UserRepository;
 import com.example.webdulich.service.CustomItineraryService;
+import com.example.webdulich.service.FavoriteTourService;
 import com.example.webdulich.service.PaymentHistoryService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
@@ -15,13 +16,16 @@ public class AccountController {
     private final UserRepository userRepository;
     private final CustomItineraryService customItineraryService;
     private final PaymentHistoryService paymentHistoryService;
+    private final FavoriteTourService favoriteTourService;
 
     public AccountController(UserRepository userRepository,
                              CustomItineraryService customItineraryService,
-                             PaymentHistoryService paymentHistoryService) {
+                             PaymentHistoryService paymentHistoryService,
+                             FavoriteTourService favoriteTourService) {
         this.userRepository = userRepository;
         this.customItineraryService = customItineraryService;
         this.paymentHistoryService = paymentHistoryService;
+        this.favoriteTourService = favoriteTourService;
     }
 
     @GetMapping("/account")
@@ -46,6 +50,8 @@ public class AccountController {
         // Giữ lại chức năng lịch trình cũ
         model.addAttribute("itineraries", customItineraryService.findByUser(currentUserId));
         model.addAttribute("itineraryCount", customItineraryService.countByUser(currentUserId));
+        model.addAttribute("favoriteTours", favoriteTourService.findToursByUser(currentUserId));
+        model.addAttribute("favoriteTourCount", favoriteTourService.countByUser(currentUserId));
 
         // Thêm mới cho hóa đơn và đánh giá
         model.addAttribute("paidPaymentCount", paymentHistoryService.countPaidOrdersByUserId(currentUserId));

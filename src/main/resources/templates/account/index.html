@@ -79,7 +79,7 @@
                     <div class="account-stat-grid">
                         <div class="account-stat-card">
                             <i class="fa-regular fa-heart"></i>
-                            <strong>0</strong>
+                            <strong th:text="${favoriteTourCount}">0</strong>
                             <span>Tour yêu thích</span>
                         </div>
 
@@ -172,15 +172,44 @@
                         </a>
                     </div>
 
-                    <div class="empty-state compact">
+                    <div class="empty-state compact" th:if="${favoriteTours == null or #lists.isEmpty(favoriteTours)}">
                         <div class="empty-icon">
                             <i class="fa-regular fa-heart"></i>
                         </div>
                         <h3>Chưa có tour yêu thích</h3>
                         <p>
-                            Sau này có thể nối với bảng tour yêu thích để hiển thị danh sách
-                            tour người dùng đã lưu.
+                            Hãy lưu những tour bạn quan tâm để quay lại so sánh hoặc mua sau.
                         </p>
+                    </div>
+
+                    <div class="favorite-tour-list" th:if="${favoriteTours != null and !#lists.isEmpty(favoriteTours)}">
+                        <article class="favorite-tour-card" th:each="tour : ${favoriteTours}">
+                            <a class="favorite-tour-img" th:href="@{/tours/{id}(id=${tour.id})}">
+                                <img th:src="${tour.imageUrl}" th:alt="${tour.title}">
+                            </a>
+                            <div class="favorite-tour-body">
+                                <span th:text="${tour.type}">Tour</span>
+                                <h3>
+                                    <a th:href="@{/tours/{id}(id=${tour.id})}" th:text="${tour.title}">Tên tour</a>
+                                </h3>
+                                <p><i class="fa-solid fa-location-dot"></i> <span th:text="${tour.location}">Điểm đến</span></p>
+                                <strong th:text="${tour.price == 0 ? 'Theo yêu cầu' : #numbers.formatDecimal(tour.price, 0, 'COMMA', 0, 'POINT') + 'đ'}">0đ</strong>
+                                <div class="favorite-tour-actions">
+                                    <form th:action="@{/cart/add/{id}(id=${tour.id})}" method="post">
+                                        <button class="btn btn-theme" type="submit">
+                                            <i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ
+                                        </button>
+                                    </form>
+                                    <form th:action="@{/favorites/remove/{tourId}(tourId=${tour.id})}"
+                                          method="post"
+                                          onsubmit="return confirm('Bạn có chắc muốn xóa tour này khỏi danh sách yêu thích không?');">
+                                        <button class="favorite-remove-btn" type="submit">
+                                            <i class="fa-regular fa-trash-can"></i> Bỏ yêu thích
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </article>
                     </div>
                 </div>
 

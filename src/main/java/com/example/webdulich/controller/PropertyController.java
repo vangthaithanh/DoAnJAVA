@@ -4,6 +4,7 @@ import com.example.webdulich.entity.Inquiry;
 import com.example.webdulich.entity.Property;
 import com.example.webdulich.entity.TourReview;
 import com.example.webdulich.repository.TourReviewRepository;
+import com.example.webdulich.service.FavoriteTourService;
 import com.example.webdulich.service.InquiryService;
 import com.example.webdulich.service.PropertyService;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -30,15 +31,18 @@ public class PropertyController {
     private final InquiryService inquiryService;
     private final ObjectMapper objectMapper;
     private final TourReviewRepository tourReviewRepository;
+    private final FavoriteTourService favoriteTourService;
 
     public PropertyController(PropertyService propertyService,
                               InquiryService inquiryService,
                               ObjectMapper objectMapper,
-                              TourReviewRepository tourReviewRepository) {
+                              TourReviewRepository tourReviewRepository,
+                              FavoriteTourService favoriteTourService) {
         this.propertyService = propertyService;
         this.inquiryService = inquiryService;
         this.objectMapper = objectMapper;
         this.tourReviewRepository = tourReviewRepository;
+        this.favoriteTourService = favoriteTourService;
     }
 
     @GetMapping
@@ -73,6 +77,7 @@ public class PropertyController {
         model.addAttribute("inquiry", new Inquiry());
         model.addAttribute("relatedProperties", propertyService.findLatestThree());
         model.addAttribute("relatedTours", propertyService.findLatestThree());
+        model.addAttribute("isFavoriteTour", favoriteTourService.isFavorite(getCurrentUserId(session), property.getId()));
         addModelTourHighlights(model, property);
         return "properties/detail";
     }
@@ -101,6 +106,7 @@ public class PropertyController {
             model.addAttribute("property", property);
             model.addAttribute("relatedProperties", propertyService.findLatestThree());
             model.addAttribute("relatedTours", propertyService.findLatestThree());
+            model.addAttribute("isFavoriteTour", favoriteTourService.isFavorite(getCurrentUserId(session), property.getId()));
             addModelTourHighlights(model, property);
             return "properties/detail";
         }
