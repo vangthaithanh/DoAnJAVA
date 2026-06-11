@@ -51,7 +51,6 @@ public class AccountController {
         model.addAttribute("activePage", "account");
         model.addAttribute("accountUser", currentUser);
 
-        // Giữ lại chức năng lịch trình cũ
         var itineraries = customItineraryService.findByUser(currentUserId);
         var customerInquiries = inquiryService.findByCustomerEmail(currentUser.getEmail());
         long inquiryCount = customerInquiries.size();
